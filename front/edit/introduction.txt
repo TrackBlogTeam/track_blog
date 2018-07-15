@@ -1,0 +1,11 @@
+该文件夹是关于编辑本章的文件夹。
+
+该目录放置:
+.html文件
+css文件夹------>放置css文件
+js文件夹------>放置javascirpt文件
+
+html中引入css, js使用类似
+<link href="css/edit.css" />
+<script src="js/edit.js"></script>
+相对路径的引用
