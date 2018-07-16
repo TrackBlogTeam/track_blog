@@ -31,42 +31,47 @@ body
 .logo
 {
 	/* 正六边形的 width : height = 1.732 : 2， 保持比例即可*/
-	width: 174px;
-	height: 200px;
+	--logo-width: 174px;
+	--logo-height: 200px;
+	width: var(--logo-width);
+	height: var(--logo-height);
 	margin: 40px auto;
-	background-color: blue;
+	background-color: black;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .hexagonCorner
 {
-	width: 50%;
-	height: 25%;
-	background-color: green;
-	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: calc(0.125 * var(--logo-height)) calc(0.25 * var(--logo-width));
 }
 
 .hexagonLeftTop
 {
-
+	border-color: transparent red red transparent;
 }
 
 .hexagonRightTop
 {
+	border-color: transparent transparent red red;
 }
 
 .hexagonLeftBottom
 {
-
+	border-color: red red transparent transparent;
 }
 
 .hexagonRightBottom
 {
-
+	border-color: red transparent transparent red;
 }
 
 .hexagonMiddle
 {
-
+	width: 50%;
+	height: 50%;
+	background-color: blue;
 }
