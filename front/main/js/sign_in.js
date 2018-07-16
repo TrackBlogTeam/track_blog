@@ -5,10 +5,10 @@ function switchToEmail(){
     //无需转换状态
 	}else{
 		var tempEmail = document.getElementById('emailButton');
-		tempEmail.style.background-color = "#00d1a5";
+		tempEmail.style.backgroundColor = "#00d1a5";
 
 		var tempPhone = document.getElementById('phoneButton');
-		tempPhone.style.background-color = "#a0a0a0";
+		tempPhone.style.backgroundColor = "#a0a0a0";
 
 		signInStatus = 1;
 	}
@@ -19,10 +19,10 @@ function switchToPhone(){
     //无需转换状态
 	}else{
 		var tempPhone = document.getElementById('phoneButton');
-		tempPhone.style.background-color = "#00d1a5";
+		tempPhone.style.backgroundColor = "#00d1a5";
 
 		var tempEmail = document.getElementById('emailButton');
-		tempEmail.style.background-color = "#a0a0a0";
+		tempEmail.style.backgroundColor = "#a0a0a0";
 
 		signInStatus = 0;
 	}
