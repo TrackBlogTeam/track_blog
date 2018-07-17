@@ -1,0 +1,246 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+@font-face
+{
+	font-family: "Raleway";
+	src: url(../src/font/Raleway-Bold.ttf),
+	url(../src/font/Raleway-Regular.ttf),
+	url(../src/font/Raleway-Light.ttf);
+}
+
+body
+{
+	background: url(../src/console_background.jpg) no-repeat fixed;
+	background-size: 100% 100%;
+}
+
+.main
+{
+	height: 100vh;
+	width: 100vw;
+	min-width: 1000px;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+}
+
+.window
+{
+	margin: 0 auto;
+	width: 400px;
+	height: 600px;
+	background-color: rgba(42, 85, 121, 0.45);
+	border-radius: 10px;
+	user-select: none;
+}
+
+.logo
+{
+	/* 正六边形的 width : height = 1.732 : 2， 保持比例即可*/
+	--logo-width: 87px;
+	--logo-height: 100px;
+	width: var(--logo-width);
+	height: var(--logo-height);
+	margin: 40px auto 20px auto;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	text-align: center;
+	font-size: 100%;
+}
+
+.hexagonCorner
+{
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: calc(0.125 * var(--logo-height)) calc(0.25 * var(--logo-width));
+}
+
+.hexagonLeftTop
+{
+	border-color: transparent #00A5A2 #00A5A2 transparent;
+}
+
+.hexagonRightTop
+{
+	border-color: transparent transparent #09B7BC #09B7BC;
+}
+
+.hexagonLeftBottom
+{
+	border-color: #00A5A2 #00A5A2 transparent transparent;
+}
+
+.hexagonRightBottom
+{
+	border-color: #09B7BC transparent transparent #09B7BC;
+}
+
+.hexagonMiddle
+{
+	width: 50%;
+	height: 50%;
+}
+
+.hexagonMiddleLeft
+{
+	background-color: #00A5A2;
+}
+
+.hexagonMiddleRight
+{
+	background-color: #09B7BC;
+}
+
+.letter
+{
+	height: 70%;
+	width: 50%;
+	top: 20%;
+	left: 25%;
+	position: absolute;
+	--letter-color: #eeeeee;
+}
+
+.letterHead
+{
+	height: 15%;
+	width: 100%;
+	display: flex;
+}
+
+.letterHeadHalf
+{
+	width: 50%;
+	height: 100%;
+	background-color: var(--letter-color);
+}
+
+.letterHeadHalfLeft
+{
+	border-radius: 5px 0px 0px 5px;
+}
+
+.letterHeadHalfRight
+{
+	border-radius: 0px 5px 5px 0px;
+}
+
+.letterBody
+{
+	width: 25%;
+	height: 65%;
+	margin: 0 auto;
+	background-color: var(--letter-color);
+}
+
+.letterTail
+{
+	width: 0px;
+	height: 0px;
+	margin: 0 auto;
+	border-style: solid;
+	border-color: var(--letter-color) var(--letter-color) transparent transparent;
+	border-width: calc(0.0625 * var(--logo-width)) calc(0.05 * var(--logo-height));
+}
+
+.name
+{
+	color: #eeeeee;
+	font-size: 2.2em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.inputArea
+{
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.inputDiv
+{
+	width: 60%;
+	height: 50px;
+	margin: 10px auto;
+	display: flex;
+	box-shadow: 0 0 10px 0px #929292;
+}
+
+.inputIcon
+{
+	flex: 5;
+	width: 50px;
+	height: 50px;
+	background-size: 60% 60%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.usernameIcon
+{
+	background-image: url(../src/username.png);
+}
+
+.passwordIcon
+{
+	background-image: url(../src/password.png);
+}
+
+.inputContainer
+{
+	flex: 19;
+	display: flex;
+	justify-content: center;
+}
+
+input
+{
+	width: 100%;
+	font-size: 130%;
+	padding-left: 10px;
+	color: #eeeeee;
+	background-color: transparent;
+	border-style: solid;
+	border-width: 0px 0px 3px 0px;
+	border-color: transparent;
+	outline: none;
+	transition: border 0.8s;
+}
+
+input:focus
+{
+	border-color: #2eb7bb;
+	transition: border 0.8s;
+}
+
+.loginButton
+{
+	width: 60%;
+	height: 10%;
+	margin: 0 auto;
+	cursor: pointer;
+	border-radius: 10px;
+	background-color: #2eb7bb;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #eee;
+	font-size: 140%;
+	transition: background-color 0.5s, color 0.5s;
+}
+
+.loginButton:hover
+{
+	background-color: #eee;
+	color: #2eb7bb;
+	transition: background-color 0.5s, color 0.5s;
+}
