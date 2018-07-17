@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>发布文章-轨迹博客</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/header.css">
+
+    <script src="js/header.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browseHappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="trackBlogWebEditor">
+        <div class="markdownEditor">
+            <header class="editorHeader">
+                <!--上方标题栏-->
+                <div class="leftBox">
+                    <!--左边-->
+                    <nav class="navigatorForMe">
+                        <!--头像及下拉菜单-->
+                        <div class="meBt" onclick="clickMe()"></div>
+                        <div class="meMenu" id="meMenu" style="display: none;">
+                            <div class="LinkGroup">
+                                <a class="link" href="">写文章</a>
+                                <a class="link" href="">草稿</a>
+                                <a class="link" href="">我的主页</a>
+                                <a class="link" href="">我的收藏</a>
+                                <a class="link" href="">设置</a>
+                                <a class="link" href="">关于</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+
+                <div class="midBox">
+                    <!--中间部分（文章标题）-->
+                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput">
+                </div>
+                <div class="rightBox">
+                    <!--右边-->
+                    <div class="editorSwitcher" onclick="clickSwitch()">
+                        <!--编辑器切换-->
+                        <div class="rtfButton">
+                            <!--点击后出现下拉菜单-->
+                            <i class="iconMore">
+                                <!-- ::before -->
+                                <span>···</span>
+                            </i>
+                        </div>
+                        <div class="panel" id="switcher" style="display: none;">切换为富文本编辑器</div>
+                    </div>
+
+                    <div class="autoSaving">
+                        文章将会自动
+                        <a href="" class="saveBt">保存为草稿</a>
+                    </div>
+
+                    <div class="publishForPanel">
+                        <!--发布选项-->
+                        <div class="postBt">
+                            <span class="post" onclick="clickPublish()">发布</span>
+                            <i class="iconPublishArrow">
+                                <!--点击后出现下拉菜单，箭头方向改变-->
+                                <!-- ::before -->
+                            </i>
+                        </div>
+
+                        <div class=panel id="publish" style="display: none;margin-top: .6rem">
+                            <!--发布选项下拉菜单-->
+                            <div class="title">发布文章</div>
+                            <div class="cutOffLine">--------------------</div>
+
+                            <div class="categoryBox">
+                                <div class="subTitle">选择分栏</div>
+                                <div class="categoryList">
+                                    <input type="radio" name="list" value="Java" checked class="item">Java
+                                    <br/>
+                                    <input type="radio" name="list" value="C++" class="item">C++
+                                    <br/>
+                                    <input type="radio" name="list" value="Python" class="item">Python
+                                    <br/>
+                                    <input type="radio" name="list" value="PHP" class="item">PHP
+                                </div>
+                            </div>
+                            <div class="cutOffLine">--------------------</div>
+
+
+                            <div class="tagBox">
+                                <div class="subTitle">填写标签</div>
+                                <div class="tagInput">
+                                    <input type="text" placeholder="在此填写标签..(选填)" class="tagText">
+                                </div>
+                            </div>
+
+
+                            <button class=publishBt>确认发布</button>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+        </div>
+    </div>
+
+
+
+    <script src="" async defer></script>
+</body>
+
+</html>

@@ -27,7 +27,6 @@ function switchToPhone(){
 		signInStatus = 0;
 	}
 }
-
 function test(){
 	
 }
