@@ -10,3 +10,8 @@ function toggleExpand(e)
         imageElement.setAttribute("data-expand", "false")
     }
 }
+
+function logout()
+{
+    confirm("你确定要退出登录吗？")
+}
