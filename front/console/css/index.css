@@ -34,6 +34,7 @@ body
 	color: #fbfbfb;
 	align-items: center;
 	box-shadow: 0px 0px 9px #717171;
+	user-select: none;
 }
 
 .headImage
@@ -141,6 +142,7 @@ body
 	background-color: white;
 	height: 100%;
 	overflow: auto;
+	user-select: none;
 }
 
 .asideListTitle
@@ -181,6 +183,7 @@ body
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: #f5f5f5;
 }
 
 .asideListItem:hover
@@ -188,6 +191,54 @@ body
 	color: white;
 	background-color: #2eb7bb;
 	transition: background-color 0.4s;
+}
+
+.asideListTitleIcon
+{
+	width: 50px;
+	height: 50px;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.asideListSystemUsers
+{
+	background-image: url(../src/system_users.png);
+}
+
+.asideListAdministrator
+{
+	background-image: url(../src/administrator.png);
+}
+
+.asideListSettings
+{
+	background-image: url(../src/settings.png);
+}
+
+.asideListTitleWord
+{
+	flex: auto;
+}
+
+.asideListTitleStatusIcon
+{
+	width: 20px;
+	height: 20px;
+	margin: 0px 10px;
+}
+
+.asideListTitleStatusIcon[data-expand="false"]
+{
+	transform: rotate(0deg);
+	transition: transform 0.5s;
+}
+
+.asideListTitleStatusIcon[data-expand="true"]
+{
+	transform: rotate(90deg);
+	transition: transform 0.5s;
 }
 
 .tableArea
