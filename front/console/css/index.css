@@ -13,20 +13,27 @@
 	url(../src/font/Raleway-Light.ttf);
 }
 
+body
+{
+	background-color: #f5f5f5;
+}
+
 .main
 {
 	min-width: 1000px;
+	--head-height: 70px;
 }
 
 .head
 {
-	--head-height: 70px;
+	position: relative;
 	height: var(--head-height);
 	background-color: #1be2d7;
 	width: 100%;
 	display: flex;
 	color: #fbfbfb;
 	align-items: center;
+	box-shadow: 0px 0px 9px #717171;
 }
 
 .headImage
@@ -43,7 +50,6 @@
 	display: flex;
 	align-items: center;
 	background-color: #ababab;
-	box-shadow: -5px -5px 20px 0px black;
 }
 
 .logoIcon
@@ -66,7 +72,7 @@
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
-	font-size: 160%;
+	font-size: 130%;
 	cursor: pointer;
 }
 
@@ -120,4 +126,101 @@
 	width: 80%;
 	border-radius: 100%;
 	border: solid white 2px;
+}
+
+.content
+{
+	width: 100%;
+	height: calc(100vh - var(--head-height));
+	display: flex;
+}
+
+.aside
+{
+	width: 210px;
+	background-color: white;
+	height: 100%;
+	overflow: auto;
+}
+
+.asideListTitle
+{
+	width: 100%;
+	font-weight: bold;
+	height: var(--head-height);
+	margin: 20px auto 0px auto;
+	display: flex;
+	align-items: center;
+	box-shadow: 0px 1px 20px #d8d8d8;
+}
+
+.asideListContent
+{
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.asideListContent[data-expand="false"]
+{
+	max-height: 0px;
+	transition: max-height 1s;
+}
+
+.asideListContent[data-expand="true"]
+{
+	max-height: 350px;
+	transition: max-height 1s;
+}
+
+.asideListItem
+{
+	width: 100%;
+	height: var(--head-height);
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.asideListItem:hover
+{
+	color: white;
+	background-color: #2eb7bb;
+	transition: background-color 0.4s;
+}
+
+.tableArea
+{
+	width: calc(100% - 210px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+table
+{
+	width: 95%;
+	background-color: white;
+	text-align: center;
+	box-shadow: 0px 0px 9px #9a9a9a;
+	border-collapse: collapse;
+}
+
+th
+{
+	font-size: 120%;
+	padding: 40px 0px;
+}
+
+tr
+{
+	border-bottom: solid #d0d0d0 1px;
+	margin: 20px 20px;
+}
+
+td
+{
+	color: #868686;
+	padding: 10px 0px;
 }
