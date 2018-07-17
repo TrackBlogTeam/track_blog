@@ -33,17 +33,17 @@ class DatabaseManager
                 $this->pdo = new PDO("mysql:host=$this->server;dbname=$this->dbname", $this->username, $this->password);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
-            $sql = strtoupper($sql);
+            $sql = strtolower($sql);
             $crud = preg_split("/\s/", $sql)[0];
             $statement = $this->pdo->prepare($sql);
             switch ($crud) {
-                case "INSERT":
-                case "UPDATE":
-                case "DELETE":
+                case "insert":
+                case "update":
+                case "delete":
                     $statement->execute();
                     $this->result = true;
                     break;
-                case "SELECT":
+                case "select":
                     $statement->setFetchMode(PDO::FETCH_ASSOC);
                     $statement->execute();
                     $this->result = $statement->fetchAll();
@@ -58,5 +58,10 @@ class DatabaseManager
     public function __destruct()
     {
         $this->pdo = null;
+    }
+
+    public function getResults()
+    {
+        return $this->result;
     }
 }
