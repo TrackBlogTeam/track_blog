@@ -10,7 +10,7 @@ function switchToEmail(){
 		var tempPhone = document.getElementById('phoneButton');
 		tempPhone.style.backgroundColor = "#a0a0a0";
 
-		signInStatus = 1;
+		signInStatus = 0;
 	}
 }
 
@@ -24,7 +24,7 @@ function switchToPhone(){
 		var tempEmail = document.getElementById('emailButton');
 		tempEmail.style.backgroundColor = "#a0a0a0";
 
-		signInStatus = 0;
+		signInStatus = 1;
 	}
 }
 function test(){
