@@ -15,6 +15,15 @@
     <link rel="stylesheet" href="css/header.css">
 
     <script src="js/header.js"></script>
+    <script src="showdown_master/dist/showdown.min.js"></script>
+    <script>
+        function convert() {
+            var text = document.getElementById("oriContent").nodeValue;
+            var converter = new showdown.Converter();
+            var html = converter.markHtml(text);
+            document.getElementById("result").innerHTML = html;
+        }
+    </script>
 </head>
 
 <body>
@@ -112,7 +121,76 @@
                 </div>
 
             </header>
+            <div class="main">
+                <!--编辑器主体-->
+                <div class="editorBox">
+                    <!--左半部分，编辑块-->
+                    <div class="editorBody">
+                        <!--编辑区域-->
+                        <textarea class="textInput" id="oriContent" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; height: 23px; widows: 7.6975px;
+                        left: 30px; top: 30px;"></textarea>
+                        <div class="scroller" style="left: 0px;right: 0px;bottom: 0px;">
+                            <div class="content" style="margin-top: 30px;width: 176px;height: 794px;margin-left: 0px;">
+                                <div class="printLayer">
+                                    <div class="printMargin" style="left: 645.8px;visibility: hidden;"></div>
+                                </div>
+                                <div class="markerLayer"></div>
+                                <!--分隔用-->
+                                <div class="textLayer" style="padding: 0px 30px;">
+                                    <!--文本内容-->
+                                    <div class="lineGroup" style="height: 23px">
+                                        <div class="line" style="height: 23px"></div>
+                                    </div>
+                                </div>
+                                <div class="markerLayer"></div>
+                                <div class="cursorLayer">
+                                    <div class="cursor" style="left: 30px;top: 0px;width: 7.6975px;
+                                    height: 23px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verticalScroller" style="display: none;width: 12px;bottom: 0px;">
+                            <div class="scrollBar" style="width: 12px;height: 253px;"></div>
+                        </div>
+
+                    </div>
+                    <div class="horizontalScroller" style="height: 12px;left: 0px;right: 0px;display: none;">
+                        <div class="scrollBar" style="height: 12px;width: 176px;"></div>
+                    </div>
+
+
+                    <!-- <div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden;
+                    position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; 
+                    font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; 
+                    font-family: inherit; overflow: hidden;">
+                        <div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; 
+                        position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; 
+                        font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; 
+                        font-family: inherit; overflow: visible;"></div>
+                        <div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; 
+                        position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; 
+                        font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; 
+                        overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                    </div> -->
+                </div>
+                <div class="edtorFooter">
+                    <!--底部工具栏-->
+
+                </div>
+            </div>
+            <div class="contentPreview">
+                <!--预览区域-->
+                <div class="contentWrapper">
+                    <div class="result"></div>
+                </div>
+                <div class="previewFoot">
+                    <div class="previewTitle">预览</div>
+                    <div class="wordCount">字数</div>
+                </div>
+
+            </div>
         </div>
+    </div>
     </div>
 
 
