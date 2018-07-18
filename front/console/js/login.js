@@ -2,15 +2,21 @@ function login()
 {
     let inputs = document.getElementsByTagName("input")
     ajax({
-        url: "http://www.yangjianwei.com/track_blog/back/business.php",
+        url: "../../back/business.php",
         method: "POST",
         data: {
+            type: "login",
+            role: "administrator",
             username: inputs[0].value,
             password: inputs[1].value
         },
         success: (response) =>
         {
-            console.log(response)
+            const result = JSON.parse(response)
+            console.log(result)
+            if (result.code === 812) {
+                window.location.href = "index.html"
+            }
         }
     })
 }

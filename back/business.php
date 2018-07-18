@@ -6,33 +6,56 @@
  * Time: 2:02 PM
  */
 
-require_once("Actor.php");
+// code:
+// 812: Administrator logs in successfully
+// 813: Lack of parameters for logging in
+// 814: Session already exists the logged state of current actor
+// 815: Unknown role of the sender of the message
+// 816: User logs in successfully
+// 817: Administrator's login fails for unmatched username and password
+// 818: User's login fails for unmatched username and password
 
-$username = null;
+require_once("Administrator.php");
+require_once("ArticleController.php");
+require_once("InformationController.php");
 
-$messageBack = new stdClass();
-session_start();
+$message = json_decode($_POST["message"]);    // Decode the json string
+$messageBack = new stdClass();                       // Establish the object to be sent back
 
-if (isset($_SESSION["username"])) {
-    $username = $_SESSION["username"];
-    $messageBack->text = "Success. The username is: " . $username;
-}
-else {
-    $message = $_POST["message"];
-    $message = json_decode($message);
+switch ($message->type) {
+    case "login":
+        if (!isset($message->username) || !isset($message->password)) {
+            $messageBack->code = 813;
+        }
+        if (isset($_SESSION["username"])) {   // already logged
+            $messageBack->code = 814;
+        }
+        else {
+            if ($message->role == "administrator") {
+                $administrator = new Administrator($message->username, $message->password);
+                $informationController = new InformationController();
+                if ($informationController->administratorExists($administrator)) {
+                    $administrator->login();
+                    $messageBack->code = 812;
+                }
+                else {
+                    $messageBack->code = 817;
+                }
+            }
+            else
+                if ($message->role == "user") {
+                }
+                else {
+                    $messageBack->code = 815;
+                }
+        }
+        break;
 
-    $username = $message->username;
-    $password = $message->password;
-    $actor = new Actor($username, $password);
-    if ($actor->login()) {
-        $_SESSION["username"] = $username;
-        $messageBack->text = "Success. The username is: " . $username;
-    }
-    else {
-        $messageBack->text = "Fail";
-    }
+    case "retrieve":
+
 }
 
 echo json_encode($messageBack);
+exit(0);
 
 ?>

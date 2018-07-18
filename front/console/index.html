@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" charset="utf-8"/>
     <link rel="stylesheet" href="css/index.css"/>
     <title>轨迹博客控制台</title>
+    <script src="js/ajax.js"></script>
 </head>
 <body>
 <div class="main">
@@ -12,9 +13,9 @@
             <div class="logoIcon headImage"></div>
             <div class="logoWord">Track Blog</div>
         </div>
-        <div class="menuItem">User</div>
-        <div class="menuItem">Article</div>
-        <div class="menuItem">Comment</div>
+        <div class="menuItem" onclick="retrieveUser()">User</div>
+        <div class="menuItem" onclick="retrieveArticle()">Article</div>
+        <div class="menuItem" onclick="retrieveComment()">Comment</div>
         <div class="headBlank"></div>
         <div title="消息提醒" class="notificationButton headImage menuButton"></div>
         <div title="注销账号" class="logoutButton headImage menuButton" onclick="logout()"></div>
