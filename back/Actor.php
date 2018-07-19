@@ -32,6 +32,13 @@ class Actor
     {
         $this->logged = true;
     }
+
+    static public function logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+    }
 }
 
 //    private $username;

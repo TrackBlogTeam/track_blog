@@ -23,8 +23,8 @@ class Administrator extends Actor
     public function login()
     {
         parent::login();
-        session_start();
         $_SESSION["username"] = $this->username;
         $_SESSION["role"] = "administrator";
+        $_SESSION["portraitUrl"] = "src/default-portrait.png";
     }
 }

@@ -14,7 +14,7 @@ function login()
         {
             const result = JSON.parse(response)
             console.log(result)
-            if (result.code === 812) {
+            if (result.code === 812 || result.code === 814) {
                 window.location.href = "index.html"
             }
         }

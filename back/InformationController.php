@@ -40,7 +40,34 @@ class InformationController extends Controller
 
     // seize all users' information back to the front
     // This is only for administrators
-    public function getAllUsers()
+    public function getTable($tableName)
     {
+        $sql = "SELECT * FROM $tableName;";
+        $this->databaseManager->execute($sql);
+        $databaseResults = $this->databaseManager->getResults();
+        if (count($databaseResults) > 0) {
+            $tableHead = [];
+            $tableData = [];
+            foreach ($databaseResults[0] as $key => $value) {
+                array_push($tableHead, $key);
+            }
+            foreach ($databaseResults as $record) {
+                $singleData = [];
+                foreach ($record as $key => $value) {
+                    array_push($singleData, $value);
+                }
+                array_push($tableData, $singleData);
+            }
+            $table = new stdClass();
+            $table->head = $tableHead;
+            $table->data = $tableData;
+            return $table;
+        }
+        return null;
     }
+
+//    public function getAdministratorProfile($administrator)
+//    {
+//              Not certain whether to implement this or not.
+//    }
 }
