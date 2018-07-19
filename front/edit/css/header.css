@@ -22,6 +22,10 @@ a:active{
     background-color: rgb(0,0,0,.06);
 }
 
+input::-webkit-input-placeholder{
+
+}
+
 header{
     display: flex;
     -webkit-box-align: center;
@@ -68,26 +72,7 @@ input{
     border-image: initial;
 }
 
-/*
-input,textarea,select,button{
-    text-rendering: auto;
-    color:initial;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align:start;
-    margin:0em;
-    font:400 13.3333px Arial;
-}
 
-
-input,textarea,select,button,meter,progress{
-    -webkit-writing-mode:horizontal-tb !important;
-}
-*/
 
 .leftBox {
     display: -webkit-box;

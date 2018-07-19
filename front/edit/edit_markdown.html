@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>发布文章-轨迹博客</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/md_editor.css">
+    <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/hybrid.min.css" rel="stylesheet">
+
+    <script src="js/header.js"></script>
+    <script src="https://cdn.bootcss.com/ace/1.3.3/ace.js"></script>
+    <!--ace编辑器引入-->
+    <script src="https://cdn.bootcss.com/ace/1.3.3/theme-monokai.js"></script>
+    <script src="https://cdn.bootcss.com/ace/1.3.3/mode-markdown.js"></script>
+    <script src="https://cdn.bootcss.com/ace/1.3.3/theme-github.js"></script>
+    <script src="https://cdn.bootcss.com/ace/1.3.3/theme-solarized_light.js"></script>
+    <script src="https://cdn.bootcss.com/ace/1.3.3/theme-chrome.js"></script>
+
+    <script src="https://cdn.bootcss.com/marked/0.4.0/marked.js"></script>
+    <!--marked库引入-->
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <!--highlight库引入-->
+
+
+
+</head>
+
+<!--[if lt IE 7]>
+            <p class="browseHappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+<div id="trackBlogWebEditor">
+    <div class="markdownEditor">
+        <header class="editorHeader">
+            <!--上方标题栏-->
+            <div class="leftBox">
+                <!--左边-->
+                <nav class="navigatorForMe">
+                    <!--头像及下拉菜单-->
+                    <div class="meBt" onclick="clickMe()"></div>
+                    <div class="meMenu" id="meMenu" style="display: none;">
+                        <div class="LinkGroup">
+                            <a class="link" href="">写文章</a>
+                            <a class="link" href="">草稿</a>
+                            <a class="link" href="">我的主页</a>
+                            <a class="link" href="">我的收藏</a>
+                            <a class="link" href="">设置</a>
+                            <a class="link" href="">关于</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+            <div class="midBox">
+                <!--中间部分（文章标题）-->
+                <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput">
+            </div>
+            <div class="rightBox">
+                <!--右边-->
+                <div class="editorSwitcher" onclick="clickSwitch()">
+                    <!--编辑器切换-->
+                    <div class="rtfButton">
+                        <!--点击后出现下拉菜单-->
+                        <i class="iconMore">
+                            <!-- ::before -->
+                            <span>···</span>
+                        </i>
+                    </div>
+                    <div class="panel" id="switcher" style="display: none;">切换为富文本编辑器</div>
+                </div>
+
+                <div class="autoSaving">
+                    文章将会自动
+                    <a href="" class="saveBt">保存为草稿</a>
+                </div>
+
+                <div class="publishForPanel">
+                    <!--发布选项-->
+                    <div class="postBt">
+                        <span class="post" onclick="clickPublish()">发布</span>
+                        <i class="iconPublishArrow">
+                            <!--点击后出现下拉菜单(箭头方向改变)-->
+                        </i>
+                    </div>
+
+                    <div class=panel id="publish" style="display: none;margin-top: .6rem">
+                        <!--发布选项下拉菜单-->
+                        <div class="title">发布文章</div>
+                        <div class="cutOffLine">--------------------</div>
+
+                        <div class="categoryBox">
+                            <div class="subTitle">选择分栏</div>
+                            <div class="categoryList">
+                                <input type="radio" name="list" value="Java" checked class="item">Java
+                                <br/>
+                                <input type="radio" name="list" value="C++" class="item">C++
+                                <br/>
+                                <input type="radio" name="list" value="Python" class="item">Python
+                                <br/>
+                                <input type="radio" name="list" value="PHP" class="item">PHP
+                            </div>
+                        </div>
+                        <div class="cutOffLine">--------------------</div>
+
+
+                        <div class="tagBox">
+                            <div class="subTitle">填写标签</div>
+                            <div class="tagInput">
+                                <input type="text" placeholder="在此填写标签..(选填)" class="tagText">
+                            </div>
+                        </div>
+
+
+                        <button class=publishBt>确认发布</button>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="main">
+            <!--编辑器主体-->
+            <div class="editorBox">
+                <!--左半部分，编辑块-->
+                <div class="editorBody">
+                    <!--编辑区域-->
+                    <div id="editor" style="position: absolute; top: 0;left: 0;width: 100%;height: 100%;
+                        background-color: rgba(0, 0, 0, 0);border: none" onkeyup="convert()"></div>
+                    <!--ace-->
+
+                </div>
+
+                <div class="editorFooter">
+                    <!--底部工具栏-->
+                    <button class="boldBt" title="粗体">
+                        <img src="icons/bold.png" class="=icon" />
+                    </button>
+                    <button class="ctlBt" title="斜体">
+                        <img src="icons/italic.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="插入连接">
+                        <img src="icons/link.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="插入引用块">
+                        <img src="icons/quote.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="插入代码块">
+                        <img src="icons/code.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="插入水平分隔线">
+                        <img src="icons/hLine.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="更换主题">
+                        <img src="icons/theme.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="markdown语法">
+                        <img src="icons/md.png" class="icon" />
+                    </button>
+                    <button class="ctlBt" title="插入图片">
+                        <img src="icons/image.png" class="icon" />
+                    </button>
+                    <div class=enlargeBlock>
+                        <div style="width: 1.6rem;height: 1.6rem;"></div>
+                        <button class="enlarge" title="隐藏预览">
+                            <img src="icons/expand.png" class="icon" />
+                        </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="contentPreview">
+                <!--预览区域-->
+                <div class="contentWrapper">
+                    <div class="markdown-body preview" id="result"></div>
+                </div>
+                <div class="previewFoot">
+                    <div class="previewTitle">预览</div>
+                    <div class="wordCount" id="Count">字数</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    //接入Ace
+    var editor = ace.edit("editor");
+</script>
+
+<script src="js/main.js"></script>
+</body>
+
+</html>

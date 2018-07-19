@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>发布文章-轨迹博客</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/header.css">
+
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/rt_editor.css" />
+
+    <link rel="stylesheet" type="text/css" href="simditor-master/site/assets/styles/simditor.css">
 
     <script src="js/header.js"></script>
+    <script src="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js"></script>
+    <!-- <script src="simditor-master/site/assets/scripts/jquery.min.js"></script>
+    <script src="simditor-master/site/assets/scripts/module.js"></script>
+    <script src="simditor-master/site/assets/scripts/hotkeys.js"></script>
+    <script src="simditor-master/site/assets/scripts/uploader.js"></script>
+    <script src="simditor-master/site/assets/scripts/simditor.js"></script> -->
+
+
+
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browseHappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
     <div id="trackBlogWebEditor">
-        <div class="markdownEditor">
+        <div class="richTextEditor">
             <header class="editorHeader">
                 <!--上方标题栏-->
                 <div class="leftBox">
@@ -73,8 +76,7 @@
                         <div class="postBt">
                             <span class="post" onclick="clickPublish()">发布</span>
                             <i class="iconPublishArrow">
-                                <!--点击后出现下拉菜单，箭头方向改变-->
-                                <!-- ::before -->
+                                <!--点击后出现下拉菜单(箭头方向改变)-->
                             </i>
                         </div>
 
@@ -112,12 +114,46 @@
                 </div>
 
             </header>
+
+            <div class="main" id="main">
+                <!-- <div class="leftRightBox" style="height: 100%;width: 100%;">
+
+                </div> -->
+                <div class="richEditor">
+                    <!--富文本编辑器-->
+                    <div class="rhEditor" id="rhEditor" style="width: 1024px;display: block">
+                        
+                        <div id="rhToolbar" class="rhToolbar" style="padding-top: 10px"></div>
+                        <div style="padding: 10px 0;color: white"></div>
+                        <div id="rhText" class="rhText" style="overflow-y: auto"></div>
+
+                    </div>
+                </div>
+                <!-- <div class="leftRightBox" style="height: 100%;width: 100%">
+
+                </div> -->
+            </div>
         </div>
     </div>
 
 
 
-    <script src="" async defer></script>
+    <script>
+
+
+        var E =window.wangEditor;
+        var editor=new E('#rhToolbar','#rhText');
+
+        editor.customConfig.fontNames = [
+        '宋体',
+        '微软雅黑',
+        'Arial',
+        'Tahoma',
+        'Verdana'
+        ]
+        editor.customConfig.pasteFilterStyle=false;
+        editor.create();
+    </script>
 </body>
 
 </html>
