@@ -15,232 +15,267 @@
 
 body
 {
-	background: url(../src/console_background.jpg) no-repeat fixed;
-	background-size: 100% 100%;
-	min-width: 1000px;
+	background-color: #f5f5f5;
 }
 
 .main
 {
-	height: 100vh;
-	width: 100vw;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
-	align-items: center;
+	min-width: 1000px;
+	--head-height: 70px;
 }
 
-.window
+.head
 {
-	margin: 0 auto;
-	width: 400px;
-	height: 600px;
-	background-color: rgba(42, 85, 121, 0.45);
-	border-radius: 10px;
+	position: relative;
+	height: var(--head-height);
+	background-color: #1be2d7;
+	width: 100%;
+	display: flex;
+	color: #fbfbfb;
+	align-items: center;
+	box-shadow: 0px 0px 9px #717171;
 	user-select: none;
 }
 
-.logo
+.headImage
 {
-	/* 正六边形的 width : height = 1.732 : 2， 保持比例即可*/
-	--logo-width: 87px;
-	--logo-height: 100px;
-	width: var(--logo-width);
-	height: var(--logo-height);
-	margin: 40px auto 20px auto;
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-	text-align: center;
-	font-size: 100%;
-}
-
-.hexagonCorner
-{
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: calc(0.125 * var(--logo-height)) calc(0.25 * var(--logo-width));
-}
-
-.hexagonLeftTop
-{
-	border-color: transparent #00A5A2 #00A5A2 transparent;
-}
-
-.hexagonRightTop
-{
-	border-color: transparent transparent #09B7BC #09B7BC;
-}
-
-.hexagonLeftBottom
-{
-	border-color: #00A5A2 #00A5A2 transparent transparent;
-}
-
-.hexagonRightBottom
-{
-	border-color: #09B7BC transparent transparent #09B7BC;
-}
-
-.hexagonMiddle
-{
-	width: 50%;
-	height: 50%;
-}
-
-.hexagonMiddleLeft
-{
-	background-color: #00A5A2;
-}
-
-.hexagonMiddleRight
-{
-	background-color: #09B7BC;
-}
-
-.letter
-{
-	height: 70%;
-	width: 50%;
-	top: 20%;
-	left: 25%;
-	position: absolute;
-	--letter-color: #eeeeee;
-}
-
-.letterHead
-{
-	height: 15%;
-	width: 100%;
-	display: flex;
-}
-
-.letterHeadHalf
-{
-	width: 50%;
-	height: 100%;
-	background-color: var(--letter-color);
-}
-
-.letterHeadHalfLeft
-{
-	border-radius: 5px 0px 0px 5px;
-}
-
-.letterHeadHalfRight
-{
-	border-radius: 0px 5px 5px 0px;
-}
-
-.letterBody
-{
-	width: 25%;
-	height: 65%;
-	margin: 0 auto;
-	background-color: var(--letter-color);
-}
-
-.letterTail
-{
-	width: 0px;
-	height: 0px;
-	margin: 0 auto;
-	border-style: solid;
-	border-color: var(--letter-color) var(--letter-color) transparent transparent;
-	border-width: calc(0.0625 * var(--logo-width)) calc(0.05 * var(--logo-height));
-}
-
-.name
-{
-	color: #eeeeee;
-	font-size: 2.2em;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.inputArea
-{
-	height: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.inputDiv
-{
-	width: 60%;
-	height: 50px;
-	margin: 10px auto;
-	display: flex;
-	box-shadow: 0 0 10px 0px #929292;
-}
-
-.inputIcon
-{
-	flex: 5;
-	width: 50px;
-	height: 50px;
-	background-size: 60% 60%;
+	height: var(--head-height);
+	width: var(--head-height);
 	background-position: center center;
 	background-repeat: no-repeat;
 }
 
-.usernameIcon
+.logo
 {
-	background-image: url(../src/username.png);
-}
-
-.passwordIcon
-{
-	background-image: url(../src/password.png);
-}
-
-.inputContainer
-{
-	flex: 19;
+	flex: none;
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	background-color: #ababab;
 }
 
-input
+.logoIcon
 {
-	width: 100%;
+	background-size: 80% 80%;
+	background-image: url(../src/logo-min.png);
+}
+
+.logoWord
+{
+	width: 130px;
+	font-size: 150%;
+	padding-right: 10px;
+}
+
+.menuItem
+{
+	height: var(--head-height);
+	padding: 0px 20px;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
 	font-size: 130%;
-	padding-left: 10px;
-	color: #eeeeee;
-	background-color: transparent;
-	border-style: solid;
-	border-width: 0px 0px 3px 0px;
-	border-color: transparent;
-	outline: none;
-	transition: border 0.8s;
-}
-
-input:focus
-{
-	border-color: #2eb7bb;
-	transition: border 0.8s;
-}
-
-.loginButton
-{
-	width: 60%;
-	height: 10%;
-	margin: 0 auto;
 	cursor: pointer;
-	border-radius: 10px;
-	background-color: #2eb7bb;
+}
+
+.menuItem:hover
+{
+	background-color: #2eb9bd;
+	transition: background-color 0.4s;
+}
+
+.headBlank
+{
+	flex: auto;
+}
+
+.menuButton:hover
+{
+	background-color: #2eb9bd;
+	transition: background-color 0.4s;
+}
+
+.notificationButton
+{
+	background-image: url(../src/notification.png);
+	background-size: 40% 40%;
+}
+
+.logoutButton
+{
+	background-image: url(../src/logout.png);
+	background-size: 40% 40%;
+}
+
+.administratorInfo
+{
+	padding: 0 10px;
+}
+
+.administratorPortraitContainer
+{
+	height: var(--head-height);
+	width: var(--head-height);
+	padding-right: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #eee;
-	font-size: 140%;
-	transition: background-color 0.5s, color 0.5s;
 }
 
-.loginButton:hover
+.administratorPortrait
 {
-	background-color: #eee;
-	color: #2eb7bb;
-	transition: background-color 0.5s, color 0.5s;
+	height: 80%;
+	width: 80%;
+	border-radius: 100%;
+	border: solid white 2px;
+	background-size: 100% 100%;
+	background-color: #eeeeee;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.content
+{
+	width: 100%;
+	height: calc(100vh - var(--head-height));
+	display: flex;
+}
+
+.aside
+{
+	width: 210px;
+	background-color: white;
+	height: 100%;
+	overflow: auto;
+	user-select: none;
+}
+
+.asideListTitle
+{
+	width: 100%;
+	font-weight: bold;
+	height: var(--head-height);
+	margin: 20px auto 0px auto;
+	display: flex;
+	align-items: center;
+	box-shadow: 0px 1px 20px #d8d8d8;
+}
+
+.asideListContent
+{
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.asideListContent[data-expand="false"]
+{
+	max-height: 0px;
+	transition: max-height 1s;
+}
+
+.asideListContent[data-expand="true"]
+{
+	max-height: 350px;
+	transition: max-height 1s;
+}
+
+.asideListItem
+{
+	width: 100%;
+	height: var(--head-height);
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f5f5f5;
+}
+
+.asideListItem:hover
+{
+	color: white;
+	background-color: #2eb7bb;
+	transition: background-color 0.4s;
+}
+
+.asideListTitleIcon
+{
+	width: 50px;
+	height: 50px;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.asideListSystemUsers
+{
+	background-image: url(../src/system_users.png);
+}
+
+.asideListAdministrator
+{
+	background-image: url(../src/administrator.png);
+}
+
+.asideListSettings
+{
+	background-image: url(../src/settings.png);
+}
+
+.asideListTitleWord
+{
+	flex: auto;
+}
+
+.asideListTitleStatusIcon
+{
+	width: 20px;
+	height: 20px;
+	margin: 0px 10px;
+}
+
+.asideListTitleStatusIcon[data-expand="false"]
+{
+	transform: rotate(0deg);
+	transition: transform 0.5s;
+}
+
+.asideListTitleStatusIcon[data-expand="true"]
+{
+	transform: rotate(90deg);
+	transition: transform 0.5s;
+}
+
+.tableArea
+{
+	width: calc(100% - 210px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+table
+{
+	width: 95%;
+	background-color: white;
+	text-align: center;
+	box-shadow: 0px 0px 9px #9a9a9a;
+	border-collapse: collapse;
+}
+
+th
+{
+	font-size: 120%;
+	padding: 40px 0px;
+}
+
+tr
+{
+	border-bottom: solid #d0d0d0 1px;
+	margin: 20px 20px;
+}
+
+td
+{
+	color: #868686;
+	padding: 10px 0px;
 }

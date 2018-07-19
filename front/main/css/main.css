@@ -40,7 +40,7 @@ body{
 
 
 .center{
-	position: fixed;
+	position: absolute;
 	margin: auto;
 	left: 0px;
 	right: 0px;

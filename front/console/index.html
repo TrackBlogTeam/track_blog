@@ -4,42 +4,69 @@
     <meta http-equiv="Content-Type" charset="utf-8"/>
     <link rel="stylesheet" href="css/index.css"/>
     <title>轨迹博客控制台</title>
+    <script src="js/ajax.js"></script>
 </head>
-
 <body>
 <div class="main">
-    <div class="window">
+    <div class="head">
         <div class="logo">
-            <div class="hexagonCorner hexagonLeftTop"></div>
-            <div class="hexagonCorner hexagonRightTop"></div>
-            <div class="hexagonMiddle hexagonMiddleLeft"></div>
-            <div class="hexagonMiddle hexagonMiddleRight"></div>
-            <div class="hexagonCorner hexagonLeftBottom"></div>
-            <div class="hexagonCorner hexagonRightBottom"></div>
-            <div class="letter">
-                <div class="letterHead">
-                    <div class="letterHeadHalf letterHeadHalfLeft"></div>
-                    <div class="letterHeadHalf letterHeadHalfRight"></div>
-                </div>
-                <div class="letterBody"></div>
-                <div class="letterTail"></div>
-            </div>
+            <div class="logoIcon headImage"></div>
+            <div class="logoWord">Track Blog</div>
         </div>
-        <div class="name">Track Blog</div>
-        <div class="inputArea">
-            <div class="inputDiv">
-                <div class="inputIcon usernameIcon"></div>
-                <div class="inputContainer"><input placeholder="Username"/></div>
-            </div>
-            <div class="inputDiv">
-                <div class="inputIcon passwordIcon"></div>
-                <div class="inputContainer"><input type="password" placeholder="Password"/></div>
-            </div>
+        <div class="menuItem" onclick="retrieveTable('user')">User</div>
+        <div class="menuItem" onclick="retrieveTable('article')">Article</div>
+        <div class="menuItem" onclick="retrieveTable('comment')">Comment</div>
+        <div class="headBlank"></div>
+        <div title="消息提醒" class="notificationButton headImage menuButton"></div>
+        <div title="注销账号" class="logoutButton headImage menuButton" onclick="logout()"></div>
+        <div class="administratorInfo"></div>
+        <div class="administratorPortraitContainer">
+            <div class="administratorPortrait"></div>
         </div>
-        <div class="loginButton">Login</div>
+    </div>
+    <div class="content">
+        <div class="aside">
+            <div class="asideListTitle" onclick="toggleExpand(this)">
+                <div class="asideListTitleIcon asideListSystemUsers"></div>
+                <div class="asideListTitleWord">系统用户</div>
+                <img src="src/arrow.png" class="asideListTitleStatusIcon" data-expand="false"/>
+            </div>
+            <ul class="asideListContent" data-expand="false">
+                <li class="asideListItem">管理员列表</li>
+                <li class="asideListItem">岗位列表</li>
+                <li class="asideListItem">角色权限</li>
+                <li class="asideListItem">部门管理</li>
+                <li class="asideListItem">操作日志</li>
+            </ul>
+            <div class="asideListTitle" onclick="toggleExpand(this)">
+                <div class="asideListTitleIcon asideListAdministrator"></div>
+                <div class="asideListTitleWord">管理员</div>
+                <img src="src/arrow.png" class="asideListTitleStatusIcon" data-expand="false"/>
+            </div>
+            <ul class="asideListContent" data-expand="false">
+                <li class="asideListItem">个人信息</li>
+                <li class="asideListItem">工作计划</li>
+                <li class="asideListItem">操作日志</li>
+                <li class="asideListItem">系统反馈</li>
+            </ul>
+            <div class="asideListTitle" onclick="toggleExpand(this)">
+                <div class="asideListTitleIcon asideListSettings"></div>
+                <div class="asideListTitleWord">系统设置</div>
+                <img src="src/arrow.png" class="asideListTitleStatusIcon" data-expand="false"/>
+            </div>
+            <ul class="asideListContent" data-expand="false">
+                <li class="asideListItem">控制台主题</li>
+                <li class="asideListItem">管理表格样式</li>
+                <li class="asideListItem">预览文章</li>
+                <li class="asideListItem">导出操作日志</li>
+                <li class="asideListItem">敏感词设置</li>
+            </ul>
+        </div>
+        <div class="tableArea">
+            <table></table>
+        </div>
     </div>
 </div>
-
 <script src="js/index.js"></script>
 </body>
 </html>
