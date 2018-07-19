@@ -1,3 +1,4 @@
+        //点击头像
         function clickMe(){
             var menu=document.getElementById('meMenu');
             if(menu.style.display=="none"){
@@ -7,6 +8,8 @@
                 menu.style.display="none";
             }
         }
+        
+        //点击转换编辑器
         function clickSwitch(){
             var switcher=document.getElementById('switcher');
             if(switcher.style.display=="none"){
@@ -16,6 +19,8 @@
                 switcher.style.display="none";
             }
         }
+
+        //点击发布
         function clickPublish(){
             var publish=document.getElementById('publish');
             if(publish.style.display=="none"){
