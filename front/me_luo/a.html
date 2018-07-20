@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>轨迹博客</title>
+<title>轨迹博客-个人账号中心</title>
 <link rel="stylesheet" href="css/Tpye.css" type="text/css" />
 <script src="js/jquery.js"></script>
 <script>
 $(function(){
 	$(".container>div").hide();
-	$(".container>div:eq(0)").show();	
+	$(".container>div:eq(1)").show();	
 	
 	$(".navContent a").click(function(){
 		var n = $(".navContent a").index(this);
@@ -20,10 +20,27 @@ $(function(){
 </head>
 
 <body>
+<div class="head">
+        <div class="logo">
+            <div class="logoIcon headImage"></div>
+            <div class="logoWord">Track Blog</div>
+        </div>
+        <div class="menuItem">个人账号中心</div>
+        
+        <div class="headBlank"></div>
+       
+        <div class="administratorPortraitContainer">
+            <div class="administratorPortrait"></div>
+        </div>
+</div>
 <div class="mainContainer">
 
 	<div class="navContent">
-		<a class="logo" href="#"><img class="logobox" src="images/logo.png"></a>
+		<a class="user" href="#">
+		   <div class="userContainer">
+              <div class="userbox"></div>
+           </div>
+		</a>
 		<a class="book" href="#">我的博客</a>
 		<a class="boxss" href="#">联系我们</a>
 		<a class="contact" href="#">左右福利</a>
@@ -37,24 +54,23 @@ $(function(){
 		  巴拉巴拉小魔仙<br>
 		  &nbsp;&nbsp;&nbsp;&nbsp;
 		  魔仙堡主是杨健威</P>
+	  </div>
+
+	  <div class="secondInfo">
 		<div class="message">
 		  <div class="box"><p class="box_1">A</p></div>
 		  <div class="box"><p class="box_2">B</p></div>
 		  <div class="box"><p class="box_3">C</p></div>
 		  <div class="box"><p class="box_4">D</p></div>
-		  </div>
+	    </div>
 	  </div>
 
-	  <div class="secondInfo">
+	  <div class="thirdInfo">
 		<div class="bigTest">
 		  <p class="young"><span>轨迹博客</span>是一个用什么什么方式传达同时空下的生活体验和个人价值观的博客。 <br>
 		  我们相信只有还原出一个人饱满的世界，我们才能找到左右为伴的彼此。</p>
 		  <p class="fond"><span>轨迹博客</span>实在是编不下去了</p>
 		</div>
-	  </div>
-
-	  <div class="thirdInfo">
-		
 	  </div>
 
 	  <div class="fourInfo">

@@ -1,8 +1,17 @@
 * {
-	margin: 0;
+	padding: 0px;
+	margin: 0px;
+	font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
-body {
-    background-color: #000000;
+@font-face
+{
+	font-family: "Raleway";
+	src: url(../../console/src/font/Raleway-Bold.ttf),
+	url(../../console/src/font/Raleway-Regular.ttf),
+	url(../../console/src/font/Raleway-Light.ttf);
+}
+body{
+	background-color: #ededed;
 }
 img, a {
 	display: block;
@@ -13,16 +22,89 @@ p, span {
 	font-family: 'Î¢ÈíÑÅºÚ';
 	color: #4d4d4d;
 }
-body {
-	background-image: url(images/bg.png);
+.head
+{
+	min-width: 1000px;
+	--head-height: 50px;
+	background-color: #1be2d7;
+	position: relative;
+	display: flex;
+	color: #fbfbfb;
+	align-items: center;
+	box-shadow: 0px 0px 9px #717171;
+}
+.logo
+{
+	flex: none;
+	display: flex;
+	align-items: center;
+	background-color: #ababab;
+}
+.logo:hover
+{
+	background-color: #858585;
+	transition: background-color 0.4s;
+	cursor: pointer;
+}
+.logoIcon
+{
+	background-size: 80% 80%;
+	background-image: url(../../console/src/logo-min.png);
+}
+.headImage
+{
+	height: var(--head-height);
+	width: var(--head-height);
+	background-position: center center;
 	background-repeat: no-repeat;
+}
+.logoWord
+{
+	width: 130px;
+	font-size: 150%;
+	padding-right: 10px;
+}
+.menuItem
+{
+	height: var(--head-height);
+	padding: 0px 20px;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	font-size: 130%;
+	cursor: default;
+}
+.headBlank
+{
+	flex: auto;
+}
+.administratorPortraitContainer
+{
+	height: var(--head-height);
+	width: var(--head-height);
+	padding-right: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.administratorPortrait
+{
+	height: 80%;
+	width: 80%;
+	border-radius: 100%;
+	border: solid white 2px;
+	background-image: url(../images/tu.jpg);
+	background-size: 100% 100%;
+	background-position: center center;
+    background-repeat: no-repeat;
+	cursor: pointer;
 }
 .mainContainer {
 	width: 950px;
 	height: 600px;
-	margin: 150px auto;
+	margin: 25px auto;
 	overflow: hidden;
-	background-color: #FFF;
+	background-color: #ededed;
 }
 .navContent {
 	float: left;
@@ -34,15 +116,32 @@ body {
 	text-align: center;
 	line-height: 60px;
 }
-.logo {
+.user {
 	width: 225px;
 	height: 120px;
 	background-color: #ff0000;
+	cursor: pointer;
+
 }
-.logobox {
-	background-color: #fff000;
-	margin-left: 40px;
-	padding-top: 10px;
+.userContainer
+{
+	height: 100px;
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.userbox 
+{
+	height: 90%;
+	width: 90%;
+	border-radius: 100%;
+	border: solid white 2px;
+	background-image: url(../images/tu.jpg);
+	background-size: 100% 100%;
+	background-position: center center;
+    background-repeat: no-repeat;
+	cursor: pointer;
 }
 .book {
 	margin-top: 25px;
