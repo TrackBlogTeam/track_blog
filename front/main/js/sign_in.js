@@ -29,9 +29,6 @@ function switchToEmail(){
 }
 
 function register(){
-    console.log(document.getElementById("username"))
-    console.log(document.getElementById("password"))
-	console.log(document.getElementById("phoneNumber"))
 	ajax({
 		url: "../../back/api/register.php",
 		method: "POST",
@@ -40,7 +37,7 @@ function register(){
 			password: document.getElementById("password").value,
 			phoneNumber: document.getElementById("phoneNumber").value
 		},
-		success: (response) =>{
+		success: (response) => {
 			const responseObject = JSON.parse(response)
 			if(responseObject.code == 824){
 				alert("注册成功")
