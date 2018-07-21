@@ -86,7 +86,7 @@ class DatabaseManager
         $this->pdo = null;
     }
 
-    public function getResults()
+    public function getResult()
     {
         return $this->result;
     }

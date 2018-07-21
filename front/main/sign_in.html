@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="icon" type="image/x-icon" href="logo_title.ico">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/sign_in.css">
@@ -13,12 +14,20 @@
 </div>
 <body>
 <div class="center signInFrame">
-	<div class="welcomeText" onclick="test()"><strong>欢迎加入轨迹博客</strong></div>
+	<div class="welcomeText"><strong>欢迎加入轨迹博客</strong></div>
 	<div class="registerSwitch">
+		<button id="phoneButton" class="switchButton switchButtonHover switchButtonFocus" autofocus="autofocus" 
+		onclick="switchToPhone()">手机注册</button>
 		<button id="emailButton" class="switchButton switchButtonHover switchButtonFocus" 
 		onclick="switchToEmail()">邮箱注册</button>
-		<button id="phoneButton" class="switchButton switchButtonHover switchButtonFocus" 
-		onclick="switchToPhone()">手机注册</button>
+		<form id="signInForm" class="signInForm" action="" method="post">
+			<input id="phoneNumber" type="text" name="phoneNumber" placeholder="手机号码" class="formInput">
+			<input id="password" type="password" name="password" placeholder="密码" class="formInput">
+			<input id="confirmPassword" type="password" name="confirmPassword" placeholder="再次确认密码" class="formInput"><br>
+			<input id="agreeToTheRegistrationTerms" type="radio" name="agreeToTheRegistrationTerms" checked>
+			<a href="">同意注册条款</a>
+			<button class="formButton">注册</button>
+		</form>
 	</div>
 </div>
 

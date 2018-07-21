@@ -6,6 +6,7 @@
  * Time: 2:02 PM
  */
 
+// TODO: Delete all unnecessary "break" statements
 // code:
 // 812: Administrator logs in successfully
 // 813: Lack of parameters for logging in
@@ -19,10 +20,15 @@
 // 821: Fail to logout for non-existent login status
 // 822: Success to retrieve table  from database
 // 823: No data in this table or this table doesn't exist
+// 824: User registered successfully
+// 825: User registered unsuccessfully
+// 826: Successfully logged out
 
+require_once("User.php");
 require_once("Administrator.php");
 require_once("ArticleController.php");
-require_once("InformationController.php");
+require_once("AdministratorController.php");
+require_once("UserController.php");
 
 $message = json_decode($_POST["message"]);    // Decode the json string
 $messageBack = new stdClass();                       // Establish the object to be sent back
@@ -30,40 +36,73 @@ $messageBack = new stdClass();                       // Establish the object to 
 session_start();
 
 switch ($message->type) {
+    case "register":
+        $user = new User($message->username, $message->password, $message->phoneNumber);
+        $userController = new UserController();
+        if ($userController->addUser($user)) {
+            $messageBack->code = 824;
+            break;
+        }
+        else {
+            $messageBack->code = 825;
+            break;
+        }
+        break;
+
     case "logout":
         if (!isset($_SESSION["username"])) {   // not logged
             $messageBack->code = 821;
+            break;
         }
         else {
             Actor::logout();
+            $messageBack->code = 826;
+            break;
+        }
+        break;
+
+    case "login":
+        if (!isset($message->username) || !isset($message->password)) { // username or password is in lack
+            $messageBack->code = 813;
+            break;
         }
 
-        break;
-    case "login":
-        if (!isset($message->username) || !isset($message->password)) {
-            $messageBack->code = 813;
-        }
         if (isset($_SESSION["username"])) {   // already logged
             $messageBack->code = 814;
+            break;
         }
-        else {
-            if ($message->role == "administrator") {
-                $administrator = new Administrator($message->username, $message->password);
-                $informationController = new InformationController();
-                if ($informationController->administratorExists($administrator)) {
-                    $administrator->login();
-                    $messageBack->code = 812;
-                }
-                else {
-                    $messageBack->code = 817;
-                }
+
+        if ($message->role == "administrator") {
+            $administrator = new Administrator($message->username, $message->password);
+            $administratorController = new AdministratorController();
+            if ($administratorController->administratorExists($administrator)) {
+                $administrator->login();
+                $messageBack->code = 812;
+                break;
             }
-            else
-                if ($message->role == "user") {
-                }
-                else {
-                    $messageBack->code = 815;
-                }
+            else {
+                $messageBack->code = 817;
+                break;
+            }
+        }
+
+        else if ($message->role == "user") {
+            $user = new User($message->username, $message->password);
+            $userController = new UserController();
+            if ($userController->userExists($user)) {
+                $user->login();
+                $messageBack->code = 816;
+                break;
+            }
+            else {
+                $messageBack->code = 818;
+                break;
+            }
+        }
+
+        else {    // unknown role of sender of the message
+            $messageBack->code = 815;
+            break;
         }
         break;
 
@@ -80,16 +119,34 @@ switch ($message->type) {
                         $messageBack->portraitUrl = $_SESSION["portraitUrl"];
                         break;
                     case "table":
-                        $informationController = new InformationController();
-                        $table = $informationController->getTable($message->tableName);
+                        $table = null;
+                        switch ($message->tableName) {
+                            case "user":
+                                $userController = new UserController();
+                                $table = $userController->getOwnTable();
+                                break;
+                            case "administrator":
+                                $administratorController = new AdministratorController();
+                                $table = $administratorController->getOwnTable();
+                                break;
+//                            case "article":
+//                                $articleController = new ArticleController();
+//                                $table = $articleControllerController->getTable();
+//                                break;
+//                            case "comment":
+//                                $commentController = new CommentController();
+//                                $table = $commentController->getTable();
+//                                break;
+                        }
                         if (isset($table)) {
                             $messageBack->code = 822;
                             $messageBack->table = $table;
+                            break;
                         }
                         else {
                             $messageBack->code = 823;
+                            break;
                         }
-                        break;
                 }
             }
         }
