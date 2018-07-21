@@ -12,7 +12,7 @@
 require_once("../User.php");
 require_once("../UserController.php");
 
-$message = $_POST["message"];
+$message = json_decode($_POST["message"]);
 $messageBack = new stdClass();
 
 $user = new User($message->username, $message->password, $message->phoneNumber);

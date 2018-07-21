@@ -36,7 +36,7 @@ try {
     $sql = "CREATE TABLE article(" .
         "article_id INT(5) NOT NULL AUTO_INCREMENT," .
         "author_name VARCHAR(30) NOT NULL," .
-        "article_key VARCHAR(15) NOT NULL," .
+        "article_key VARCHAR(32) NOT NULL," .
         "PRIMARY KEY(article_id)," .
         "FOREIGN KEY(author_name) REFERENCES user(user_name)" .
         ");";

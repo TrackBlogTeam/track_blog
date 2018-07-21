@@ -24,6 +24,8 @@
 // 825: User registered unsuccessfully
 // 826: Successfully logged out
 // 827: Wrong type of message
+// 828: Fail to publish for not logged
+// 829: Fail to publish for unknown reasons
 
 require_once("User.php");
 require_once("Administrator.php");
