@@ -10,6 +10,8 @@ require_once("Controller.php");
 
 class UserController extends Controller
 {
+    const tableName = "user";
+
     public function __construct()
     {
         parent::__construct();
@@ -57,7 +59,7 @@ class UserController extends Controller
 
     public function getOwnTable()
     {
-        parent::getTable("user");
+        return parent::getTable(self::tableName);
     }
 
 }

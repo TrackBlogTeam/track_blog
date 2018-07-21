@@ -23,6 +23,7 @@
 // 824: User registered successfully
 // 825: User registered unsuccessfully
 // 826: Successfully logged out
+// 827: Wrong type of message
 
 require_once("User.php");
 require_once("Administrator.php");
@@ -129,10 +130,10 @@ switch ($message->type) {
                                 $administratorController = new AdministratorController();
                                 $table = $administratorController->getOwnTable();
                                 break;
-//                            case "article":
-//                                $articleController = new ArticleController();
-//                                $table = $articleControllerController->getTable();
-//                                break;
+                            case "article":
+                                $articleController = new ArticleController();
+                                $table = $articleController->getOwnTable();
+                                break;
 //                            case "comment":
 //                                $commentController = new CommentController();
 //                                $table = $commentController->getTable();
@@ -154,5 +155,3 @@ switch ($message->type) {
 
 echo json_encode($messageBack);
 exit(0);
-
-?>

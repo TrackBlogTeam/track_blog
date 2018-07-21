@@ -55,5 +55,3 @@ catch (Exception $e) {
     echo $e->getMessage();
 }
 $pdo = null;
-
-?>

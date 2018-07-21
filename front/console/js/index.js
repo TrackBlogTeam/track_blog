@@ -45,10 +45,12 @@ function retrieveTable(tableName)
 function loadTable(responseObject)
 {
     if (typeof responseObject.table === "undefined") {
+        alert("表格暂无数据")
         return
     }
 
     let table = document.getElementsByTagName("table")[0]
+    table.innerHTML = ""
 
     let tableHeadRow = document.createElement("tr")
     for (let i = 0; i < responseObject.table.head.length; ++i) {

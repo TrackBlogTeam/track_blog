@@ -6,7 +6,24 @@
  * Time: 6:59 PM
  */
 
-class ArticleController
-{
+require_once("Controller.php");
 
+class ArticleController extends Controller
+{
+    const tableName = "article";
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function __destruct()
+    {
+        parent::__destruct();
+    }
+
+    public function getOwnTable()
+    {
+        return parent::getTable(self::tableName);
+    }
 }
