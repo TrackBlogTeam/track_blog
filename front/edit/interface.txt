@@ -1,0 +1,16 @@
+公共接口
+getAutoSave();  //获取保存的内容
+getContent();   //获取内容
+setContent(h);   //覆盖设置内容
+getTitle(); //获取标题
+setTitle(); //设置标题
+
+
+richText editor:
+getContent(needHtml=true);  //true返回html，false返回文本
+appendContent(h);   //在末尾插入
+
+
+
+接口测试：
+利用header.js下的最后一个函数（关联到发布按钮）
