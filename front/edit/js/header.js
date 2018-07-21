@@ -42,7 +42,6 @@ function setTitle(title){
     document.getElementById("title").value=title;
 }
 
-setTitle("这是标题");
 
 document.getElementById("pbBt").addEventListener('click', function () {
 
