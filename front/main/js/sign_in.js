@@ -27,3 +27,26 @@ function switchToEmail(){
 		signInStatus = 1;
 	}
 }
+
+function register(){
+    console.log(document.getElementById("username"))
+    console.log(document.getElementById("password"))
+	console.log(document.getElementById("phoneNumber"))
+	ajax({
+		url: "../../back/api/register.php",
+		method: "POST",
+		data: {
+			username: document.getElementById("username").value,
+			password: document.getElementById("password").value,
+			phoneNumber: document.getElementById("phoneNumber").value
+		},
+		success: (response) =>{
+			const responseObject = JSON.parse(response)
+			if(responseObject.code == 824){
+				alert("注册成功")
+			}else{
+				alert("注册失败")
+			}
+		}
+	})
+}
