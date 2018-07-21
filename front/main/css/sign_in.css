@@ -38,4 +38,30 @@
 
 .switchButtonFocus:focus{
 	border:none;
+
 }
+
+.formInput{
+	width: 360px;
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.signInForm{
+	margin-top: 20px;
+}
+
+.formButton{
+	width: 360px;
+	height: 40px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	border-radius: 3px;
+	border-style: none;
+	background-color: #00d1a5;
+}
+
