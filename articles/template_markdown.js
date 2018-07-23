@@ -16,7 +16,6 @@ marked.setOptions({
     }
 });
 
-console.log(divElement.innerText)
 console.log(divElement.innerHTML)
 let regularExpression = new RegExp("\&lt;", "g")
 let string = divElement.innerHTML.replace(regularExpression, "<")
