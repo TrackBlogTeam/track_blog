@@ -26,6 +26,6 @@ function ajax(dataObject)
         xhr.open("POST", dataObject.url, dataObject.asynchronous)
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")   // 设置头部文件
     }
-    xhr.send("message=" + JSON.stringify(dataObject.data))          // 在建立好的连接里面发送数据包，就是发送给服务器的东西
+    xhr.send("message=" + encodeURIComponent(JSON.stringify(dataObject.data)))          // 在建立好的连接里面发送数据包，就是发送给服务器的东西
     // 如无意外，服务器在接收到数据之后，会返回数据，使readyState发生变化，然后触发刚才在xhr.onreadystatechange定义的函数
 }
