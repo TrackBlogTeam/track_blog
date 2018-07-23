@@ -47,6 +47,6 @@ class AdministratorController extends Controller
 
     public function getOwnTable()
     {
-        parent::getTable("administrator");
+        return parent::getTable(self::tableName);
     }
 }

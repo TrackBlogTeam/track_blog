@@ -10,6 +10,8 @@ require_once("Controller.php");
 
 class UserController extends Controller
 {
+    const tableName = "user";
+
     public function __construct()
     {
         parent::__construct();
@@ -35,29 +37,34 @@ class UserController extends Controller
         // TODO: Verify phone number    DONE
         // TODO: Verify username
         // TODO: Verify password
+        // TODO: Create a directory for each user
         if ($this->userExists($user)) {
             return false;
         }
 
         $match = null;
-        preg_match("/13[123569]{1}\d{8}|15[1235689]\d{8}|188\d{8}/", $user->phoneNumber, $match);
+        preg_match("/1[356789]{1}\d{9}/", $user->phoneNumber, $match);
         if (count($match) == 0) {   // illegal phone number
             return false;
         }
 
-        $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phone_number');";
+        $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
+        if ($this->databaseManager->getResult()) {
+            $path = dirname(__DIR__)."/articles/" . $user->username;
+            mkdir($path);
+        }
         return $this->databaseManager->getResult();
     }
 
     public function deleteUser($user)
     {
-
+        // TODO: Delete the articles of this user recursively
     }
 
     public function getOwnTable()
     {
-        parent::getTable("user");
+        return parent::getTable(self::tableName);
     }
 
 }

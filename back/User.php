@@ -12,15 +12,31 @@ class User extends Actor
 {
     private $phoneNumber;
 
-    public function __construct($username, $password)
+    public function __construct($username, $password)  // login
     {
-        parent::__construct($username, $password);
+        $argumentsCount = func_num_args();
+        switch ($argumentsCount) {
+            case 1:
+                $this->__construct2(func_get_arg(0));
+                break;
+            case 2:
+                parent::__construct($username, $password);
+                break;
+            case 3:
+                $this->__construct1(func_get_arg(0), func_get_arg(1), func_get_arg(2));
+                break;
+        }
     }
 
-    public function __construct1($username, $password, $phoneNumber)
+    public function __construct1($username, $password, $phoneNumber)  // register
     {
         parent::__construct($username, $password);
         $this->phoneNumber = $phoneNumber;
+    }
+
+    public function __construct2($username)   // already logged
+    {
+        $this->username = $username;
     }
 
     public function __destruct()

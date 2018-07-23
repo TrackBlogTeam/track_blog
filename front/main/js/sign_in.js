@@ -27,3 +27,31 @@ function switchToEmail(){
 		signInStatus = 1;
 	}
 }
+
+function register(){
+	var checkPassword = document.getElementById("confirmPassword").value;
+	var toCheckPassword = document.getElementById("password").value;
+
+	if(checkPassword == toCheckPassword){
+		ajax({
+		url: "../../back/api/register.php",
+		method: "POST",
+		data: {
+			username: document.getElementById("username").value,
+			password: document.getElementById("password").value,
+			phoneNumber: document.getElementById("phoneNumber").value
+		},
+		success: (response) => {
+			const responseObject = JSON.parse(response);
+			if(responseObject.code == 824){
+				alert("注册成功");
+			}else{
+				alert("注册失败");
+			}
+		}
+		});
+
+	}else{
+		document.getElementById("passwordNotMatch").innerHTML = "两次密码不一致！";
+	}
+}
