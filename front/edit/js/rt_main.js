@@ -13,9 +13,9 @@ editor.customConfig.fontNames = [
 editor.customConfig.pasteFilterStyle = false;
 editor.customConfig.zIndex = 10;
 editor.customConfig.onchange = function (html) {
-    saveText=getContent();  //保存文本
+    saveText=getContent(true);  //保存文本
 }
-editor.customConfig.onchangeTimeout = 5000; //五秒进行一次保存
+editor.customConfig.onchangeTimeout = 1000; //五秒进行一次保存
 editor.create();
 
 
