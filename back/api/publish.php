@@ -11,16 +11,24 @@ require_once("../ArticleController.php");
 
 $message = json_decode($_POST["message"]);
 
-session_start();
-if (!isset($message->username) || $message->username != $_SESSION["username"] || $_SESSION["role"] != "user") {
-    endWithError(828);
-}
+//session_start();
+//
+//if (!isset($_SESSION["username"]) || $_SESSION["role"] == "administrator") {
+//    endWithError(828);
+//}
 
-$user = new User($message->username);
+//$username = $_SESSION["username"];
+var_dump($message);
+$username = "yangjianwei";
+$title = $message->title;
+$content = $message->content;
+$articleType = $message->articleType;
+
+$user = new User($username);
 
 $articleController = new ArticleController();
 
-if ($articleController->addArticle($user, $message->content)) {
+if ($articleController->addArticle($user, $title, $content, $articleType)) {
     $messageBack = new stdClass();
     $messageBack->code = 830;
     echo json_encode($messageBack);
