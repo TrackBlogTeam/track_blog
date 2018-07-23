@@ -12,7 +12,7 @@ class User extends Actor
 {
     private $phoneNumber;
 
-    public function __construct($username, $password)  // login
+    public function __construct()  // login
     {
         $argumentsCount = func_num_args();
         switch ($argumentsCount) {
@@ -20,7 +20,7 @@ class User extends Actor
                 $this->__construct2(func_get_arg(0));
                 break;
             case 2:
-                parent::__construct($username, $password);
+                parent::__construct(func_get_arg(0), func_get_arg(1));
                 break;
             case 3:
                 $this->__construct1(func_get_arg(0), func_get_arg(1), func_get_arg(2));
