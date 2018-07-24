@@ -16,7 +16,7 @@
         <div class="menuItem" onclick="retrieveTable('user')">User</div>
         <div class="menuItem" onclick="retrieveTable('article')">Article</div>
         <div class="menuItem" onclick="retrieveTable('comment')">Comment</div>
-        <div class="headBlank"></div>
+        <div class="flexBlank"></div>
         <div title="消息提醒" class="notificationButton headImage menuButton"></div>
         <div title="注销账号" class="logoutButton headImage menuButton" onclick="logout()"></div>
         <div class="administratorInfo"></div>
@@ -24,7 +24,7 @@
             <div class="administratorPortrait"></div>
         </div>
     </div>
-    <div class="content">
+    <div class="body">
         <div class="aside">
             <div class="asideListTitle" onclick="toggleExpand(this)">
                 <div class="asideListTitleIcon asideListSystemUsers"></div>
@@ -62,8 +62,24 @@
                 <li class="asideListItem">敏感词设置</li>
             </ul>
         </div>
-        <div class="tableArea">
-            <table></table>
+        <div class="content">
+            <div class="controlPanelTop">
+                <input placeholder="Search here..." class="searchInput"/>
+                <div class="searchButton">Search</div>
+                <div class="flexBlank"></div>
+                <div class="refreshButton"></div>
+            </div>
+            <div class="tableArea">
+                <table></table>
+            </div>
+            <div class="controlPanelBottom">
+                <div class="controlPanelBottomButton">批量删除</div>
+                <div class="flexBlank"></div>
+                <div class="controlPanelBottomButton">上一页</div>
+                <div class="controlPanelBottomButton">下一页</div>
+                <input placeholder="1" class="pageInput"/>
+                <div class="jumpButton">跳转</div>
+            </div>
         </div>
     </div>
 </div>

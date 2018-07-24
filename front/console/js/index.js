@@ -53,15 +53,25 @@ function loadTable(responseObject)
     table.innerHTML = ""
 
     let tableHeadRow = document.createElement("tr")
+    let th = document.createElement("th");
+    th.innerText = "";
+    tableHeadRow.appendChild(th);
     for (let i = 0; i < responseObject.table.head.length; ++i) {
         let th = document.createElement("th")
         th.innerText = responseObject.table.head[i]
         tableHeadRow.appendChild(th)
     }
+
     table.appendChild(tableHeadRow)
 
     for (let i = 0; i < responseObject.table.data.length; ++i) {
-        let tableRow = document.createElement("tr")
+        let tableRow = document.createElement("tr");
+        let checkboxContainer = document.createElement("div");
+        checkboxContainer.setAttribute("class", "checkboxContainer");
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkboxContainer.appendChild(checkbox);
+        tableRow.appendChild(checkboxContainer);
         for (let j = 0; j < responseObject.table.data[i].length; ++j) {
             let tableData = document.createElement("td")
             tableData.innerText = responseObject.table.data[i][j]

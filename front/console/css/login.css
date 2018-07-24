@@ -41,113 +41,11 @@ body
 
 .logo
 {
-	/* 正六边形的 width : height = 1.732 : 2， 保持比例即可*/
-	--logo-width: 87px;
-	--logo-height: 100px;
-	width: var(--logo-width);
-	height: var(--logo-height);
+	background-image: url(../src/logo-min.png);
+	background-size: 100% 100%;
+	width: 100px;
+	height: 100px;
 	margin: 40px auto 20px auto;
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-	text-align: center;
-	font-size: 100%;
-}
-
-.hexagonCorner
-{
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: calc(0.125 * var(--logo-height)) calc(0.25 * var(--logo-width));
-}
-
-.hexagonLeftTop
-{
-	border-color: transparent #00A5A2 #00A5A2 transparent;
-}
-
-.hexagonRightTop
-{
-	border-color: transparent transparent #09B7BC #09B7BC;
-}
-
-.hexagonLeftBottom
-{
-	border-color: #00A5A2 #00A5A2 transparent transparent;
-}
-
-.hexagonRightBottom
-{
-	border-color: #09B7BC transparent transparent #09B7BC;
-}
-
-.hexagonMiddle
-{
-	width: 50%;
-	height: 50%;
-}
-
-.hexagonMiddleLeft
-{
-	background-color: #00A5A2;
-}
-
-.hexagonMiddleRight
-{
-	background-color: #09B7BC;
-}
-
-.letter
-{
-	height: 70%;
-	width: 50%;
-	top: 20%;
-	left: 25%;
-	position: absolute;
-	--letter-color: #eeeeee;
-}
-
-.letterHead
-{
-	height: 15%;
-	width: 100%;
-	display: flex;
-}
-
-.letterHeadHalf
-{
-	width: 50%;
-	height: 100%;
-	background-color: var(--letter-color);
-}
-
-.letterHeadHalfLeft
-{
-	border-radius: 5px 0px 0px 5px;
-}
-
-.letterHeadHalfRight
-{
-	border-radius: 0px 5px 5px 0px;
-}
-
-.letterBody
-{
-	width: 25%;
-	height: 65%;
-	margin: 0 auto;
-	background-color: var(--letter-color);
-}
-
-.letterTail
-{
-	width: 0px;
-	height: 0px;
-	margin: 0 auto;
-	border-style: solid;
-	border-color: var(--letter-color) var(--letter-color) transparent transparent;
-	border-width: calc(0.0625 * var(--logo-width)) calc(0.05 * var(--logo-height));
 }
 
 .name
