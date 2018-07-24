@@ -47,5 +47,5 @@ document.getElementById("pbBt").addEventListener('click', function () {
 
     //console.log(getAutoSave());
     /*此为通用接口只接受getTitle()和getAutoSave()*/
-    console.log(getTitle());
+    console.log(getAutoSave());
 })

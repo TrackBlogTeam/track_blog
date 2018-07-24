@@ -6,7 +6,7 @@
 <script>
 $(function(){
 	$(".container>div").hide();
-	$(".container>div:eq(1)").show();	
+	$(".container>div:eq(0)").show();	
 	
 	$(".navContent a").click(function(){
 		var n = $(".navContent a").index(this);
@@ -14,6 +14,12 @@ $(function(){
 		$(".container>div").hide();
 		$(".container>div:eq("+n+")").show();	
 	})
+	$('.box').click(function () {
+          window.open('https://blog.csdn.net/cztqwan/article/details/80267691','_blank');  
+    });
+    $('.write').click(function () {
+          window.open('../edit/edit_markdown.html');  
+    });
 	
 })
 </script>
@@ -36,13 +42,13 @@ $(function(){
 <div class="mainContainer">
 
 	<div class="navContent">
-		<a class="user" href="#">
+		<div class="user" href="#">
 		   <div class="userbox"></div>
 		   <div class="userinformation">
 		      <p class="name">菊晴</p>
 		      <p class="qq">1650202750@qq.com</p>
 		   </div>
-		</a>
+		</div>
 		<div class="listbox">
 		   <a class="list" href="#">我的博客</a>
 		   <a class="list" href="#">写博客</a>
@@ -51,22 +57,23 @@ $(function(){
 	</div>
 	
 	<div class="container">
-	  <div class="infoBox">
+
+	  <div class="firstInfo">
+		<div class="write">发布文章</div>
+		<div class="box">
+		    <p class="boxA"></p> 
+		    <p class="title"> C++的4种强制类型转换</p>
+		    <p class="content">一、4种强制类型转换C++不是类型安全的，C++有4种强制类型转换，分别为：static_castdynamic_castconst_castreinterpret_cast二、static_cast（编译时类型检查）主要用法：</p>
+		</div>
+	  </div>
+
+	  <div class="secondInfo">
 		<P><span class="status">「轨迹博客」</span>
 		  五个人用的辣鸡博客<br>
 		  &nbsp;&nbsp;&nbsp;&nbsp;
 		  巴拉巴拉小魔仙<br>
 		  &nbsp;&nbsp;&nbsp;&nbsp;
 		  魔仙堡主是杨健威</P>
-	  </div>
-
-	  <div class="secondInfo">
-		<div class="message">
-		  <div class="box"><p class="box_1">A</p></div>
-		  <div class="box"><p class="box_2">B</p></div>
-		  <div class="box"><p class="box_3">C</p></div>
-		  <div class="box"><p class="box_4">D</p></div>
-	    </div>
 	  </div>
 
 	  <div class="thirdInfo">
@@ -77,10 +84,6 @@ $(function(){
 		</div>
 	  </div>
 
-	  <div class="fourInfo">
-		
-	  </div>
-	 
 	</div>
 	
 </div>
