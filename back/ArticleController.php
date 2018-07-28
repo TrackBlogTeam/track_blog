@@ -27,6 +27,14 @@ class ArticleController extends Controller
         return parent::getTable(self::tableName);
     }
 
+    public function getMyArticles($user)
+    {
+        // TODO: Optimize the efficiency of the query
+        $sql = "SELECT * FROM article WHERE autho_name='$user->username';";
+        $this->databaseManager->execute($sql);
+        return $this->databaseManager->getResult();
+    }
+
     public function addArticle($user, $title, $content, $articleType)
     {
         $title = $this->filterScript($title);
