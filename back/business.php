@@ -27,6 +27,12 @@
 // 828: Fail to publish for not logged or for role of "administrator"
 // 829: Fail to publish for unknown reasons
 // 830: Success to publish
+// 831: Fail to publish for invalid parameters
+// 832: Fail to retrieve table. Permission denied.
+// 833: Fail to retrieve table. Invalid parameter(s).
+// 834: Fail to retrieve table. Invalid table name.
+// 835: Fail to retrieve profile. Not logged.
+// 836: Fail to retrieve articles. Permission denied.
 
 require_once("User.php");
 require_once("Administrator.php");
