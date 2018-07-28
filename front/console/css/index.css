@@ -16,8 +16,10 @@
 body
 {
 	background-color: rgb(239, 239, 239);
-	--shallow-theme-color: #1be2d7;
-	--deep-theme-color: #2eb7bb;
+	/*--shallow-theme-color: #1be2d7;*/
+	/*--deep-theme-color: #2eb7bb;*/
+	--shallow-theme-color: #40bd97;
+	--deep-theme-color: #349a77;
 }
 
 .main
@@ -30,7 +32,7 @@ body
 {
 	position: relative;
 	height: var(--head-height);
-	background-color: #1be2d7;
+	background-color: #40bd97;
 	width: 100%;
 	display: flex;
 	color: #fbfbfb;
@@ -52,7 +54,8 @@ body
 	flex: none;
 	display: flex;
 	align-items: center;
-	background-color: #ababab;
+	/*background: linear-gradient(to bottom, var(--shallow-theme-color) 20%, #c5c5c5);*/
+	background-color: var(--deep-theme-color);
 }
 
 .logoIcon
@@ -81,7 +84,7 @@ body
 
 .menuItem:hover
 {
-	background-color: #2eb9bd;
+	background-color: var(--deep-theme-color);
 	transition: background-color 0.4s;
 }
 
@@ -90,9 +93,14 @@ body
 	flex: auto;
 }
 
+.menuButton
+{
+	cursor: pointer;
+}
+
 .menuButton:hover
 {
-	background-color: #2eb9bd;
+	background-color: var(--deep-theme-color);
 	transition: background-color 0.4s;
 }
 
@@ -188,12 +196,13 @@ body
 	justify-content: center;
 	align-items: center;
 	background-color: #f5f5f5;
+	cursor: pointer;
 }
 
 .asideListItem:hover
 {
 	color: white;
-	background-color: #2eb7bb;
+	background-color: var(--shallow-theme-color);
 	transition: background-color 0.4s;
 }
 
@@ -367,14 +376,14 @@ td
 
 .controlPanelBottomButton
 {
-	color: #2eb7bb;
+	color: var(--deep-theme-color);
 	cursor: pointer;
 	margin: 30px;
 }
 
 .controlPanelBottomButton:hover
 {
-	color: #30e4e8;
+	color: var(--shallow-theme-color);
 }
 
 .pageInput
