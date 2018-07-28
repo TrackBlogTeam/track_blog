@@ -45,6 +45,7 @@ function register(){
 			const responseObject = JSON.parse(response);
 			if(responseObject.code == 824){
 				alert("注册成功");
+				window.location.href = "login.html";
 			}else{
 				alert("注册失败");
 			}

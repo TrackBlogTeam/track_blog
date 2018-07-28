@@ -2,27 +2,8 @@
 <head>
 <title>轨迹博客-个人账号中心</title>
 <link rel="stylesheet" href="css/Tpye.css" type="text/css" />
-<script src="js/jquery.js"></script>
-<script>
-$(function(){
-	$(".container>div").hide();
-	$(".container>div:eq(0)").show();	
-	
-	$(".navContent a").click(function(){
-		var n = $(".navContent a").index(this);
-		$(".navContent a").index(this);
-		$(".container>div").hide();
-		$(".container>div:eq("+n+")").show();	
-	})
-	$('.box').click(function () {
-          window.open('https://blog.csdn.net/cztqwan/article/details/80267691','_blank');  
-    });
-    $('.write').click(function () {
-          window.open('../edit/edit_markdown.html');  
-    });
-	
-})
-</script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/function.js"></script>
 </head>
 
 <body>
@@ -60,11 +41,17 @@ $(function(){
 
 	  <div class="firstInfo">
 		<div class="write">发布文章</div>
-		<div class="box">
-		    <p class="boxA"></p> 
-		    <p class="title"> C++的4种强制类型转换</p>
-		    <p class="content">一、4种强制类型转换C++不是类型安全的，C++有4种强制类型转换，分别为：static_castdynamic_castconst_castreinterpret_cast二、static_cast（编译时类型检查）主要用法：</p>
-		</div>
+		<!-- <div class="box" id="box_1">
+		    <div class="boxA"></div> 
+		    <div class="boxB">
+		        <a class="title" href="https://blog.csdn.net/cztqwan/article/details/80267691" target="_blank"> C++的4种强制类型转换</a>
+		        <p class="content">一、4种强制类型转换C++不是类型安全的，C++有4种强制类型转换，分别为：static_castdynamic_castconst_castreinterpret_cast二、static_cast（编译时类型检查）主要用法：</p>
+		        <p class="detail" id="date">2018/7/23</p>
+		        <p class="detail" id="time">18:04</p>
+		        <p class="detail" id="read">阅读量:234</p> 
+		        <p class="detail" id="comment">评论：7</p>
+		    </div>
+		</div> -->
 	  </div>
 
 	  <div class="secondInfo">
