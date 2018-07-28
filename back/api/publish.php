@@ -9,17 +9,20 @@
 require_once("../User.php");
 require_once("../ArticleController.php");
 
-$message = json_decode($_POST["message"]);
+$message = $_POST["message"];
+$message = urldecode($message);
+$message = json_decode($message);
 
-//session_start();
-//
-//if (!isset($_SESSION["username"]) || $_SESSION["role"] == "administrator") {
-//    endWithError(828);
-//}
+session_start();
 
-//$username = $_SESSION["username"];
-var_dump($message);
-$username = "yangjianwei";
+if (!isset($_SESSION["username"]) || $_SESSION["role"] == "administrator") {
+    endWithError(828);
+}
+if (!isset($message->title) || !isset($message->content) || !isset($message->articleType)) {
+    endWithError(831);
+}
+
+$username = $_SESSION["username"];
 $title = $message->title;
 $content = $message->content;
 $articleType = $message->articleType;
