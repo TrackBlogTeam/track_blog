@@ -28,12 +28,12 @@ abstract class Controller
 
     abstract public function getOwnTable();
 
-    public function getTable($tableName)
+    public function getTable($tableName, $pageNumber = 1, $limit = 10)
     {
-        if ($_SESSION["role"] != "administrator") {
-            return null;
-        }
-        $sql = "SELECT * FROM $tableName;";
+        $offset0 = ($pageNumber - 1) * $limit;
+        $offset1 = $pageNumber * $limit;
+
+        $sql = "SELECT * FROM $tableName LIMIT $offset0, $offset1;";
         $this->databaseManager->execute($sql);
         $databaseResults = $this->databaseManager->getResult();
         if (count($databaseResults) > 0) {
