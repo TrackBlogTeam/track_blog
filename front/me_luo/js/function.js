@@ -1,10 +1,10 @@
 
 $(function(){
 	var box="box_2";
-	// var title="C++的4种强制类型转换";
-	htmlobj=$.ajax({url:"1.txt",async:false});
-	alert(htmlobj.responseText);
-	var title=htmlobj.responseText;
+	var title="C++的4种强制类型转换";
+	// htmlobj=$.ajax({url:"1.txt",async:false});
+	// alert(htmlobj.responseText);
+	// var title=htmlobj.responseText;
 	var href="https://blog.csdn.net/cztqwan/article/details/80267691";
 	var content="一、4种强制类型转换C++不是类型安全的，C++有4种强制类型转换，分别为：static_castdynamic_castconst_castreinterpret_cast二、static_cast（编译时类型检查）主要用法：";
 	var _date="2018/7/23";
