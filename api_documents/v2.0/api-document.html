@@ -40,11 +40,19 @@
                                 <ul class="nav list-group">
                                     
                                     <li>
-                                        <a href="#6a840e7dd04345a385a78b6ef0f195fb">登录接口</a>
+                                        <a href="#6a840e7dd04345a385a78b6ef0f195fb">用户登录</a>
                                     </li><li>
-                                        <a href="#72d7e8f19bdc4b43a3554d6594054bb7">用户注册接口</a>
+                                        <a href="#72d7e8f19bdc4b43a3554d6594054bb7">用户注册</a>
                                     </li><li>
-                                        <a href="#ae794e01f0504f5d846d658ddaac85c8">退出登录接口</a>
+                                        <a href="#ae794e01f0504f5d846d658ddaac85c8">退出登录</a>
+                                    </li><li>
+                                        <a href="#1cb9c91f74284b6c973f9cb650873950">发布文章</a>
+                                    </li><li>
+                                        <a href="#b335da08cbb2409fa319d31403641546">获取文章</a>
+                                    </li><li>
+                                        <a href="#43dbee4a5bea40a0bb0a32f3ede3c7dd">获取个人信息</a>
+                                    </li><li>
+                                        <a href="#91d2d4e3badb4d8f880a19e5cdb78b67">获取数据表</a>
                                     </li>
                                 </ul>                                <span>附录</span>
                                 <ul class="nav list-group">
@@ -65,14 +73,14 @@
                     <h1 id="t_api_doc">模块化接口</h1>
                     
                     <div class="api-one">
-                        <h3 id="6a840e7dd04345a385a78b6ef0f195fb">登录接口</h3>
+                        <h3 id="6a840e7dd04345a385a78b6ef0f195fb">用户登录</h3>
                         <p>
                             <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=6a840e7dd04345a385a78b6ef0f195fb" class="label label-warning">在线测试</a>
                             <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=6a840e7dd04345a385a78b6ef0f195fb" class="label label-warning">在线浏览</a>
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：http://www.yangjianwei.com/track_blog/back/api/login.php                        </p>
+                            请求地址：https://www.yangjianwei.com/track_blog/back/api/login.php                        </p>
                         
                         
                         
@@ -144,19 +152,19 @@
                             <tbody>
                                 <tr>
                                     <td>code</td>
-                                    <td>错误码提示</td>
+                                    <td>执行码</td>
                                     <th>number</th>
                                 </tr>                            </tbody>
                         </table>
                     </div><div class="api-one">
-                        <h3 id="72d7e8f19bdc4b43a3554d6594054bb7">用户注册接口</h3>
+                        <h3 id="72d7e8f19bdc4b43a3554d6594054bb7">用户注册</h3>
                         <p>
                             <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=72d7e8f19bdc4b43a3554d6594054bb7" class="label label-warning">在线测试</a>
                             <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=72d7e8f19bdc4b43a3554d6594054bb7" class="label label-warning">在线浏览</a>
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：http://www.yangjianwei.com/track_blog/back/api/register.php                        </p>
+                            请求地址：https://www.yangjianwei.com/track_blog/back/api/register.php                        </p>
                         
                         
                         
@@ -228,19 +236,19 @@
                             <tbody>
                                 <tr>
                                     <td>code</td>
-                                    <td>错误码提示</td>
+                                    <td>执行码</td>
                                     <th>number</th>
                                 </tr>                            </tbody>
                         </table>
                     </div><div class="api-one">
-                        <h3 id="ae794e01f0504f5d846d658ddaac85c8">退出登录接口</h3>
+                        <h3 id="ae794e01f0504f5d846d658ddaac85c8">退出登录</h3>
                         <p>
                             <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=ae794e01f0504f5d846d658ddaac85c8" class="label label-warning">在线测试</a>
                             <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=ae794e01f0504f5d846d658ddaac85c8" class="label label-warning">在线浏览</a>
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：http://                        </p>
+                            请求地址：https://www.track-blog.com/track_blog/back/api/logout.php                        </p>
                         
                         
                         
@@ -275,8 +283,250 @@
                             <tbody>
                                 <tr>
                                     <td>code</td>
-                                    <td>错误码提示</td>
+                                    <td>执行码</td>
                                     <th>number</th>
+                                </tr>                            </tbody>
+                        </table>
+                    </div><div class="api-one">
+                        <h3 id="1cb9c91f74284b6c973f9cb650873950">发布文章</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=1cb9c91f74284b6c973f9cb650873950" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=1cb9c91f74284b6c973f9cb650873950" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/track_blog/back/api/publish.php                        </p>
+                        
+                        
+                        
+
+                                                    <table class="table table-hover">
+                                    <colgroup>
+                                    <col class="col-xs-2">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-7">
+                                    <col class="col-xs-2">
+                                  </colgroup>
+                                    <thead>
+                                         <tr>
+                                            <th><span class="label label-success">Body参数名</span></th>
+                                            <th>类型</th>
+                                            <th>必需</th>
+                                            <th>描述</th>
+                                            <th>示例 e.g.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>title</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>文章标题</td>
+                                            <td>"This is the title"</td>
+                                        </tr><tr>
+                                            <td>content</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>文章内容</td>
+                                            <td>"# Heading"</td>
+                                        </tr><tr>
+                                            <td>articleType</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>文章类型</td>
+                                            <td>"markdown", "richText"</td>
+                                        </tr>                                    </tbody>
+                                </table>                        
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>以上参数均为ajax函数(ajax.js)中的data对象的属性。<br>返回值是一个字符串序列化的JSON对象，使用时需要JSON.parse(returnValue)<div><br></div><div>注意：使用该接口前需要登录</div></div>
+                        </div>
+                        </p>
+                                                
+                        <table class="table table-hover" style="margin-top: 7px;">
+                            <colgroup>
+                            <col class="col-xs-4">
+                            <col class="col-xs-8">
+                          </colgroup>
+                            <thead>
+                                <tr>
+                                    <th style="padding-left: 0px;"><span class="label label-success">参数名</span></th>
+                                    <th>描述</th>
+                                    <th>类型</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>code</td>
+                                    <td>执行码</td>
+                                    <th>string</th>
+                                </tr>                            </tbody>
+                        </table>
+                    </div><div class="api-one">
+                        <h3 id="b335da08cbb2409fa319d31403641546">获取文章</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=b335da08cbb2409fa319d31403641546" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=b335da08cbb2409fa319d31403641546" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/track_blog/back/api/retrieve_articles.php                        </p>
+                        
+                        
+                        
+
+                                                                            
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>本接口仅限已登录的用户使用。用于获取本用户写过的所有文章。</div>
+                        </div>
+                        </p>
+                                                
+                        <table class="table table-hover" style="margin-top: 7px;">
+                            <colgroup>
+                            <col class="col-xs-4">
+                            <col class="col-xs-8">
+                          </colgroup>
+                            <thead>
+                                <tr>
+                                    <th style="padding-left: 0px;"><span class="label label-success">参数名</span></th>
+                                    <th>描述</th>
+                                    <th>类型</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>code</td>
+                                    <td>执行码</td>
+                                    <th>string</th>
+                                </tr>                            </tbody>
+                        </table>
+                    </div><div class="api-one">
+                        <h3 id="43dbee4a5bea40a0bb0a32f3ede3c7dd">获取个人信息</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=43dbee4a5bea40a0bb0a32f3ede3c7dd" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=43dbee4a5bea40a0bb0a32f3ede3c7dd" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/track_blog/back/api/retrieve_profile.php                        </p>
+                        
+                        
+                        
+
+                                                                            
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>管理员和用户都可使用该接口，用于获取基本的管理员/用户信息</div>
+                        </div>
+                        </p>
+                                                
+                        <table class="table table-hover" style="margin-top: 7px;">
+                            <colgroup>
+                            <col class="col-xs-4">
+                            <col class="col-xs-8">
+                          </colgroup>
+                            <thead>
+                                <tr>
+                                    <th style="padding-left: 0px;"><span class="label label-success">参数名</span></th>
+                                    <th>描述</th>
+                                    <th>类型</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>code</td>
+                                    <td>执行码</td>
+                                    <th>string</th>
+                                </tr><tr>
+                                    <td>username</td>
+                                    <td>管理员/用户名字</td>
+                                    <th>string</th>
+                                </tr><tr>
+                                    <td>portraitUrl</td>
+                                    <td>管理员头像图片地址</td>
+                                    <th>string</th>
+                                </tr>                            </tbody>
+                        </table>
+                    </div><div class="api-one">
+                        <h3 id="91d2d4e3badb4d8f880a19e5cdb78b67">获取数据表</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=91d2d4e3badb4d8f880a19e5cdb78b67" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=91d2d4e3badb4d8f880a19e5cdb78b67" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/track_blog/back/api/retrieve_table.php                        </p>
+                        
+                        
+                        
+
+                                                    <table class="table table-hover">
+                                    <colgroup>
+                                    <col class="col-xs-2">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-7">
+                                    <col class="col-xs-2">
+                                  </colgroup>
+                                    <thead>
+                                         <tr>
+                                            <th><span class="label label-success">Body参数名</span></th>
+                                            <th>类型</th>
+                                            <th>必需</th>
+                                            <th>描述</th>
+                                            <th>示例 e.g.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>tableName</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>表名</td>
+                                            <td>"article"</td>
+                                        </tr><tr>
+                                            <td>pageNumber</td>
+                                            <td>number</td>
+                                            <td>是</td>
+                                            <td>请求表的页数，从1开始</td>
+                                            <td>1</td>
+                                        </tr><tr>
+                                            <td>limit</td>
+                                            <td>number</td>
+                                            <td>是</td>
+                                            <td>每一页表的记录数</td>
+                                            <td>10</td>
+                                        </tr>                                    </tbody>
+                                </table>                        
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>获取数据库表格</div>
+                        </div>
+                        </p>
+                                                
+                        <table class="table table-hover" style="margin-top: 7px;">
+                            <colgroup>
+                            <col class="col-xs-4">
+                            <col class="col-xs-8">
+                          </colgroup>
+                            <thead>
+                                <tr>
+                                    <th style="padding-left: 0px;"><span class="label label-success">参数名</span></th>
+                                    <th>描述</th>
+                                    <th>类型</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>code</td>
+                                    <td>执行码</td>
+                                    <th>string</th>
                                 </tr>                            </tbody>
                         </table>
                     </div>
@@ -350,6 +600,36 @@
                                 </tr><tr>
                                     <td>827</td>
                                     <td>错误的type</td>
+                                </tr><tr>
+                                    <td>828</td>
+                                    <td>发布文章失败：当前为管理员</td>
+                                </tr><tr>
+                                    <td>829</td>
+                                    <td>发布文章失败：原因未知</td>
+                                </tr><tr>
+                                    <td>830</td>
+                                    <td>发布文章成功</td>
+                                </tr><tr>
+                                    <td>831</td>
+                                    <td>发布文章失败：参数无效</td>
+                                </tr><tr>
+                                    <td>832</td>
+                                    <td>获取表格失败：权限不足</td>
+                                </tr><tr>
+                                    <td>833</td>
+                                    <td>获取表格失败：参数无效</td>
+                                </tr><tr>
+                                    <td>834</td>
+                                    <td>获取表格失败：表名无效</td>
+                                </tr><tr>
+                                    <td>835</td>
+                                    <td>获取个人信息失败：未登陆</td>
+                                </tr><tr>
+                                    <td>836</td>
+                                    <td>获取文章失败：权限不足</td>
+                                </tr><tr>
+                                    <td>837</td>
+                                    <td>注册失败：参数不完整</td>
                                 </tr>                            </tbody>
                         </table>
                      </div>
