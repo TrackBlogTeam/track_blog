@@ -7,17 +7,14 @@
  */
 
 require_once("../Actor.php");
+require_once("../Util.php");
 
 session_start();
 
-$messageBack = new stdClass();
-
 if (!isset($_SESSION["username"])) {   // not logged
-    $messageBack->code = 821;
+    Util::EndWithCode(821);
 }
 else {
     Actor::logout();
-    $messageBack->code = 826;
+    Util::EndWithCode(826);
 }
-
-echo json_encode($messageBack);

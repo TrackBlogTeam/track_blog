@@ -6,6 +6,7 @@
  * Time: 1:16 PM
  */
 
+require_once("../Util.php");
 require_once("../User.php");
 require_once("../ArticleController.php");
 
@@ -16,10 +17,10 @@ $message = json_decode($message);
 session_start();
 
 if (!isset($_SESSION["username"]) || $_SESSION["role"] == "administrator") {
-    endWithError(828);
+    Util::EndWithCode(828);
 }
 if (!isset($message->title) || !isset($message->content) || !isset($message->articleType)) {
-    endWithError(831);
+    Util::EndWithCode(831);
 }
 
 $username = $_SESSION["username"];
@@ -32,19 +33,8 @@ $user = new User($username);
 $articleController = new ArticleController();
 
 if ($articleController->addArticle($user, $title, $content, $articleType)) {
-    $messageBack = new stdClass();
-    $messageBack->code = 830;
-    echo json_encode($messageBack);
-    exit(0);
+    Util::EndWithCode(830);
 }
 else {
-    endWithError(829);
-}
-
-function endWithError($code)
-{
-    $messageBack = new stdClass();
-    $messageBack->code = $code;
-    echo json_encode($messageBack);
-    exit(1);
+    Util::EndWithCode(829);
 }

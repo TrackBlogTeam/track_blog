@@ -9,21 +9,25 @@
 // This is only for user
 // There is not way for registry of an administrator
 
+require_once("../Util.php");
 require_once("../User.php");
 require_once("../UserController.php");
 
-$message = json_decode($_POST["message"]);
-$messageBack = new stdClass();
+$message = Util::ProcessMessage($_POST["message"]);
+
+if (!isset($message->username) || !isset($message->password) || !isset($message->phoneNumber)) {
+    Util::EndWithCode(837);
+}
 
 $user = new User($message->username, $message->password, $message->phoneNumber);
 
 $userController = new UserController();
 
 if ($userController->addUser($user)) {
-    $messageBack->code = 824;
+    Util::EndWithCode(824);
 }
 else {
-    $messageBack->code = 825;
+    Util::EndWithCode(825);
 }
 
 echo json_encode($messageBack);

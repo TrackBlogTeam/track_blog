@@ -20,5 +20,3 @@ $articleController = new ArticleController();
 $user = new User($_SESSION["username"]);
 echo json_encode($articleController->getMyArticles($user));
 
-
-

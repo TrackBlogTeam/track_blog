@@ -12,7 +12,7 @@ require_once("../AdministratorController.php");
 require_once("../User.php");
 require_once("../UserController.php");
 
-$message = json_decode($_POST["message"]);
+$message = Util::ProcessMessage($_POST["message"]);
 // TODO: To filter and process data
 session_start();
 
