@@ -34,10 +34,10 @@ function register(){
 
 	if(checkPassword == toCheckPassword){
 		ajax({
-		url: "../../back/api/register.php",
+		url: "https://www.track-blog.com/track_blog/back/api/register.php",
 		method: "POST",
 		data: {
-			username: document.getElementById("username").value,
+			username: document.getElementById("userName").value,
 			password: document.getElementById("password").value,
 			phoneNumber: document.getElementById("phoneNumber").value
 		},
