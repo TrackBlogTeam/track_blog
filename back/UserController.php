@@ -62,9 +62,9 @@ class UserController extends Controller
         // TODO: Delete the articles of this user recursively
     }
 
-    public function getOwnTable()
+    public function getOwnTable($pageNumber, $limit)
     {
-        return parent::getTable(self::tableName);
+        return parent::getTable(self::tableName, $pageNumber, $limit);
     }
 
 }

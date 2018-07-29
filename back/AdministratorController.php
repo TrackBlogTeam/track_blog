@@ -22,6 +22,17 @@ class AdministratorController extends Controller
         parent::__destruct();
     }
 
+    public function administratorLogin($administrator)
+    {
+        if ($this->administratorExists($administrator)) {
+            $administrator->login();
+            return 812;
+        }
+        else {
+            return 817;
+        }
+    }
+
     // check whether one administrator exists
     public function administratorExists($administrator)
     {
@@ -45,8 +56,8 @@ class AdministratorController extends Controller
         return $this->databaseManager->getResult();
     }
 
-    public function getOwnTable()
+    public function getOwnTable($pageNumber, $limit)
     {
-        return parent::getTable(self::tableName);
+        return parent::getTable(self::tableName, $pageNumber, $limit);
     }
 }

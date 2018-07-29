@@ -6,60 +6,45 @@
  * Time: 12:45 AM
  */
 
+require_once("../Util.php");
 require_once("../Administrator.php");
 require_once("../AdministratorController.php");
 require_once("../User.php");
 require_once("../UserController.php");
 
 $message = json_decode($_POST["message"]);
-$messageBack = new stdClass();
-
+// TODO: To filter and process data
 session_start();
 
-if (!isset($message->username) || !isset($message->password)) { // username or password is in lack
-    endWithError(813);
-}
-
 if (isset($_SESSION["username"])) {   // already logged
-    endWithError(814);
+    Util::EndWithCode(814);
 }
 
-if ($message->role == "administrator") {
+// TODO: Force to login
+
+if (!isset($message->username) || !isset($message->password)) { // username or password is in lack
+    Util::EndWithCode(813);
+}
+
+if ($message->role == "administrator") {   // an administrator logs in
     $administrator = new Administrator($message->username, $message->password);
     $administratorController = new AdministratorController();
-    if ($administratorController->administratorExists($administrator)) {
-        $administrator->login();
-        $messageBack->code = 812;
-        echo json_encode($messageBack);
-    }
-    else {
-        endWithError(817);
-    }
+    Util::EndWithCode($administratorController->administratorLogin($administrator));
 }
 
-else if ($message->role == "user") {
+else if ($message->role == "user") {       // a user logs in
     $user = new User($message->username, $message->password);
     $userController = new UserController();
     if ($userController->userExists($user)) {  // // Success to login for user
         $user->login();
-        $messageBack->code = 816;
-        echo json_encode($messageBack);
+        Util::EndWithCode(816);
         // TODO: Unknown to what to send back to front
     }
     else {  // User's login fails for unmatched username and password
-        endWithError(818);
+        Util::EndWithCode(818);
     }
 }
 
 else {    // unknown role of sender of the message
-    endWithError(815);
-}
-
-
-function endWithError($code)
-{
-    $messageBack = new stdClass();
-    $messageBack->code = $code;
-    echo json_encode($messageBack);
-    exit(1);
+    Util::EndWithCode(815);
 }

@@ -22,9 +22,9 @@ class ArticleController extends Controller
         parent::__destruct();
     }
 
-    public function getOwnTable()
+    public function getOwnTable($pageNumber, $limit)
     {
-        return parent::getTable(self::tableName);
+        return parent::getTable(self::tableName, $pageNumber, $limit);
     }
 
     public function getMyArticles($user)

@@ -20,12 +20,14 @@ class Util
     {
         $messageBack = new stdClass();
         $messageBack->code = $code;
+        echo json_encode($messageBack);
         exit(1);
+        // As a matter of fact, one request may exit(0) with the situation that doesn't occur any error.
     }
 
     public static function ProcessMessage($message)
     {
         // TODO: Make sure this could process the message to a json object
-        return $message;
+        return json_decode($message);
     }
 }

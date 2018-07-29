@@ -53,7 +53,7 @@ class DatabaseManager
 
     public function execute($sql)
     {
-        $this->result = false;
+        $this->resetResult();
         try {
             if (!isset($this->pdo)) {
                 $this->pdo = new PDO("mysql:host=$this->server;dbname=$this->dbname", $this->username, $this->password);
@@ -89,5 +89,10 @@ class DatabaseManager
     public function getResult()
     {
         return $this->result;
+    }
+
+    public function resetResult()
+    {
+        $this->result = false;
     }
 }

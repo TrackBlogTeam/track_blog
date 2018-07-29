@@ -26,14 +26,12 @@ abstract class Controller
         return $this->databaseManager;
     }
 
-    abstract public function getOwnTable();
+    abstract public function getOwnTable($pageNumber, $limit);
 
     public function getTable($tableName, $pageNumber = 1, $limit = 10)
     {
         $offset0 = ($pageNumber - 1) * $limit;
-        $offset1 = $pageNumber * $limit;
-
-        $sql = "SELECT * FROM $tableName LIMIT $offset0, $offset1;";
+        $sql = "SELECT * FROM $tableName LIMIT $offset0, $limit;";
         $this->databaseManager->execute($sql);
         $databaseResults = $this->databaseManager->getResult();
         if (count($databaseResults) > 0) {

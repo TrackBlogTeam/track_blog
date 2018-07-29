@@ -7,8 +7,6 @@
  */
 
 require_once("../Util.php");
-require_once("../AdministratorController.php");
-require_once("../UserController.php");
 
 session_start();
 
@@ -18,7 +16,6 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["role"])) {
 
 // administrator's profile
 if ($_SESSION["role"] == "administrator") {
-    $administratorController = new AdministratorController();
     // TODO: Improve the table of administrator to contain more information
     $messageBack = new stdClass();
     $messageBack->username = $_SESSION["username"];
@@ -28,7 +25,6 @@ if ($_SESSION["role"] == "administrator") {
 
 // user's profile
 else if ($_SESSION["role"] == "user") {
-    $userController = new UserController();
     // TODO: Improve the table of administrator to contain more information
     $messageBack = new stdClass();
     $messageBack->username = $_SESSION["username"];

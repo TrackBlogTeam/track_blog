@@ -33,7 +33,6 @@
 // 834: Fail to retrieve table. Invalid table name.
 // 835: Fail to retrieve profile. Not logged.
 // 836: Fail to retrieve articles. Permission denied.
-
 require_once("User.php");
 require_once("Administrator.php");
 require_once("ArticleController.php");
