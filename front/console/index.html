@@ -13,9 +13,9 @@
             <div class="logoIcon headImage"></div>
             <div class="logoWord">Track Blog</div>
         </div>
-        <div class="menuItem" onclick="retrieveTable('user')">User</div>
-        <div class="menuItem" onclick="retrieveTable('article')">Article</div>
-        <div class="menuItem" onclick="retrieveTable('comment')">Comment</div>
+        <div class="menuItem" onclick="clickTable('user')">User</div>
+        <div class="menuItem" onclick="clickTable('article')">Article</div>
+        <div class="menuItem" onclick="clickTable('comment')">Comment</div>
         <div class="flexBlank"></div>
         <div title="消息提醒" class="notificationButton headImage menuButton"></div>
         <div title="注销账号" class="logoutButton headImage menuButton" onclick="logout()"></div>
@@ -75,10 +75,10 @@
             <div class="controlPanelBottom">
                 <div class="controlPanelBottomButton">批量删除</div>
                 <div class="flexBlank"></div>
-                <div class="controlPanelBottomButton">上一页</div>
-                <div class="controlPanelBottomButton">下一页</div>
+                <div class="controlPanelBottomButton" onclick="goToPreviousPage()">上一页</div>
+                <div class="controlPanelBottomButton" onclick="goToNextPage()">下一页</div>
                 <input placeholder="1" class="pageInput"/>
-                <div class="jumpButton">跳转</div>
+                <div class="jumpButton" onclick="goToCertainPage()">跳转</div>
             </div>
         </div>
     </div>
