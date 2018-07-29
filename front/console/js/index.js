@@ -1,17 +1,18 @@
 // console/js/index.js
+let pageNumber = 1;
+let limit = 10;
+let tableName = "user";
 
 loadAdministratorProfile()
-retrieveTable("user")
+retrieveTable(tableName, 1, 10);
 
 function loadAdministratorProfile()
 {
     ajax({
-        url: "../../back/business.php",
+        url: "../../back/api/retrieve_profile.php",
         method: "POST",
         data: {
-            type: "retrieve",
-            role: "administrator",
-            content: "profile"
+            role: "administrator"
         },
         success: (response) =>
         {
@@ -22,21 +23,21 @@ function loadAdministratorProfile()
     })
 }
 
-function retrieveTable(tableName)
+function retrieveTable(tableName, pageNumber, limit)
 {
     ajax({
-        url: "../../back/business.php",
+        url: "../../back/api/retrieve_table.php",
         method: "POST",
         data: {
-            type: "retrieve",
             role: "administrator",
-            content: "table",
+            pageNumber: pageNumber,
+            limit: limit,
             tableName: tableName
         },
         success: (response) =>
         {
-            const responseObject = JSON.parse(response)
-            loadTable(responseObject)
+            const responseObject = JSON.parse(response);
+            loadTable(responseObject);
         }
     })
 }
@@ -44,27 +45,26 @@ function retrieveTable(tableName)
 
 function loadTable(responseObject)
 {
-    if (typeof responseObject.table === "undefined") {
-        alert("表格暂无数据")
-        return
+    if (responseObject === null || typeof responseObject.head === "undefined") {
+        return;
     }
 
-    let table = document.getElementsByTagName("table")[0]
-    table.innerHTML = ""
+    let table = document.getElementsByTagName("table")[0];
+    table.innerHTML = "";
 
-    let tableHeadRow = document.createElement("tr")
+    let tableHeadRow = document.createElement("tr");
     let th = document.createElement("th");
     th.innerText = "";
     tableHeadRow.appendChild(th);
-    for (let i = 0; i < responseObject.table.head.length; ++i) {
-        let th = document.createElement("th")
-        th.innerText = responseObject.table.head[i]
-        tableHeadRow.appendChild(th)
+    for (let i = 0; i < responseObject.head.length; ++i) {
+        let th = document.createElement("th");
+        th.innerText = responseObject.head[i];
+        tableHeadRow.appendChild(th);
     }
 
-    table.appendChild(tableHeadRow)
+    table.appendChild(tableHeadRow);
 
-    for (let i = 0; i < responseObject.table.data.length; ++i) {
+    for (let i = 0; i < responseObject.data.length; ++i) {
         let tableRow = document.createElement("tr");
         let checkboxContainer = document.createElement("div");
         checkboxContainer.setAttribute("class", "checkboxContainer");
@@ -72,9 +72,9 @@ function loadTable(responseObject)
         checkbox.setAttribute("type", "checkbox");
         checkboxContainer.appendChild(checkbox);
         tableRow.appendChild(checkboxContainer);
-        for (let j = 0; j < responseObject.table.data[i].length; ++j) {
+        for (let j = 0; j < responseObject.data[i].length; ++j) {
             let tableData = document.createElement("td")
-            tableData.innerText = responseObject.table.data[i][j]
+            tableData.innerText = responseObject.data[i][j]
             tableRow.appendChild(tableData)
         }
         table.appendChild(tableRow)
@@ -111,4 +111,30 @@ function logout()
             }
         })
     }
+}
+
+function clickTable(clickedTable)
+{
+    tableName = clickedTable;
+    pageNumber = 1;
+    retrieveTable(tableName, pageNumber, limit);
+}
+
+function goToPreviousPage()
+{
+    if (pageNumber === 1) {
+        return;
+    }
+    retrieveTable(tableName, --pageNumber, limit);
+}
+
+function goToNextPage()
+{
+    retrieveTable(tableName, ++pageNumber, limit);
+}
+
+function goToCertainPage()
+{
+    pageNumber = document.getElementsByClassName("pageInput")[0].value || 1;
+    retrieveTable(tableName, pageNumber, limit);
 }
