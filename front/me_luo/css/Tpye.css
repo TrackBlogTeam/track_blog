@@ -103,10 +103,9 @@ p, span {
 	width: 70.5%;
 	height: 600px;
 	min-width: 1050px;
-	margin: 15px auto;
+	margin: 25px auto;
 	overflow: hidden;
-	padding: 10px;
-	background-color: #ededed;
+	background-color:rgba(0,0,0,0);
 }
 .navContent {
 	width:24%;
@@ -169,9 +168,6 @@ p, span {
 	padding-right: 44px;
 	display: block;
 	background-color: #F8F8FF;
-	background-image: url(images/logo_2.png);
-	background-repeat: no-repeat;
-	background-position: 25px center;
 }
 .firstInfo {
 	margin-left: 25px;
