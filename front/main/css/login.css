@@ -55,6 +55,8 @@
 	border-radius: 3px;
 	border-style: none;
 	background-color: #00d1a5;
+	text-align: center;
+	line-height: 2.55555;
 }
 
 .loginToSignIn{

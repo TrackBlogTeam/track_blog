@@ -45,7 +45,7 @@ function register(){
 			const responseObject = JSON.parse(response);
 			if(responseObject.code == 824){
 				alert("注册成功");
-				window.location.href = "login.html";
+				window.location.href = "https://www.track-blog.com/track_blog/front/me/a.html";
 			}else{
 				alert("注册失败");
 			}

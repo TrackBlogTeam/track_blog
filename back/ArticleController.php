@@ -48,7 +48,6 @@ class ArticleController extends Controller
         $articlePersonalID = count($this->databaseManager->getResult());
         $articleKey = $this->generateKey($articlePersonalID);
 
-
         try {
             //TODO: Discard the string with "<script></script>"
             // TODO: Use angle brackets to replace double braces

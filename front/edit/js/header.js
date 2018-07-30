@@ -48,26 +48,33 @@ function setTitle(title)
 }
 
 
-document.getElementById("pbBt").addEventListener('click', function ()
+function publishArticle(articleType)
 {
-
     //console.log(getAutoSave());
     /*此为通用接口只接受getTitle()和getAutoSave()*/
-    console.log(getTitle());
-    console.log(getAutoSave())
-    console.log(getHtml())
+    console.log("title: " + getTitle());
+    console.log("autosave: " + getAutoSave())
+
+    let htmlContent = getAutoSave();
+    let encodeDiv = document.createElement("div");
+    (encodeDiv.textContent != null) ? (encodeDiv.textContent = htmlContent) : (encodeDiv.innerText = htmlContent);
+    htmlContent = encodeDiv.innerHTML;
+    htmlContent = htmlContent.replace(/'/g, "&apos;");
+    htmlContent = htmlContent.replace(/"/g, '&quot;');
+    console.log(htmlContent);
+    htmlContent = encodeURIComponent(htmlContent);  // for &
+
     ajax({
-        url: "../../back/api/publish",
+        url: "https://www.track-blog.com/track_blog/back/api/publish.php",
         method: "POST",
         data: {
-            title: "TestArticle",
-            content: getHtml(),
-            articleType: "richText"
+            title: getTitle(),
+            content: htmlContent,
+            articleType: articleType
         },
         success: (response) =>
         {
-            const responseObject = JSON.parse(response)
-            console.log(responseObject)
+            console.log(response)
         }
     })
-})
+}

@@ -10,9 +10,8 @@ require_once("../Util.php");
 require_once("../User.php");
 require_once("../ArticleController.php");
 
-$message = $_POST["message"];
-$message = urldecode($message);
-$message = json_decode($message);
+// markdown直接json_decode即可
+$message = json_decode($_POST["message"]);
 
 session_start();
 
