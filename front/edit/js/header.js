@@ -50,13 +50,13 @@ function setTitle(title)
 
 function publishArticle(articleType)
 {
-    //console.log(getAutoSave());
-    /*此为通用接口只接受getTitle()和getAutoSave()*/
+    //console.log(getContent());
+    /*此为通用接口只接受getTitle()和getContent()*/
     console.log("title: " + getTitle());
-    console.log("autosave: " + getAutoSave())
+    console.log("autosave: " + getContent())
 
-    let htmlContent = getAutoSave();
-    let encodeDiv = document.createElement("div");
+    let htmlContent = getContent(); //获取内容
+    let encodeDiv = document.createElement("div");  
     (encodeDiv.textContent != null) ? (encodeDiv.textContent = htmlContent) : (encodeDiv.innerText = htmlContent);
     htmlContent = encodeDiv.innerHTML;
     htmlContent = htmlContent.replace(/'/g, "&apos;");
