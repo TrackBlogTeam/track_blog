@@ -16,7 +16,7 @@ class Util
     {
     }
 
-    public static function EndWithCode($code)
+    public static function endWithCode($code)
     {
         $messageBack = new stdClass();
         $messageBack->code = $code;
@@ -25,9 +25,12 @@ class Util
         // As a matter of fact, one request may exit(0) with the situation that doesn't occur any error.
     }
 
-    public static function ProcessMessage($message)
+    public static function getMessage()
     {
-        // TODO: Make sure this could process the message to a json object
-        return json_decode($message);
+        $dataObject = json_decode(file_get_contents("php://input"));
+        foreach ($dataObject as $key => $value) {
+            $dataObject->$key = htmlspecialchars($value);
+        }
+        return $dataObject;
     }
 }

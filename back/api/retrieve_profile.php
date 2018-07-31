@@ -11,7 +11,7 @@ require_once("../Util.php");
 session_start();
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["role"])) {
-    Util::EndWithCode(835);
+    Util::endWithCode(835);
 }
 
 // administrator's profile
@@ -33,5 +33,5 @@ else if ($_SESSION["role"] == "user") {
 
 // unknown role
 else {
-    Util::EndWithCode(836);
+    Util::endWithCode(836);
 }

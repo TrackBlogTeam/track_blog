@@ -13,10 +13,10 @@ require_once("../Util.php");
 require_once("../User.php");
 require_once("../UserController.php");
 
-$message = Util::ProcessMessage($_POST["message"]);
+$message = Util::getMessage();
 
 if (!isset($message->username) || !isset($message->password) || !isset($message->phoneNumber)) {
-    Util::EndWithCode(837);
+    Util::endWithCode(837);
 }
 
 $user = new User($message->username, $message->password, $message->phoneNumber);
@@ -24,10 +24,8 @@ $user = new User($message->username, $message->password, $message->phoneNumber);
 $userController = new UserController();
 
 if ($userController->addUser($user)) {
-    Util::EndWithCode(824);
+    Util::endWithCode(824);
 }
 else {
-    Util::EndWithCode(825);
+    Util::endWithCode(825);
 }
-
-echo json_encode($messageBack);

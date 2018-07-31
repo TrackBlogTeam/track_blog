@@ -37,11 +37,6 @@ class ArticleController extends Controller
 
     public function addArticle($user, $title, $content, $articleType)
     {
-        $title = $this->filterScript($title);
-        $content = $this->filterScript($content);
-        $title = htmlspecialchars($title);
-        $content = htmlspecialchars($content);
-
         //TODO: Optimize the efficiency of the query
         $sql = "SELECT * FROM article WHERE author_name='$user->username';";
         $this->databaseManager->execute($sql);
@@ -49,14 +44,12 @@ class ArticleController extends Controller
         $articleKey = $this->generateKey($articlePersonalID);
 
         try {
-            //TODO: Discard the string with "<script></script>"
-            // TODO: Use angle brackets to replace double braces
             $templatePath = null;
             if ($articleType == "markdown") {
-                $templatePath = dirname(__DIR__) . "/articles/" . "template_markdown.html";
+                $templatePath = dirname(__DIR__) . "/static/template/" . "template_markdown.html";
             }
             else if ($articleType == "richText") {
-                $templatePath = dirname(__DIR__) . "/articles/" . "template_richText.html";
+                $templatePath = dirname(__DIR__) . "/static/template/" . "template_richText.html";
             }
             else {
                 return false;
@@ -66,16 +59,10 @@ class ArticleController extends Controller
             $templateFileSize = filesize($templatePath);
             $templateString = fread($templateFile, $templateFileSize);
 
-            echo "The content is: ";
-            var_dump($content);
-            echo "The template is: ";
-            var_dump($templateString);
             $templateString = str_replace("<articleTitle></articleTitle>", $title . " - 轨迹博客", $templateString);
             $articleString = str_replace("<content></content>", $content, $templateString);
-            echo "The result is: ";
-            var_dump($articleString);
 
-            $articleFilePath = dirname(__DIR__) . "/articles/" . $user->username . "/" . $articleKey . ".html";
+            $articleFilePath = dirname(__DIR__) . "/users/" . $user->username . "/articles/" . $articleKey . ".html";
             $articleFile = fopen($articleFilePath, 'w');
             fwrite($articleFile, $articleString);
         }
@@ -99,10 +86,5 @@ class ArticleController extends Controller
             ++$count;
         }
         return $articlePersonalID . "-" . rand(pow(10, 6 - $count), pow(10, 7 - $count) - 1);
-    }
-
-    private function filterScript($str)
-    {
-        return str_replace("<script>", "", $str);
     }
 }

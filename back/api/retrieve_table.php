@@ -14,13 +14,13 @@ require_once("../UserController.php");
 session_start();
 
 if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "administrator") {
-    Util::EndWithCode(832);
+    Util::endWithCode(832);
 }
 
-$message = $_POST["message"];
-$message = Util::ProcessMessage($message);
+$message = Util::getMessage();
+
 if (!isset($message) || !isset($message->tableName) || !isset($message->pageNumber) || !isset($message->limit)) {
-    Util::EndWithCode(833);
+    Util::endWithCode(833);
 }
 
 $pageNumber = $message->pageNumber;
@@ -40,5 +40,5 @@ switch ($message->tableName) {
         echo json_encode($articleController->getOwnTable($pageNumber, $limit));
         break;
     default:
-        Util::EndWithCode(834);
+        Util::endWithCode(834);
 }

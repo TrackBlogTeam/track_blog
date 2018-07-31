@@ -12,24 +12,26 @@ require_once("../AdministratorController.php");
 require_once("../User.php");
 require_once("../UserController.php");
 
-$message = Util::ProcessMessage($_POST["message"]);
-// TODO: To filter and process data
+$message = Util::getMessage();
+
 session_start();
 
-if (isset($_SESSION["username"])) {   // already logged
-    Util::EndWithCode(814);
+if (!isset($message->username) || !isset($message->password)) { // username or password is in lack
+    Util::endWithCode(813);
 }
 
-// TODO: Force to login
+if (isset($_SESSION["username"])) {   // already logged
+    Util::endWithCode(814);
+}
 
-if (!isset($message->username) || !isset($message->password)) { // username or password is in lack
-    Util::EndWithCode(813);
+if (isset($_SESSION["username"]) && $_SESSION["username"] != $message->username) {  // force to login
+    Actor::logout();
 }
 
 if ($message->role == "administrator") {   // an administrator logs in
     $administrator = new Administrator($message->username, $message->password);
     $administratorController = new AdministratorController();
-    Util::EndWithCode($administratorController->administratorLogin($administrator));
+    Util::endWithCode($administratorController->administratorLogin($administrator));
 }
 
 else if ($message->role == "user") {       // a user logs in
@@ -37,14 +39,13 @@ else if ($message->role == "user") {       // a user logs in
     $userController = new UserController();
     if ($userController->userExists($user)) {  // // Success to login for user
         $user->login();
-        Util::EndWithCode(816);
-        // TODO: Unknown to what to send back to front
+        Util::endWithCode(816);
     }
     else {  // User's login fails for unmatched username and password
-        Util::EndWithCode(818);
+        Util::endWithCode(818);
     }
 }
 
 else {    // unknown role of sender of the message
-    Util::EndWithCode(815);
+    Util::endWithCode(815);
 }

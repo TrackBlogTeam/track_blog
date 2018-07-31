@@ -12,9 +12,9 @@ require_once("../Util.php");
 session_start();
 
 if (!isset($_SESSION["username"])) {   // not logged
-    Util::EndWithCode(821);
+    Util::endWithCode(821);
 }
 else {
     Actor::logout();
-    Util::EndWithCode(826);
+    Util::endWithCode(826);
 }

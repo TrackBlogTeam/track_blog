@@ -13,7 +13,7 @@ require_once("../User.php");
 session_start();
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["role"]) || $_SESSION["role"] != "user") {
-    Util::EndWithCode(836);
+    Util::endWithCode(836);
 }
 
 $articleController = new ArticleController();

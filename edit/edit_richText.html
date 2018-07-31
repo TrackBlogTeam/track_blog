@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布文章-轨迹博客</title>
+
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/rt_editor.css" />
+
+    <script src="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js"></script>
+
+    <script src="../static/js/ajax.js"></script>
+</head>
+
+<body>
+    <div id="trackBlogWebEditor">
+        <div class="richTextEditor">
+            <header class="editorHeader">
+                <!--上方标题栏-->
+                <div class="leftBox">
+                    <!--左边-->
+                    <nav class="navigatorForMe">
+                        <!--头像及下拉菜单-->
+                        <div class="meBt" onclick="clickMe()"></div>
+                        <div class="meMenu" id="meMenu" style="display: none;">
+                            <div class="LinkGroup">
+                                <a class="link" href="">写文章</a>
+                                <a class="link" href="">草稿</a>
+                                <a class="link" href="">我的主页</a>
+                                <a class="link" href="">我的收藏</a>
+                                <a class="link" href="">设置</a>
+                                <a class="link" href="">关于</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+
+                <div class="midBox">
+                    <!--中间部分（文章标题）-->
+                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput" id="title">
+                </div>
+                <div class="rightBox">
+                    <!--右边-->
+                    <div class="editorSwitcher" onclick="clickSwitch()">
+                        <!--编辑器切换-->
+                        <div class="rtfButton">
+                            <!--点击后出现下拉菜单-->
+                            <i class="iconMore">
+                                <!-- ::before -->
+                                <span>···</span>
+                            </i>
+                        </div>
+                        <div class="panel" id="switcher" style="display: none;"
+                        onclick="window.location.href='edit_markdown.html'">切换为Markdown编辑器</div>
+                    </div>
+
+                    <div class="autoSaving">
+                        文章将会自动
+                        <a href="" class="saveBt">保存为草稿</a>
+                    </div>
+
+                    <div class="publishForPanel">
+                        <!--发布选项-->
+                        <div class="postBt">
+                            <span class="post" onclick="clickPublish()">发布</span>
+                            <i class="iconPublishArrow">
+                                <!--点击后出现下拉菜单(箭头方向改变)-->
+                            </i>
+                        </div>
+
+                        <div class=panel id="publish" style="display: none;margin-top: .6rem">
+                            <!--发布选项下拉菜单-->
+                            <div class="title">发布文章</div>
+                            <div class="cutOffLine">--------------------</div>
+
+                            <div class="categoryBox">
+                                <div class="subTitle">选择分栏</div>
+                                <div class="categoryList">
+                                    <input type="radio" name="list" value="Java" checked class="item">Java
+                                    <br/>
+                                    <input type="radio" name="list" value="C++" class="item">C++
+                                    <br/>
+                                    <input type="radio" name="list" value="Python" class="item">Python
+                                    <br/>
+                                    <input type="radio" name="list" value="PHP" class="item">PHP
+                                </div>
+                            </div>
+                            <div class="cutOffLine">--------------------</div>
+
+
+                            <div class="tagBox">
+                                <div class="subTitle">填写标签</div>
+                                <div class="tagInput">
+                                    <input type="text" placeholder="在此填写标签..(选填)" class="tagText">
+                                </div>
+                            </div>
+
+
+                            <button class=publishBt id="pbBt" onclick="publishArticle('richText')">确认发布</button>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <div class="main" id="main">
+                <!-- <div class="leftRightBox" style="height: 100%;width: 100%;">
+
+                </div> -->
+                <div class="richEditor">
+                    <!--富文本编辑器-->
+                    <div class="rhEditor" id="rhEditor" style="width: 1024px;display: block">
+
+                        <div id="rhToolbar" class="rhToolbar" style="padding-top: 10px"></div>
+                        <div style="padding: 10px 0;color: white"></div>
+                        <div id="rhText" class="rhText" style="overflow-y: auto"></div>
+
+                    </div>
+                </div>
+                <!-- <div class="leftRightBox" style="height: 100%;width: 100%">
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/header.js"></script>
+    <script src="js/rt_main.js"></script>
+</body>
+
+</html>

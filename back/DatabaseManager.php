@@ -22,7 +22,7 @@ class DatabaseManager
     // Prevent directly creating an object
     private function __construct()
     {
-        require_once("secret.php");
+        require_once("other/secret.php");
         $this->server = $server;
         $this->username = $username;
         $this->password = $password;

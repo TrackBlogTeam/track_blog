@@ -10,16 +10,15 @@ require_once("../Util.php");
 require_once("../User.php");
 require_once("../ArticleController.php");
 
-// markdown直接json_decode即可
-$message = json_decode($_POST["message"]);
+$message = Util::getMessage();
 
 session_start();
 
 if (!isset($_SESSION["username"]) || $_SESSION["role"] == "administrator") {
-    Util::EndWithCode(828);
+    Util::endWithCode(828);
 }
 if (!isset($message->title) || !isset($message->content) || !isset($message->articleType)) {
-    Util::EndWithCode(831);
+    Util::endWithCode(831);
 }
 
 $username = $_SESSION["username"];
@@ -32,8 +31,8 @@ $user = new User($username);
 $articleController = new ArticleController();
 
 if ($articleController->addArticle($user, $title, $content, $articleType)) {
-    Util::EndWithCode(830);
+    Util::endWithCode(830);
 }
 else {
-    Util::EndWithCode(829);
+    Util::endWithCode(829);
 }
