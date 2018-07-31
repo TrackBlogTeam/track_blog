@@ -46,10 +46,10 @@ class ArticleController extends Controller
         try {
             $templatePath = null;
             if ($articleType == "markdown") {
-                $templatePath = dirname(__DIR__) . "/articles/" . "template_markdown.html";
+                $templatePath = dirname(__DIR__) . "/static/template/" . "template_markdown.html";
             }
             else if ($articleType == "richText") {
-                $templatePath = dirname(__DIR__) . "/articles/" . "template_richText.html";
+                $templatePath = dirname(__DIR__) . "/static/template/" . "template_richText.html";
             }
             else {
                 return false;
@@ -62,7 +62,7 @@ class ArticleController extends Controller
             $templateString = str_replace("<articleTitle></articleTitle>", $title . " - 轨迹博客", $templateString);
             $articleString = str_replace("<content></content>", $content, $templateString);
 
-            $articleFilePath = dirname(__DIR__) . "/articles/" . $user->username . "/" . $articleKey . ".html";
+            $articleFilePath = dirname(__DIR__) . "/users/" . $user->username . "/articles/" . $articleKey . ".html";
             $articleFile = fopen($articleFilePath, 'w');
             fwrite($articleFile, $articleString);
         }

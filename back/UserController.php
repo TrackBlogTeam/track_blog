@@ -51,7 +51,9 @@ class UserController extends Controller
         $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {
-            $path = dirname(__DIR__) . "/articles/" . $user->username;
+            $path = dirname(__DIR__) . "/users/" . $user->username;
+            mkdir($path);
+            $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
             mkdir($path);
         }
         return $this->databaseManager->getResult();
