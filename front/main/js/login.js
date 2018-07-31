@@ -1,6 +1,6 @@
 function login(){
     ajax({
-        url: "https://www.track-blog.com/track_blog/back/api/login.php",
+        url: "../../back/api/login.php",
         method: "POST",
         data: {
             role: "user",
