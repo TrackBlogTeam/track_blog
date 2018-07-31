@@ -169,6 +169,10 @@ p, span {
 	display: block;
 	background-color: #F8F8FF;
 }
+.list:hover
+{
+	background-color: #c3e8e8;
+}
 .firstInfo {
 	margin-left: 25px;
 	width: 73%;
@@ -244,11 +248,12 @@ p, span {
 	display: inline-block;
 }
 .secondInfo {
-	background-color: #feee0f;
-	float: left;
-	width: 700px;
 	margin-left: 25px;
+	width: 73%;
+	background-color: #F8F8FF;
+	float: left;
 	height: 600px;
+	box-shadow: 1px 1px 2px #717171;
 	
 }
 .status {
@@ -275,14 +280,22 @@ p, span {
 .thirdInfo {
 	margin-left: 25px;
 	width: 73%;
-	background-color: #adca7a;
+	background-color: #F8F8FF;
 	float: left;
 	height: 600px;
+	box-shadow: 1px 1px 2px #717171;
 }
-.fourInfo {
-	margin-left: 25px;
-	width: 73%;
-	background-color: #f87678;
-	float: left;
-	height: 600px;
+.change {
+	background-color: #FFF;
+	width: 20%;
+	height: 50px;
+	margin-top:50px;
+	margin-left:10%;
+	border-radius: 5%;
+	box-shadow: 0px 0px 2px #717171;
+	text-align:center;
+    line-height:50px;
+    font-size: 16px;
+	font-family: 'Microsoft Yahei';
+	cursor: pointer;
 }
