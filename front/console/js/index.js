@@ -100,7 +100,7 @@ function logout()
 {
     if (confirm("你确定要退出登录吗？")) {
         ajax({
-            url: "../../back/business.php",
+            url: "../../back/api/logout.php",
             method: "POST",
             data: {
                 type: "logout"
