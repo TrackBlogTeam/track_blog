@@ -6,6 +6,64 @@ editor.getSession().setMode("ace/mode/markdown");
 editor.renderer.setShowPrintMargin(false);
 editor.setOption('wrap', 'free'); //自动换行
 
+//跟随滚动
+
+//scrollTop  滚动条高度
+
+var currentTab=0;   //区分滚动容器
+var result = document.getElementById("result");
+var rp=document.getElementById("resultParent");
+var ep=document.getElementById("editorParent");
+var editorHeight; //文本内容高度
+var scale;
+
+ep.addEventListener('mouseover',function(){
+    currentTab=1;   //说明在编辑区
+    //console.log("\ncurrentTab:",currentTab);
+})
+
+result.addEventListener('mouseover',function(){
+    currentTab=2;   //说明在预览区
+    //console.log("\ncurrentTab:",currentTab);
+})
+
+editor.session.on('changeScrollTop',function(delta){
+    editorHeight=editor.getSession().getScreenLength()*editor.renderer.lineHeight; 
+    scale=rp.scrollHeight/editorHeight;
+    //console.log("active");
+    if(currentTab==1){
+        //r.scrollTop=l.scrollTop/scale
+        //console.log("\nresult scrollTop:",result.scrollTop);
+        rp.scrollTop=editor.renderer.getScrollTop()*scale;
+        //console.log("scale: ",scale);
+        //console.log("editor scrollTop:",editor.renderer.getScrollTop());
+        //console.log("result scrollTop:", result.scrollTop);
+    }
+    else
+        return;
+})
+
+rp.addEventListener('scroll',function(){
+
+    editorHeight=editor.getSession().getScreenLength()*editor.renderer.lineHeight; 
+    scale=editorHeight/rp.scrollHeight;
+
+    if(currentTab==2){
+        //l.scrollTop=r.scrollTop/scale
+        //console.log("\nresult sumScrollTop",rp.scrollHeight);
+        //console.log("editor Height:",editorHeight);
+        //editor.renderer.scrollTop=result.scrollTop/scale;
+        editor.session.setScrollTop(rp.scrollTop*scale);
+        //console.log("scale:",scale);
+        //console.log("result scrollTop",result.scrollTop);
+        //console.log("result scrollTop:",rp.scrollTop);
+        //console.log("editor scrollTop:",editor.renderer.getScrollTop());
+    }
+    else
+        return;
+})
+
+
 //自动存储的文本
 var saveText;
 
@@ -25,9 +83,9 @@ marked.setOptions({
 
 //统计字数
 function count(){
-    var acount=document.getElementById("Count");
+    var account=document.getElementById("Count");
     var length=document.getElementById("result").innerText.length;
-    acount.innerHTML="共 "+length+" 字";
+    account.innerHTML="共 "+length+" 字";
 }
 
 //marked
@@ -165,6 +223,8 @@ function getAutoSave(){
 editor.session.on('change',function(delta){
     //保存到saveText
     saveText=getContent();
+
+    //scale=(result.offsetHeight-rp.offsetHeight)/(editor.renderer.getScrollTop()-editorHeight);
 });
 
 
@@ -194,4 +254,25 @@ document.getElementById("codeBt").addEventListener('click',function(){
 
 document.getElementById("hLineBt").addEventListener('click',function(){
     insertHLine();
+});
+
+
+//显示或隐藏预览
+var isExpand=true;
+document.getElementById("expandOrShrinkBt").addEventListener('click',function(){
+    console.log(isExpand);
+    if(isExpand==true){
+        //隐藏预览
+        document.getElementById("preview").style.display="none";
+        //更改图标
+        document.getElementById("expandOrShrink").src="icons/shrink.png";
+        isExpand=false;
+    }
+    else{
+        //显示预览
+        document.getElementById("preview").style.display="flex";
+        //更改图标
+        document.getElementById("expandOrShrink").src="icons/expand.png";
+        isExpand=true;
+    }
 });

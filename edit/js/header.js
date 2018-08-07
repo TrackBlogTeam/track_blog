@@ -50,21 +50,31 @@ function setTitle(title)
 
 function publishArticle(articleType)
 {
+    //console.log(getContent());
+    /*此为通用接口只接受getTitle()和getContent()*/
+    console.log("title: " + getTitle());
+    console.log("autosave: " + getContent())
+
+    let htmlContent = getContent(); //获取内容
+    let encodeDiv = document.createElement("div");  
+    (encodeDiv.textContent != null) ? (encodeDiv.textContent = htmlContent) : (encodeDiv.innerText = htmlContent);
+    htmlContent = encodeDiv.innerHTML;
+    htmlContent = htmlContent.replace(/'/g, "&apos;");
+    htmlContent = htmlContent.replace(/"/g, '&quot;');
+    console.log(htmlContent);
+    htmlContent = encodeURIComponent(htmlContent);  // for &
+
     ajax({
-        url: "../../back/api/publish.php",
+        url: "https://www.track-blog.com/track_blog/back/api/publish.php",
         method: "POST",
         data: {
             title: getTitle(),
-            content: getContent(),
+            content: htmlContent,
             articleType: articleType
         },
         success: (response) =>
         {
-            const responseObject = JSON.parse(response);
-            if (responseObject.code === 830) {
-                alert('发布成功');
-                window.location.href = "https://www.track-blog.com/track_blog/main/main.html";
-            }
+            console.log(response)
         }
     })
 }
