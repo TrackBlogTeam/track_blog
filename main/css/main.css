@@ -132,6 +132,26 @@
     background-color: white;
     border-radius: 8px;
     z-index: 1002;
+    animation: opacity0To1 1s;
+    -webkit-animation: opacity0To1 1s;
+}
+
+@keyframes opacity0To1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes opacity0To1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 /*注册页面的标语*/
@@ -189,6 +209,8 @@
     background-color: white;
     border-radius: 8px;
     z-index: 1002;
+    animation: opacity0To1 1s;
+    -webkit-animation: opacity0To1 1s;
 }
 
 /*登陆页面的标题*/
