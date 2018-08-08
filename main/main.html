@@ -2,17 +2,43 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="logo_title.ico">
     <title>轨迹博客</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/main.js"></script>
 </head>
-<div class="menu mainColor">
-    <a class="register" href="register.html">注册</a>
-    <a class="login" href="login.html">登陆</a>
-</div>
-
 <body>
-<!--temporarily set as logo-min.png in console/src-->
-<img src="../console/src/logo-min.png" class="center">
+    <div id="background" class="mainBackground">
+        <a class="font logoText" href="main.html">TrackBlog</a>
+        <nav class="signUpAndSignIn">
+            <a href="javascript:void(0)" class="font topBar signUpButton" onclick="signUp()">SIGN UP</a>
+            <p class="font divideBar">|</p>
+            <a href="javascript:void(0)" class="font topBar signInButton" onclick="signIn()">SIGN IN</a>
+        </nav>
+        <h1 class="mainTextFont mainHeaderText">Say goodbye to the old blog</h1>
+        <p class="mainTextFont mainText">In TrackBlog, you can write anything you want! And to trace the track.</p>
+        <div class="imgDiv">
+            <img src="src/main_photo.png" alt="user id" class="mainImg">
+        </div>
+        <div id="signUpSite" class="signUpSite">
+            <h1 class="signUpTitle mainTextFont">Join us!</h1>
+            <input id="username" type="text" name="username" class="inputFrame" placeholder="User Name" required>
+            <input id="phonenumber" type="text" name="phonenumber" class="inputFrame"  placeholder="Phonenumber" required>
+            <input id="password" type="password" name="password" class="inputFrame" placeholder="Password" required>
+            <input id="confirmPassword" type="password" name="confirmPassword" class="inputFrame" placeholder="Password Again" required>
+            <div id="passwordNotMatch" class="passwordNotMatchWarnning"></div>
+            <button class="signUpConfirmButton" onclick="signUpConfirm()">Sign Up</button>
+        </div>
+        <div id="signInSite" class="signInSite">
+            <h1 class="signInTitle mainTextFont">Start now!</h1>
+            <div class="divideLine"></div>
+            <input id="phonenumber" type="text" name="phonenumber" class="inputFrame" placeholder="Phonenumber" required>
+            <input id="password" type="password" name="password" class="inputFrame" placeholder="Password" required>
+            <button class="signInConfirmButton" onclick="signInConfirm()">Sign In</button>
+            <div class="divideLine"></div>
+            <p class="mainTextFont signUpGuide">Haven't sign up?</p>
+            <button class="signInToSignUp">Sign Up</button>
+        </div>
+    </div>
+    <div id="blurBackground" class="blurBackground" onclick="backToMain()"></div>
 </body>
 </html>
