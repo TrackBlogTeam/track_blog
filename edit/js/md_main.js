@@ -108,7 +108,8 @@ function insertBold(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
-
+    var row=range.end.row;
+    var column=range.end.column+2;
     //替换用的文本
     rText="**"+text+"**";
 
@@ -117,11 +118,17 @@ function insertBold(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function insertItalic(){
     //获取选中的范围
     range=editor.getSelectionRange();
+    console.log(range);
+    var row=range.end.row;
+    var column=range.end.column+1;
     //获取选中的文本
     text=editor.session.getTextRange(range);
 
@@ -133,6 +140,9 @@ function insertItalic(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function insertStrike(){
@@ -140,6 +150,9 @@ function insertStrike(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+
+    var row=range.end.row;
+    var column=range.end.column+2;
 
     //替换用的文本
     rText="~~"+text+"~~";
@@ -149,6 +162,9 @@ function insertStrike(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function insertLink(){
@@ -156,6 +172,8 @@ function insertLink(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+    var row=range.end.row;
+    var column=range.end.column+1;
 
     //替换用的文本
     rText="["+text+"]()";
@@ -165,6 +183,9 @@ function insertLink(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function insertQuote(){
@@ -172,6 +193,8 @@ function insertQuote(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+    var row=range.end.row+1;
+    var column=range.end.column+2;
 
     //替换用的文本
     rText="\n> "+text;
@@ -181,6 +204,9 @@ function insertQuote(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function insertCode(){
@@ -189,6 +215,8 @@ function insertCode(){
     //获取选中的文本
     text=editor.session.getTextRange(range);
 
+    var row=range.end.row+1;
+    var column=range.end.column;
     //替换用的文本
     rText="```\n"+text+"\n```";
 
@@ -197,6 +225,9 @@ function insertCode(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function insertHLine(){
@@ -204,6 +235,8 @@ function insertHLine(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+    var row=range.end.row+2;
+    var column=range.end.column;
 
     //替换用的文本
     rText="\n---\n"+text;
@@ -213,6 +246,9 @@ function insertHLine(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.moveCursorTo(row,column);
 }
 
 function getAutoSave(){

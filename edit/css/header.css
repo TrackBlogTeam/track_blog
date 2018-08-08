@@ -15,11 +15,18 @@ div{
     display: block;
 }
 
-a:hover{
-    background-color: rgb(0, 0, 0, .04);
+a{
+    text-decoration:none;
+    color: #46fdc8;
 }
-a:active{
+a.link:hover{
+    background-color: rgb(0, 0, 0, .04);
+    color: #46fdc8;
+
+}
+a.link:active{
     background-color: rgb(0,0,0,.06);
+
 }
 
 input::-webkit-input-placeholder{
@@ -100,6 +107,8 @@ input{
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
+    margin-left: -10px;
+    margin-right: 10px;
 }
 
 .meMenu {
@@ -214,6 +223,7 @@ input{
     user-select: none;
     padding-left:1.2rem;
     padding-right:1.2rem;
+    padding-top: 5px;
 }
 
 .saveBt{
@@ -246,21 +256,25 @@ input{
 }
 
 .title {
-    margin-bottom: 1.5rem;
     font-size: 1.56rem;
     font-weight: 700;
     color: hsla(218, 9%, 51%, .8);
 }
 
-.cutOffLine {}
+.cutOffLine {
+    font-size: 1.334rem;
+    font-weight: 400;
+    color: hsla(218, 9%, 51%, .8);
+}
 
 .categoryBox {
-    margin-bottom: 1rem;
 }
 
 .subTitle {
     margin-bottom: 1rem;
     font-size: 1.334rem;
+    font-weight: 400;
+    color: hsla(218, 9%, 51%, .8);
 }
 
 .categoryList {
@@ -311,4 +325,16 @@ input{
     text-transform: none;
     overflow:visible;
     font: inherit;
+}
+
+.button.cta {
+    display: inline-block;
+    position: relative;
+    margin: 1.2em 0 1em 0;
+    padding: 1em;
+    background: #46fdc8;
+    border: none;
+    text-decoration: none;
+    font-weight: 700;
+    color: white;
 }
