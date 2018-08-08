@@ -5,6 +5,7 @@
     <title>轨迹博客</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="js/main.js"></script>
+    <script src="../static/js/ajax.js"></script>
 </head>
 <body>
     <div id="background" class="mainBackground">
@@ -19,6 +20,9 @@
         <div class="imgDiv">
             <img src="src/main_photo.png" alt="user id" class="mainImg">
         </div>
+    </div>
+    <div id="blurBackground" class="blurBackground" onclick="backToMain()"></div>
+    <div class="signUpSiteToCenter">
         <div id="signUpSite" class="signUpSite">
             <h1 class="signUpTitle mainTextFont">Join us!</h1>
             <input id="username" type="text" name="username" class="inputFrame" placeholder="User Name" required>
@@ -28,6 +32,8 @@
             <div id="passwordNotMatch" class="passwordNotMatchWarnning"></div>
             <button class="signUpConfirmButton" onclick="signUpConfirm()">Sign Up</button>
         </div>
+    </div>
+    <div class="signInSiteToCenter">
         <div id="signInSite" class="signInSite">
             <h1 class="signInTitle mainTextFont">Start now!</h1>
             <div class="divideLine"></div>
@@ -36,9 +42,8 @@
             <button class="signInConfirmButton" onclick="signInConfirm()">Sign In</button>
             <div class="divideLine"></div>
             <p class="mainTextFont signUpGuide">Haven't sign up?</p>
-            <button class="signInToSignUp">Sign Up</button>
+            <button class="signInToSignUp" onclick="signUp()">Sign Up</button>
         </div>
     </div>
-    <div id="blurBackground" class="blurBackground" onclick="backToMain()"></div>
 </body>
 </html>
