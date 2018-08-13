@@ -99,11 +99,8 @@ function logout()
 {
     if (confirm("你确定要退出登录吗？")) {
         ajax({
-            url: "https://www.track-blog.com/back/api/logout    .php",
+            url: "https://www.track-blog.com/back/api/sign_out.php",
             method: "POST",
-            data: {
-                type: "logout"
-            },
             success: () =>
             {
                 window.location.href = "login.html"

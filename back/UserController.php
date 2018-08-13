@@ -55,6 +55,7 @@ class UserController extends Controller
             mkdir($path);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
             mkdir($path);
+            // TODO: generate personal page
         }
         return $this->databaseManager->getResult();
     }

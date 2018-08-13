@@ -1,5 +1,5 @@
 ajax({
-    url: "https://www.track-blog.com/back/api/login.php",
+    url: "https://www.track-blog.com/back/api/sign_in.php",
     method: "POST",
     data: {
         role: "administrator",
@@ -18,7 +18,7 @@ function login()
 {
     let inputs = document.getElementsByTagName("input")
     ajax({
-        url: "https://www.track-blog.com/back/api/login.php",
+        url: "https://www.track-blog.com/back/api/sign_in.php",
         method: "POST",
         data: {
             role: "administrator",
