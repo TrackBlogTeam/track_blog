@@ -156,13 +156,13 @@
     opacity: 1;
 }
 .m-dropdown .e-list {
-    border-radius: 5px;
+    /* border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    -ms-border-radius: 5px;
+    -ms-border-radius: 5px; */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     position: absolute;
-    width: 180px;
+    width: 162px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -170,6 +170,10 @@
     float: left;
     overflow: hidden;
     z-index: 999;
+    margin-left: 9px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
 }
 .m-dropdown .e-list li {
     display: block;

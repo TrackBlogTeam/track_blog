@@ -10,27 +10,22 @@ function clickMe()
 }
 
 //点击转换编辑器
-function clickSwitch()
-{
-    var switcher = document.getElementById('switcher');
-    if (switcher.style.display == "none") {
-        switcher.style.display = "unset";
-    } else {
-        switcher.style.display = "none";
-    }
-}
+// function clickSwitch()
+// {
+//     var switcher = document.getElementById('switcher');
+//     if (switcher.style.display == "none") {
+//         // switcher.style.display = "unset";
+//         switcher.slideDown();
+//     } else {
+//         // switcher.style.display = "none";
+//         switcher.slideUp();
+//     }
+// }
 
-//点击发布
-function clickPublish()
-{
-    var publish = document.getElementById('publish');
-    if (publish.style.display == "none") {
-        publish.style.display = "unset";
-    } else {
-        publish.style.display = "none";
-    }
+$('.iconMore').bind('click',function(){
+    $('#switcher').toggle(500);
+})
 
-}
 
 
 //公共--
@@ -65,7 +60,7 @@ function publishArticle(articleType)
     htmlContent = encodeURIComponent(htmlContent);  // for &
 
     ajax({
-        url: "https://www.track-blog.com/track_blog/back/api/publish.php",
+        url: "https://www.track-blog.com/back/api/publish.php",
         method: "POST",
         data: {
             title: getTitle(),

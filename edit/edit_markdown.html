@@ -103,7 +103,7 @@
                     <!--编辑器切换-->
                     <div class="rtfButton">
                         <!--点击后出现下拉菜单-->
-                        <i class="iconMore" onclick="clickSwitch()">
+                        <i class="iconMore">
                             <!-- ::before -->
                             <span class="hvr-buzz-out">···</span>
                         </i>
@@ -140,7 +140,7 @@
 
                 <div class="publishForPanel">
                     <!--发布选项-->
-                    <a href="#menu" id="toggle" style="display: flex">
+                    <a href="#menu"  id="toggle" style="display: flex" onclick="clickPost()">
                         <div class="hvr-buzz-out" style="display: flex;width: 100%">
                             <div class="" style="display: block;width: 60%;height: 90px;
                             font-size: 1.5rem;margin-top: -8px;color:#007fff">
@@ -213,7 +213,7 @@
                         </div>
 
 
-                        <a href="" class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
+                        <a  class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
                         margin:0 auto;
                         padding: .6rem 1.2rem;
                         border-radius: 5px;
@@ -315,11 +315,7 @@
 
 
 
-<script>
-    //接入Ace
-    //var editor = ace.edit("editor");
-    editor
-</script>
+
 <script src="js/post.js"></script>
 <!--发布菜单-->
 <script src="js/slides.js"></script>
