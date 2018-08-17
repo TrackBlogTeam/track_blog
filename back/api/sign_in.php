@@ -39,6 +39,7 @@ else if ($message->role == "user") {       // a user logs in
     $userController = new UserController();
     if ($userController->userExists($user)) {  // // Success to login for user
         $user->login();
+        // TODO: Why user->login() here??? Not userController->login() ????
         Util::endWithCode(816);
     }
     else {  // User's login fails for unmatched username and password

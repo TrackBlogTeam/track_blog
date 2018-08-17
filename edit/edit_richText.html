@@ -28,7 +28,7 @@
 
     <script src="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js"></script>
 
-    <script src="../console/js/ajax.js"></script>
+    <script src="../static/js/ajax.js"></script>
 </head>
 
 <body>
@@ -69,8 +69,8 @@
                                 </ul>
                             </div>
                         </div>
-            
-            
+
+
                         <div class="midBox">
                             <!--中间部分（文章标题）-->
                             <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput" id="title">
@@ -105,7 +105,7 @@
                                 display: none;
                                 ">切换为Markdown编辑器</a>
                             </div>
-            
+
                             <div class="autoSaving" style="display: flex;align-items: center;">
                                 <div>文章将会自动</div>
                                 <a href="" class="hvr-buzz-out" style="margin: 0 0 0 .4em;
@@ -115,7 +115,7 @@
                                 border: 1px solid currentColor;
                                 border-radius: 2px;">保存为草稿</a>
                             </div>
-            
+
                             <div class="publishForPanel">
                                 <!--发布选项-->
                                 <a href="#menu" id="toggle" style="display: flex">
@@ -134,7 +134,7 @@
                                     <!--发布选项下拉菜单-->
                                     <div class="title">发布文章</div>
                                     <div class="cutOffLine">-------------------------</div>
-            
+
                                     <div class="categoryBox">
                                         <div class="subTitle">选择分栏</div>
                                         <div class="categoryList">
@@ -151,12 +151,12 @@
                                         </div>
                                     </div>
                                     <div class="cutOffLine">-------------------------</div>
-            
-            
+
+
                                     <div class="tagBox">
                                         <div class="subTitle">填写标签</div>
                                         <div id="boards" style="width: 90%;flex-direction: column">
-            
+
                                             <div class="board" id="board1">
                                                 <div class="head">可选</div>
                                                 <div class="cards" id="b1">
@@ -177,7 +177,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-            
+
                                             <div class="board" id="board2">
                                                 <div class="head">已选</div>
                                                 <div class="cards" id="b2">
@@ -186,12 +186,12 @@
                                                     </div> -->
                                                 </div>
                                             </div>
-            
+
                                         </div>
                                     </div>
-            
-            
-                                    <a href="" class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
+
+
+                                    <a class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
                                     margin:0 auto;
                                     padding: .6rem 1.2rem;
                                     border-radius: 5px;
@@ -205,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-            
+
                     </header>
 
             <div class="main" id="main">

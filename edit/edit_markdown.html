@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
@@ -47,12 +50,13 @@
     <!--highlight库引入-->
 
 
-    <script src="../console/js/ajax.js"></script>
+    <script src="../static/js/ajax.js"></script>
 </head>
 
 <!--[if lt IE 7]>
-            <p class="browseHappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<p class="browseHappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a>
+    to improve your experience.</p>
+<![endif]-->
 
 <div id="trackBlogWebEditor">
     <div class="markdownEditor">
@@ -95,7 +99,8 @@
 
             <div class="midBox">
                 <!--中间部分（文章标题）-->
-                <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput" id="title">
+                <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput"
+                       id="title">
             </div>
             <div class="rightBox">
                 <!--右边-->
@@ -213,7 +218,8 @@
                         </div>
 
 
-                        <a href="" class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
+                        <a href="javascript:void(0);" class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')"
+                           style="display: block;
                         margin:0 auto;
                         padding: .6rem 1.2rem;
                         border-radius: 5px;
@@ -244,31 +250,31 @@
                 <div class="editorFooter">
                     <!--底部工具栏-->
                     <a class="hvr-grow-shadow" id="boldBt">
-                        <img src="icons/bold.png" class="=icon" />
+                        <img src="icons/bold.png" class="=icon"/>
                     </a>
                     <a class="hvr-grow-shadow" id="italicBt">
-                        <img src="icons/italic.png" class="icon" />
+                        <img src="icons/italic.png" class="icon"/>
                     </a>
                     <a class="hvr-grow-shadow" id="strikeBt">
-                        <img src="icons/strikeThrough.png" class="icon" />
+                        <img src="icons/strikeThrough.png" class="icon"/>
                     </a>
                     <a class="hvr-grow-shadow" id="linkBt">
-                        <img src="icons/link.png" class="icon" />
+                        <img src="icons/link.png" class="icon"/>
                     </a>
                     <a class="hvr-grow-shadow" id="quoteBt">
-                        <img src="icons/quote.png" class="icon" />
+                        <img src="icons/quote.png" class="icon"/>
                     </a>
                     <a class="hvr-grow-shadow" id="codeBt">
-                        <img src="icons/code.png" class="icon" />
+                        <img src="icons/code.png" class="icon"/>
                     </a>
                     <a class="hvr-grow-shadow" id="hLineBt">
-                        <img src="icons/hLine.png" class="icon" />
+                        <img src="icons/hLine.png" class="icon"/>
                     </a>
                     <!-- <button class="ctlBt" title="更换主题">
                         <img src="icons/theme.png" class="icon" />
                     </button> -->
                     <a class="hvr-grow-shadow" href="https://www.appinn.com/markdown/basic.html" target="_blank">
-                        <img src="icons/md.png" class="icon" />
+                        <img src="icons/md.png" class="icon"/>
                     </a>
                     <div class=enlargeBlock>
                         <div style="width: 1.6rem;height: 1.6rem;"></div>
@@ -287,7 +293,7 @@
                         display: flex;
                         
                         justify-content: flex-end;">
-                            <img src="icons/expand.png" class="icon" id="expandOrShrink" />
+                            <img src="icons/expand.png" class="icon" id="expandOrShrink"/>
                         </a>
                     </div>
 
@@ -311,8 +317,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <script>

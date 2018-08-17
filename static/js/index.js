@@ -25,7 +25,7 @@ function signUpConfirm(){
 
     if(checkPassword == toCheckPassword){
         ajax({
-            url: "https://www.track-blog.com/track_blog/back/api/sign_up.php",
+            url: "https://www.track-blog.com/back/api/sign_up.php",
             method: "POST",
             data: {
                 username: document.getElementById("username").value,
@@ -36,7 +36,7 @@ function signUpConfirm(){
                 const responseObject = JSON.parse(response);
                 if(responseObject.code == 824){
                     alert("注册成功");
-                    window.location.href = "https://www.track-blog.com/track_blog/front/me/a.html";
+                    window.location.href = "https://www.track-blog.com/front/me/a.html";
                 }else{
                     alert("注册失败");
                 }

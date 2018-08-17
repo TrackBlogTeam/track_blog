@@ -16,10 +16,4 @@ marked.setOptions({
     }
 });
 
-console.log(divElement.innerHTML)
-let regularExpression = new RegExp("\&lt;", "g")
-let string = divElement.innerHTML.replace(regularExpression, "<")
-regularExpression = new RegExp("\&gt;", "g")
-string = string.replace(regularExpression, ">")
-console.log(string)
 divElement.innerHTML = marked(string, {breaks: true})

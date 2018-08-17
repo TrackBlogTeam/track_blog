@@ -44,18 +44,18 @@ class ArticleController extends Controller
         $articleKey = $this->generateKey($articlePersonalID);
 
         try {
-            $templatePath = dirname(__DIR__)."/static/template/"."template.html";
-//            $templatePath = null;
-//            if ($articleType === "markdown") {
-//                $templatePath = dirname(__DIR__) . "/static/template/" . "template_markdown.html";
-//            }
-//            else if ($articleType === "richText") {
-//                $templatePath = dirname(__DIR__) . "/static/template/" . "template_richText.html";
-//            }
-//            else {
-//                return false;
-//            }
+            $templatePath = null;
+            if ($articleType === "markdown") {
+                $templatePath = dirname(__DIR__) . "/static/template/" . "template_markdown.html";
+            }
+            else if ($articleType === "richText") {
+                $templatePath = dirname(__DIR__) . "/static/template/" . "template_richText.html";
+            }
+            else {
+                return false;
+            }
 
+            // todo: to chmod 777 each time
             $templateFile = fopen($templatePath, 'r');
             $templateFileSize = filesize($templatePath);
             $templateString = fread($templateFile, $templateFileSize);
