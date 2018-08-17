@@ -107,6 +107,25 @@ p, span {
 	overflow: hidden;
 	background-color:rgba(0,0,0,0);
 }
+.rightset {
+	display: none;
+	position: absolute;
+	width:150px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	right:0px; 
+	top:55px;
+	background-color: #F8F8FF;
+	box-shadow: 1px 1px 2px #717171;
+}
+.logout {
+	text-align:center;
+    line-height:30px;
+    font-size: 16px;
+	font-family: 'Microsoft Yahei';
+	background-color: #fff;
+	height:30px;
+}
 .navContent {
 	width:24%;
 	float: left;

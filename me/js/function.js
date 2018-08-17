@@ -23,7 +23,9 @@ $(function(){
 	
 	$(".navContent,.container>div").hide();
 	$(".navContent,.container>div:eq(0)").fadeIn(1000);	
-	
+	$('.administratorPortrait').click(function () {
+         $(".rightset").slideToggle(300);	
+    });
 	$(".navContent a").click(function(){
 		var n = $(".navContent a").index(this);
 		$(".navContent a").index(this);
