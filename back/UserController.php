@@ -52,9 +52,11 @@ class UserController extends Controller
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {
             $path = dirname(__DIR__) . "/users/" . $user->username;
-            mkdir($path);
+            mkdir($path, 0777);
+            umask($path, 0777);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
-            mkdir($path);
+            mkdir($path, 0777);
+            umask($path, 0777);
             // TODO: generate personal page
         }
         return $this->databaseManager->getResult();
