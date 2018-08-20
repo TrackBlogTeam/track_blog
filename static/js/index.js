@@ -20,17 +20,17 @@ function signIn(){
 }
 
 function signUpConfirm(){
-    var checkPassword = document.getElementById("confirmPassword").value;
-    var toCheckPassword = document.getElementById("password").value;
+    var checkPassword = document.getElementById("confirmPasswordInSignUp").value;
+    var toCheckPassword = document.getElementById("passwordInSignUp").value;
 
     if(checkPassword == toCheckPassword){
         ajax({
             url: "https://www.track-blog.com/back/api/sign_up.php",
             method: "POST",
             data: {
-                username: document.getElementById("username").value,
-                password: document.getElementById("password").value,
-                phoneNumber: document.getElementById("phonenumber").value
+                username: document.getElementById("usernameInSignUp").value,
+                password: document.getElementById("passwordInSignUp").value,
+                phoneNumber: document.getElementById("phonenumberInSignUp").value
             },
             success: (response) => {
                 const responseObject = JSON.parse(response);
@@ -49,5 +49,28 @@ function signUpConfirm(){
 }
 
 function signInConfirm(){
+    ajax({
+        url: "https://www.track-blog.com/back/api/sign_in.php",
+        method: "POST",
+        data: {
+            role: "user",
+            username: document.getElementById("usernameInSignIn").value,
+            password: document.getElementById("passwordInSignIn").value
+        },
+        success: (response) =>{
+            const responseObject = JSON.parse(response);
+            if(responseObject.code == 816){
+                alert("登陆成功！")
+                window.location.href = "../me/a.html";
+            }else if(responseObject.code == 818){
+                alert("账号与密码不匹配!");
+            }else{
+                alert("登陆失败！")
+            }
+        }
+    })
+}
 
+function test(){
+    document.getElementById("notification").innerHTML="密码错误！！！！";
 }
