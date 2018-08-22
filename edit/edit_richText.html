@@ -34,179 +34,181 @@
 <body>
     <div id="trackBlogWebEditor">
         <div class="richTextEditor">
-                <header class="editorHeader">
-                        <!--上方标题栏-->
-                        <div class="leftBox">
-                            <!--左边-->
-                            <div class="m-dropdown">
-                                <!--头像及下拉菜单-->
-                                <div class="e-button open" style="width: 90%;display: flex;align-items: center">
-                                    <div class="meBt" id="meBt"></div>
-                                    <div>Click me</div>
-                                    <div class="e-burger">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                                <ul class="e-list" style="text-align: center">
-                                    <li>
-                                        <a href="">Item 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Item 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Item 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Item 4</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Item 5</a>
-                                    </li>
-                                </ul>
+            <header class="editorHeader">
+                <!--上方标题栏-->
+                <div class="leftBox">
+                    <!--左边-->
+                    <div class="m-dropdown">
+                        <!--头像及下拉菜单-->
+                        <div class="e-button open" style="width: 90%;display: flex;align-items: center">
+                            <div class="meBt" id="meBt"></div>
+                            <div>Click me</div>
+                            <div class="e-burger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
                         </div>
-
-
-                        <div class="midBox">
-                            <!--中间部分（文章标题）-->
-                            <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput" id="title">
+                        <ul class="e-list" style="text-align: center">
+                            <li>
+                                <a href="">Item 1</a>
+                            </li>
+                            <li>
+                                <a href="">Item 2</a>
+                            </li>
+                            <li>
+                                <a href="">Item 3</a>
+                            </li>
+                            <li>
+                                <a href="">Item 4</a>
+                            </li>
+                            <li>
+                                <a href="">Item 5</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+    
+                <div class="midBox">
+                    <!--中间部分（文章标题）-->
+                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput form-control flat"
+                           id="title">
+                </div>
+                <div class="rightBox">
+                    <!--右边-->
+                    <div class="editorSwitcher">
+                        <!--编辑器切换-->
+                        <div class="rtfButton">
+                            <!--点击后出现下拉菜单-->
+                            <i class="iconMore">
+                                <!-- ::before -->
+                                <span class="hvr-buzz-out">···</span>
+                            </i>
                         </div>
-                        <div class="rightBox">
-                            <!--右边-->
-                            <div class="editorSwitcher">
-                                <!--编辑器切换-->
-                                <div class="rtfButton">
-                                    <!--点击后出现下拉菜单-->
-                                    <i class="iconMore" onclick="clickSwitch()">
-                                        <!-- ::before -->
-                                        <span class="hvr-buzz-out">···</span>
-                                    </i>
+                        <a href="edit_richText.html" target="_blank" class="hvr-underline-reveal" id="switcher" style="position:absolute;
+                        margin-top: 1.45rem;
+                        padding: 1rem 2rem;
+                        top: 100%;
+                        left: 50%;
+                        font-size:1.2rem;
+                        white-space: nowrap;
+                        color: #909090;
+                        background-color: #fff;
+                        border:1px solid #ddd;
+                        border-radius: 2px;
+                        box-shadow: 0 1px 2px #f1f1f1;
+                        -webkit-transform: translate(-50%);
+                        transform: translate(-50%);
+                        cursor: pointer;
+                        z-index: 100;
+                        display: none;
+                        ">切换为富文本编辑器</a>
+                    </div>
+    
+                    <div class="autoSaving" style="display: flex;align-items: center;">
+                        <div>文章将会自动</div>
+                        <a href="" class="hvr-buzz-out" style="margin: 0 0 0 .4em;
+                        padding: .2em .4em;
+                        color: inherit;
+                        text-decoration: none;
+                        border: 1px solid currentColor;
+                        border-radius: 2px;">保存为草稿</a>
+                    </div>
+    
+                    <div class="publishForPanel">
+                        <!--发布选项-->
+                        <a href="#menu"  id="toggle" style="display: flex" onclick="clickPost()">
+                            <div class="hvr-buzz-out" style="display: flex;width: 100%">
+                                <div class="" style="display: block;width: 60%;height: 90px;
+                                font-size: 1.5rem;margin-top: -8px;color:#007fff">
+                                    发布
                                 </div>
-                                <a href="edit_markdown.html" target="_blank" class="hvr-underline-reveal" id="switcher" style="position:absolute;
-                                margin-top: 1.45rem;
-                                padding: 1rem 2rem;
-                                top: 100%;
-                                left: 50%;
-                                font-size:1.2rem;
-                                white-space: nowrap;
-                                color: #909090;
-                                background-color: #fff;
-                                border:1px solid #ddd;
-                                border-radius: 2px;
-                                box-shadow: 0 1px 2px #f1f1f1;
-                                -webkit-transform: translate(-50%);
-                                transform: translate(-50%);
-                                cursor: pointer;
-                                z-index: 100;
-                                display: none;
-                                ">切换为Markdown编辑器</a>
+                                <span style="
+                                    display: block;
+                                    width: 40%;
+                                "></span>
                             </div>
-
-                            <div class="autoSaving" style="display: flex;align-items: center;">
-                                <div>文章将会自动</div>
-                                <a href="" class="hvr-buzz-out" style="margin: 0 0 0 .4em;
-                                padding: .2em .4em;
-                                color: inherit;
-                                text-decoration: none;
-                                border: 1px solid currentColor;
-                                border-radius: 2px;">保存为草稿</a>
-                            </div>
-
-                            <div class="publishForPanel">
-                                <!--发布选项-->
-                                <a href="#menu" id="toggle" style="display: flex">
-                                    <div class="hvr-buzz-out" style="display: flex;width: 100%">
-                                        <div class="" style="display: block;width: 60%;height: 90px;
-                                        font-size: 1.5rem;margin-top: -8px;color:#007fff">
-                                            发布
-                                        </div>
-                                        <span style="
-                                            display: block;
-                                            width: 40%;
-                                        "></span>
+                        </a>
+                        <div id="menu">
+                            <!--发布选项下拉菜单-->
+                            <div class="title">发布文章</div>
+                            <div class="cutOffLine">-------------------------</div>
+    
+                            <div class="categoryBox">
+                                <div class="subTitle">选择分栏</div>
+                                <div class="categoryList">
+                                    <div class="toggle-button toggle-button--nummi">
+                                        <input id="toggleButton16" name="radio6" type="radio">
+                                        <label for="toggleButton16" data-text="公开" style="color: #669999"></label>
+                                        <div class="toggle-button__icon"></div>
                                     </div>
-                                </a>
-                                <div id="menu">
-                                    <!--发布选项下拉菜单-->
-                                    <div class="title">发布文章</div>
-                                    <div class="cutOffLine">-------------------------</div>
-
-                                    <div class="categoryBox">
-                                        <div class="subTitle">选择分栏</div>
-                                        <div class="categoryList">
-                                            <div class="toggle-button toggle-button--nummi">
-                                                <input id="toggleButton16" name="radio6" type="radio">
-                                                <label for="toggleButton16" data-text="公开" style="color: #669999"></label>
-                                                <div class="toggle-button__icon"></div>
-                                            </div>
-                                            <div class="toggle-button toggle-button--nummi">
-                                                <input id="toggleButton17" name="radio6" type="radio">
-                                                <label for="toggleButton17" data-text="私密" style="color: #BC3425"></label>
-                                                <div class="toggle-button__icon"></div>
-                                            </div>
-                                        </div>
+                                    <div class="toggle-button toggle-button--nummi">
+                                        <input id="toggleButton17" name="radio6" type="radio">
+                                        <label for="toggleButton17" data-text="私密" style="color: #BC3425"></label>
+                                        <div class="toggle-button__icon"></div>
                                     </div>
-                                    <div class="cutOffLine">-------------------------</div>
-
-
-                                    <div class="tagBox">
-                                        <div class="subTitle">填写标签</div>
-                                        <div id="boards" style="width: 90%;flex-direction: column">
-
-                                            <div class="board" id="board1">
-                                                <div class="head">可选</div>
-                                                <div class="cards" id="b1">
-                                                    <div class="card">
-                                                        <span class="cardtitle noselect">标签1</span>
-                                                    </div>
-                                                    <div class="card">
-                                                        <span class="cardtitle noselect">标签2</span>
-                                                    </div>
-                                                    <div class="card">
-                                                        <span class="cardtitle noselect">标签3</span>
-                                                    </div>
-                                                    <div class="card">
-                                                        <span class="cardtitle noselect">标签4</span>
-                                                    </div>
-                                                    <div class="card">
-                                                        <span class="cardtitle noselect">标签5</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="board" id="board2">
-                                                <div class="head">已选</div>
-                                                <div class="cards" id="b2">
-                                                    <!-- <div class="card">
-                                                        <span class="cardtitle">标签5</span>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-                                    <a class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
-                                    margin:0 auto;
-                                    padding: .6rem 1.2rem;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    transition: all .2s;
-                                    text-transform: none;
-                                    overflow:visible;
-                                    border: 1px solid #007fff;
-                                    background: #fff;
-                                    font: inherit;">确认发布</a>
                                 </div>
                             </div>
+                            <div class="cutOffLine">-------------------------</div>
+    
+    
+                            <div class="tagBox">
+                                <div class="subTitle">填写标签</div>
+                                <div id="boards" style="width: 90%;flex-direction: column">
+    
+                                    <div class="board" id="board1">
+                                        <div class="head">可选</div>
+                                        <div class="cards" id="b1">
+                                            <div class="card">
+                                                <span class="cardtitle noselect">标签1</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">标签2</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">标签3</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">标签4</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">标签5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="board" id="board2">
+                                        <div class="head">已选</div>
+                                        <div class="cards" id="b2">
+                                            <!-- <div class="card">
+                                                <span class="cardtitle">标签5</span>
+                                            </div> -->
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+    
+    
+    
+                            <a  class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
+                            margin:0 auto;
+                            padding: .6rem 1.2rem;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            transition: all .2s;
+                            text-transform: none;
+                            overflow:visible;
+                            border: 1px solid #007fff;
+                            background: #fff;
+                            font: inherit;">确认发布</a>
                         </div>
-
-                    </header>
+                    </div>
+                </div>
+    
+            </header>
 
             <div class="main" id="main">
                 <!-- <div class="leftRightBox" style="height: 100%;width: 100%;">
@@ -229,14 +231,12 @@
         </div>
     </div>
 
-    <script src="js/header.js"></script>
     <script src="js/rt_main.js"></script>
     <script src="js/post.js"></script>
 <!--发布菜单-->
 <script src="js/slides.js"></script>
 <!--头像菜单-->
 <script src="js/header.js"></script>
-<script src="js/md_main.js"></script>
 <!--主体-->
 <script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
 <script src="js/dragula.js"></script>

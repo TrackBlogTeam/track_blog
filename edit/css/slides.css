@@ -33,10 +33,10 @@
 .m-dropdown .e-button:hover {
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    color: #669999;
+    color: #16A085;
 }
 .m-dropdown .e-button:hover .e-burger span {
-    background: #669999;
+    background: #16A085;
 }
 .m-dropdown .e-button:after,
 .m-dropdown .e-button:before {
@@ -134,10 +134,10 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);   /*阴影*/
-    color: #669999;
+    color: #1ABC9C;
 }
 .m-dropdown .e-button.open .e-burger span {
-    background: #669999;
+    background: #1ABC9C;
 }
 .m-dropdown .e-button.open .e-burger span:first-child {
     opacity: 0;
@@ -195,12 +195,12 @@
     float: left;
     width: 100%;
     text-decoration: none;
-    color: #669999;
+    color: #1ABC9C;
     font-size: 1.2rem;
     font-weight: 600;
     box-sizing: border-box;
 }
 .m-dropdown .e-list li a:hover {
-    background: #669999;
+    background: #16A085;
     color: #fff;
 }

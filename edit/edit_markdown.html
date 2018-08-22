@@ -16,6 +16,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <!--Flat-UI-->
+
     <link href="css/hover-min.css" rel="stylesheet">
     <!--button动效-->
 
@@ -78,19 +81,22 @@
                     </div>
                     <ul class="e-list" style="text-align: center">
                         <li>
-                            <a href="">Item 1</a>
+                            <a href="">个人主页</a>
                         </li>
                         <li>
-                            <a href="">Item 2</a>
+                            <a href="">
+                                消息
+                                <span class=navbar-new style="margin-top:-20px" id="tips">2</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="">Item 3</a>
+                            <a href="">草稿箱</a>
                         </li>
                         <li>
-                            <a href="">Item 4</a>
+                            <a href="">设置</a>
                         </li>
                         <li>
-                            <a href="">Item 5</a>
+                            <a href="">退出</a>
                         </li>
                     </ul>
                 </div>
@@ -99,8 +105,7 @@
 
             <div class="midBox">
                 <!--中间部分（文章标题）-->
-                <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput"
-                       id="title">
+                <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput form-control flat" id="title">
             </div>
             <div class="rightBox">
                 <!--右边-->
@@ -145,10 +150,10 @@
 
                 <div class="publishForPanel">
                     <!--发布选项-->
-                    <a href="#menu"  id="toggle" style="display: flex" onclick="clickPost()">
+                    <a href="#menu" id="toggle" style="display: flex" onclick="clickPost()">
                         <div class="hvr-buzz-out" style="display: flex;width: 100%">
-                            <div class="" style="display: block;width: 60%;height: 90px;
-                            font-size: 1.5rem;margin-top: -8px;color:#007fff">
+                            <div  style="display: block;width: 60%;height: 90px;
+                            font-size: 1.5rem;margin-top: -8px;color:#1ABC9C">
                                 发布
                             </div>
                             <span style="
@@ -167,12 +172,12 @@
                             <div class="categoryList">
                                 <div class="toggle-button toggle-button--nummi">
                                     <input id="toggleButton16" name="radio6" type="radio">
-                                    <label for="toggleButton16" data-text="公开" style="color: #669999"></label>
+                                    <label for="toggleButton16" data-text="公开" style="color: #1ABC9C"></label>
                                     <div class="toggle-button__icon"></div>
                                 </div>
                                 <div class="toggle-button toggle-button--nummi">
                                     <input id="toggleButton17" name="radio6" type="radio">
-                                    <label for="toggleButton17" data-text="私密" style="color: #BC3425"></label>
+                                    <label for="toggleButton17" data-text="私密" style="color: #E74C3C"></label>
                                     <div class="toggle-button__icon"></div>
                                 </div>
                             </div>
@@ -181,10 +186,10 @@
 
 
                         <div class="tagBox">
-                            <div class="subTitle">填写标签</div>
+                            <div class="subTitle">拖拽标签</div>
                             <div id="boards" style="width: 90%;flex-direction: column">
 
-                                <div class="board" id="board1">
+                                <div class="board" id="board1" style="border:1px solid #E74C3C">
                                     <div class="head">可选</div>
                                     <div class="cards" id="b1">
                                         <div class="card">
@@ -199,18 +204,13 @@
                                         <div class="card">
                                             <span class="cardtitle noselect">标签4</span>
                                         </div>
-                                        <div class="card">
-                                            <span class="cardtitle noselect">标签5</span>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="board" id="board2">
+                                <div class="board" id="board2" style="border:1px solid #1ABC9C">
                                     <div class="head">已选</div>
                                     <div class="cards" id="b2">
-                                        <!-- <div class="card">
-                                            <span class="cardtitle">标签5</span>
-                                        </div> -->
+                                        
                                     </div>
                                 </div>
 
@@ -219,7 +219,7 @@
 
 
 
-                        <a  class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
+                        <a class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
                         margin:0 auto;
                         padding: .6rem 1.2rem;
                         border-radius: 5px;
@@ -227,7 +227,7 @@
                         transition: all .2s;
                         text-transform: none;
                         overflow:visible;
-                        border: 1px solid #007fff;
+                        border: 1px solid #1ABC9C;
                         background: #fff;
                         font: inherit;">确认发布</a>
                     </div>
@@ -250,31 +250,31 @@
                 <div class="editorFooter">
                     <!--底部工具栏-->
                     <a class="hvr-grow-shadow" id="boldBt">
-                        <img src="icons/bold.png" class="=icon"/>
+                        <img src="icons/bold.png" class="=icon" />
                     </a>
                     <a class="hvr-grow-shadow" id="italicBt">
-                        <img src="icons/italic.png" class="icon"/>
+                        <img src="icons/italic.png" class="icon" />
                     </a>
                     <a class="hvr-grow-shadow" id="strikeBt">
-                        <img src="icons/strikeThrough.png" class="icon"/>
+                        <img src="icons/strikeThrough.png" class="icon" />
                     </a>
                     <a class="hvr-grow-shadow" id="linkBt">
-                        <img src="icons/link.png" class="icon"/>
+                        <img src="icons/link.png" class="icon" />
                     </a>
                     <a class="hvr-grow-shadow" id="quoteBt">
-                        <img src="icons/quote.png" class="icon"/>
+                        <img src="icons/quote.png" class="icon" />
                     </a>
                     <a class="hvr-grow-shadow" id="codeBt">
-                        <img src="icons/code.png" class="icon"/>
+                        <img src="icons/code.png" class="icon" />
                     </a>
                     <a class="hvr-grow-shadow" id="hLineBt">
-                        <img src="icons/hLine.png" class="icon"/>
+                        <img src="icons/hLine.png" class="icon" />
                     </a>
                     <!-- <button class="ctlBt" title="更换主题">
                         <img src="icons/theme.png" class="icon" />
                     </button> -->
                     <a class="hvr-grow-shadow" href="https://www.appinn.com/markdown/basic.html" target="_blank">
-                        <img src="icons/md.png" class="icon"/>
+                        <img src="icons/md.png" class="icon" />
                     </a>
                     <div class=enlargeBlock>
                         <div style="width: 1.6rem;height: 1.6rem;"></div>
@@ -293,7 +293,7 @@
                         display: flex;
                         
                         justify-content: flex-end;">
-                            <img src="icons/expand.png" class="icon" id="expandOrShrink"/>
+                            <img src="icons/expand.png" class="icon" id="expandOrShrink" />
                         </a>
                     </div>
 
@@ -306,11 +306,11 @@
             <div class="contentPreview" id="preview">
                 <!--预览区域-->
                 <div class="contentWrapper" id="resultParent">
-                    <div class="markdown-body preview" id="result"></div>
+                    <div class="markdown-body preview" id="result" style="color:#34495e"></div>
                 </div>
                 <div class="previewFoot">
-                    <div class="previewTitle">预览</div>
-                    <div class="wordCount" id="Count">字数</div>
+                    <div class="previewTitle" style="color:#b2bcc5">预览</div>
+                    <div class="wordCount" id="Count" style="color:#b2bcc5">字数</div>
                 </div>
 
             </div>

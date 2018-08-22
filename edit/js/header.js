@@ -22,8 +22,9 @@ function clickMe()
 //     }
 // }
 
+//jqurey实现动态下拉
 $('.iconMore').bind('click',function(){
-    $('#switcher').toggle(500);
+    $('#switcher').slideToggle(300);
 })
 
 
