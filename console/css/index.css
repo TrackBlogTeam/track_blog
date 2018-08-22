@@ -45,7 +45,7 @@ body
 .logoIcon
 {
     background-size: 80% 80%;
-    background-image: url(../src/logo-min.png);
+    /*background-image: url(../src/logo-min.png);*/
 }
 
 .logoWord

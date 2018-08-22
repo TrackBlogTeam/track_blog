@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/index.css"/>
     <!--<link rel="stylesheet" href="css/element-ui.css"/>-->
     <script src="../static/js/ajax.js"></script>
-    <!--<script src="js/vue.js"></script>-->
-    <script src="js/vue.min.js"></script>
+    <script src="js/vue.js"></script>
+    <!--<script src="js/vue.min.js"></script>-->
     <title>轨迹博客控制台</title>
 </head>
 <body>
@@ -120,16 +120,9 @@
                     <li class="previous">
                         <a href="#" class="fui-arrow-left"></a>
                     </li>
-                    <li><a>1</a></li>
-                    <li><a>2</a></li>
-                    <li><a>3</a></li>
-                    <li><a>4</a></li>
-                    <li><a>5</a></li>
-                    <li><a>6</a></li>
-                    <li><a>7</a></li>
-                    <li><a>8</a></li>
-                    <li><a>9</a></li>
-                    <li><a>10</a></li>
+                    <li v-for="number in pageNumbers">
+                        <a>{{number}}</a>
+                    </li>
                     <li class="next">
                         <a href="#" class="fui-arrow-right"></a>
                     </li>

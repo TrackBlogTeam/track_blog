@@ -1,11 +1,8 @@
 let app = new Vue({
     el: '#app',
     data: {
-        test: false,
-        sidebarExpanses: ["test", "test", "test"],
-        sidebarTest: {
-            first: false
-        },
+        currentPage: 1,
+        pageNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         tableName: "user",
         table: {
             head: [],
@@ -13,6 +10,18 @@ let app = new Vue({
         }
     },
     methods: {
+        nextPage: function () {
+        },
+        previousPage: function () {
+            if (this.currentPage == 1) {
+                return;
+            } else {
+                this.currentPage -= 1;
+                for (let i = 0; i < this.pageNumbers.length; ++i) {
+                    this.pageNumbers[i] = this.currentPage + i;
+                }
+            }
+        },
         toggleExpand: function (event) {
             const element = event.currentTarget;
             let targetElement = element.nextElementSibling
@@ -51,4 +60,4 @@ let app = new Vue({
     }
 });
 
-app.retrieveTable(app.tableName, 1, 10);
+// app.retrieveTable(app.tableName, 1, 10);
