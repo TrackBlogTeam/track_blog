@@ -1,7 +1,8 @@
 let app = new Vue({
     el: '#app',
     data: {
-        currentPage: 1,
+        recordsPerPage: 10,
+        currentPageNumber: 1,
         pageNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         tableName: "user",
         table: {
@@ -10,17 +11,22 @@ let app = new Vue({
         }
     },
     methods: {
+        jumpTo: function (pageNumber) {
+            console.log('Entering jumpTo');
+            if (typeof pageNumber === "number") {
+                console.log('Jump to ' + pageNumber);
+                app.retrieveTable(app.tableName, pageNumber, app.recordsPerPage);
+            } else {
+                const event = pageNumber;
+                console.log('Jump to ' + event.target.previousElementSibling.value);
+                app.retrieveTable(app.tableName, event.target.previousElementSibling.value, app.recordsPerPage);
+            }
+        },
         nextPage: function () {
+            app.retrieveTable(app.tableName, app.currentPageNumber + 1, app.recordsPerPage);
         },
         previousPage: function () {
-            if (this.currentPage == 1) {
-                return;
-            } else {
-                this.currentPage -= 1;
-                for (let i = 0; i < this.pageNumbers.length; ++i) {
-                    this.pageNumbers[i] = this.currentPage + i;
-                }
-            }
+            app.retrieveTable(app.tableName, app.currentPageNumber - 1, app.recordsPerPage);
         },
         toggleExpand: function (event) {
             const element = event.currentTarget;
@@ -45,19 +51,23 @@ let app = new Vue({
                     limit: limit,
                     tableName: tableName
                 },
-                success: (response) => {
+                success: function (response) {
                     const responseObject = JSON.parse(response);
-                    this.loadTable(responseObject);
+                    if (responseObject === null || typeof responseObject.head === undefined) {
+                        return;
+                    }
+                    app.table = responseObject;
+                    app.tableName = tableName;
+                    app.currentPageNumber = parseInt(pageNumber);
+                    console.log('Current page number is set to ' + pageNumber);
+                    console.log(app);
+                    for (let i = 0; i < app.pageNumbers.length; ++i) {
+                        app.pageNumbers[i] = app.currentPageNumber + i;
+                    }
                 }
             })
-        },
-        loadTable: function (table) {
-            if (table === null || typeof table.head === "undefined") {
-                return;
-            }
-            this.table = table
         }
     }
 });
 
-// app.retrieveTable(app.tableName, 1, 10);
+app.retrieveTable(app.tableName, 1, 10);

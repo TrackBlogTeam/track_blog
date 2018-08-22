@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/index.css"/>
     <!--<link rel="stylesheet" href="css/element-ui.css"/>-->
     <script src="../static/js/ajax.js"></script>
-    <script src="js/vue.js"></script>
-    <!--<script src="js/vue.min.js"></script>-->
+    <!--<script src="js/vue.js"></script>-->
+    <script src="js/vue.min.js"></script>
     <title>轨迹博客控制台</title>
 </head>
 <body>
@@ -118,17 +118,17 @@
             <div class="paginationContainer">
                 <ul class="customPagination pagination">
                     <li class="previous">
-                        <a href="#" class="fui-arrow-left"></a>
+                        <a href="#" class="fui-arrow-left" @click="previousPage()"></a>
                     </li>
                     <li v-for="number in pageNumbers">
-                        <a>{{number}}</a>
+                        <a @click="jumpTo(number)">{{number}}</a>
                     </li>
                     <li class="next">
-                        <a href="#" class="fui-arrow-right"></a>
+                        <a href="#" class="fui-arrow-right" @click="nextPage()"></a>
                     </li>
                 </ul>
                 <input class="form-control input-sm pageInput" placeholder="Page ..."/>
-                <button class="btn btn-default btn-primary">Jump</button>
+                <button class="btn btn-default btn-primary" @click="jumpTo($event)">Jump</button>
             </div>
         </div>
     </div>
