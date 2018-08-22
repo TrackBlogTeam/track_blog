@@ -300,14 +300,16 @@ document.getElementById("expandOrShrinkBt").addEventListener('click',function(){
     console.log(isExpand);
     if(isExpand==true){
         //隐藏预览
-        document.getElementById("preview").style.display="none";
+        // document.getElementById("preview").style.display="none";
+        $('#preview').slideToggle(300);
         //更改图标
         document.getElementById("expandOrShrink").src="icons/shrink.png";
         isExpand=false;
     }
     else{
         //显示预览
-        document.getElementById("preview").style.display="flex";
+        // document.getElementById("preview").style.display="flex";
+        $('#preview').slideToggle(300);
         //更改图标
         document.getElementById("expandOrShrink").src="icons/expand.png";
         isExpand=true;
