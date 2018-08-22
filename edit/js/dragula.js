@@ -12,8 +12,9 @@ dragula([
 // element.style.width = boardsWidth + "px"; // set Width
 
 // disable text-selection
-function disableselect(e) {
-    return false;
-}
-document.onselectstart = new Function();
-document.onmousedown = disableselect;
+// function disableselect(e) {
+//     return false;
+// }
+// document.onselectstart = new Function();
+// document.onmousedown = disableselect;
+// document.getElementById("right").onmousedown=disableselect;

@@ -7,11 +7,12 @@
     margin-left: -10px;
     height: 100%;
     width: 100%;
-    min-height: 960px;
+    min-height: 1000px;
     min-width: 960px;
-    background: linear-gradient(to bottom right, rgb(70, 253, 200),rgb(255, 255, 255));
+    background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255));
     filter: none;
 }
+
 
 /*LOGO的字体和导航栏其他样式*/
 .font{
@@ -167,9 +168,14 @@
     margin-top: 30px;
     width: 370px;
     height: 40px;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: grey;
+    /* border-radius: 5px; */
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    /* border-style: solid; */
+    border-bottom-color: grey;
+    /* border-color: grey; */
 }
 
 /*注册时判断两次密码是否一致的警告*/
@@ -188,7 +194,7 @@
     height: 40px;
     border-radius: 5px;
     border-style: none;
-    background-color: rgb(70, 253, 200);
+    background-color: #16A085;
     color: white;
 }
 
@@ -242,7 +248,7 @@
     height: 40px;
     border-radius: 5px;
     border-style: none;
-    background-color: rgb(70, 253, 200);
+    background-color: #16A085;
     color: white;
 }
 
@@ -259,7 +265,12 @@
     left: 100px;
     width: 100px;
     height: 30px;
-    background-color: rgb(70, 253, 200);
+    background-color: #16A085;
+    color: white;
     border-style: none;
     border-radius: 5px;
+}
+
+.notification{
+    color: red;
 }
