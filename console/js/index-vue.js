@@ -12,13 +12,10 @@ let app = new Vue({
     },
     methods: {
         jumpTo: function (pageNumber) {
-            console.log('Entering jumpTo');
             if (typeof pageNumber === "number") {
-                console.log('Jump to ' + pageNumber);
                 app.retrieveTable(app.tableName, pageNumber, app.recordsPerPage);
             } else {
                 const event = pageNumber;
-                console.log('Jump to ' + event.target.previousElementSibling.value);
                 app.retrieveTable(app.tableName, event.target.previousElementSibling.value, app.recordsPerPage);
             }
         },
@@ -59,8 +56,6 @@ let app = new Vue({
                     app.table = responseObject;
                     app.tableName = tableName;
                     app.currentPageNumber = parseInt(pageNumber);
-                    console.log('Current page number is set to ' + pageNumber);
-                    console.log(app);
                     for (let i = 0; i < app.pageNumbers.length; ++i) {
                         app.pageNumbers[i] = app.currentPageNumber + i;
                     }
