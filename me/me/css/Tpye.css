@@ -1,0 +1,49 @@
+
+.box {
+	background-color: #FFF;
+	height: 120px;
+	margin-bottom:2px;
+	cursor: pointer;
+	display:flex;
+}
+
+
+.boxA{
+	background-image: url(../images/枫叶.png);
+	background-size: 100% 100%;
+	background-position: center center;
+	background-color: #fdd6d6;
+	width: 15%;
+	line-height: 30px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.boxB{
+	width: 72%;
+	height: 100%;
+}
+.title{
+	height: 30%;
+	color: #000;
+	font-family: "微软雅黑";
+	font-weight: bolder;
+	font-size:24px;
+	margin-top: 10px;
+	
+}
+.title:hover{
+	color:#cc0000;
+}
+.content{
+	height: 40%;
+	font-size:12px;
+	margin-top: 5px;
+}
+.detail{
+	width: 15%;
+	height:20%;
+	font-family: "微软雅黑";
+	font-weight: bolder;
+	font-size:12px;
+	display: inline-block;
+}

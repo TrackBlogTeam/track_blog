@@ -11,7 +11,7 @@ $(function(){
 	var time="18:04";
 	var read=234;
 	var comment=7;
-	$('.firstInfo').append("<div class='box' id="+box+"></div>");
+	$('.blog-list').append("<div class='box' id="+box+"></div>");
 	$('#'+box).append(" <div class='boxA'></div><div class='boxB'></div> ");
 	$('#'+box+' .boxB').append("<a class='title' href="+href+" target='_blank'>"+title+"</a>");
 	$('#'+box+' .boxB').append("<p class='content'>"+content+"</p>");
