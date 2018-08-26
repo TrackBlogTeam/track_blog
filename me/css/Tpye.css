@@ -125,6 +125,7 @@ p, span {
 	font-family: 'Microsoft Yahei';
 	background-color: #fff;
 	height:30px;
+	cursor: pointer;
 }
 .navContent {
 	width:24%;

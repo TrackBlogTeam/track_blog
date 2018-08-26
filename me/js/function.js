@@ -35,6 +35,9 @@ $(function(){
 	$('.boxA,.content,.detail').click(function () {
           window.open('https://blog.csdn.net/cztqwan/article/details/80267691','_blank');  
     });
+    $('.logout').click(function () {
+    	  window.location.replace("https://www.track-blog.com/");
+    });
     $('.write').click(function () {
           window.open('../edit/edit_markdown.html');  
     });
