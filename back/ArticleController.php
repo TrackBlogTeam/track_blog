@@ -30,13 +30,14 @@ class ArticleController extends Controller
     public function getMyArticles($user)
     {
         // TODO: Optimize the efficiency of the query
-        $sql = "SELECT * FROM article WHERE autho_name='$user->username';";
+        $sql = "SELECT * FROM article WHERE author_name='$user->username' ORDER BY article_id DESC;";
         $this->databaseManager->execute($sql);
         return $this->databaseManager->getResult();
     }
 
     public function addArticle($user, $title, $content, $articleType)
     {
+        // TODO: Check the length of the $title
         //TODO: Optimize the efficiency of the query
         $sql = "SELECT * FROM article WHERE author_name='$user->username';";
         $this->databaseManager->execute($sql);
@@ -55,7 +56,6 @@ class ArticleController extends Controller
                 return false;
             }
 
-            // todo: to chmod 777 each time
             $templateFile = fopen($templatePath, 'r');
             $templateFileSize = filesize($templatePath);
             $templateString = fread($templateFile, $templateFileSize);
@@ -71,7 +71,7 @@ class ArticleController extends Controller
             echo $e->getMessage();
         }
 
-        $sql = "INSERT INTO article (author_name, article_key) VALUES('$user->username', '$articleKey');";
+        $sql = "INSERT INTO article (author_name, article_key, article_title, created_time, edited_time) VALUES('$user->username', '$articleKey', '$title', NOW(), NOW());";
         $this->databaseManager->execute($sql);
         fclose($templateFile);
         fclose($articleFile);
