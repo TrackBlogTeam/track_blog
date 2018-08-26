@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>发布文章-轨迹博客</title>
 
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!--引入bootstrap-->
+
+    <link href="css/jquery-confirm.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!--引入jquery-confirm-->
+
     <link href="css/hover-min.css" rel="stylesheet">
     <!--button动效-->
 
@@ -52,29 +59,31 @@
                         </div>
                         <ul class="e-list" style="text-align: center">
                             <li>
-                                <a href="">Item 1</a>
+                                <a href="">个人主页</a>
                             </li>
                             <li>
-                                <a href="">Item 2</a>
+                                <a href="">
+                                    消息
+                                    <span class=navbar-new style="margin-top:-20px" id="tips">2</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="">Item 3</a>
+                                <a href="">草稿箱</a>
                             </li>
                             <li>
-                                <a href="">Item 4</a>
+                                <a href="">设置</a>
                             </li>
                             <li>
-                                <a href="">Item 5</a>
+                                <a href="">退出</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-    
-    
+
+
                 <div class="midBox">
                     <!--中间部分（文章标题）-->
-                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput form-control flat"
-                           id="title">
+                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput form-control flat" id="title">
                 </div>
                 <div class="rightBox">
                     <!--右边-->
@@ -106,7 +115,7 @@
                         display: none;
                         ">切换为富文本编辑器</a>
                     </div>
-    
+
                     <div class="autoSaving" style="display: flex;align-items: center;">
                         <div>文章将会自动</div>
                         <a href="" class="hvr-buzz-out" style="margin: 0 0 0 .4em;
@@ -116,13 +125,13 @@
                         border: 1px solid currentColor;
                         border-radius: 2px;">保存为草稿</a>
                     </div>
-    
+
                     <div class="publishForPanel">
                         <!--发布选项-->
-                        <a href="#menu"  id="toggle" style="display: flex" onclick="clickPost()">
+                        <a href="#menu" id="toggle" style="display: flex" onclick="clickPost()">
                             <div class="hvr-buzz-out" style="display: flex;width: 100%">
-                                <div class="" style="display: block;width: 60%;height: 90px;
-                                font-size: 1.5rem;margin-top: -8px;color:#007fff">
+                                <div style="display: block;width: 60%;height: 90px;
+                                font-size: 1.5rem;margin-top: -8px;color:#1ABC9C">
                                     发布
                                 </div>
                                 <span style="
@@ -135,30 +144,30 @@
                             <!--发布选项下拉菜单-->
                             <div class="title">发布文章</div>
                             <div class="cutOffLine">-------------------------</div>
-    
+
                             <div class="categoryBox">
                                 <div class="subTitle">选择分栏</div>
                                 <div class="categoryList">
                                     <div class="toggle-button toggle-button--nummi">
                                         <input id="toggleButton16" name="radio6" type="radio">
-                                        <label for="toggleButton16" data-text="公开" style="color: #669999"></label>
+                                        <label for="toggleButton16" data-text="公开" style="color: #1ABC9C"></label>
                                         <div class="toggle-button__icon"></div>
                                     </div>
                                     <div class="toggle-button toggle-button--nummi">
                                         <input id="toggleButton17" name="radio6" type="radio">
-                                        <label for="toggleButton17" data-text="私密" style="color: #BC3425"></label>
+                                        <label for="toggleButton17" data-text="私密" style="color: #E74C3C"></label>
                                         <div class="toggle-button__icon"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="cutOffLine">-------------------------</div>
-    
-    
+
+
                             <div class="tagBox">
-                                <div class="subTitle">填写标签</div>
+                                <div class="subTitle">拖拽标签</div>
                                 <div id="boards" style="width: 90%;flex-direction: column">
-    
-                                    <div class="board" id="board1">
+
+                                    <div class="board" id="board1" style="border:1px solid #E74C3C">
                                         <div class="head">可选</div>
                                         <div class="cards" id="b1">
                                             <div class="card">
@@ -173,27 +182,22 @@
                                             <div class="card">
                                                 <span class="cardtitle noselect">标签4</span>
                                             </div>
-                                            <div class="card">
-                                                <span class="cardtitle noselect">标签5</span>
-                                            </div>
                                         </div>
                                     </div>
-    
-                                    <div class="board" id="board2">
+
+                                    <div class="board" id="board2" style="border:1px solid #1ABC9C">
                                         <div class="head">已选</div>
                                         <div class="cards" id="b2">
-                                            <!-- <div class="card">
-                                                <span class="cardtitle">标签5</span>
-                                            </div> -->
+
                                         </div>
                                     </div>
-    
+
                                 </div>
                             </div>
-    
-    
-    
-                            <a  class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishArticle('markdown')" style="display: block;
+
+
+
+                            <a class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishConnect('richText')" style="display: block;
                             margin:0 auto;
                             padding: .6rem 1.2rem;
                             border-radius: 5px;
@@ -201,13 +205,13 @@
                             transition: all .2s;
                             text-transform: none;
                             overflow:visible;
-                            border: 1px solid #007fff;
+                            border: 1px solid #1ABC9C;
                             background: #fff;
                             font: inherit;">确认发布</a>
                         </div>
                     </div>
                 </div>
-    
+
             </header>
 
             <div class="main" id="main">
@@ -231,16 +235,19 @@
         </div>
     </div>
 
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!--bootstrap&jquery-confirm-->
     <script src="js/rt_main.js"></script>
     <script src="js/post.js"></script>
-<!--发布菜单-->
-<script src="js/slides.js"></script>
-<!--头像菜单-->
-<script src="js/header.js"></script>
-<!--主体-->
-<script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
-<script src="js/dragula.js"></script>
-<!--可拖拽标签-->
+    <!--发布菜单-->
+    <script src="js/slides.js"></script>
+    <!--头像菜单-->
+    <script src="js/header.js"></script>
+    <!--主体-->
+    <script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
+    <script src="js/dragula.js"></script>
+    <!--可拖拽标签-->
 </body>
 
 </html>

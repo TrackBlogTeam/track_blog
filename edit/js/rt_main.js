@@ -34,7 +34,7 @@ function getHtml() {
 }
 
 
-//一下是对外暴露的接口
+//以下是对外暴露的接口
 
 
 function getContent(needHtml=true){
@@ -62,6 +62,11 @@ function appendContent(h){
 function getAutoSave(){
     //数据库获取保存的文本
     return saveText;
+}
+
+function setValue(html){
+    //设置内容
+    editor.txt.html(html);
 }
 
 

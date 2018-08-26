@@ -257,10 +257,15 @@ function getAutoSave(){
     return saveText;
 }
 
+function setValue(text){
+    //设置内容
+    editor.setValue(text);
+}
+
+
 editor.session.on('change',function(delta){
     //保存到saveText
     saveText=getContent();
-
     //scale=(result.offsetHeight-rp.offsetHeight)/(editor.renderer.getScrollTop()-editorHeight);
 });
 
