@@ -34,10 +34,8 @@ class UserController extends Controller
     public function addUser($user)
     {
         // TODO: Verify feasibility
-        // TODO: Verify phone number    DONE
         // TODO: Verify username
         // TODO: Verify password
-        // TODO: Create a directory for each user
         if ($this->userExists($user)) {
             return false;
         }
@@ -58,6 +56,23 @@ class UserController extends Controller
             mkdir($path, 0777);
             umask($path, 0777);
             // TODO: generate personal page
+
+            try {
+                $templatePath = dirname(__DIR__) . "/static/template/template_homepage.html";
+                $templateFile = fopen($templatePath, 'r');
+                $templateFileSize = filesize($templatePath);
+                $templateString = fread($templateFile, $templateFileSize);
+
+                $homepageString = str_replace("<username></username>", $user->username, $templateString);
+                $homepagePath = dirname(__DIR__) . "/users/" . $user->username . "/index.html";
+
+                $homepageFile = fopen($homepagePath, 'w');
+                fwrite($homepageFile, $homepageString);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            fclose($templateFile);
+            fclose($homepageFile);
         }
         return $this->databaseManager->getResult();
     }
