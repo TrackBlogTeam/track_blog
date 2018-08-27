@@ -1,3 +1,26 @@
+const app = new Vue({
+    el: "#app",
+    data()
+    {
+        return {
+            signed: true
+        }
+    },
+    methods: {
+        updateSigned: function () {
+            ajax({
+                url: 'https://www.track-blog.com/back/api/haveSigned.php',
+                method: 'POST',
+                success: (response) => {
+                    console.log(response);
+                }
+            })
+        }
+    }
+});
+
+app.updateSigned();
+
 retrieveArticle();
 
 function retrieveArticle()

@@ -6,36 +6,55 @@
         <username></username>
         的主页 - Track Blog
     </title>
-    <link rel="stylesheet" href="https://www.track-blog.com/static/template/template_homepage.css"/>
     <link rel="stylesheet" href="https://www.track-blog.com/console/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.track-blog.com/static/css/flat-ui.min.css"/>
+    <link rel="stylesheet" href="https://www.track-blog.com/static/template/template_homepage.css"/>
 
     <!--temp-->
     <!--<link rel="stylesheet" href="../../console/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="../../console/css/flat-ui.min.css"/>-->
     <!--<link rel="stylesheet" href="template_homepage.css"/>-->
     <!--temp-->
     <script src="https://www.track-blog.com/static/js/ajax.js"></script>
+    <script src="https://www.track-blog.com/static/js/vue.min.js"></script>
+    <!--<script src="../js/ajax.js"></script>-->
+    <!--<script src="../js/vue.js"></script>-->
 </head>
 <body>
-<div id="container" class="d-flex justify-content-center">
-    <div id="main">
-        <div class="mainTitle rounded d-flex align-items-center">文章列表</div>
-    </div>
-    <div class="profile d-flex flex-column justify-content-between">
-        <div class="portrait d-flex flex-column justify-content-between align-items-center rounded">
-            <img class="rounded-circle"/>
-            <div class="username">
-                <username></username>
-            </div>
+<div id="app">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="logo"></div>
+        <div v-if="signed" class="d-flex">
+            <div class="navButton homeButton d-flex align-items-center"><span class="fui-home"></span>个人主页</div>
+            <div class="navButton signOutButton d-flex align-items-center"><span class="fui-power"></span>注销</div>
         </div>
-        <div class="statistic d-flex justify-content-around  rounded">
-            <div class="statisticItem">文章
-                <div id="articleSum">1800</div>
+        <div v-else class="d-flex">
+            <div class="signButton">Sign In</div>
+            <div class="signButton">Sign Up</div>
+        </div>
+        <!--<div class="userAttribute"></div>-->
+    </nav>
+    <div id="container" class="d-flex justify-content-center">
+        <div id="main">
+            <div class="mainTitle rounded d-flex align-items-center">文章列表</div>
+        </div>
+        <div class="profile d-flex flex-column justify-content-between">
+            <div class="portrait d-flex flex-column justify-content-between align-items-center rounded">
+                <img class="rounded-circle"/>
+                <div class="username">
+                    <username></username>
+                </div>
             </div>
-            <div class="statisticItem">喜欢
-                <div id="likeSum">2133</div>
-            </div>
-            <div class="statisticItem">评论
-                <div id="commentSum">1999</div>
+            <div class="statistic d-flex justify-content-around  rounded">
+                <div class="statisticItem">文章
+                    <div id="articleSum">1800</div>
+                </div>
+                <div class="statisticItem">喜欢
+                    <div id="likeSum">2133</div>
+                </div>
+                <div class="statisticItem">评论
+                    <div id="commentSum">1999</div>
+                </div>
             </div>
         </div>
     </div>

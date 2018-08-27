@@ -2,7 +2,6 @@
 {
     padding: 0px;
     margin: 0px;
-
     --clouds: #ECF0F1;
     --silver: #BDC3C7;
     --wet-asphalt: #34495E;
@@ -19,15 +18,82 @@ body
 
 #container
 {
-    margin-top: 20px;
     width: 100vw;
-
 }
 
 #main
 {
     width: 900px;
     height: 300px;
+}
+
+.navbar
+{
+    border-radius: 0px;
+    user-select: none;
+}
+
+.navButton
+{
+    padding-right: 20px;
+    border-radius: 20px;
+    height: 30px;
+    max-width: 36px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all var(--duration);
+    cursor: pointer;
+}
+
+.navButton > span
+{
+    padding: 0px 10px;
+}
+
+.navButton:hover
+{
+    transition: all var(--duration);
+}
+
+.homeButton:hover
+{
+    max-width: 110px;
+    background-color: var(--turquoise);
+}
+
+.homeButton:active
+{
+    background-color: var(--green-sea);
+}
+
+.signOutButton:hover
+{
+    max-width: 80px;
+    background-color: #e74c3c;
+}
+
+.signOutButton:active
+{
+    background-color: #C0392B;
+}
+
+.signButton
+{
+    margin: 0 10px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    background-color: var(--clouds);
+    color: #1abc9c;
+    cursor: pointer;
+    transition: all var(--duration);
+}
+
+.signButton:hover
+{
+    background-color: var(--turquoise);
+    color: var(--clouds);
+    transition: all var(--duration);
 }
 
 .profile
