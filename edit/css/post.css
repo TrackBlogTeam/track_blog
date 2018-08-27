@@ -53,7 +53,7 @@
 
 #menu {
     position: relative;
-    color: #007fff;
+
     width: 200px;
     padding: 10px;
     margin: auto;
@@ -77,4 +77,11 @@
     border-right: 15px solid transparent;
     border-bottom: 20px solid #ECF0F1;
 
+}
+
+a:not([href]):not([tabindex]){
+    color: #1ABC9C;
+}
+a:not([href]):not([tabindex]):hover{
+    color:white;
 }
