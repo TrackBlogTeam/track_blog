@@ -27,7 +27,7 @@ class ArticleController extends Controller
         return parent::getTable(self::tableName, $pageNumber, $limit);
     }
 
-    public function getMyArticles($user)
+    public function getArticles($user)
     {
         // TODO: Optimize the efficiency of the query
         $sql = "SELECT * FROM article WHERE author_name='$user->username' ORDER BY article_id DESC;";
