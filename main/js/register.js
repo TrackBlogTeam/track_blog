@@ -34,7 +34,7 @@ function register(){
 
 	if(checkPassword == toCheckPassword){
 		ajax({
-		url: "https://www.track-blog.com/track_blog/back/api/register.php",
+		url: "../back/api/register.php",
 		method: "POST",
 		data: {
 			username: document.getElementById("userName").value,
@@ -45,7 +45,7 @@ function register(){
 			const responseObject = JSON.parse(response);
 			if(responseObject.code == 824){
 				alert("注册成功");
-				window.location.href = "https://www.track-blog.com/track_blog/front/me/a.html";
+				//window.location.href = "../me/a.html";
 			}else{
 				alert("注册失败");
 			}

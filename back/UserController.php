@@ -41,13 +41,11 @@ class UserController extends Controller
         if ($this->userExists($user)) {
             return false;
         }
-
         $match = null;
         preg_match("/1[356789]{1}\d{9}/", $user->phoneNumber, $match);
         if (count($match) == 0) {   // illegal phone number
             return false;
         }
-
         $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {

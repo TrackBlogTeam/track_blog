@@ -1,6 +1,6 @@
 function login(){
     ajax({
-        url: "../../back/api/login.php",
+        url: "../back/api/login.php",
         method: "POST",
         data: {
             role: "user",
