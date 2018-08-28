@@ -234,8 +234,7 @@ p{
 
 
 
-/* Demos Menu
- * --------------------------------------- */
+/* Demos Menu--------------------------------------- */
  #demosMenu{
 	position:fixed;
 	bottom: 10px;
@@ -247,19 +246,28 @@ p{
 
 
 
+
+
+
+
+
+
 /*lu-增加的*/
 
 
 #section0{
-    background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255));
+	background-color: #34495E
+    /* background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255)); */
 }
 
 #section1{
-    background: linear-gradient(to top right, #16A085,rgb(255, 255, 255));
+	background-color: #2C3E50
+    /* background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255)); */
 }
 
 #section2{
-    background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255));
+	background-color: #34495E
+    /* background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255)); */
 }
 
 .floatRight{
@@ -368,7 +376,7 @@ p{
     height: 40px;
     border-radius: 5px;
     border-style: none;
-    background-color: #16A085;
+    background-color: #7F8C8D;
     color: white;
 }
 
@@ -401,6 +409,6 @@ p{
     height: 40px;
     border-radius: 5px;
     border-style: none;
-    background-color: #16A085;
+    background-color: #7F8C8D;
     color: white;
 }
