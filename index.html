@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>轨迹博客</title>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" href="static/css/fullpage.css">
     <link rel="stylesheet" type="text/css" href="static/css/index.css">
-    <script src="static/js/index.js"></script>
-    <script src="static/js/ajax.js"></script>
 </head>
-<body class="barColor">
-<div id="background" class="mainBackground">
-    <a class="font logoText" href="main.html">TrackBlog</a>
-    <nav class="signUpAndSignIn">
-        <a href="javascript:void(0)" class="font topBar signUpButton" onclick="signUp()">SIGN UP</a>
-        <p class="font divideBar">|</p>
-        <a href="javascript:void(0)" class="font topBar signInButton" onclick="signIn()">SIGN IN</a>
-    </nav>
-    <h1 class="mainTextFont mainHeaderText">Say goodbye to the old blog</h1>
-    <p class="mainTextFont mainText">In TrackBlog, you can write anything you want! And to trace the track.</p>
-    <div class="imgDiv">
-        <img src="static/src/main_photo.png" alt="user id" class="mainImg">
+<body>
+<ul id="menu">
+    <div class="leftBlank">
+        <a a href="#firstPage" class="logo">TrackBlog</a>
+    </div>
+    <div class="rightBlank">
+        <li data-menuanchor="secondPage" class="floatRight"><a href="#secondPage">Sign In</a></li>
+        <li data-menuanchor="3rdPage" class="floatRight"><a href="#3rdPage">Sign Up</a></li>
+    </div>
+</ul>
+
+<div id="fullpage">
+    <!-- 第一页：介绍页面 -->
+    <div class="section active" id="section0">
+        <h1 class="mainTextFont mainHeaderText">Say goodbye to the old blog</h1>
+        <p class="mainTextFont mainText">In TrackBlog, you can write anything you want! And to trace the track.</p>
+        <div class="imgDiv">
+            <img src="static/src/main_photo.png" alt="user id" class="mainImg">
+        </div>
+    </div>
+    <!-- 第二页：登陆界面 -->
+    <div class="section" id="section1">
+        <div class="signInSite">
+            <h1 class="signInTitle mainTextFont">Start now!</h1>
+            <input id="usernameInSignIn" type="text" name="usernameInSignIn" class="inputFrame" placeholder="User Name" required>
+            <input id="passwordInSignIn" type="password" name="passwordInSignIn" class="inputFrame" placeholder="Password" required>
+            <button class="signInConfirmButton" onclick="">Sign In</button>
+        </div>
+    </div>
+    <!-- 第三页：注册界面 -->
+    <div class="section" id="section2">
+        <div id="signUpSite" class="signUpSite">
+            <h1 class="signUpTitle mainTextFont">Join us!</h1>
+            <input id="usernameInSignUp" type="text" name="usernameInSignUp" class="inputFrame" placeholder="User Name" required>
+            <input id="phonenumberInSignUp" type="text" name="phonenumberInSignUp" class="inputFrame"  placeholder="Phonenumber" required>
+            <input id="passwordInSignUp" type="password" name="passwordInSignUp" class="inputFrame" placeholder="Password" required>
+            <input id="confirmPasswordInSignUp" type="password" name="confirmPasswordInSignUp" class="inputFrame" placeholder="Password Again" required>
+            <div id="passwordNotMatch" class="passwordNotMatchWarnning"></div>
+            <button class="signUpConfirmButton" onclick="">Sign Up</button>
+        </div>
     </div>
 </div>
-<div id="blurBackground" class="blurBackground" onclick="backToMain()"></div>
-<div class="signUpSiteToCenter">
-    <div id="signUpSite" class="signUpSite">
-        <h1 class="signUpTitle mainTextFont">Join us!</h1>
-        <input id="usernameInSignUp" type="text" name="usernameInSignUp" class="inputFrame" placeholder="User Name" required>
-        <input id="phonenumberInSignUp" type="text" name="phonenumberInSignUp" class="inputFrame"  placeholder="Phonenumber" required>
-        <input id="passwordInSignUp" type="password" name="passwordInSignUp" class="inputFrame" placeholder="Password" required>
-        <input id="confirmPasswordInSignUp" type="password" name="confirmPasswordInSignUp" class="inputFrame" placeholder="Password Again" required>
-        <div id="passwordNotMatch" class="passwordNotMatchWarnning"></div>
-        <button class="signUpConfirmButton" onclick="signUpConfirm()">Sign Up</button>
-    </div>
-</div>
-<div class="signInSiteToCenter">
-    <div id="signInSite" class="signInSite">
-        <h1 class="signInTitle mainTextFont">Start now!</h1>
-        <div class="divideLine"></div>
-        <input id="usernameInSignIn" type="text" name="usernameInSignIn" class="inputFrame" placeholder="User Name" required>
-        <input id="passwordInSignIn" type="password" name="passwordInSignIn" class="inputFrame" placeholder="Password" required>
-        <div id="notification" class="notification" ></div>
-        <button class="signInConfirmButton" onclick="test()">Sign In</button>
-        <div class="divideLine"></div>
-        <p class="mainTextFont signUpGuide">Haven't sign up?</p>
-        <button class="signInToSignUp" onclick="signUp()">Sign Up</button>
-    </div>
-</div>
+
+<script type="text/javascript" src="static/js/fullpage.js"></script>
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage',
+    {
+        anchors: ['firstPage', 'secondPage', '3rdPage'],
+        menu: '#menu'
+    });
+</script>
 </body>
 </html>

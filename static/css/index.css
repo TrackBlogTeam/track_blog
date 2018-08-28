@@ -1,71 +1,290 @@
-/*绿色渐变色的主背景*/
-.mainBackground{
-    position: absolute;
-    border: 0px;
-    padding: 0px;
-    margin-top: -25px;
-    margin-left: -10px;
-    height: 100%;
-    width: 100%;
-    min-height: 1000px;
-    min-width: 960px;
-    background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255));
-    filter: none;
+/*来自fullpage的example.css*/
+@CHARSET "ISO-8859-1";
+/* Reset CSS
+ * --------------------------------------- */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td {
+    padding: 0;
+    margin: 0;
+}
+a{
+	text-decoration:none;
+}
+table {
+    border-spacing: 0;
+}
+fieldset,img {
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-weight: normal;
+    font-style: normal;
+}
+strong{
+	font-weight: bold;
+}
+ol,ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+caption,th {
+    text-align: left;
+
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-size: 100%;
+    margin:0;
+    padding:0;
+    color:#444;
+}
+q:before,q:after {
+    content:'';
+}
+abbr,acronym { border: 0;
 }
 
 
-/*LOGO的字体和导航栏其他样式*/
-.font{
+/* Custom CSS
+ * --------------------------------------- */
+body{
+	font-family: arial,helvetica;
+	color: #333;
+	color: rgba(0,0,0,0.5);
+}
+.wrap{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	position: relative;
+}
+h1{
+	font-size: 6em;
+}
+p{
+	font-size: 2em;
+}
+.intro p{
+	width: 50%;
+	margin: 0 auto;
+	font-size: 1.5em;
+}
+.section{
+	text-align:center;
+}
+#menu li {
+	display:inline-block;
+	margin: 10px;
+	color: #000;
+	background:#fff;
+	background: rgba(255,255,255, 0.5);
+	-webkit-border-radius: 10px;
+            border-radius: 10px;
+}
+#menu li.active{
+	background:#666;
+	background: rgba(0,0,0, 0.5);
+	color: #fff;
+}
+#menu li a{
+	text-decoration:none;
+	color: #000;
+}
+#menu li.active a:hover{
+	color: #000;
+}
+#menu li:hover{
+	background: rgba(255,255,255, 0.8);
+}
+#menu li a,
+#menu li.active a{
+	padding: 9px 18px;
+	display:block;
+}
+#menu li.active a{
+	color: #fff;
+}
+#menu{
+	position:fixed;
+	top: 20px;
+	left:0;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding: 0;
+	margin:0;
+}
+.twitter-share-button{
+	position: fixed;
+	z-index: 99;
+	right: 149px;
+	top: 9px;
+}
+#download{
+	margin: 10px 0 0 0;
+	padding: 15px 10px;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #49afcd;
+	background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: -ms-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from( #5bc0de),to( #2f96b4));
+	background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: linear-gradient(top, #5bc0de, #2f96b4);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#2f96b4', GradientType=0);
+	border-color: #2f96b4 #2f96b4 #1f6377;
+	border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	vertical-align: middle;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+#download a{
+	text-decoration:none;
+	color:#fff;
+}
+#download:hover{
+	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+	background-color: #2F96B4;
+	background-position: 0 -15px;
+	-webkit-transition: background-position .1s linear;
+	-moz-transition: background-position .1s linear;
+	-ms-transition: background-position .1s linear;
+	-o-transition: background-position .1s linear;
+	transition: background-position .1s linear;
+}
+#infoMenu{
+	height: 20px;
+	color: #f2f2f2;
+	position:fixed;
+	z-index:70;
+	bottom:0;
+	width:100%;
+	text-align:right;
+	font-size:0.9em;
+	padding:8px 0 8px 0;
+}
+#infoMenu ul{
+	padding: 0 40px;
+}
+#infoMenu li a{
+	display: block;
+	margin: 0 22px 0 0;
+	color: #333;
+}
+#infoMenu li a:hover{
+	text-decoration:underline;
+}
+#infoMenu li{
+	display:inline-block;
+	position:relative;
+}
+#examplesList{
+	display:none;
+	background: #282828;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	padding: 20px;
+	float: left;
+	position: absolute;
+	bottom: 29px;
+	right: 0;
+	width:638px;
+	text-align:left;
+}
+#examplesList ul{
+	padding:0;
+}
+#examplesList ul li{
+	display:block;
+	margin: 5px 0;
+}
+#examplesList ul li a{
+	color: #BDBDBD;
+	margin:0;
+}
+#examplesList ul li a:hover{
+	color: #f2f2f2;
+}
+#examplesList .column{
+	float: left;
+	margin: 0 20px 0 0;
+}
+#examplesList h3{
+	color: #f2f2f2;
+	font-size: 1.2em;
+	margin: 0 0 15px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+	padding: 0 0 5px 0;
+}
+
+
+
+/* Demos Menu
+ * --------------------------------------- */
+ #demosMenu{
+	position:fixed;
+	bottom: 10px;
+	right:10px;
+	z-index: 999;
+ }
+
+
+
+
+
+/*lu-增加的*/
+
+
+#section0{
+    background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255));
+}
+
+#section1{
+    background: linear-gradient(to top right, #16A085,rgb(255, 255, 255));
+}
+
+#section2{
+    background: linear-gradient(to bottom right, #16A085,rgb(255, 255, 255));
+}
+
+.floatRight{
+    float: right;
+}
+
+.rightBlank{
+    position: fixed;
+    right: 15%;
+}
+
+.floatLeft{
+    float: left;
+}
+
+.leftBlank{
+    margin: 10px;
+    position: fixed;
+    left: 15%;
+}
+
+.logo{
     font-family:"Trebuchet MS", sans-serif;
     color: white;
-}
-
-.logoText{
-    position: absolute;
-    top: 50px;
-    left: 20%;
-    text-decoration: none;
     font-size: 35px;
-}
-
-/*注册和登陆块的样式*/
-.signUpAndSignIn{
-    position: absolute;
-    top: 50px;
-    right: 20%;
-    height: 35px;
-    width: 143px;
-    /* background-color: blueviolet; */
-}
-
-/*导航栏距离顶部的距离*/
-.topBar{
-    font-size: 14px;
-}
-
-/*注册按钮的样式*/
-.signUpButton{
-    position: absolute;
-    top: 7px;
-    left: 10px;
-    text-decoration: none;
-}
-
-/*中间那一杠*/
-.divideBar{
-    font-size: 25px;
-    position: absolute;
-    top: -25px;
-    left: 70px;
-    user-select: none;
-}
-
-/*登陆按钮的样式*/
-.signInButton{
-    position: absolute;
-    top: 7px;
-    right: 10px;
-    text-decoration: none;
 }
 
 /*首页主要文字的样式*/
@@ -78,88 +297,31 @@
 /*首页大大的标语*/
 .mainHeaderText{
     position: relative;
-    top: 200px;
-    text-align: center;
+    top: 0px;
+    font-size: 30px;
+    font-weight: 1000;
 }
 
 /*首页小小的标语*/
 .mainText{
     position: relative;
-    text-align: center;
-    top: 200px;
-    font-size: 20px;
+    top: 20px;
+    font-size: 30px;
 }
 
 /*首页图片的容器的样式*/
 .imgDiv{
     position: relative;
-    bottom: -300px;
-    text-align: center;
+    bottom: -100px;
+    margin: 0;
 }
 
 /*首页图片的样式*/
 .mainImg{
-    /* width: 1068px;
-    height: 624px; */
-    width: 712px;
-    height: 428px;
-}
-
-/*弹出页面的（伪）虚化背景*/
-.blurBackground{
-    display: none;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    z-index: 1001;
-}
-
-/*让inline-block的注册页面居中*/
-.signUpSiteToCenter{
-    text-align: center;
-}
-
-/*注册页面*/
-.signUpSite{
-    display: none;
-    width: 500px;
-    height: 500px;
-    position: relative;
-    top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    border-radius: 8px;
-    z-index: 1002;
-    animation: opacity0To1 1s;
-    -webkit-animation: opacity0To1 1s;
-}
-
-@keyframes opacity0To1{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes opacity0To1{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-
-/*注册页面的标语*/
-.signUpTitle{
-    color: rgb(160, 160, 160);
-    position: relative;
-    top: 30px;
+    width: 854.4px;
+    height: 499.2px;
+    /* width: 712px;
+    height: 428px; */
 }
 
 /*输入框的标准样式*/
@@ -177,46 +339,16 @@
     border-bottom-color: grey;
     /* border-color: grey; */
 }
-
-/*注册时判断两次密码是否一致的警告*/
-.passwordNotMatchWarnning{
-    position: relative;
-    top: 10px;
-    left: -80px;
-    color: red;
-}
-
-/*注册页面的确认注册按钮*/
-.signUpConfirmButton{
-    position: relative;
-    margin-top: 30px;
-    width: 370px;
-    height: 40px;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #16A085;
-    color: white;
-}
-
-/*让inline-block的登陆页面居中*/
-.signInSiteToCenter{
-    text-align: center;
-}
-
 /*登陆页面*/
 .signInSite{
-    display: none;
     width: 500px;
-    height: 500px;
+    height: 400px;
     position: relative;
-    top: 200px;
+    top: 80px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     border-radius: 8px;
-    z-index: 1002;
-    animation: opacity0To1 1s;
-    -webkit-animation: opacity0To1 1s;
 }
 
 /*登陆页面的标题*/
@@ -224,20 +356,8 @@
     color: rgb(160, 160, 160);
     position: relative;
     top: 30px;
+    font-size: 40px;
     margin-bottom: 50px;
-}
-
-/*登陆页面的分界线*/
-.divideLine{
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(60, 60, 60);
-    border-color: rgb(60, 60, 60);
-    width: 370px;
-    height: 5px;
-    border-radius: 2px;
-    margin-top: 30px;
 }
 
 /*登陆页面的确认登陆按钮*/
@@ -252,25 +372,35 @@
     color: white;
 }
 
-/*引导注册的提示语*/
-.signUpGuide{
+/*注册页面*/
+.signUpSite{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/*注册页面的标语*/
+.signUpTitle{
     color: rgb(160, 160, 160);
     position: relative;
-    left: -100px;
+    top: 30px;
+    margin-bottom: 20px;
+    font-size: 40px;
 }
 
-/*引导到注册页面的按钮*/
-.signInToSignUp{
+/*注册页面的确认注册按钮*/
+.signUpConfirmButton{
     position: relative;
-    left: 100px;
-    width: 100px;
-    height: 30px;
+    margin-top: 40px;
+    width: 370px;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
     background-color: #16A085;
     color: white;
-    border-style: none;
-    border-radius: 5px;
-}
-
-.notification{
-    color: red;
 }
