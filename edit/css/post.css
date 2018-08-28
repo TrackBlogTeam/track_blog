@@ -3,7 +3,6 @@
     width: 70px;
     height: 20px;
     margin: 30px auto 10px;
-    margin-top: 622px;
     margin-bottom: 28px;
 }
 
@@ -29,7 +28,7 @@
 #toggle span:before {
     width: 100%;
     height: 5px;
-    background-color: #007fff;
+    background-color: #1ABC9C;
     transition: all 0.3s;
     /* on activation */
     backface-visibility: hidden;
@@ -54,7 +53,7 @@
 
 #menu {
     position: relative;
-    color: #007fff;
+
     width: 200px;
     padding: 10px;
     margin: auto;
@@ -76,6 +75,13 @@
     display: block;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 20px solid #ccc;
+    border-bottom: 20px solid #ECF0F1;
 
+}
+
+a:not([href]):not([tabindex]){
+    color: #1ABC9C;
+}
+a:not([href]):not([tabindex]):hover{
+    color:white;
 }

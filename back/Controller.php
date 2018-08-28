@@ -30,6 +30,9 @@ abstract class Controller
 
     public function getTable($tableName, $pageNumber = 1, $limit = 10)
     {
+        if ($pageNumber < 1 || $limit < 1) {
+            return null;
+        }
         $offset = ($pageNumber - 1) * $limit;
         $sql = "SELECT * FROM $tableName LIMIT $offset, $limit;";
         $this->databaseManager->execute($sql);
