@@ -1,5 +1,5 @@
-
 $(function(){
+	// var styleherf="style/canvas-point.min.js";
 	var box="box_2";
 	var title="C++的4种强制类型转换";
 	// htmlobj=$.ajax({url:"1.txt",async:false});
@@ -20,20 +20,29 @@ $(function(){
 	$('#'+box+' .boxB').append("<p class='detail' id='read'>阅读量:"+read+"</p>");
 	$('#'+box+' .boxB').append("<p class='detail' id='comment'>评论:"+comment+"</p>");
 
-	$(".container>div").hide();
-	$(".container>div:eq(0)").show();	
 	
+	$(".navContent,.container>div").hide();
+	$(".navContent,.container>div:eq(0)").fadeIn(1000);	
+	$('.administratorPortrait').click(function () {
+         $(".rightset").slideToggle(300);	
+    });
 	$(".navContent a").click(function(){
 		var n = $(".navContent a").index(this);
 		$(".navContent a").index(this);
 		$(".container>div").hide();
-		$(".container>div:eq("+n+")").show();	
+		$(".container>div:eq("+n+")").fadeIn(1000);	
 	})
 	$('.boxA,.content,.detail').click(function () {
           window.open('https://blog.csdn.net/cztqwan/article/details/80267691','_blank');  
     });
+    $('.logout').click(function () {
+    	  window.location.replace("https://www.track-blog.com/");
+    });
     $('.write').click(function () {
           window.open('../edit/edit_markdown.html');  
     });
-	
+    // $('.change').click(function () {
+    //       $('body').prepend("<script src="+styleherf+"></script>");
+    //       $('body').prepend("<canvas height='100%' width='100%' style='position: fixed; top: 0px; left: 0px; z-index: -1;'  id='canvas'></canvas>");
+    // });
 })

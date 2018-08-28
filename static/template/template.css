@@ -1,0 +1,146 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    --navigation-logo-width: 125px;
+    --navigation-button-width: 100px;
+    --navigation-sign-width: 100px;
+    --navigation-separator-width: 2px;
+    background-color: #f4f5f5;
+}
+
+.navigationContainer{
+    width: 100vw;
+    height: 60px;
+    background-color: white;
+}
+
+.navigation{
+    max-width: 1000px;
+    min-width: calc(var(--navigation-logo-width) + 3*var(--navigation-button-width) + 2*var(--navigation-sign-width) + var(--navigation-separator-width));
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    height: 100%;
+    width: var(--navigation-logo-width);
+    background-image: url('src/deliverr_1x_gaitubao_com_250x100.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.blank {
+    flex: 1;
+}
+
+.navigationButton{
+    width: var(--navigation-button-width);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigationButton:hover{
+    background-color: purple;
+    color: white;
+    background-color:#ff8e8e;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.sign{
+    width: var(--navigation-sign-width);
+    text-align: center;
+}
+
+.separator{
+    width: var(--navigation-separator-width);
+    height: 70%;
+    background-color: black;
+}
+
+.main{
+    max-width: 1000px;
+    min-width: calc(var(--navigation-logo-width) + 3*var(--navigation-button-width) + 2*var(--navigation-sign-width) + var(--navigation-separator-width));
+    display: flex;
+    margin: 30px auto;
+    justify-content: space-between;
+}
+
+.article{
+    width: 68%;
+    background-color: white;
+    padding: 2%;
+}
+
+.aside{
+    width: 25%;
+}
+
+.author{
+    background-color: white;
+}
+
+.asideTitle{
+    border-bottom: solid 1px #f4f5f5;
+    font-size: 90%;
+    padding: 10px;
+}
+
+.profile{
+    width: 90%;
+    margin: 10px auto 0px auto;
+    display: flex;
+}
+
+.portrait{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-image: url('src/camera-icon-large.png');
+    background-size: 100% 100%;
+}
+
+.authorInfo{
+    padding: 5px;
+    width: calc(100% - 50px - 10px);
+    display: flex;
+    flex-direction: column;
+    display: inline-block;
+}
+
+.authorName{
+    flex: 1;
+    font-weight: bold;
+}
+
+.authorIntroduction{
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 80%;
+}
+
+.statistic{
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+    align-items: center;
+    font-size: 90%;
+}
+
+.statisticIcon{
+    width: 30px;
+    height: 30px;
+    background-color: blueviolet;
+    border-radius: 15px;
+    margin-right: 10px;
+}

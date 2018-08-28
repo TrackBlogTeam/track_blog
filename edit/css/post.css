@@ -1,0 +1,87 @@
+#toggle {
+    display: block;
+    width: 70px;
+    height: 20px;
+    margin: 30px auto 10px;
+    margin-bottom: 28px;
+}
+
+#toggle span:after,
+#toggle span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -9px;
+}
+
+#toggle span:after {
+    top: 9px;
+}
+
+#toggle span {
+    position: relative;
+    display: block;
+}
+
+#toggle span,
+#toggle span:after,
+#toggle span:before {
+    width: 100%;
+    height: 5px;
+    background-color: #1ABC9C;
+    transition: all 0.3s;
+    /* on activation */
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+#toggle.on span {
+    background-color: transparent;
+}
+
+#toggle.on span:before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#toggle.on span:after {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+
+#toggle.on+#menu {
+    opacity: 1;
+}
+
+#menu {
+    position: relative;
+
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    text-align: center;
+    /* just for this demo */
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+#menu:after {
+    position: absolute;
+    top: -20px;
+    left: 43%;
+    content: "";
+    display: block;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #ECF0F1;
+
+}
+
+a:not([href]):not([tabindex]){
+    color: #1ABC9C;
+}
+a:not([href]):not([tabindex]):hover{
+    color:white;
+}

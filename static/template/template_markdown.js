@@ -1,5 +1,4 @@
-let divElement = document.getElementsByTagName("div")[0]
-
+const contentDIV = document.getElementById("content");
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -10,16 +9,18 @@ marked.setOptions({
     sanitize: false,
     smartLists: true,
     smartypants: false,
-    highlight: function (code)
-    {
+    highlight: function (code) {
         return hljs.highlightAuto(code).value;
     }
 });
 
-console.log(divElement.innerHTML)
-let regularExpression = new RegExp("\&lt;", "g")
-let string = divElement.innerHTML.replace(regularExpression, "<")
-regularExpression = new RegExp("\&gt;", "g")
-string = string.replace(regularExpression, ">")
-console.log(string)
-divElement.innerHTML = marked(string, {breaks: true})
+
+contentDIV.innerHTML = contentDIV.innerHTML.trim();
+contentDIV.innerHTML = marked(HTMLDecode(contentDIV.innerHTML), {breaks: true})
+
+function HTMLDecode(text) {
+    // method from https://www.cnblogs.com/daysme/p/7100553.html   --- @小文
+    const temp = document.createElement("div");
+    temp.innerHTML = text;
+    return temp.innerText || temp.textContent;
+}

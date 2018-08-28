@@ -6,6 +6,146 @@ editor.getSession().setMode("ace/mode/markdown");
 editor.renderer.setShowPrintMargin(false);
 editor.setOption('wrap', 'free'); //自动换行
 
+//设置快捷键
+editor.commands.addCommand({
+    name:'bold',
+    bindKey:{win:'Ctrl-B',mac:'Command-B'},
+    exec: function(editor){
+        insertBold();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'italic',
+    bindKey:{win:'Ctrl-I',mac:'Command-I'},
+    exec: function(editor){
+        insertItalic();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'delete',
+    bindKey:{win:'Ctrl-D',mac:'Command-D'},
+    exec: function(editor){
+        insertStrike();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'header',
+    bindKey:{win:'Ctrl-H',mac:'Command-H'},
+    exec: function(editor){
+        insertHeader();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'link',
+    bindKey:{win:'Ctrl-K',mac:'Command-K'},
+    exec: function(editor){
+        insertLink();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'quote',
+    bindKey:{win:'Ctrl-Q',mac:'Command-Q'},
+    exec: function(editor){
+        insertQuote();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'hLine',
+    bindKey:{win:'Ctrl-L',mac:'Command-L'},
+    exec: function(editor){
+        insertHLine();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'image',
+    bindKey:{win:'Ctrl-Shift-I',mac:'Command-Shift-I'},
+    exec: function(editor){
+        insertImage();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'code',
+    bindKey:{win:'Ctrl-Shift-C',mac:'Command-Shift-C'},
+    exec: function(editor){
+        insertCode();
+    },
+    readOnly:true
+});
+
+//跟随滚动
+
+//scrollTop  滚动条高度
+
+var currentTab=0;   //区分滚动容器
+var result = document.getElementById("result");
+var rp=document.getElementById("resultParent");
+var ep=document.getElementById("editorParent");
+var editorHeight; //文本内容高度
+var scale;
+
+ep.addEventListener('mouseover',function(){
+    currentTab=1;   //说明在编辑区
+    //console.log("\ncurrentTab:",currentTab);
+})
+
+result.addEventListener('mouseover',function(){
+    currentTab=2;   //说明在预览区
+    //console.log("\ncurrentTab:",currentTab);
+})
+
+editor.session.on('changeScrollTop',function(delta){
+    editorHeight=editor.getSession().getScreenLength()*editor.renderer.lineHeight; 
+    scale=rp.scrollHeight/editorHeight;
+    //console.log("active");
+    if(currentTab==1){
+        //r.scrollTop=l.scrollTop/scale
+        //console.log("\nresult scrollTop:",result.scrollTop);
+        rp.scrollTop=editor.renderer.getScrollTop()*scale;
+        //console.log("scale: ",scale);
+        //console.log("editor scrollTop:",editor.renderer.getScrollTop());
+        //console.log("result scrollTop:", result.scrollTop);
+    }
+    else
+        return;
+})
+
+rp.addEventListener('scroll',function(){
+
+    editorHeight=editor.getSession().getScreenLength()*editor.renderer.lineHeight; 
+    scale=editorHeight/rp.scrollHeight;
+
+    if(currentTab==2){
+        //l.scrollTop=r.scrollTop/scale
+        //console.log("\nresult sumScrollTop",rp.scrollHeight);
+        //console.log("editor Height:",editorHeight);
+        //editor.renderer.scrollTop=result.scrollTop/scale;
+        editor.session.setScrollTop(rp.scrollTop*scale);
+        //console.log("scale:",scale);
+        //console.log("result scrollTop",result.scrollTop);
+        //console.log("result scrollTop:",rp.scrollTop);
+        //console.log("editor scrollTop:",editor.renderer.getScrollTop());
+    }
+    else
+        return;
+})
+
+
 //自动存储的文本
 var saveText;
 
@@ -25,14 +165,15 @@ marked.setOptions({
 
 //统计字数
 function count(){
-    var acount=document.getElementById("Count");
+    var account=document.getElementById("Count");
     var length=document.getElementById("result").innerText.length;
-    acount.innerHTML="共 "+length+" 字";
+    account.innerHTML="共 "+length+" 字";
 }
 
 //marked
 function convert() {
     document.getElementById("result").innerHTML=marked(editor.getValue(),{breaks:true});
+    console.log(marked(editor.getValue(),{breaks:true}));
     count();
 }
 
@@ -50,7 +191,8 @@ function insertBold(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
-
+    var row=range.end.row;
+    var column=range.end.column+2;
     //替换用的文本
     rText="**"+text+"**";
 
@@ -59,11 +201,18 @@ function insertBold(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function insertItalic(){
     //获取选中的范围
     range=editor.getSelectionRange();
+    console.log(range);
+    var row=range.end.row;
+    var column=range.end.column+1;
     //获取选中的文本
     text=editor.session.getTextRange(range);
 
@@ -75,6 +224,10 @@ function insertItalic(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function insertStrike(){
@@ -82,6 +235,9 @@ function insertStrike(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+
+    var row=range.end.row;
+    var column=range.end.column+2;
 
     //替换用的文本
     rText="~~"+text+"~~";
@@ -91,6 +247,10 @@ function insertStrike(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function insertLink(){
@@ -98,6 +258,8 @@ function insertLink(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+    var row=range.end.row;
+    var column=range.end.column+1;
 
     //替换用的文本
     rText="["+text+"]()";
@@ -107,6 +269,10 @@ function insertLink(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function insertQuote(){
@@ -114,6 +280,8 @@ function insertQuote(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+    var row=range.end.row+1;
+    var column=range.end.column+2;
 
     //替换用的文本
     rText="\n> "+text;
@@ -123,6 +291,10 @@ function insertQuote(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function insertCode(){
@@ -131,6 +303,8 @@ function insertCode(){
     //获取选中的文本
     text=editor.session.getTextRange(range);
 
+    var row=range.end.row+1;
+    var column=range.end.column;
     //替换用的文本
     rText="```\n"+text+"\n```";
 
@@ -139,6 +313,10 @@ function insertCode(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function insertHLine(){
@@ -146,6 +324,8 @@ function insertHLine(){
     range=editor.getSelectionRange();
     //获取选中的文本
     text=editor.session.getTextRange(range);
+    var row=range.end.row+2;
+    var column=range.end.column;
 
     //替换用的文本
     rText="\n---\n"+text;
@@ -155,6 +335,54 @@ function insertHLine(){
 
     //重新marked
     convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
+}
+
+function insertHeader(){
+    //获取选中的范围
+    range=editor.getSelectionRange();
+    //获取选中的文本
+    text=editor.session.getTextRange(range);
+    var row=range.end.row+1;
+    var column=range.end.column+2;
+
+    //替换用的文本
+    rText="\n## "+text;
+
+    //替换
+    editor.session.replace(range,rText);
+
+    //重新marked
+    convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
+}
+
+function insertImage(){
+    //获取选中的范围
+    range=editor.getSelectionRange();
+    //获取选中的文本
+    text=editor.session.getTextRange(range);
+    var row=range.end.row;
+    var column=range.end.column+4;
+
+    //替换用的文本
+    rText="![]("+text+")";
+
+    //替换
+    editor.session.replace(range,rText);
+
+    //重新marked
+    convert();
+
+    //设置光标范围
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
 }
 
 function getAutoSave(){
@@ -162,9 +390,16 @@ function getAutoSave(){
     return saveText;
 }
 
+function setValue(text){
+    //设置内容
+    editor.setValue(text);
+}
+
+
 editor.session.on('change',function(delta){
     //保存到saveText
     saveText=getContent();
+    //scale=(result.offsetHeight-rp.offsetHeight)/(editor.renderer.getScrollTop()-editorHeight);
 });
 
 
@@ -194,4 +429,27 @@ document.getElementById("codeBt").addEventListener('click',function(){
 
 document.getElementById("hLineBt").addEventListener('click',function(){
     insertHLine();
+});
+
+
+//显示或隐藏预览
+var isExpand=true;
+document.getElementById("expandOrShrinkBt").addEventListener('click',function(){
+    console.log(isExpand);
+    if(isExpand==true){
+        //隐藏预览
+        // document.getElementById("preview").style.display="none";
+        $('#preview').slideToggle(300);
+        //更改图标
+        document.getElementById("expandOrShrink").src="icons/shrink.png";
+        isExpand=false;
+    }
+    else{
+        //显示预览
+        // document.getElementById("preview").style.display="flex";
+        $('#preview').slideToggle(300);
+        //更改图标
+        document.getElementById("expandOrShrink").src="icons/expand.png";
+        isExpand=true;
+    }
 });

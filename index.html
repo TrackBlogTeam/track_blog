@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/index.css"/>
     <title>轨迹博客</title>
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
+    <script src="static/js/index.js"></script>
+    <script src="static/js/ajax.js"></script>
 </head>
-<body>
-
-<script src="static/js/index.js"></script>
+<body class="barColor">
+<div id="background" class="mainBackground">
+    <a class="font logoText" href="main.html">TrackBlog</a>
+    <nav class="signUpAndSignIn">
+        <a href="javascript:void(0)" class="font topBar signUpButton" onclick="signUp()">SIGN UP</a>
+        <p class="font divideBar">|</p>
+        <a href="javascript:void(0)" class="font topBar signInButton" onclick="signIn()">SIGN IN</a>
+    </nav>
+    <h1 class="mainTextFont mainHeaderText">Say goodbye to the old blog</h1>
+    <p class="mainTextFont mainText">In TrackBlog, you can write anything you want! And to trace the track.</p>
+    <div class="imgDiv">
+        <img src="static/src/main_photo.png" alt="user id" class="mainImg">
+    </div>
+</div>
+<div id="blurBackground" class="blurBackground" onclick="backToMain()"></div>
+<div class="signUpSiteToCenter">
+    <div id="signUpSite" class="signUpSite">
+        <h1 class="signUpTitle mainTextFont">Join us!</h1>
+        <input id="usernameInSignUp" type="text" name="usernameInSignUp" class="inputFrame" placeholder="User Name" required>
+        <input id="phonenumberInSignUp" type="text" name="phonenumberInSignUp" class="inputFrame"  placeholder="Phonenumber" required>
+        <input id="passwordInSignUp" type="password" name="passwordInSignUp" class="inputFrame" placeholder="Password" required>
+        <input id="confirmPasswordInSignUp" type="password" name="confirmPasswordInSignUp" class="inputFrame" placeholder="Password Again" required>
+        <div id="passwordNotMatch" class="passwordNotMatchWarnning"></div>
+        <button class="signUpConfirmButton" onclick="signUpConfirm()">Sign Up</button>
+    </div>
+</div>
+<div class="signInSiteToCenter">
+    <div id="signInSite" class="signInSite">
+        <h1 class="signInTitle mainTextFont">Start now!</h1>
+        <div class="divideLine"></div>
+        <input id="usernameInSignIn" type="text" name="usernameInSignIn" class="inputFrame" placeholder="User Name" required>
+        <input id="passwordInSignIn" type="password" name="passwordInSignIn" class="inputFrame" placeholder="Password" required>
+        <div id="notification" class="notification" ></div>
+        <button class="signInConfirmButton" onclick="test()">Sign In</button>
+        <div class="divideLine"></div>
+        <p class="mainTextFont signUpGuide">Haven't sign up?</p>
+        <button class="signInToSignUp" onclick="signUp()">Sign Up</button>
+    </div>
+</div>
 </body>
 </html>

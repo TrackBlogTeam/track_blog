@@ -32,5 +32,5 @@
 // 833: Fail to retrieve table. Invalid parameter(s).
 // 834: Fail to retrieve table. Invalid table name.
 // 835: Fail to retrieve profile. Not logged.
-// 836: Fail to retrieve articles. Permission denied.
+// 836: Fail to retrieve articles. Lack of parameter(s).
 // 837: Fail to register. Incomplete parameter(s).

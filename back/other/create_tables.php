@@ -37,6 +37,9 @@ try {
         "article_id INT(5) NOT NULL AUTO_INCREMENT," .
         "author_name VARCHAR(30) NOT NULL," .
         "article_key VARCHAR(8) NOT NULL," .
+        "article_title VARCHAR(128) NOT NULL,".
+        "created_time TIMESTAMP NOT NULL,".
+        "edited_time TIMESTAMP NOT NULL,".
         "PRIMARY KEY(article_id)," .
         "FOREIGN KEY(author_name) REFERENCES user(user_name)" .
         ");";

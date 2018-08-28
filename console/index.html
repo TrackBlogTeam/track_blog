@@ -2,87 +2,141 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" href="css/flat-ui.css"/>-->
+    <link rel="stylesheet" href="css/flat-ui.min.css"/>
     <link rel="stylesheet" href="css/index.css"/>
-    <title>轨迹博客控制台</title>
+    <!--<link rel="stylesheet" href="css/element-ui.css"/>-->
     <script src="../static/js/ajax.js"></script>
+    <!--<script src="js/vue.js"></script>-->
+    <script src="js/vue.min.js"></script>
+    <title>轨迹博客控制台</title>
 </head>
 <body>
-<div class="main">
+<div id="app" class="main">
     <div class="head">
         <div class="logo">
             <div class="logoIcon headImage"></div>
-            <div class="logoWord">Track Blog</div>
+            <!--<div class="logoWord">Track Blog</div>-->
         </div>
-        <div class="menuItem" onclick="clickTable('user')">User</div>
-        <div class="menuItem" onclick="clickTable('article')">Article</div>
-        <div class="menuItem" onclick="clickTable('comment')">Comment</div>
         <div class="flexBlank"></div>
-        <div title="消息提醒" class="notificationButton headImage menuButton"></div>
-        <div title="注销账号" class="logoutButton headImage menuButton" onclick="logout()"></div>
+        <div class="menuItem" @click="retrieveTable('user', 1, 10)">User</div>
+        <div class="menuItem" @click="retrieveTable('article', 1, 10)">Article</div>
+        <div class="menuItem" @click="retrieveTable('comment', 1, 10)">Comment</div>
+        <div class="flexBlank"></div>
+        <div title="Notification" class="menuButton">
+            <span class="fui-bubble"></span>
+        </div>
+        <div title="Logout" class="menuButton" onclick="logout()">
+            <span class="fui-power"></span>
+        </div>
         <div class="administratorInfo"></div>
         <div class="administratorPortraitContainer">
             <div class="administratorPortrait"></div>
         </div>
     </div>
     <div class="body">
-        <div class="aside">
-            <div class="asideListTitle" onclick="toggleExpand(this)">
-                <div class="asideListTitleIcon asideListSystemUsers"></div>
-                <div class="asideListTitleWord">系统用户</div>
-                <img src="src/arrow.png" class="asideListTitleStatusIcon" data-expand="false"/>
+        <div class="sidebar">
+            <div class="sidebarListTitle" data-expand="false" @click="toggleExpand($event)">
+                <div class="sidebarListTitleIcon">
+                    <span class="fui-user"></span>
+                </div>
+                <div class="sidebarListTitleWord">Users</div>
+                <div class="sidebarListTitleStatusIcon" data-expand="false">
+                    <span class="fui-arrow-right"></span>
+                </div>
             </div>
-            <ul class="asideListContent" data-expand="false">
-                <li class="asideListItem">管理员列表</li>
-                <li class="asideListItem">岗位列表</li>
-                <li class="asideListItem">角色权限</li>
-                <li class="asideListItem">部门管理</li>
-                <li class="asideListItem">操作日志</li>
+            <ul class="sidebarListContent" data-expand="false">
+                <li class="sidebarListItem">管理员列表</li>
+                <li class="sidebarListItem">工作岗位</li>
+                <li class="sidebarListItem">权限管理</li>
+                <li class="sidebarListItem">部门管理</li>
+                <li class="sidebarListItem">日志查看</li>
             </ul>
-            <div class="asideListTitle" onclick="toggleExpand(this)">
-                <div class="asideListTitleIcon asideListAdministrator"></div>
-                <div class="asideListTitleWord">管理员</div>
-                <img src="src/arrow.png" class="asideListTitleStatusIcon" data-expand="false"/>
+            <div class="sidebarListTitle" data-expand="false" @click="toggleExpand($event)">
+                <div class="sidebarListTitleIcon">
+                    <div class="sidebarListTitleIcon">
+                        <span class="fui-lock"></span>
+                    </div>
+                </div>
+                <div class="sidebarListTitleWord">Administrator</div>
+                <div class="sidebarListTitleStatusIcon" data-expand="false">
+                    <span class="fui-arrow-right"></span>
+                </div>
             </div>
-            <ul class="asideListContent" data-expand="false">
-                <li class="asideListItem">个人信息</li>
-                <li class="asideListItem">工作计划</li>
-                <li class="asideListItem">操作日志</li>
-                <li class="asideListItem">系统反馈</li>
+            <ul class="sidebarListContent" data-expand="false">
+                <li class="sidebarListItem">个人信息</li>
+                <li class="sidebarListItem">工作计划</li>
+                <li class="sidebarListItem">操作日志</li>
+                <li class="sidebarListItem">系统反馈</li>
             </ul>
-            <div class="asideListTitle" onclick="toggleExpand(this)">
-                <div class="asideListTitleIcon asideListSettings"></div>
-                <div class="asideListTitleWord">系统设置</div>
-                <img src="src/arrow.png" class="asideListTitleStatusIcon" data-expand="false"/>
+            <div class="sidebarListTitle" data-expand="false" @click="toggleExpand($event)">
+                <div class="sidebarListTitleIcon">
+                    <div class="sidebarListTitleIcon">
+                        <span class="fui-gear"></span>
+                    </div>
+                </div>
+                <div class="sidebarListTitleWord">Settings</div>
+                <div class="sidebarListTitleStatusIcon" data-expand="false">
+                    <span class="fui-arrow-right"></span>
+                </div>
             </div>
-            <ul class="asideListContent" data-expand="false">
-                <li class="asideListItem">控制台主题</li>
-                <li class="asideListItem">管理表格样式</li>
-                <li class="asideListItem">预览文章</li>
-                <li class="asideListItem">导出操作日志</li>
-                <li class="asideListItem">敏感词设置</li>
+            <ul class="sidebarListContent" data-expand="false">
+                <li class="sidebarListItem">控制台主题</li>
+                <li class="sidebarListItem">管理表格样式</li>
+                <li class="sidebarListItem">预览文章</li>
+                <li class="sidebarListItem">导出操作日志</li>
+                <li class="sidebarListItem">敏感词设置</li>
             </ul>
         </div>
         <div class="content">
             <div class="controlPanelTop">
-                <input placeholder="Search here..." class="searchInput"/>
-                <div class="searchButton">Search</div>
+                <input type="text" class="form-control input-sm searchInput" placeholder="Search ..."/>
+                <button class="btn btn-embossed btn-primary">Search</button>
                 <div class="flexBlank"></div>
-                <div class="refreshButton"></div>
+                <button class="btn btn-danger">Delete</button>
             </div>
-            <div class="tableArea">
-                <table></table>
-            </div>
-            <div class="controlPanelBottom">
-                <div class="controlPanelBottomButton">批量删除</div>
-                <div class="flexBlank"></div>
-                <div class="controlPanelBottomButton" onclick="goToPreviousPage()">上一页</div>
-                <div class="controlPanelBottomButton" onclick="goToNextPage()">下一页</div>
-                <input placeholder="1" class="pageInput"/>
-                <div class="jumpButton" onclick="goToCertainPage()">跳转</div>
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col" v-for="item in table.head">{{item}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="record in table.data">
+                    <th scope="row"><label class="checkbox"> <input type="checkbox" data-toggle="checkbox"
+                                                                    class="custom-checkbox"> <span class="icons">
+                <span class="icon-unchecked"></span>
+                <span class="icon-checked"></span>
+                </span> </label></th>
+                    <td v-for="value in record">{{value}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="paginationContainer">
+                <ul class="customPagination pagination">
+                    <li class="previous">
+                        <a href="#" class="fui-arrow-left" @click="previousPage()"></a>
+                    </li>
+                    <li v-for="number in pageNumbers">
+                        <a @click="jumpTo(number)">{{number}}</a>
+                    </li>
+                    <li class="next">
+                        <a href="#" class="fui-arrow-right" @click="nextPage()"></a>
+                    </li>
+                </ul>
+                <input class="form-control input-sm pageInput" placeholder="Page ..."/>
+                <button class="btn btn-default btn-primary" @click="jumpTo($event)">Jump</button>
             </div>
         </div>
     </div>
 </div>
-<script src="js/index.js"></script>
+<!--<script src="js/jquery.js"></script>-->
+<!--<script src="js/flat-ui.js"></script>-->
+<!--<script src="js/index.js"></script>-->
+<!--<script src="js/element-ui.js"></script>-->
+<script src="js/index-vue.js"></script>
 </body>
 </html>

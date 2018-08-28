@@ -27,16 +27,17 @@ class ArticleController extends Controller
         return parent::getTable(self::tableName, $pageNumber, $limit);
     }
 
-    public function getMyArticles($user)
+    public function getArticles($user)
     {
         // TODO: Optimize the efficiency of the query
-        $sql = "SELECT * FROM article WHERE autho_name='$user->username';";
+        $sql = "SELECT * FROM article WHERE author_name='$user->username' ORDER BY article_id DESC;";
         $this->databaseManager->execute($sql);
         return $this->databaseManager->getResult();
     }
 
     public function addArticle($user, $title, $content, $articleType)
     {
+        // TODO: Check the length of the $title
         //TODO: Optimize the efficiency of the query
         $sql = "SELECT * FROM article WHERE author_name='$user->username';";
         $this->databaseManager->execute($sql);
@@ -45,10 +46,10 @@ class ArticleController extends Controller
 
         try {
             $templatePath = null;
-            if ($articleType == "markdown") {
+            if ($articleType === "markdown") {
                 $templatePath = dirname(__DIR__) . "/static/template/" . "template_markdown.html";
             }
-            else if ($articleType == "richText") {
+            else if ($articleType === "richText") {
                 $templatePath = dirname(__DIR__) . "/static/template/" . "template_richText.html";
             }
             else {
@@ -70,7 +71,7 @@ class ArticleController extends Controller
             echo $e->getMessage();
         }
 
-        $sql = "INSERT INTO article (author_name, article_key) VALUES('$user->username', '$articleKey');";
+        $sql = "INSERT INTO article (author_name, article_key, article_title, created_time, edited_time) VALUES('$user->username', '$articleKey', '$title', NOW(), NOW());";
         $this->databaseManager->execute($sql);
         fclose($templateFile);
         fclose($articleFile);
