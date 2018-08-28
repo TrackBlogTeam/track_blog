@@ -6,6 +6,88 @@ editor.getSession().setMode("ace/mode/markdown");
 editor.renderer.setShowPrintMargin(false);
 editor.setOption('wrap', 'free'); //自动换行
 
+//设置快捷键
+editor.commands.addCommand({
+    name:'bold',
+    bindKey:{win:'Ctrl-B',mac:'Command-B'},
+    exec: function(editor){
+        insertBold();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'italic',
+    bindKey:{win:'Ctrl-I',mac:'Command-I'},
+    exec: function(editor){
+        insertItalic();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'delete',
+    bindKey:{win:'Ctrl-D',mac:'Command-D'},
+    exec: function(editor){
+        insertStrike();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'header',
+    bindKey:{win:'Ctrl-H',mac:'Command-H'},
+    exec: function(editor){
+        insertHeader();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'link',
+    bindKey:{win:'Ctrl-K',mac:'Command-K'},
+    exec: function(editor){
+        insertLink();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'quote',
+    bindKey:{win:'Ctrl-Q',mac:'Command-Q'},
+    exec: function(editor){
+        insertQuote();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'hLine',
+    bindKey:{win:'Ctrl-L',mac:'Command-L'},
+    exec: function(editor){
+        insertHLine();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'image',
+    bindKey:{win:'Ctrl-Shift-I',mac:'Command-Shift-I'},
+    exec: function(editor){
+        insertImage();
+    },
+    readOnly:true
+});
+
+editor.commands.addCommand({
+    name:'code',
+    bindKey:{win:'Ctrl-Shift-C',mac:'Command-Shift-C'},
+    exec: function(editor){
+        insertCode();
+    },
+    readOnly:true
+});
+
 //跟随滚动
 
 //scrollTop  滚动条高度
@@ -121,6 +203,7 @@ function insertBold(){
     convert();
 
     //设置光标
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 
@@ -143,6 +226,7 @@ function insertItalic(){
     convert();
 
     //设置光标
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 
@@ -165,6 +249,7 @@ function insertStrike(){
     convert();
 
     //设置光标
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 
@@ -186,6 +271,7 @@ function insertLink(){
     convert();
 
     //设置光标
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 
@@ -207,6 +293,7 @@ function insertQuote(){
     convert();
 
     //设置光标
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 
@@ -228,6 +315,7 @@ function insertCode(){
     convert();
 
     //设置光标
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 
@@ -249,6 +337,51 @@ function insertHLine(){
     convert();
 
     //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
+}
+
+function insertHeader(){
+    //获取选中的范围
+    range=editor.getSelectionRange();
+    //获取选中的文本
+    text=editor.session.getTextRange(range);
+    var row=range.end.row+1;
+    var column=range.end.column+2;
+
+    //替换用的文本
+    rText="\n## "+text;
+
+    //替换
+    editor.session.replace(range,rText);
+
+    //重新marked
+    convert();
+
+    //设置光标
+    editor.clearSelection();
+    editor.moveCursorTo(row,column);
+}
+
+function insertImage(){
+    //获取选中的范围
+    range=editor.getSelectionRange();
+    //获取选中的文本
+    text=editor.session.getTextRange(range);
+    var row=range.end.row;
+    var column=range.end.column+4;
+
+    //替换用的文本
+    rText="![]("+text+")";
+
+    //替换
+    editor.session.replace(range,rText);
+
+    //重新marked
+    convert();
+
+    //设置光标范围
+    editor.clearSelection();
     editor.moveCursorTo(row,column);
 }
 

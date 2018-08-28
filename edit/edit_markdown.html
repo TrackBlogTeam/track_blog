@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <!--引入bootstrap-->
 
     <!--引入jquery-confirm-->
@@ -33,7 +33,7 @@
     <!--radio动效-->
 
     <link href="css/slides.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
     <!--下拉菜单-->
 
     <link href="css/post.css" rel="stylesheet">
@@ -60,6 +60,30 @@
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
     <!--highlight库引入-->
     <script src="../static/js/ajax.js"></script>
+
+    <script src="https://cdn.bootcss.com/jBox/0.4.9/jBox.min.js"></script>
+<link href="https://cdn.bootcss.com/jBox/0.4.9/jBox.css" rel="stylesheet">
+<!--Jbox-->
+
+<script>
+    $(document).ready(function() {
+        
+      
+      // Use the option closeOnMouseleave to keep it open
+      
+      new jBox('Tooltip', {
+    attach: '.tooltip',
+    title:"快捷键",
+    content: '粗体------------------------------------------Ctrl+B/Cmd+B斜体------------------------------------------Ctrl+I/Cmd+I删除线---------------------------------------Ctrl+D/Cmd+D插入二级标题------------------------------Ctrl+H/Cmd+H插入链接------------------------------------Ctrl+K/Cmd+K插入引用-----------------------------------Ctrl+Q/Cmd+Q插入代码块------------------Ctrl+Shift+C/Cmd+Shift+C插入分隔线---------------------------------Ctrl+L/Cmd+L插入图片-----------------------Ctrl+Shift+I/Cmd+Shift+I',
+    width:300,
+    closeOnMouseleave: true
+  });
+      
+      
+      // Be careful with offsets, a gap will close the tooltip
+        
+    });
+</script>
 
 </head>
 
@@ -200,16 +224,16 @@
                                     <div class="head">可选</div>
                                     <div class="cards" id="b1">
                                         <div class="card">
-                                            <span class="cardtitle noselect">标签1</span>
+                                            <span class="cardtitle noselect">心情日志</span>
                                         </div>
                                         <div class="card">
-                                            <span class="cardtitle noselect">标签2</span>
+                                            <span class="cardtitle noselect">技术文章</span>
                                         </div>
                                         <div class="card">
-                                            <span class="cardtitle noselect">标签3</span>
+                                            <span class="cardtitle noselect">读书笔记</span>
                                         </div>
                                         <div class="card">
-                                            <span class="cardtitle noselect">标签4</span>
+                                            <span class="cardtitle noselect">阶段总结</span>
                                         </div>
                                     </div>
                                 </div>
@@ -256,33 +280,39 @@
 
                 <div class="editorFooter">
                     <!--底部工具栏-->
-                    <a class="hvr-grow-shadow" id="boldBt">
+                    <a class="hvr-grow-shadow"  title="粗体" id="boldBt">
                         <img src="icons/bold.png" class="=icon" />
                     </a>
-                    <a class="hvr-grow-shadow" id="italicBt">
+                    <a class="hvr-grow-shadow" title="斜体" id="italicBt">
                         <img src="icons/italic.png" class="icon" />
                     </a>
-                    <a class="hvr-grow-shadow" id="strikeBt">
+                    <a class="hvr-grow-shadow" title="删除线" id="strikeBt">
                         <img src="icons/strikeThrough.png" class="icon" />
                     </a>
-                    <a class="hvr-grow-shadow" id="linkBt">
+                    <a class="hvr-grow-shadow" title="链接" id="linkBt">
                         <img src="icons/link.png" class="icon" />
                     </a>
-                    <a class="hvr-grow-shadow" id="quoteBt">
+                    <a class="hvr-grow-shadow" title="引用" id="quoteBt">
                         <img src="icons/quote.png" class="icon" />
                     </a>
-                    <a class="hvr-grow-shadow" id="codeBt">
+                    <a class="hvr-grow-shadow" title="代码块" id="codeBt">
                         <img src="icons/code.png" class="icon" />
                     </a>
-                    <a class="hvr-grow-shadow" id="hLineBt">
+                    <a class="hvr-grow-shadow" title="分隔线" id="hLineBt">
                         <img src="icons/hLine.png" class="icon" />
                     </a>
                     <!-- <button class="ctlBt" title="更换主题">
                         <img src="icons/theme.png" class="icon" />
                     </button> -->
-                    <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank">
+                    <!-- <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank">
+                        <img src="icons/md.png" class="icon" />
+                    </a> -->
+                    <a class="hover tooltip hvr-grow-shadow" style="opacity:1;position: relative;font-family: 'Lato', Helvetica, Arial, sans-serif;">
                         <img src="icons/md.png" class="icon" />
                     </a>
+                    <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank" style="min-width: 130px;margin-left: 20px">Markdown帮助文档</a>
+                    <!-- <a class="hover tooltip hvr-grow-shadow">Open tooltip</a> -->
+
                     <div class=enlargeBlock>
                         <div style="width: 1.6rem;height: 1.6rem;"></div>
                         <a class="hvr-grow-shadow" id="expandOrShrinkBt" style="margin-left: auto;
@@ -338,7 +368,6 @@
 <script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
 <script src="js/dragula.js"></script>
 <!--可拖拽标签-->
-
 </body>
 
 </html>
