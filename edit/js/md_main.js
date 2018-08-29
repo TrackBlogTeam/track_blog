@@ -167,13 +167,13 @@ marked.setOptions({
 function count(){
     var account=document.getElementById("Count");
     var length=document.getElementById("result").innerText.length;
-    account.innerHTML="共 "+length+" 字";
+    // console.log(document.getElementById("result").innerText);
+    account.innerHTML="共 "+(length-2)+" 字";
 }
 
 //marked
 function convert() {
     document.getElementById("result").innerHTML=marked(editor.getValue(),{breaks:true});
-    console.log(marked(editor.getValue(),{breaks:true}));
     count();
 }
 

@@ -16,24 +16,30 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../static/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <!--引入bootstrap-->
 
     <!--引入jquery-confirm-->
-    <link href="css/jquery-confirm.css" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- <link href="css/jquery-confirm.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet">
+    <!-- <link href="css/font-awesome.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="css/flat-ui.css" rel="stylesheet">
+    <!-- <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet"> -->
     <!--Flat-UI-->
 
-    <link href="css/hover-min.css" rel="stylesheet">
+    <!-- <link href="css/hover-min.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
     <!--button动效-->
 
     <link href="css/radio.css" rel="stylesheet">
     <!--radio动效-->
 
     <link href="css/slides.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="../static/js/jquery.min.js"></script> -->
     <!--下拉菜单-->
 
     <link href="css/post.css" rel="stylesheet">
@@ -41,9 +47,6 @@
 
     <link href="css/dragula.css" rel="stylesheet">
     <!--可拖拽标签-->
-
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/md_editor.css">
 
     <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/hybrid.min.css" rel="stylesheet">
@@ -57,20 +60,25 @@
 
     <script src="https://cdn.bootcss.com/marked/0.4.0/marked.js"></script>
     <!--marked库引入-->
+
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
     <!--highlight库引入-->
-    <script src="../static/js/ajax.js"></script>
 
     <script src="https://cdn.bootcss.com/jBox/0.4.9/jBox.min.js"></script>
-<link href="https://cdn.bootcss.com/jBox/0.4.9/jBox.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/jBox/0.4.9/jBox.css" rel="stylesheet">
+    <!--引入jBox-->
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/md_editor.css">
+    <link href="css/other.css" rel="stylesheet">
+    <script src="../static/js/ajax.js"></script>
+
 <!--Jbox-->
 
 <script>
+    //快捷键面板
     $(document).ready(function() {
-        
-      
       // Use the option closeOnMouseleave to keep it open
-      
       new jBox('Tooltip', {
     attach: '.tooltip',
     title:"快捷键",
@@ -78,10 +86,7 @@
     width:300,
     closeOnMouseleave: true
   });
-      
-      
       // Be careful with offsets, a gap will close the tooltip
-        
     });
 </script>
 
@@ -115,10 +120,7 @@
                             <a href="">个人主页</a>
                         </li>
                         <li>
-                            <a href="">
-                                消息
-                                <span class=navbar-new style="margin-top:-20px" id="tips">2</span>
-                            </a>
+                            <a href="">消息</a>
                         </li>
                         <li>
                             <a href="">草稿箱</a>
