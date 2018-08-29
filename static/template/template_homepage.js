@@ -9,7 +9,7 @@ const app = new Vue({
     methods: {
         updateSigned: function () {
             ajax({
-                url: 'https://www.track-blog.com/back/api/haveSigned.php',
+                url: 'https://www.track-blog.com/back/api/have_signed.php',
                 method: 'POST',
                 success: (response) => {
                     console.log(response);
