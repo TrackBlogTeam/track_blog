@@ -34,3 +34,10 @@
 // 835: Fail to retrieve profile. Not logged.
 // 836: Fail to retrieve articles. Lack of parameter(s).
 // 837: Fail to register. Incomplete parameter(s).
+// 838: Fail to upload portrait. More than 1 files have been uploaded
+// 839: Fail to upload portrait. Illegal upload.
+// 840: Fail to upload portrait. The size of the image doesn't meet the demand
+// 841: Success to upload portrait.
+// 842: Fail to upload portrait. Incorrect signed status.
+// 843: Fail to upload portrait. Incorrect type of image. (bmp, jpg, png)
+// 844: Fail to upload portrait. Unknown reason.
