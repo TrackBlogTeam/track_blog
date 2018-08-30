@@ -1,0 +1,73 @@
+/* font-awesome */
+
+.fa-exclamation-circle:before {
+    color: #E74C3C;
+  }
+
+  .fa-question:before {
+    color: #1ABC9C;
+  }
+
+  .fa-check-circle:before {
+    color:#1ABC9C;
+  }
+
+  /* jquery-confirm */
+  @-webkit-keyframes type-green {
+    1%,
+    100% {
+      border-color: #1ABC9C;
+    }
+    50% {
+      border-color: #54d98c;
+    }
+  }
+  @keyframes type-green {
+    1%,
+    100% {
+      border-color: #1ABC9C;
+    }
+    50% {
+      border-color: #54d98c;
+    }
+  }
+
+  .jconfirm .jconfirm-box.jconfirm-type-green {
+    border-top: solid 7px #1ABC9C;
+
+  }
+
+  .jconfirm .jconfirm-box .jconfirm-buttons button.btn-green {
+    background-color: #1ABC9C;
+
+  }
+  .jconfirm .jconfirm-box .jconfirm-buttons button.btn-green:hover {
+    background-color: #1ABC9C;
+
+  }
+
+  /*flat-ui*/
+  /* body {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+  } */
+
+  /* hover */
+  .hvr-grow-shadow {
+    cursor: pointer;
+    width:4rem;
+    height: 3rem;
+    padding: 1rem;
+  }
+
+  .hvr-underline-reveal:before {
+    background: #1ABC9C;
+
+}
+
+.hvr-shutter-out-horizontal {
+    color: #1ABC9C;
+}
+
+.hvr-shutter-out-horizontal:before {
+    background: #1ABC9C;
+}

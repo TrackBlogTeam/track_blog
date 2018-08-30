@@ -7,21 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>发布文章-轨迹博客</title>
 
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <!--引入bootstrap-->
 
-    <link href="css/jquery-confirm.css" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- <link href="css/jquery-confirm.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet">
+    <!-- <link href="css/font-awesome.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!--引入jquery-confirm-->
-
-    <link href="css/hover-min.css" rel="stylesheet">
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <!--引入flat-ui-->
+    <!-- <link href="css/hover-min.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
     <!--button动效-->
 
     <link href="css/radio.css" rel="stylesheet">
     <!--radio动效-->
 
     <link href="css/slides.css" rel="stylesheet">
-    <script src="../static/js/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <!--下拉菜单-->
 
     <link href="css/post.css" rel="stylesheet">
@@ -30,11 +34,16 @@
     <link href="css/dragula.css" rel="stylesheet">
     <!--可拖拽标签-->
 
+    <script src="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js"></script>
+    <!--wangEditor-->
+
+    <script src="https://cdn.bootcss.com/jBox/0.4.9/jBox.min.js"></script>
+    <link href="https://cdn.bootcss.com/jBox/0.4.9/jBox.css" rel="stylesheet">
+    <!--jBox引入-->
+
     <link rel="stylesheet" type="text/css" href="css/header.css" />
     <link rel="stylesheet" type="text/css" href="css/rt_editor.css" />
-
-    <script src="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="css/other.css"/>
     <script src="../static/js/ajax.js"></script>
 </head>
 
@@ -62,10 +71,7 @@
                                 <a href="">个人主页</a>
                             </li>
                             <li>
-                                <a href="">
-                                    消息
-                                    <span class=navbar-new style="margin-top:-20px" id="tips">2</span>
-                                </a>
+                                <a href="">消息</a>
                             </li>
                             <li>
                                 <a href="">草稿箱</a>
@@ -83,7 +89,7 @@
 
                 <div class="midBox">
                     <!--中间部分（文章标题）-->
-                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="80em" class="titleInput form-control flat" id="title">
+                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="128em" class="titleInput form-control flat" id="title">
                 </div>
                 <div class="rightBox">
                     <!--右边-->
@@ -130,7 +136,7 @@
                         <!--发布选项-->
                         <a href="#menu" id="toggle" style="display: flex" onclick="clickPost()">
                             <div class="hvr-buzz-out" style="display: flex;width: 100%">
-                                <div style="display: block;width: 60%;height: 90px;
+                                <div  style="display: block;width: 60%;height: 90px;
                                 font-size: 1.5rem;margin-top: -8px;color:#1ABC9C">
                                     发布
                                 </div>
@@ -171,16 +177,16 @@
                                         <div class="head">可选</div>
                                         <div class="cards" id="b1">
                                             <div class="card">
-                                                <span class="cardtitle noselect">标签1</span>
+                                                <span class="cardtitle noselect">心情日志</span>
                                             </div>
                                             <div class="card">
-                                                <span class="cardtitle noselect">标签2</span>
+                                                <span class="cardtitle noselect">技术文章</span>
                                             </div>
                                             <div class="card">
-                                                <span class="cardtitle noselect">标签3</span>
+                                                <span class="cardtitle noselect">读书笔记</span>
                                             </div>
                                             <div class="card">
-                                                <span class="cardtitle noselect">标签4</span>
+                                                <span class="cardtitle noselect">阶段总结</span>
                                             </div>
                                         </div>
                                     </div>
@@ -238,12 +244,12 @@
     <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!--bootstrap&jquery-confirm-->
-    <script src="js/rt_main.js"></script>
     <script src="js/post.js"></script>
     <!--发布菜单-->
     <script src="js/slides.js"></script>
     <!--头像菜单-->
     <script src="js/header.js"></script>
+    <script src="js/rt_main.js"></script>
     <!--主体-->
     <script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
     <script src="js/dragula.js"></script>
