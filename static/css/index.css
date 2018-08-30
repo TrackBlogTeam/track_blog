@@ -256,18 +256,18 @@ p{
 
 
 #section0{
-	/* background-color: #94C9C9 */
-    background: linear-gradient(to bottom, #5BAEB2,#94C9C9);
+	background-color: #5BAEB2
+    /* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
 }
 
 #section1{
-	/* background-color: #5BAEB2 */
-    background: linear-gradient(to bottom ,#94C9C9, #5BAEB2);
+	background-color: #94C9C9
+    /* background: linear-gradient(to bottom ,#94C9C9, #5BAEB2); */
 }
 
 #section2{
-	/* background-color: #94C9C9 */
-    background: linear-gradient(to bottom, #5BAEB2,#94C9C9);
+	background-color: #5BAEB2
+    /* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
 }
 
 .floatRight{
