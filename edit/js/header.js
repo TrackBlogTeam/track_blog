@@ -124,7 +124,7 @@ function publishConnect(articleType) {
                             icon: 'fa fa-exclamation-circle',
                             title: "发布失败！",
                             content: reason,
-                            autoClose: 'cancelAction|8000',
+                            // autoClose: 'cancelAction|8000',
                             type: 'red',
                             typeAnimated: true,
                             draggable: true,
