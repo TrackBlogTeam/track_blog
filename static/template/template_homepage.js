@@ -7,11 +7,13 @@ const app = new Vue({
         }
     },
     methods: {
-        updateSigned: function () {
+        updateSigned: function ()
+        {
             ajax({
                 url: 'https://www.track-blog.com/back/api/have_signed.php',
                 method: 'POST',
-                success: (response) => {
+                success: (response) =>
+                {
                     console.log(response);
                 }
             })
@@ -28,7 +30,8 @@ function retrieveArticle()
     ajax({
         url: "https://www.track-blog.com/back/api/retrieve_articles.php",
         method: "POST",
-        success: ((response) => {
+        success: ((response) =>
+        {
             console.log(response);
             const articles = JSON.parse(response);
             const mainDIV = document.getElementById("main");
