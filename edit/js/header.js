@@ -71,6 +71,27 @@ function publishArticle(articleType) {
     })
 }
 
+function load(){
+    //onLoad
+    ajax({
+        url:"https://www.track-blog.com/back/api/have_signed.php",
+        method:"POST",
+        success:(response)=>{
+            console.log(response)
+            var isSigned=JSON.parse(response).signed;
+            var name=JSON.parse(response).username;
+            if(isSigned){
+                var url="www.track-blog.com/users/"+username+"/index.png";
+                document.getElementById("meBt").src=url;
+            }
+            else{
+                //重定位到登录
+                window.open("www.track-blog.com/?section=2");
+            }
+        }
+    })
+}
+
 function publishConnect(articleType) {
     //发布前连接服务器并给出消息提示
     $.confirm({
