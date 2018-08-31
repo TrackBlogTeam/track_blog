@@ -18,4 +18,4 @@ if (isset($_SESSION["username"])) {
     $messageBack->signed = false;
 }
 
-echo json_decode($messageBack);
+echo json_encode($messageBack);
