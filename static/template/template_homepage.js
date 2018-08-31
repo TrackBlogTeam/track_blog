@@ -4,7 +4,8 @@ const app = new Vue({
     {
         return {
             signed: true,
-            indexURL: ""
+            indexURL: "",
+            articles: []
         }
     },
     methods: {
@@ -22,6 +23,10 @@ const app = new Vue({
                     }
                 }
             })
+        },
+        jumpToArticle: function (articleKey)
+        {
+            window.location.href = "https://www.track-blog.com/users/" + document.getElementsByClassName("username")[0].innerHTML.trim() + "/articles/" + articleKey + ".html";
         },
         jumpToIndex: function ()
         {
@@ -44,16 +49,17 @@ const app = new Vue({
                 })
             }
         },
-        retrieveArticle: function ()
+        retrieveArticles: function ()
         {
             ajax({
                 url: "https://www.track-blog.com/back/api/retrieve_articles.php",
                 method: "POST",
                 data: {
-                    username: document.getElementsByClassName("username")[0].innerHTML
+                    username: document.getElementsByClassName("username")[0].innerHTML.trim()
                 },
-                success: (response)=>{
-                    console.log(response);
+                success: (response) =>
+                {
+                    app.articles = JSON.parse(response);
                 }
             })
         }
@@ -62,7 +68,7 @@ const app = new Vue({
 
 app.updateSigned();
 
-app.retrieveArticle();
+app.retrieveArticles();
 
 function retrieveArticle()
 {
