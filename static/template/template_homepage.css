@@ -142,7 +142,7 @@ body
 .articleTitle
 {
 	margin-left: 10px;
-	max-width: 80%;
+	flex: 8;
 	font-size: 24px;
 	font-weight: bold;
 	text-overflow: ellipsis;
@@ -159,8 +159,28 @@ body
 .articleTime
 {
 	margin-right: 10px;
+	flex: 1;
 	min-width: 20%;
 	text-align: right;
+}
+
+.articleOperation > span
+{
+	margin-right: 10px;
+}
+
+.articleOperation > .fui-new:hover
+{
+	color: #3498db;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.articleOperation > .fui-trash:hover
+{
+	color: #e74c3c;
+	transition: all var(--duration);
+	cursor: pointer;
 }
 
 .username
@@ -180,7 +200,6 @@ body
 {
 	width: 100px;
 	height: 100px;
-	background-color: var(--midnight-blue);
 	flex-shrink: 0;
 }
 
