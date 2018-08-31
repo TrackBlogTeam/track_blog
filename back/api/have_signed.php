@@ -17,5 +17,5 @@ if (isset($_SESSION["username"])) {
 } else {
     $messageBack->signed = false;
 }
-// TODO: Modify the API document
+
 echo json_decode($messageBack);
