@@ -3,7 +3,9 @@ const app = new Vue({
     data()
     {
         return {
-            signed: true
+            signed: true,
+            indexURL: "",
+            articles: []
         }
     },
     methods: {
@@ -14,7 +16,50 @@ const app = new Vue({
                 method: 'POST',
                 success: (response) =>
                 {
-                    console.log(response);
+                    const responseObject = JSON.parse(response);
+                    app.signed = responseObject.signed;
+                    if (app.signed && responseObject.role === "user") {
+                        app.indexURL = "https://www.track-blog.com/users/" + responseObject.username
+                    }
+                }
+            })
+        },
+        jumpToArticle: function (articleKey)
+        {
+            window.location.href = "https://www.track-blog.com/users/" + document.getElementsByClassName("username")[0].innerHTML.trim() + "/articles/" + articleKey + ".html";
+        },
+        jumpToIndex: function ()
+        {
+            window.location.href = app.indexURL;
+        },
+        jumpToEdit: function ()
+        {
+            window.location.href = "https://www.track-blog.com/edit/edit_markdown.html";
+        },
+        signOut: function ()
+        {
+            if (confirm("你确定要退出登录吗？")) {
+                ajax({
+                    url: "https://www.track-blog.com/back/api/sign_out.php",
+                    method: "POST",
+                    success: () =>
+                    {
+                        window.location.reload();
+                    }
+                })
+            }
+        },
+        retrieveArticles: function ()
+        {
+            ajax({
+                url: "https://www.track-blog.com/back/api/retrieve_articles.php",
+                method: "POST",
+                data: {
+                    username: document.getElementsByClassName("username")[0].innerHTML.trim()
+                },
+                success: (response) =>
+                {
+                    app.articles = JSON.parse(response);
                 }
             })
         }
@@ -23,7 +68,7 @@ const app = new Vue({
 
 app.updateSigned();
 
-retrieveArticle();
+app.retrieveArticles();
 
 function retrieveArticle()
 {
@@ -52,9 +97,4 @@ function retrieveArticle()
             }
         })
     })
-}
-
-function jumpTo(url)
-{
-    window.location.href = url;
 }

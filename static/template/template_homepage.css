@@ -56,6 +56,17 @@ body
 	transition: all var(--duration);
 }
 
+.editButton:hover
+{
+	max-width: 110px;
+	background-color: #3498DB;
+}
+
+.editButton:active
+{
+	background-color: #2980B9;
+}
+
 .homeButton:hover
 {
 	max-width: 110px;

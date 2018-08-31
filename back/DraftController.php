@@ -56,6 +56,30 @@ class DraftController extends Controller
         return $this->databaseManager->getResult();
     }
 
+    public function updateDraft($user, $title, $content, $draftID)
+    {
+        $sql = "SELECT * FROM draft WHERE author_name='$user->username' AND draft_id=$draftID;";
+        $this->databaseManager->execute($sql);
+        $result = $this->databaseManager->getResult();
+        if(count($result) === 1){
+
+        }
+
+        try {
+            $draftFilePath = dirname(__DIR__) . "/users/" . $user->username . "/drafts/" . $draftKey . ".txt";
+            $draftFile = fopen($draftFilePath, 'w');
+            fwrite($draftFile, $content);
+        }
+        catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        $sql = "INSERT INTO draft (draft_key, draft_title, author_name) VALUES ('$draftKey', '$title', '$user->username');";
+        $this->databaseManager->execute($sql);
+        fclose($draftFile);
+        return $this->databaseManager->getResult();
+    }
+
     public function retrieveDraft($user, $draftID)
     {
         $sql = "SELECT draft_title, draft_key, article_id FROM draft WHERE draft_id=$draftID and author_name='$user->username';";

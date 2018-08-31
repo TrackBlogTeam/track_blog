@@ -385,22 +385,17 @@ function insertImage(){
     editor.moveCursorTo(row,column);
 }
 
-function getAutoSave(){
-    //数据库获取保存的文本
-    return saveText;
-}
-
-function setValue(text){
-    //设置内容
-    editor.setValue(text);
-}
+// function getAutoSave(){
+//     //数据库获取保存的文本
+//     return saveText;
+// }
 
 
-editor.session.on('change',function(delta){
-    //保存到saveText
-    saveText=getContent();
-    //scale=(result.offsetHeight-rp.offsetHeight)/(editor.renderer.getScrollTop()-editorHeight);
-});
+// editor.session.on('change',function(delta){
+//     //保存到saveText
+//     saveText=getContent();
+//     //scale=(result.offsetHeight-rp.offsetHeight)/(editor.renderer.getScrollTop()-editorHeight);
+// });
 
 
 document.getElementById("boldBt").addEventListener('click',function(){
