@@ -60,19 +60,13 @@ try {
         "draft_key VARCHAR(8) NOT NULL," .
         "draft_title VARCHAR(128) NOT NULL," .
         "author_name VARCHAR(30) NOT NULL," .
+        "article_id INT(6)," .
         "PRIMARY KEY(draft_id)," .
-        "FOREIGN KEY(author_name) REFERENCES article(author_name)" .
-        ");";
-    $pdo->exec($sql);
-
-    // creation of table saves
-    $sql = "CREATE TABLE saves(" .
-        "draft_id INT(6) NOT NULL," .
-        "article_id INT(6) NOT NULL," .
-        "FOREIGN KEY(draft_id) REFERENCES draft(draft_id)," .
+        "FOREIGN KEY(author_name) REFERENCES user(user_name)," .
         "FOREIGN KEY(article_id) REFERENCES article(article_id)" .
         ");";
     $pdo->exec($sql);
+
 }
 catch (Exception $e) {
     echo $e->getMessage();

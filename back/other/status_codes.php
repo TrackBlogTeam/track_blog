@@ -41,3 +41,17 @@
 // 842: Fail to upload portrait. Incorrect signed status.
 // 843: Fail to upload portrait. Incorrect type of image. (bmp, jpg, png)
 // 844: Fail to upload portrait. Unknown reason.
+// 845: Fail to save draft. Not logged or for role of "administrator"
+// 846: Fail to save draft. Lack of parameter(s).
+// 847: Success to save draft.
+// 848: Fail to save draft. Unknown reasons.
+// 849: Fail to retrieve drafts. Not signed.
+// 850: Fail to retrieve drafts. Invalid role.
+// 851: Fail to edit draft. Not signed.
+// 852: Fail to edit draft. Invalid role.
+// 853: Fail to edit draft. Invalid parameter(s).
+// 854: Fail to edit article. Not signed.
+// 855: Fail to edit article. Invalid role.
+// 856: Fail to edit article. Invalid parameter(s).
+// 857: Success to update article.
+// 858: Fail to update article. Unknown reason
