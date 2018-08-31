@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Track Blog</title>
     <link rel="stylesheet" type="text/css" href="static/css/fullpage.css">
+    <link rel="stylesheet" type="text/css" href="static/css/flat-ui.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/index.css">
 </head>
 <body>
@@ -30,48 +31,39 @@
     <div class="section" id="section1">
         <div class="signInSite">
             <div id="signInSiteFigure" class="signInSiteFigure"></div>
-            <div class="signInFrame">
+            <div id="signInFrame" class="signInFrame">
                 <h1 class="mainTextFont signInTitle">Start Now!</h1>
+                <!-- <div id="signInError" class="signInError"><span class="fui-alert-circle"></span>password error</div> -->
                 <p class="inputTitle">username</p>
-                <input class="inputFrame">
+                <input id="usernameInSignIn" type="text" class="inputFrame" required>
                 <p class="inputTitle">password</p>
-                <input class="inputFrame">
-                <button class="signInButton">Sign In</button>
+                <input id="passwordInSignIn" class="inputFrame" type="password" required>
+                <button class="signInButton" onclick="signInConfirm()">Sign In</button>
             </div>
         </div>
     </div>
     <!-- 第三页：注册界面 -->
     <div class="section" id="section2">
         <div class="signUpSite">
-            <div class="signUpSiteFigure"></div>
-            <div class="signUpFrame">
+            <div id="signUpSiteFigure" class="signUpSiteFigure" ></div>
+            <div id="signUpFrame" class="signUpFrame">
                 <h1 class="mainTextFont signUpTitle">Join Us!</h1>
                 <p class="inputTitle">username</p>
-                <input class="inputFrame">
+                <input id="usernameInSignUp" type="text" class="inputFrame" required>
                 <p class="inputTitle">phonenumber</p>
-                <input class="inputFrame">
+                <input id="phonenumberInSignUp" type="text" class="inputFrame" required>
                 <p class="inputTitle">password</p>
-                <input class="inputFrame">
+                <input id="passwordInSignUp" type="password" class="inputFrame" required>
                 <p class="inputTitle">password again</p>
-                <input class="inputFrame">
-                <button class="signUpButton">Sign Up</button>
+                <input id="confirmPasswordInSignUp" type="password" class="inputFrame" required>
+                <button class="signUpButton" onclick="signUpConfirm()">Sign Up</button>
             </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript" src="static/js/fullpage.js"></script>
-<script type="text/javascript">
-    var myFullpage = new fullpage('#fullpage',
-    {
-        anchors: ['firstPage', 'secondPage', '3rdPage'],
-        menu: '#menu',
-        afterLoad: function(origin){
-            document.getElementById("")
-        }
-	}
-    );
-</script>
+<script type="text/javascript" src="static/js/ajax.js"></script>
 <script type="text/javascript" src="static/js/index.js"></script>
 </body>
 </html>
