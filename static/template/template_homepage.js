@@ -43,13 +43,26 @@ const app = new Vue({
                     }
                 })
             }
+        },
+        retrieveArticle: function ()
+        {
+            ajax({
+                url: "https://www.track-blog.com/back/api/retrieve_articles.php",
+                method: "POST",
+                data: {
+                    username: document.getElementsByClassName("username")[0].innerHTML
+                },
+                success: (response)=>{
+                    console.log(response);
+                }
+            })
         }
     }
 });
 
 app.updateSigned();
 
-retrieveArticle();
+app.retrieveArticle();
 
 function retrieveArticle()
 {
@@ -78,9 +91,4 @@ function retrieveArticle()
             }
         })
     })
-}
-
-function jumpTo(url)
-{
-    window.location.href = url;
 }
