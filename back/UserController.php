@@ -48,12 +48,20 @@ class UserController extends Controller
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {
             $path = dirname(__DIR__) . "/users/" . $user->username;
-            mkdir($path, 0777);
-            umask($path, 0777);
+            var_dump($path);
+//            mkdir($path, 0777);
+            mkdir($path);
+//            umask($path, 0777);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
-            mkdir($path, 0777);
-            umask($path, 0777);
-            // TODO: generate personal page
+//            mkdir($path, 0777);
+            var_dump($path);
+            mkdir($path);
+//            umask($path, 0777);
+            $path = dirname(__DIR__) . "/users/" . $user->username . "/drafts";
+//            mkdir($path, 0777);
+            var_dump($path);
+            mkdir($path);
+//            umask($path, 0777);
 
             try {
                 $templatePath = dirname(__DIR__) . "/static/template/template_homepage.html";
@@ -66,7 +74,8 @@ class UserController extends Controller
 
                 $homepageFile = fopen($homepagePath, 'w');
                 fwrite($homepageFile, $homepageString);
-            } catch (Exception $e) {
+            }
+            catch (Exception $e) {
                 echo $e->getMessage();
             }
             fclose($templateFile);
