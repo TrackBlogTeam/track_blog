@@ -72,6 +72,13 @@ class UserController extends Controller
 
                 $homepageFile = fopen($homepagePath, 'w');
                 fwrite($homepageFile, $homepageString);
+
+                $defaultPortraitFilePath = dirname(__DIR__) . "/static/template/src/index-default.png";
+                $defaultPortraitFile = fopen($defaultPortraitFilePath, 'r');
+                $defaultPortraitFileSize = filesize($defaultPortraitFilePath);
+                $indexPortraitFilePath = dirname(__DIR__) . "/users/" . $user->username . "/index.png";
+                $indexPortraitFile = fopen($indexPortraitFilePath, 'w');
+                fwrite($indexPortraitFile, fread($defaultPortraitFile, $defaultPortraitFileSize));
             }
             catch (Exception $e) {
                 echo $e->getMessage();

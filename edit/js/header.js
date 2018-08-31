@@ -105,7 +105,7 @@ function load()
             console.log(response)
             const responseObject = JSON.parse(response);
             if (responseObject.signed) {
-                var url = "www.track-blog.com/users/" + responseObject.username + "/index.png";
+                const url = "https://www.track-blog.com/users/" + responseObject.username + "/index.png";
                 document.getElementById("meBt").src = url;
             }
             else {
