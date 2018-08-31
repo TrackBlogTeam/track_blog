@@ -41,27 +41,19 @@ function setTitle(title) {
 }
 
 
-function publishArticle(articleType) {
+function publishArticle(type) {
     /*此为通用接口只接受getTitle()和getContent()*/
-    console.log("title: " + getTitle());
-    console.log("autosave: " + getContent())
 
-    // let htmlContent = getContent(); //获取内容
-    // let encodeDiv = document.createElement("div");
-    // (encodeDiv.textContent != null) ? (encodeDiv.textContent = htmlContent) : (encodeDiv.innerText = htmlContent);
-    // htmlContent = encodeDiv.innerHTML;
-    // htmlContent = htmlContent.replace(/'/g, "&apos;");
-    // htmlContent = htmlContent.replace(/"/g, '&quot;');
-    // console.log(htmlContent);
-    // htmlContent = encodeURIComponent(htmlContent);  // for &
+    var obj=urlParse();
 
     ajax({
-        url: "https://www.track-blog.com/back/api/publish.php",
+        url: "https://www.track-blog.com/back/api/publish_article.php",
         method: "POST",
         data: {
             title: getTitle(),
             content: getContent(),
-            articleType: articleType
+            articleType: type,
+            articleID: obj.articleID
         },
         success: (response) => {
             console.log(response)
@@ -71,8 +63,32 @@ function publishArticle(articleType) {
     })
 }
 
+function postDraft(){
+    //保存草稿
+    if(draft!=""){
+        var obj=urlParse();
+
+        ajax({
+            url: "https://www.track-blog.com/back/api/save_draft.php",
+            method: "POST",
+            data: {
+                title: getTitle(),
+                content: getContent(),
+                draftID: obj.draftID
+            },
+            success: (response) => {
+                console.log(response)
+                var code = JSON.parse(response).code;
+                return code;
+            }
+        })
+    }
+
+}
+
 function load(){
     //onLoad
+    //获得个人信息
     ajax({
         url:"https://www.track-blog.com/back/api/have_signed.php",
         method:"POST",
@@ -90,8 +106,54 @@ function load(){
             }
         }
     })
+
+    //获取文章内容
+    var obj=urlParse();
+    if(obj.articleID!=undefined && obj.draftID!=undefined){
+        if(obj.articleID==undefined){
+            //获取草稿内容
+            ajax({
+                url: "https://www.track-blog.com/back/api/edit_draft.php",
+                method: "POST",
+                data: {
+                    draftID: obj.draftID
+                },
+                success: (response) => {
+                    console.log(response)
+                    var code = JSON.parse(response).code;
+                    var title=JSON.parse(response).title;
+                    var content=Json.parse(response).content;
+                    setTitle(title);
+                    setContent(content);
+                    return code;
+                }
+            })
+        }else{
+            //获取文章内容
+            ajax({
+                url: "https://www.track-blog.com/back/api/edit_article.php",
+                method: "POST",
+                data: {
+                    articleID: obj.articleID
+                },
+                success: (response) => {
+                    console.log(response)
+                    var code = JSON.parse(response).code;
+                    var title=JSON.parse(response).title;
+                    var content=Json.parse(response).content;
+                    setTitle(title);
+                    setContent(content);
+                    return code;
+                }
+            })
+        }
+    }
 }
 
+//定时保存为草稿
+window.setInterval("postDraft()",1000*300);
+
+//发布确认
 function publishConnect(articleType) {
     //发布前连接服务器并给出消息提示
     $.confirm({
@@ -168,3 +230,22 @@ function publishConnect(articleType) {
         }
     })
 }
+
+//url解析
+function urlParse(){
+    // var url=window.location.search;
+    var obj ={};
+    var reg= /[?&][^?&]+=[^?&]+/g;
+
+    var arr=url.match(reg);
+    if(arr){
+        arr.forEach((item)=>{
+            var tempArr=item.substring(1).split('=');
+            var key=decodeURIComponent(tempArr[0]);
+            var val=decodeURIComponent(tempArr[1]);
+            obj[key]=val;
+        });
+    }
+    return obj;
+}
+
