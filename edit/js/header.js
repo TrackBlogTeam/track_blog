@@ -61,9 +61,60 @@ function publishArticle(type)
         },
         success: (response) =>
         {
-            console.log(response)
-            var code = JSON.parse(response).code;
-            return code;
+            const code = JSON.parse(response).code;
+            if (code === 830) {
+                $.confirm({
+                    icon: 'fa fa-check-circle',
+                    title: "发布成功！",
+                    content: "点击\'查看文章\'跳转到对应文章页面，此消息在5秒后自动关闭",
+                    autoClose: 'cancelAction|8000',
+                    type: 'green',
+                    typeAnimated: true,
+                    draggable: true,
+                    closeIcon: true,
+                    theme: 'modern',
+                    animation: 'rotateY',
+                    closeAnimation: 'rotateYR',
+                    buttons: {
+                        flip: {
+                            text: "查看文章",
+                            btnClass: 'btn-green green',
+                            action: function ()
+                            {
+                                $.alert('跳转到对应文章页面');
+                            }
+                        },
+                        cancelAction: {
+                            text: '取消'
+                        }
+                    }
+                });
+            } else {
+                var reason;
+                if (code === 828) {
+                    reason = "失败原因：当前为管理员，请用用户账号登陆后发布！";
+                } else {
+                    reason = "失败原因：未知，请重新发布！"
+                }
+                $.confirm({
+                    icon: 'fa fa-exclamation-circle',
+                    title: "发布失败！",
+                    content: reason,
+                    // autoClose: 'cancelAction|8000',
+                    type: 'red',
+                    typeAnimated: true,
+                    draggable: true,
+                    closeIcon: true,
+                    theme: 'modern',
+                    animation: 'rotateY',
+                    closeAnimation: 'rotateYR',
+                    buttons: {
+                        cancelAction: {
+                            text: '取消'
+                        }
+                    }
+                })
+            }
         }
     })
 }
@@ -182,59 +233,7 @@ function publishConnect(articleType)
                 {
                     //调用发布函数 if()
                     var code = publishArticle(articleType);
-                    if (code === 830) {
-                        $.confirm({
-                            icon: 'fa fa-check-circle',
-                            title: "发布成功！",
-                            content: "点击\'查看文章\'跳转到对应文章页面，此消息在5秒后自动关闭",
-                            autoClose: 'cancelAction|8000',
-                            type: 'green',
-                            typeAnimated: true,
-                            draggable: true,
-                            closeIcon: true,
-                            theme: 'modern',
-                            animation: 'rotateY',
-                            closeAnimation: 'rotateYR',
-                            buttons: {
-                                flip: {
-                                    text: "查看文章",
-                                    btnClass: 'btn-green green',
-                                    action: function ()
-                                    {
-                                        $.alert('跳转到对应文章页面');
-                                    }
-                                },
-                                cancelAction: {
-                                    text: '取消'
-                                }
-                            }
-                        });
-                    } else {
-                        var reason;
-                        if (code == 828) {
-                            reason = "失败原因：当前为管理员，请用用户账号登陆后发布！";
-                        } else {
-                            reason = "失败原因：未知，请重新发布！"
-                        }
-                        $.confirm({
-                            icon: 'fa fa-exclamation-circle',
-                            title: "发布失败！",
-                            content: reason,
-                            // autoClose: 'cancelAction|8000',
-                            type: 'red',
-                            typeAnimated: true,
-                            draggable: true,
-                            closeIcon: true,
-                            theme: 'modern',
-                            animation: 'rotateY',
-                            closeAnimation: 'rotateYR',
-                            buttons: {
-                                cancelAction: {
-                                    text: '取消'
-                                }
-                            }
-                        })
-                    }
+
                 }
             },
             no: {
