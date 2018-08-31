@@ -182,7 +182,7 @@ function publishConnect(articleType)
                 {
                     //调用发布函数 if()
                     var code = publishArticle(articleType);
-                    if (code == 830) {
+                    if (code === 830) {
                         $.confirm({
                             icon: 'fa fa-check-circle',
                             title: "发布成功！",
@@ -247,7 +247,7 @@ function publishConnect(articleType)
 //url解析
 function urlParse()
 {
-    // var url=window.location.search;
+    const url = window.location.href;
     var obj = {};
     var reg = /[?&][^?&]+=[^?&]+/g;
 
