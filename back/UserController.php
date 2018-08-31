@@ -39,23 +39,29 @@ class UserController extends Controller
         if ($this->userExists($user)) {
             return false;
         }
-
         $match = null;
         preg_match("/1[356789]{1}\d{9}/", $user->phoneNumber, $match);
         if (count($match) == 0) {   // illegal phone number
             return false;
         }
-
         $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {
             $path = dirname(__DIR__) . "/users/" . $user->username;
-            mkdir($path, 0777);
-            umask($path, 0777);
+            var_dump($path);
+//            mkdir($path, 0777);
+            mkdir($path);
+//            umask($path, 0777);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
-            mkdir($path, 0777);
-            umask($path, 0777);
-            // TODO: generate personal page
+//            mkdir($path, 0777);
+            var_dump($path);
+            mkdir($path);
+//            umask($path, 0777);
+            $path = dirname(__DIR__) . "/users/" . $user->username . "/drafts";
+//            mkdir($path, 0777);
+            var_dump($path);
+            mkdir($path);
+//            umask($path, 0777);
 
             try {
                 $templatePath = dirname(__DIR__) . "/static/template/template_homepage.html";
@@ -68,7 +74,8 @@ class UserController extends Controller
 
                 $homepageFile = fopen($homepagePath, 'w');
                 fwrite($homepageFile, $homepageString);
-            } catch (Exception $e) {
+            }
+            catch (Exception $e) {
                 echo $e->getMessage();
             }
             fclose($templateFile);

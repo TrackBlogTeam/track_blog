@@ -55,6 +55,12 @@
                                         <a href="#91d2d4e3badb4d8f880a19e5cdb78b67">获取数据表</a>
                                     </li><li>
                                         <a href="#9cb234706ce142b6b50f5080e43e3499">已经登录</a>
+                                    </li><li>
+                                        <a href="#180b4d958817433f81494364af47b209">保存草稿</a>
+                                    </li><li>
+                                        <a href="#87495806356c4375889b05f1d1b86d94">编辑文章</a>
+                                    </li><li>
+                                        <a href="#e6eceba8a65f43f8b4e5b36d51a5e951">编辑草稿</a>
                                     </li>
                                 </ul>                                <span>附录</span>
                                 <ul class="nav list-group">
@@ -259,7 +265,7 @@
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：https://www.track-blog.com/back/api/logout.php                        </p>
+                            请求地址：https://www.track-blog.com/back/api/sign_out.php                        </p>
                         
                         
                         
@@ -306,7 +312,7 @@
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：https://www.track-blog.com/back/api/publish.php                        </p>
+                            请求地址：https://www.track-blog.com/back/api/publish_article.php                        </p>
                         
                         
                         
@@ -347,12 +353,18 @@
                                             <td>是</td>
                                             <td>文章类型</td>
                                             <td>"markdown", "richText"</td>
+                                        </tr><tr>
+                                            <td>articleID</td>
+                                            <td>string</td>
+                                            <td>否</td>
+                                            <td>文章的ID，用于修改文章</td>
+                                            <td>1</td>
                                         </tr>                                    </tbody>
                                 </table>                        
                         <p>详细说明：</p>
                         <p>
                         <div class="detail-info">
-                            <div>以上参数均为ajax函数(ajax.js)中的data对象的属性。<br>返回值是一个字符串序列化的JSON对象，使用时需要JSON.parse(returnValue)<div><br></div><div>注意：使用该接口前需要登录</div></div>
+                            <div>以上参数均为ajax函数(ajax.js)中的data对象的属性。<br>返回值是一个字符串序列化的JSON对象，使用时需要JSON.parse(returnValue)<div><br></div><div>注意：使用该接口前需要登录</div><div><br></div><div>如果要覆盖（即修改）文章，需要同时加上articleID，否则将会创建新的文章</div></div>
                         </div>
                         </p>
                                                 
@@ -570,6 +582,148 @@
 }</code>
                             </pre>
                         </div>                        
+                        
+                    </div><div class="api-one">
+                        <h3 id="180b4d958817433f81494364af47b209">保存草稿</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=180b4d958817433f81494364af47b209" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=180b4d958817433f81494364af47b209" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/back/api/save_draft.php                        </p>
+                        
+                        
+                        
+
+                                                    <table class="table table-hover">
+                                    <colgroup>
+                                    <col class="col-xs-2">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-7">
+                                    <col class="col-xs-2">
+                                  </colgroup>
+                                    <thead>
+                                         <tr>
+                                            <th><span class="label label-success">Body参数名</span></th>
+                                            <th>类型</th>
+                                            <th>必需</th>
+                                            <th>描述</th>
+                                            <th>示例 e.g.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>title</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>草稿标题</td>
+                                            <td>记学习Vue.js心得</td>
+                                        </tr><tr>
+                                            <td>content</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>草稿内容</td>
+                                            <td></td>
+                                        </tr>                                    </tbody>
+                                </table>                        
+                        
+                                                
+                        
+                    </div><div class="api-one">
+                        <h3 id="87495806356c4375889b05f1d1b86d94">编辑文章</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=87495806356c4375889b05f1d1b86d94" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=87495806356c4375889b05f1d1b86d94" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/back/api/edit_article.php                        </p>
+                        
+                        
+                        
+
+                                                    <table class="table table-hover">
+                                    <colgroup>
+                                    <col class="col-xs-2">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-7">
+                                    <col class="col-xs-2">
+                                  </colgroup>
+                                    <thead>
+                                         <tr>
+                                            <th><span class="label label-success">Body参数名</span></th>
+                                            <th>类型</th>
+                                            <th>必需</th>
+                                            <th>描述</th>
+                                            <th>示例 e.g.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>articleID</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>想要编辑的文章的ID</td>
+                                            <td>1</td>
+                                        </tr>                                    </tbody>
+                                </table>                        
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>获取特定的文章的内容进行编辑</div>
+                        </div>
+                        </p>
+                                                
+                        
+                    </div><div class="api-one">
+                        <h3 id="e6eceba8a65f43f8b4e5b36d51a5e951">编辑草稿</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=e6eceba8a65f43f8b4e5b36d51a5e951" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=e6eceba8a65f43f8b4e5b36d51a5e951" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/back/api/edit_draft.php                        </p>
+                        
+                        
+                        
+
+                                                    <table class="table table-hover">
+                                    <colgroup>
+                                    <col class="col-xs-2">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-1">
+                                    <col class="col-xs-7">
+                                    <col class="col-xs-2">
+                                  </colgroup>
+                                    <thead>
+                                         <tr>
+                                            <th><span class="label label-success">Body参数名</span></th>
+                                            <th>类型</th>
+                                            <th>必需</th>
+                                            <th>描述</th>
+                                            <th>示例 e.g.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>draftID</td>
+                                            <td>string</td>
+                                            <td>是</td>
+                                            <td>想要编辑的草稿的ID</td>
+                                            <td>2</td>
+                                        </tr>                                    </tbody>
+                                </table>                        
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>对特定的草稿进行编辑</div>
+                        </div>
+                        </p>
+                                                
                         
                     </div>
                     <h1 id="t_api_doc">附录</h1>

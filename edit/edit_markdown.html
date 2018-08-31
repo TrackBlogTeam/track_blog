@@ -73,10 +73,10 @@
     <link href="css/other.css" rel="stylesheet">
     <script src="../static/js/ajax.js"></script>
 
-<!--Jbox-->
+    <!--Jbox-->
 
-<script>
-    //快捷键面板
+    <script>
+        //快捷键面板
     $(document).ready(function() {
       // Use the option closeOnMouseleave to keep it open
       new jBox('Tooltip', {
@@ -97,61 +97,63 @@
     to improve your experience.</p>
 <![endif]-->
 
-<div id="trackBlogWebEditor">
-    <div class="markdownEditor">
-        <header class="editorHeader">
-            <!--上方标题栏-->
-            <div class="leftBox">
-                <!--左边-->
-                <div class="m-dropdown">
-                    <!--头像及下拉菜单-->
-                    <div class="e-button open" style="width: 90%;display: flex;align-items: center">
-                        <div class="meBt" id="meBt"></div>
-                        <div>Click me</div>
-                        <div class="e-burger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+<body onload="load()">
+    <div id="trackBlogWebEditor">
+        <div class="markdownEditor">
+            <header class="editorHeader">
+                <!--上方标题栏-->
+                <div class="leftBox">
+                    <!--左边-->
+                    <div class="m-dropdown">
+                        <!--头像及下拉菜单-->
+                        <div class="e-button open" style="width: 90%;display: flex;align-items: center">
+                            <img class="meBt" id="meBt" src="icons/touxiang.jpg">
+                            <div>Click me</div>
+                            <div class="e-burger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
+                        <ul class="e-list" style="text-align: center">
+                            <li>
+                                <a href="">个人主页</a>
+                            </li>
+                            <li>
+                                <a href="">消息</a>
+                            </li>
+                            <li>
+                                <a href="">草稿箱</a>
+                            </li>
+                            <li>
+                                <a href="">设置</a>
+                            </li>
+                            <li>
+                                <a href="">退出</a>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="e-list" style="text-align: center">
-                        <li>
-                            <a href="">个人主页</a>
-                        </li>
-                        <li>
-                            <a href="">消息</a>
-                        </li>
-                        <li>
-                            <a href="">草稿箱</a>
-                        </li>
-                        <li>
-                            <a href="">设置</a>
-                        </li>
-                        <li>
-                            <a href="">退出</a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
 
-            <div class="midBox">
-                <!--中间部分（文章标题）-->
-                <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="128em" class="titleInput form-control flat" id="title">
-            </div>
-            <div class="rightBox">
-                <!--右边-->
-                <div class="editorSwitcher">
-                    <!--编辑器切换-->
-                    <div class="rtfButton">
-                        <!--点击后出现下拉菜单-->
-                        <i class="iconMore">
-                            <!-- ::before -->
-                            <span class="hvr-buzz-out">···</span>
-                        </i>
-                    </div>
-                    <a href="edit_richText.html" target="_blank" class="hvr-underline-reveal" id="switcher" style="position:absolute;
+                <div class="midBox">
+                    <!--中间部分（文章标题）-->
+                    <input type="text" placeholder="在此输入文章标题.." spellcheck="false" maxlength="128em" class="titleInput form-control flat"
+                        id="title">
+                </div>
+                <div class="rightBox">
+                    <!--右边-->
+                    <div class="editorSwitcher">
+                        <!--编辑器切换-->
+                        <div class="rtfButton">
+                            <!--点击后出现下拉菜单-->
+                            <i class="iconMore">
+                                <!-- ::before -->
+                                <span class="hvr-buzz-out">···</span>
+                            </i>
+                        </div>
+                        <a href="edit_richText.html" target="_blank" class="hvr-underline-reveal" id="switcher" style="position:absolute;
                     margin-top: 1.45rem;
                     padding: 1rem 2rem;
                     top: 100%;
@@ -169,90 +171,90 @@
                     z-index: 100;
                     display: none;
                     ">切换为富文本编辑器</a>
-                </div>
+                    </div>
 
-                <div class="autoSaving" style="display: flex;align-items: center;">
-                    <div>文章将会自动</div>
-                    <a href="" class="hvr-buzz-out" style="margin: 0 0 0 .4em;
+                    <div class="autoSaving" style="display: flex;align-items: center;">
+                        <div>文章将会自动</div>
+                        <a href="" class="hvr-buzz-out" style="margin: 0 0 0 .4em;
                     padding: .2em .4em;
                     color: inherit;
                     text-decoration: none;
                     border: 1px solid currentColor;
                     border-radius: 2px;">保存为草稿</a>
-                </div>
+                    </div>
 
-                <div class="publishForPanel">
-                    <!--发布选项-->
-                    <a href="#menu" id="toggle" style="display: flex" onclick="clickPost()">
-                        <div class="hvr-buzz-out" style="display: flex;width: 100%">
-                            <div  style="display: block;width: 60%;height: 90px;
+                    <div class="publishForPanel">
+                        <!--发布选项-->
+                        <a href="#menu" id="toggle" style="display: flex" onclick="clickPost()">
+                            <div class="hvr-buzz-out" style="display: flex;width: 100%">
+                                <div style="display: block;width: 60%;height: 90px;
                             font-size: 1.5rem;margin-top: -8px;color:#1ABC9C">
-                                发布
-                            </div>
-                            <span style="
+                                    发布
+                                </div>
+                                <span style="
                                 display: block;
                                 width: 40%;
                             "></span>
-                        </div>
-                    </a>
-                    <div id="menu">
-                        <!--发布选项下拉菜单-->
-                        <div class="title">发布文章</div>
-                        <div class="cutOffLine">-------------------------</div>
-
-                        <div class="categoryBox">
-                            <div class="subTitle">选择分栏</div>
-                            <div class="categoryList">
-                                <div class="toggle-button toggle-button--nummi">
-                                    <input id="toggleButton16" name="radio6" type="radio">
-                                    <label for="toggleButton16" data-text="公开" style="color: #1ABC9C"></label>
-                                    <div class="toggle-button__icon"></div>
-                                </div>
-                                <div class="toggle-button toggle-button--nummi">
-                                    <input id="toggleButton17" name="radio6" type="radio">
-                                    <label for="toggleButton17" data-text="私密" style="color: #E74C3C"></label>
-                                    <div class="toggle-button__icon"></div>
-                                </div>
                             </div>
-                        </div>
-                        <div class="cutOffLine">-------------------------</div>
+                        </a>
+                        <div id="menu">
+                            <!--发布选项下拉菜单-->
+                            <div class="title">发布文章</div>
+                            <div class="cutOffLine">-------------------------</div>
 
-
-                        <div class="tagBox">
-                            <div class="subTitle">拖拽标签</div>
-                            <div id="boards" style="width: 90%;flex-direction: column">
-
-                                <div class="board" id="board1" style="border:1px solid #E74C3C">
-                                    <div class="head">可选</div>
-                                    <div class="cards" id="b1">
-                                        <div class="card">
-                                            <span class="cardtitle noselect">心情日志</span>
-                                        </div>
-                                        <div class="card">
-                                            <span class="cardtitle noselect">技术文章</span>
-                                        </div>
-                                        <div class="card">
-                                            <span class="cardtitle noselect">读书笔记</span>
-                                        </div>
-                                        <div class="card">
-                                            <span class="cardtitle noselect">阶段总结</span>
-                                        </div>
+                            <div class="categoryBox">
+                                <div class="subTitle">选择分栏</div>
+                                <div class="categoryList">
+                                    <div class="toggle-button toggle-button--nummi">
+                                        <input id="toggleButton16" name="radio6" type="radio">
+                                        <label for="toggleButton16" data-text="公开" style="color: #1ABC9C"></label>
+                                        <div class="toggle-button__icon"></div>
+                                    </div>
+                                    <div class="toggle-button toggle-button--nummi">
+                                        <input id="toggleButton17" name="radio6" type="radio">
+                                        <label for="toggleButton17" data-text="私密" style="color: #E74C3C"></label>
+                                        <div class="toggle-button__icon"></div>
                                     </div>
                                 </div>
-
-                                <div class="board" id="board2" style="border:1px solid #1ABC9C">
-                                    <div class="head">已选</div>
-                                    <div class="cards" id="b2">
-                                        
-                                    </div>
-                                </div>
-
                             </div>
-                        </div>
+                            <div class="cutOffLine">-------------------------</div>
+
+
+                            <div class="tagBox">
+                                <div class="subTitle">拖拽标签</div>
+                                <div id="boards" style="width: 90%;flex-direction: column">
+
+                                    <div class="board" id="board1" style="border:1px solid #E74C3C">
+                                        <div class="head">可选</div>
+                                        <div class="cards" id="b1">
+                                            <div class="card">
+                                                <span class="cardtitle noselect">心情日志</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">技术文章</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">读书笔记</span>
+                                            </div>
+                                            <div class="card">
+                                                <span class="cardtitle noselect">阶段总结</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="board" id="board2" style="border:1px solid #1ABC9C">
+                                        <div class="head">已选</div>
+                                        <div class="cards" id="b2">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
 
 
 
-                        <a class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishConnect('markdown')" style="display: block;
+                            <a class="hvr-shutter-out-horizontal" id="pbBt" onclick="publishConnect('markdown')" style="display: block;
                         margin:0 auto;
                         padding: .6rem 1.2rem;
                         border-radius: 5px;
@@ -263,61 +265,62 @@
                         border: 1px solid #1ABC9C;
                         background: #fff;
                         font: inherit;">确认发布</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </header>
-        <div class="main">
-            <!--编辑器主体-->
-            <div class="editorBox">
-                <!--左半部分，编辑块-->
-                <div class="editorBody" id='editorParent'>
-                    <!--编辑区域-->
-                    <div id="editor" style="position: absolute; top: 0;left: 0;width: 100%;height: 100%;
-                        background-color: rgba(0, 0, 0, 0);border: none" onkeyup="convert()"></div>
-                    <!--ace-->
+            </header>
+            <div class="main">
+                <!--编辑器主体-->
+                <div class="editorBox">
+                    <!--左半部分，编辑块-->
+                    <div class="editorBody" id='editorParent'>
+                        <!--编辑区域-->
+                        <div id="editor" style="position: absolute; top: 0;left: 0;width: 100%;height: 100%;
+                        background-color: rgba(0, 0, 0, 0);border: none"
+                            onkeyup="convert()"></div>
+                        <!--ace-->
 
-                </div>
+                    </div>
 
-                <div class="editorFooter">
-                    <!--底部工具栏-->
-                    <a class="hvr-grow-shadow"  title="粗体" id="boldBt">
-                        <img src="icons/bold.png" class="=icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" title="斜体" id="italicBt">
-                        <img src="icons/italic.png" class="icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" title="删除线" id="strikeBt">
-                        <img src="icons/strikeThrough.png" class="icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" title="链接" id="linkBt">
-                        <img src="icons/link.png" class="icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" title="引用" id="quoteBt">
-                        <img src="icons/quote.png" class="icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" title="代码块" id="codeBt">
-                        <img src="icons/code.png" class="icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" title="分隔线" id="hLineBt">
-                        <img src="icons/hLine.png" class="icon" />
-                    </a>
-                    <!-- <button class="ctlBt" title="更换主题">
+                    <div class="editorFooter">
+                        <!--底部工具栏-->
+                        <a class="hvr-grow-shadow" title="粗体" id="boldBt">
+                            <img src="icons/bold.png" class="=icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" title="斜体" id="italicBt">
+                            <img src="icons/italic.png" class="icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" title="删除线" id="strikeBt">
+                            <img src="icons/strikeThrough.png" class="icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" title="链接" id="linkBt">
+                            <img src="icons/link.png" class="icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" title="引用" id="quoteBt">
+                            <img src="icons/quote.png" class="icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" title="代码块" id="codeBt">
+                            <img src="icons/code.png" class="icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" title="分隔线" id="hLineBt">
+                            <img src="icons/hLine.png" class="icon" />
+                        </a>
+                        <!-- <button class="ctlBt" title="更换主题">
                         <img src="icons/theme.png" class="icon" />
                     </button> -->
-                    <!-- <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank">
+                        <!-- <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank">
                         <img src="icons/md.png" class="icon" />
                     </a> -->
-                    <a class="hover tooltip hvr-grow-shadow" style="opacity:1;position: relative;font-family: 'Lato', Helvetica, Arial, sans-serif;">
-                        <img src="icons/md.png" class="icon" />
-                    </a>
-                    <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank" style="min-width: 130px;margin-left: 20px">Markdown帮助文档</a>
-                    <!-- <a class="hover tooltip hvr-grow-shadow">Open tooltip</a> -->
+                        <a class="hover tooltip hvr-grow-shadow" style="opacity:1;position: relative;font-family: 'Lato', Helvetica, Arial, sans-serif;">
+                            <img src="icons/md.png" class="icon" />
+                        </a>
+                        <a class="hvr-grow-shadow" href="../markdown_help/markdown_help.html" target="_blank" style="min-width: 130px;margin-left: 20px">Markdown帮助文档</a>
+                        <!-- <a class="hover tooltip hvr-grow-shadow">Open tooltip</a> -->
 
-                    <div class=enlargeBlock>
-                        <div style="width: 1.6rem;height: 1.6rem;"></div>
-                        <a class="hvr-grow-shadow" id="expandOrShrinkBt" style="margin-left: auto;
+                        <div class=enlargeBlock>
+                            <div style="width: 1.6rem;height: 1.6rem;"></div>
+                            <a class="hvr-grow-shadow" id="expandOrShrinkBt" style="margin-left: auto;
                         margin-left: 1rem;
                         font-size: 0;
                         background-color: transparent;
@@ -332,44 +335,44 @@
                         display: flex;
                         
                         justify-content: flex-end;">
-                            <img src="icons/expand.png" class="icon" id="expandOrShrink" />
-                        </a>
+                                <img src="icons/expand.png" class="icon" id="expandOrShrink" />
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="contentPreview" id="preview">
+                    <!--预览区域-->
+                    <div class="contentWrapper" id="resultParent">
+                        <div class="markdown-body preview" id="result" style="color:#34495e"></div>
+                    </div>
+                    <div class="previewFoot">
+                        <div class="previewTitle" style="color:#b2bcc5">预览</div>
+                        <div class="wordCount" id="Count" style="color:#b2bcc5">字数</div>
                     </div>
 
                 </div>
-
-
-            </div>
-
-
-            <div class="contentPreview" id="preview">
-                <!--预览区域-->
-                <div class="contentWrapper" id="resultParent">
-                    <div class="markdown-body preview" id="result" style="color:#34495e"></div>
-                </div>
-                <div class="previewFoot">
-                    <div class="previewTitle" style="color:#b2bcc5">预览</div>
-                    <div class="wordCount" id="Count" style="color:#b2bcc5">字数</div>
-                </div>
-
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<!--bootstrap&jquery-confirm-->
-<script src="js/post.js"></script>
-<!--发布菜单-->
-<script src="js/slides.js"></script>
-<!--头像菜单-->
-<script src="js/header.js"></script>
-<script src="js/md_main.js"></script>
-<!--主体-->
-<script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
-<script src="js/dragula.js"></script>
-<!--可拖拽标签-->
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!--bootstrap&jquery-confirm-->
+    <script src="js/post.js"></script>
+    <!--发布菜单-->
+    <script src="js/slides.js"></script>
+    <!--头像菜单-->
+    <script src="js/header.js"></script>
+    <script src="js/md_main.js"></script>
+    <!--主体-->
+    <script src="https://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
+    <script src="js/dragula.js"></script>
+    <!--可拖拽标签-->
 </body>
 
 </html>
