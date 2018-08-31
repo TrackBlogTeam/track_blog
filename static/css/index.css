@@ -352,11 +352,15 @@ p{
 	height: 460px;
 	background-color: #5BAEB2;
 	border-radius: 8px;
-	animation: rollingFigure 1.5s;
-	-webkit-animation: rollingFigure 1.5s;
+	position: inherit;
 }
 
-@keyframes rollingFigure {
+.signInSiteFigureAnimation{
+	animation: signInSiteFigureAnimation 1.5s;
+	-webkit-animation: signInSiteFigureAnimation 1.5s;
+}
+
+@keyframes signInSiteFigureAnimation {
 	from{
 		left: -1000px;
 	}
@@ -365,7 +369,7 @@ p{
 	}
 }
 
-@-webkit-keyframes rollingFigure {
+@-webkit-keyframes signInSiteFigureAnimation {
 	from{
 		left: -1000px;
 	}
@@ -381,11 +385,15 @@ p{
 	border-radius: 0px 8px 8px 0px;
 	padding-left: 50px;
 	text-align: left;
-	animation: rollingFrame 1.5s;
-	-webkit-animation: rollingFrame 1.5s;
+	
 }
 
-@keyframes rollingFrame {
+.signInFrameAnimation{
+	animation: signInFrameAnimation 1.5s;
+	-webkit-animation: signInFrameAnimation 1.5s;
+}
+
+@keyframes signInFrameAnimation {
 	from{
 		width: 800px;
 	}
@@ -394,7 +402,7 @@ p{
 	}
 }
 
-@-webkit-keyframes rollingFrame {
+@-webkit-keyframes signInFrameAnimation {
 	from{
 		width: 800px;
 	}
@@ -402,13 +410,20 @@ p{
 		width: 350px;
 	}
 }
+
 
 .signInTitle{
 	position: inherit;
 	font-size: 30px;
 	color: #666;
-	margin-top: 80px;
-	margin-bottom:  30px;
+	margin-top: 70px;
+}
+
+.signInError{
+	width: 200px;
+	height: 30px;
+	background-color:red;
+	font-size: 20px;
 }
 
 .inputTitle{
@@ -443,12 +458,12 @@ p{
 	display: flex;
 	width: 600px;
 	height: 400px;
-	background-color: gray;
 	position: relative;
 	top: 0px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 0px 8px 8px 0px;
+	align-items:center;
 }
 
 .signUpSiteFigure{
@@ -457,7 +472,29 @@ p{
 	background-color: rgb(46, 135, 139);
 	border-radius: 8px;
 	position: inherit;
-	bottom: 35px;
+}
+
+.signUpSiteFigureAnimation{
+	animation: signUpSiteFigureAnimation 1.5s;
+	-webkit-animation: signUpSiteFigureAnimation 1.5s;
+}
+
+@keyframes signUpSiteFigureAnimation {
+	from{
+		left: -1000px;
+	}
+	to{
+		left: 0px;
+	}
+}
+
+@-webkit-keyframes signUpSiteFigureAnimation {
+	from{
+		left: -1000px;
+	}
+	to{
+		left: 0px;
+	}
 }
 
 .signUpFrame{
@@ -465,10 +502,32 @@ p{
 	height: 500px;
 	background-color: white;
 	border-radius: 0px 8px 8px 0px;
-	position: inherit;
-	left:0px;
 	padding-left: 50px;
 	text-align: left;
+	position: inherit;
+}
+
+.signUpFrameAnimation{
+	animation: signUpFrameAnimation 1.5s;
+	-webkit-animation: signUpFrameAnimation 1.5s;
+}
+
+@keyframes signUpFrameAnimation {
+	from{
+		left: -400px;
+	}
+	to{
+		left: 0px;
+	}
+}
+
+@-webkit-keyframes signUpFrameAnimation {
+	from{
+		left: -400px;
+	}
+	to{
+		left: 0px;
+	}
 }
 
 .signUpTitle{

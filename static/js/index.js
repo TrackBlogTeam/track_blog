@@ -1,3 +1,34 @@
+//fullPage的初始化函数
+var myFullpage = new fullpage('#fullpage',
+    {
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        anchors: ['firstPage', 'secondPage', '3rdPage'],
+        menu: '#menu',
+        onLeave: function(origin, destination, direction){
+            console.log(destination);
+
+            if(destination.index==1){
+                document.getElementById("signInSiteFigure").classList.add('signInSiteFigureAnimation');
+                document.getElementById("signInFrame").classList.add('signInFrameAnimation');
+
+                document.getElementById("signUpSiteFigure").classList.remove('signUpSiteFigureAnimation');
+                document.getElementById("signUpFrame").classList.remove('signUpFrameAnimation');
+            }else if(destination.index==2){
+                document.getElementById("signUpSiteFigure").classList.add('signUpSiteFigureAnimation');
+                document.getElementById("signUpFrame").classList.add('signUpFrameAnimation');
+
+                document.getElementById("signInSiteFigure").classList.remove('signInSiteFigureAnimation');
+                document.getElementById("signInFrame").classList.remove('signInFrameAnimation');
+            }else {
+                document.getElementById("signInSiteFigure").classList.remove('signInSiteFigureAnimation');
+                document.getElementById("signInFrame").classList.remove('signInFrameAnimation');
+                document.getElementById("signUpSiteFigure").classList.remove('signUpSiteFigureAnimation');
+                document.getElementById("signUpFrame").classList.remove('signUpFrameAnimation');
+            }
+        }
+	}
+    );
+
 window.onload=function(){
     //获取整段url
     var str =window.location.href; 
@@ -14,5 +45,9 @@ window.onload=function(){
     }else{
         fullpage_api.moveTo("firstpPage");
     }
+
+}
+
+function signInConfirm(){
 
 }
