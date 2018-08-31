@@ -30,6 +30,16 @@ $user = new User($username);
 
 $articleController = new ArticleController();
 
+if (isset($message->articleID)) {
+    $articleID = $message->articleID;
+    if ($articleController->updateArticle($user, $title, $content, $articleType, $articleID)) {
+        Util::endWithCode(857);
+    }
+    else {
+        Util::endWithCode(858);
+    }
+}
+
 if ($articleController->addArticle($user, $title, $content, $articleType)) {
     Util::endWithCode(830);
 }
