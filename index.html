@@ -23,28 +23,39 @@
         <h1 class="mainTextFont mainHeaderText">Say goodbye to the old blog</h1>
         <p class="mainTextFont mainText">In TrackBlog, you can write anything you want! And to trace the track.</p>
         <div class="imgDiv">
-            <img src="static/src/main_photo.png" alt="user id" class="mainImg">
+            <img src="static/src/main_photo.png" alt="editSite" class="mainImg">
         </div>
     </div>
     <!-- 第二页：登陆界面 -->
     <div class="section" id="section1">
         <div class="signInSite">
-            <h1 class="signInTitle mainTextFont">Start now!</h1>
-            <input id="usernameInSignIn" type="text" name="usernameInSignIn" class="inputFrame" placeholder="User Name" required>
-            <input id="passwordInSignIn" type="password" name="passwordInSignIn" class="inputFrame" placeholder="Password" required>
-            <button class="signInConfirmButton" onclick="">Sign In</button>
+            <div id="signInSiteFigure" class="signInSiteFigure"></div>
+            <div class="signInFrame">
+                <h1 class="mainTextFont signInTitle">Start Now!</h1>
+                <p class="inputTitle">username</p>
+                <input class="inputFrame">
+                <p class="inputTitle">password</p>
+                <input class="inputFrame">
+                <button class="signInButton">Sign In</button>
+            </div>
         </div>
     </div>
     <!-- 第三页：注册界面 -->
     <div class="section" id="section2">
-        <div id="signUpSite" class="signUpSite">
-            <h1 class="signUpTitle mainTextFont">Join us!</h1>
-            <input id="usernameInSignUp" type="text" name="usernameInSignUp" class="inputFrame" placeholder="User Name" required>
-            <input id="phonenumberInSignUp" type="text" name="phonenumberInSignUp" class="inputFrame"  placeholder="Phonenumber" required>
-            <input id="passwordInSignUp" type="password" name="passwordInSignUp" class="inputFrame" placeholder="Password" required>
-            <input id="confirmPasswordInSignUp" type="password" name="confirmPasswordInSignUp" class="inputFrame" placeholder="Password Again" required>
-            <div id="passwordNotMatch" class="passwordNotMatchWarnning"></div>
-            <button class="signUpConfirmButton" onclick="">Sign Up</button>
+        <div class="signUpSite">
+            <div class="signUpSiteFigure"></div>
+            <div class="signUpFrame">
+                <h1 class="mainTextFont signUpTitle">Join Us!</h1>
+                <p class="inputTitle">username</p>
+                <input class="inputFrame">
+                <p class="inputTitle">phonenumber</p>
+                <input class="inputFrame">
+                <p class="inputTitle">password</p>
+                <input class="inputFrame">
+                <p class="inputTitle">password again</p>
+                <input class="inputFrame">
+                <button class="signUpButton">Sign Up</button>
+            </div>
         </div>
     </div>
 </div>
@@ -54,8 +65,13 @@
     var myFullpage = new fullpage('#fullpage',
     {
         anchors: ['firstPage', 'secondPage', '3rdPage'],
-        menu: '#menu'
-    });
+        menu: '#menu',
+        afterLoad: function(origin){
+            document.getElementById("")
+        }
+	}
+    );
 </script>
+<script type="text/javascript" src="static/js/index.js"></script>
 </body>
 </html>

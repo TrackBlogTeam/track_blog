@@ -1,4 +1,4 @@
-/*来自fullpage的example.css*/
+/*æ¥è‡ªfullpageçš„example.css*/
 @CHARSET "ISO-8859-1";
 /* Reset CSS
  * --------------------------------------- */
@@ -252,9 +252,10 @@ p{
 
 
 
-/*lu-增加的*/
+/*lu-å¢žåŠ çš„*/
 
 
+/*ä¸‰ä¸ªé¡µé¢çš„é¢œè‰²*/
 #section0{
 	background-color: #5BAEB2
     /* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
@@ -295,14 +296,14 @@ p{
     font-size: 35px;
 }
 
-/*首页主要文字的样式*/
+/*é¦–é¡µä¸»è¦æ–‡å­—çš„æ ·å¼*/
 .mainTextFont{
     font-family:Helvetica, sans-serif;
     color: white;
     cursor: default;
 }
 
-/*首页大大的标语*/
+/*é¦–é¡µå¤§å¤§çš„æ ‡è¯­*/
 .mainHeaderText{
     position: relative;
     top: 0px;
@@ -310,21 +311,21 @@ p{
     font-weight: 1000;
 }
 
-/*首页小小的标语*/
+/*é¦–é¡µå°å°çš„æ ‡è¯­*/
 .mainText{
     position: relative;
     top: 20px;
     font-size: 30px;
 }
 
-/*首页图片的容器的样式*/
+/*é¦–é¡µå›¾ç‰‡çš„å®¹å™¨çš„æ ·å¼*/
 .imgDiv{
     position: relative;
     bottom: -100px;
 	margin: 0;
 }
 
-/*首页图片的样式*/
+/*é¦–é¡µå›¾ç‰‡çš„æ ·å¼*/
 .mainImg{
     width: 854.4px;
     height: 499.2px;
@@ -333,87 +334,162 @@ p{
 	box-shadow: 10px 10px 50px #666;
 }
 
-/*输入框的标准样式*/
-.inputFrame{
-    position: relative;
-    margin-top: 30px;
-    width: 370px;
-	height: 40px;
-	outline: none;
-	font-size: 15px;
-    /* border-radius: 5px; */
-    border-top-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-bottom-style: solid;
-    /* border-style: solid; */
-    border-bottom-color: grey;
-    /* border-color: grey; */
-}
-/*登陆页面*/
+/*ç™»é™†ç•Œé¢*/
 .signInSite{
-    width: 500px;
-    height: 400px;
-    position: relative;
-    top: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
+	display: flex;
+	width: 600px;
+	height: 400px;
+	position: relative;
+	top: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 8px 8px 0px;
+}
+
+.signInSiteFigure{
+	width: 250px;
+	height: 460px;
+	background-color: #5BAEB2;
 	border-radius: 8px;
-	box-shadow: 10px 10px 50px #666;
+	position: inherit;
+	bottom: 35px;
+	animation: rollingFigure 1.5s;
+	-webkit-animation: rollingFigure 1.5s;
 }
 
-/*登陆页面的标题*/
+@keyframes rollingFigure {
+	from{
+		left: -1000px;
+	}
+	to{
+		left: 0px;
+	}
+}
+
+@-webkit-keyframes rollingFigure {
+	from{
+		left: -1000px;
+	}
+	to{
+		left: 0px;
+	}
+}
+
+.signInFrame{
+	width: 350px;
+	height: 400px;
+	background-color: white;
+	border-radius: 0px 8px 8px 0px;
+	position: inherit;
+	left:0px;
+	padding-left: 50px;
+	text-align: left;
+	animation: rollingFrame 1.5s;
+	-webkit-animation: rollingFrame 1.5s;
+}
+
+@keyframes rollingFrame {
+	from{
+		left: -250px;
+	}
+	to{
+		left: 0px;
+	}
+}
+
+@-webkit-keyframes rollingFrame {
+	from{
+		left: -250px;
+	}
+	to{
+		left: 0px;
+	}
+}
+
 .signInTitle{
-    color: rgb(160, 160, 160);
-    position: relative;
-    top: 30px;
-    font-size: 40px;
-    margin-bottom: 50px;
+	position: inherit;
+	font-size: 30px;
+	color: #666;
+	margin-top: 80px;
+	margin-bottom:  30px;
 }
 
-/*登陆页面的确认登陆按钮*/
-.signInConfirmButton{
-    position: relative;
-    margin-top: 60px;
-    width: 190px;
-    height: 40px;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #5BAEB2;
-    color: white;
+.inputTitle{
+	font-size: 8px;
+	color: #5BAEB2;
 }
+
+.inputFrame{
+	height: 30px;
+	width: 250px;
+	border-style: none none solid;
+	border-bottom-color:  #5BAEB2;
+	margin-bottom: 20px;
+	outline: none;
+}
+
+.signInButton{
+	height: 30px;
+	width: 100px;
+	margin-top:  20px;
+	margin-left: 80px;
+	background-color:  #3498DB;
+	border-style:  none;
+	border-radius:  15px;
+	outline:  none;
+	color:  white;
+}
+
 
 /*注册页面*/
 .signUpSite{
-    width: 500px;
-    height: 500px;
-    position: relative;
-    top: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
+	display: flex;
+	width: 600px;
+	height: 400px;
+	background-color: gray;
+	position: relative;
+	top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 8px 8px 0px;
+}
+
+.signUpSiteFigure{
+	width: 250px;
+	height: 560px;
+	background-color: rgb(46, 135, 139);
 	border-radius: 8px;
-	box-shadow: 10px 10px 50px #666;
+	position: inherit;
+	bottom: 35px;
 }
 
-/*注册页面的标语*/
+.signUpFrame{
+	width: 350px;
+	height: 500px;
+	background-color: white;
+	border-radius: 0px 8px 8px 0px;
+	position: inherit;
+	left:0px;
+	padding-left: 50px;
+	text-align: left;
+}
+
 .signUpTitle{
-    color: rgb(160, 160, 160);
-    position: relative;
-    top: 30px;
-    margin-bottom: 20px;
-    font-size: 40px;
+	position: inherit;
+	font-size: 30px;
+	color: #666;
+	margin-top: 70px;
+	margin-bottom:  30px;
 }
 
-/*注册页面的确认注册按钮*/
-.signUpConfirmButton{
-    position: relative;
-    margin-top: 40px;
-    width: 190px;
-    height: 40px;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #5BAEB2;
-    color: white;
+.signUpButton{
+	height: 30px;
+	width: 100px;
+	margin-top:  20px;
+	margin-left: 60px;
+	background-color:  #3498DB;
+	border-style:  none;
+	border-radius:  15px;
+	outline:  none;
+	color:  white;
 }
