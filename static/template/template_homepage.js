@@ -26,6 +26,23 @@ const app = new Vue({
         jumpToIndex: function ()
         {
             window.location.href = app.indexURL;
+        },
+        jumpToEdit: function ()
+        {
+            window.location.href = "https://www.track-blog.com/edit/edit_markdown.html";
+        },
+        signOut: function ()
+        {
+            if (confirm("你确定要退出登录吗？")) {
+                ajax({
+                    url: "https://www.track-blog.com/back/api/sign_out.php",
+                    method: "POST",
+                    success: () =>
+                    {
+                        window.location.reload();
+                    }
+                })
+            }
         }
     }
 });
