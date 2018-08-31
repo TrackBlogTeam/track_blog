@@ -37,6 +37,7 @@ class UserController extends Controller
         // TODO: Verify username
         // TODO: Verify password
         if ($this->userExists($user)) {
+            echo "user exists";
             return false;
         }
         $match = null;
@@ -49,19 +50,16 @@ class UserController extends Controller
         if ($this->databaseManager->getResult()) {
             $path = dirname(__DIR__) . "/users/" . $user->username;
             var_dump($path);
-//            mkdir($path, 0777);
-            mkdir($path);
-//            umask($path, 0777);
+            mkdir($path, 0777);
+            umask($path, 0777);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
-//            mkdir($path, 0777);
             var_dump($path);
-            mkdir($path);
-//            umask($path, 0777);
+            mkdir($path, 0777);
+            umask($path, 0777);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/drafts";
-//            mkdir($path, 0777);
             var_dump($path);
-            mkdir($path);
-//            umask($path, 0777);
+            mkdir($path, 0777);
+            umask($path, 0777);
 
             try {
                 $templatePath = dirname(__DIR__) . "/static/template/template_homepage.html";

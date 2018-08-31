@@ -29,6 +29,11 @@ $title = $message->title;
 
 $user = new User($username);
 
+if (isset($message->draftID)) {
+    $draftID = $message->draftID;
+
+}
+
 if ($draftController->addDraft($user, $title, $content)) {
     Util::endWithCode(847);
 }

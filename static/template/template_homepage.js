@@ -3,7 +3,8 @@ const app = new Vue({
     data()
     {
         return {
-            signed: true
+            signed: true,
+            indexURL: ""
         }
     },
     methods: {
@@ -14,9 +15,17 @@ const app = new Vue({
                 method: 'POST',
                 success: (response) =>
                 {
-                    console.log(response);
+                    const responseObject = JSON.parse(response);
+                    app.signed = responseObject.signed;
+                    if (app.signed && responseObject.role === "user") {
+                        app.indexURL = "https://www.track-blog.com/users/" + responseObject.username
+                    }
                 }
             })
+        },
+        jumpToIndex: function ()
+        {
+            window.location.href = app.indexURL;
         }
     }
 });
