@@ -17,7 +17,7 @@
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
         <div v-if="signed" class="d-flex">
-            <div class="navButton homeButton d-flex align-items-center"><span class="fui-home"></span>个人主页</div>
+            <div class="navButton homeButton d-flex align-items-center" @click="jumpToIndex"><span class="fui-home"></span>个人主页</div>
             <div class="navButton signOutButton d-flex align-items-center"><span class="fui-power"></span>注销</div>
         </div>
         <div v-else class="d-flex">
