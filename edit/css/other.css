@@ -5,7 +5,8 @@
   }
 
   .fa-question:before {
-    color: #1ABC9C;
+    /* color: #1ABC9C; */
+    color: #FEE388
   }
 
   .fa-check-circle:before {
