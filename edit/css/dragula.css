@@ -85,6 +85,7 @@ a {
     padding: 4px 8px;
 }
 .card {
+    cursor: -webkit-grab;
     float: left;
     width: 100%;
     height: auto;
@@ -120,6 +121,7 @@ a {
     user-select: none;
 }
 .gu-mirror {
+    cursor: -webkit-grabbing;
     position: fixed !important;
     margin: 0 !important;
     z-index: 9999 !important;

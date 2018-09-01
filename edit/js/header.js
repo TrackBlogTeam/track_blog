@@ -1,3 +1,89 @@
+
+var username;
+
+//获得个人信息
+ajax({
+    url: "https://www.track-blog.com/back/api/have_signed.php",
+    method: "POST",
+    success: (response) =>
+    {
+        console.log(response)
+        const responseObject = JSON.parse(response);
+        if (responseObject.signed) {
+            username=responseObject.username;
+            const url = "https://www.track-blog.com/users/" + username + "/index.png";
+            document.getElementById("meBt").src = url;
+        }
+        else {
+            //重定位到登录
+            window.open("www.track-blog.com/?section=1");
+        }
+    }
+})
+
+//跳转到个人主页
+function toMe(){
+    window.open("https://www.track-blog.com/users/"+username);
+}
+
+//跳转到登录页面
+function toSignIn(){
+    window.open("https://www.track-blog.com/users/section=1");
+}
+
+function toSetting(){
+    window.open("https://www.track-blog.com/settings")
+}
+
+//onLoad
+function load()
+{
+    //获取文章内容
+    var obj = urlParse();
+    if (obj.articleID != undefined && obj.draftID != undefined) {
+        if (obj.articleID == undefined) {
+            //获取草稿内容
+            ajax({
+                url: "https://www.track-blog.com/back/api/edit_draft.php",
+                method: "POST",
+                data: {
+                    draftID: obj.draftID
+                },
+                success: (response) =>
+                {
+                    console.log(response)
+                    var code = JSON.parse(response).code;
+                    var title = JSON.parse(response).title;
+                    var content = Json.parse(response).content;
+                    setTitle(title);
+                    setContent(content);
+                    return code;
+                }
+            })
+        } else {
+            //获取文章内容
+            ajax({
+                url: "https://www.track-blog.com/back/api/edit_article.php",
+                method: "POST",
+                data: {
+                    articleID: obj.articleID
+                },
+                success: (response) =>
+                {
+                    console.log(response)
+                    var code = JSON.parse(response).code;
+                    var title = JSON.parse(response).title;
+                    var content = Json.parse(response).content;
+                    setTitle(title);
+                    setContent(content);
+                    return code;
+                }
+            })
+        }
+    }
+}
+
+
 //点击头像
 function clickMe()
 {
@@ -8,19 +94,6 @@ function clickMe()
         menu.style.display = "none";
     }
 }
-
-//点击转换编辑器
-// function clickSwitch()
-// {
-//     var switcher = document.getElementById('switcher');
-//     if (switcher.style.display == "none") {
-//         // switcher.style.display = "unset";
-//         switcher.slideDown();
-//     } else {
-//         // switcher.style.display = "none";
-//         switcher.slideUp();
-//     }
-// }
 
 //jqurey实现动态下拉
 $('.iconMore').bind('click', function ()
@@ -113,7 +186,7 @@ function publishArticle(type)
                             text: '取消'
                         }
                     }
-                })
+                });
             }
         }
     })
@@ -122,6 +195,8 @@ function publishArticle(type)
 function postDraft()
 {
     //保存草稿
+    draft=getContent();
+
     if (draft != "") {
         var obj = urlParse();
 
@@ -137,79 +212,51 @@ function postDraft()
             {
                 console.log(response)
                 var code = JSON.parse(response).code;
-                return code;
+                if(code==830){
+                    $.confirm({
+                        icon: 'fa fa-check-circle',
+                        title: "已保存为草稿",
+                        content: false,
+                        autoClose: 'cancelAction|3000',
+                        type: 'green',
+                        typeAnimated: true,
+                        draggable: true,
+                        closeIcon: true,
+                        theme: 'modern',
+                        animation: 'rotateY',
+                        closeAnimation: 'rotateYR',
+                        buttons: {
+                            cancelAction: {
+                                text: '关闭'
+                            }
+                        }
+                    });
+                }else{
+                    $.confirm({
+                        icon: 'fa fa-exclamation-circle',
+                        title: "保存失败，请重试",
+                        content: false,
+                        // autoClose: 'cancelAction|3000',
+                        type: 'red',
+                        typeAnimated: true,
+                        draggable: true,
+                        closeIcon: true,
+                        theme: 'modern',
+                        animation: 'rotateY',
+                        closeAnimation: 'rotateYR',
+                        buttons: {
+                            cancelAction: {
+                                text: '关闭'
+                            }
+                        }
+                    });
+                }
             }
         })
     }
 
 }
 
-function load()
-{
-    //onLoad
-    //获得个人信息
-    ajax({
-        url: "https://www.track-blog.com/back/api/have_signed.php",
-        method: "POST",
-        success: (response) =>
-        {
-            console.log(response)
-            const responseObject = JSON.parse(response);
-            if (responseObject.signed) {
-                const url = "https://www.track-blog.com/users/" + responseObject.username + "/index.png";
-                document.getElementById("meBt").src = url;
-            }
-            else {
-                //重定位到登录
-                window.open("www.track-blog.com/?section=2");
-            }
-        }
-    })
-
-    //获取文章内容
-    var obj = urlParse();
-    if (obj.articleID != undefined && obj.draftID != undefined) {
-        if (obj.articleID == undefined) {
-            //获取草稿内容
-            ajax({
-                url: "https://www.track-blog.com/back/api/edit_draft.php",
-                method: "POST",
-                data: {
-                    draftID: obj.draftID
-                },
-                success: (response) =>
-                {
-                    console.log(response)
-                    var code = JSON.parse(response).code;
-                    var title = JSON.parse(response).title;
-                    var content = Json.parse(response).content;
-                    setTitle(title);
-                    setContent(content);
-                    return code;
-                }
-            })
-        } else {
-            //获取文章内容
-            ajax({
-                url: "https://www.track-blog.com/back/api/edit_article.php",
-                method: "POST",
-                data: {
-                    articleID: obj.articleID
-                },
-                success: (response) =>
-                {
-                    console.log(response)
-                    var code = JSON.parse(response).code;
-                    var title = JSON.parse(response).title;
-                    var content = Json.parse(response).content;
-                    setTitle(title);
-                    setContent(content);
-                    return code;
-                }
-            })
-        }
-    }
-}
 
 //定时保存为草稿
 window.setInterval("postDraft()", 1000 * 300);
