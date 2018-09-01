@@ -48,6 +48,8 @@ window.onload=function(){
 }
 
 function signInConfirm(){
+    var inputUsername = document.getElementById("usernameInSignIn").value;
+
     ajax({
         url: "https://www.track-blog.com/back/api/sign_in.php",
         method: "POST",
@@ -65,7 +67,7 @@ function signInConfirm(){
                 //成功登陆
                 showSignInError("Sign in successfully!");
                 setTimeout(function(){},1500);
-                window.open('www.track-blog.com/users/'+username);
+                window.open('www.track-blog.com/users/'+ inputUsername);
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignInError("Username or password error!")
@@ -80,6 +82,7 @@ function signInConfirm(){
 function signUpConfirm(){
     var checkPassword = document.getElementById("confirmPasswordInSignUp").value;
     var toCheckPassword = document.getElementById("passwordInSignUp").value;
+    var inputUsername = document.getElementById("usernameInSignUp").value;
 
     if(checkPassword == toCheckPassword){
         ajax({
@@ -95,7 +98,7 @@ function signUpConfirm(){
                 if(responseObject.code == 824){
                     showSignUpError("Sign up successfully!");
                     setTimeout(function(){},1500);
-                    window.open('www.track-blog.com/users/'+username);
+                    window.open('www.track-blog.com/users/' + inputUsername);
                 }else{
                     showSignUpError("UnknowError");
                 }
@@ -110,10 +113,10 @@ function signUpConfirm(){
 
 
 //测试显示错误信息的函数
-// function test(){
-//     username = "root";
-//     console.log("aaaaaaaaa"+username);
-// }
+function test(){
+    var username = document.getElementById("usernameInSignIn").value;
+    console.log(username);
+}
 
 function showSignInError(error){
     document.getElementById("signInErrorInfo").innerHTML=error;

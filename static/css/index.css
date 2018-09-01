@@ -470,6 +470,10 @@ p{
 
 }
 
+.signInButton:hover{
+	cursor: pointer;
+}
+
 
 /*注册页面*/
 .signUpSite{
@@ -589,4 +593,8 @@ p{
 	border-radius:  15px;
 	outline:  none;
 	color:  white;
+}
+
+.signUpButton:hover{
+	cursor: pointer;
 }
