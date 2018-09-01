@@ -1,0 +1,162 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	--clouds: #ECF0F1;
+	--silver: #BDC3C7;
+	--wet-asphalt: #34495E;
+	--midnight-blue: #2C3E50;
+	--turquoise: #1ABC9C;
+	--green-sea: #16A085;
+	--duration: 0.5s;
+}
+
+body
+{
+	background-color: #ededed;
+}
+
+img, a
+{
+	display: block;
+	text-decoration: none;
+}
+
+.mainContainer
+{
+	width: 960px;
+	height: 600px;
+	margin: 100px auto;
+	overflow: hidden;
+	border: 1px solid black;
+}
+
+.navContent
+{
+	width: 20%;
+	float: left;
+}
+
+.navContent a
+{
+	color: #2B2B2B;
+	font-size: 16px;
+	text-align: center;
+	line-height: 150px;
+	border-right: 2px solid #ECF0F1;
+}
+
+.listbox
+{
+	background-color: #ededed;
+	box-shadow: 1px 1px .2px black;
+}
+
+.list
+{
+	margin-bottom: 2px;
+	display: block;
+	background-color: #F8F8FF;
+}
+
+.list:hover
+{
+	background-color: #c3e8e8;
+}
+
+.generalInfo, .profileInfo, .securityInfo, .themeInfo
+{
+	width: 80%;
+	background-color: #F8F8FF;
+	height: 600px;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.title
+{
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbar
+{
+	border-radius: 0px;
+	user-select: none;
+}
+
+.navButton
+{
+	padding-right: 20px;
+	border-radius: 20px;
+	height: 30px;
+	max-width: 36px;
+	color: white;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.navButton > span
+{
+	padding: 0px 10px;
+}
+
+.navButton:hover
+{
+	transition: all var(--duration);
+}
+
+.editButton:hover
+{
+	max-width: 110px;
+	background-color: #3498DB;
+}
+
+.editButton:active
+{
+	background-color: #2980B9;
+}
+
+.homeButton:hover
+{
+	max-width: 110px;
+	background-color: var(--turquoise);
+}
+
+.homeButton:active
+{
+	background-color: var(--green-sea);
+}
+
+.signOutButton:hover
+{
+	max-width: 80px;
+	background-color: #e74c3c;
+}
+
+.signOutButton:active
+{
+	background-color: #C0392B;
+}
+
+.signButton
+{
+	margin: 0 10px;
+	padding: 0px 20px;
+	border-radius: 20px;
+	background-color: var(--clouds);
+	color: #1abc9c;
+	cursor: pointer;
+	transition: all var(--duration);
+}
+
+.signButton:hover
+{
+	background-color: var(--turquoise);
+	color: var(--clouds);
+	transition: all var(--duration);
+}
