@@ -72,7 +72,7 @@ function signInConfirm(){
                 setTimeout(function(){
                     window.location = 'https://www.track-blog.com/users/'+ inputUsername;
                 },1500);
-                
+
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignInError("Username or password error!")
@@ -141,7 +141,7 @@ function signUpToSignIn(){
                 //成功登陆
                 setTimeout(function(){
                     window.location = 'https://www.track-blog.com/users/'+ inputUsername;
-                },1500);  
+                },1500);
 
             }else if(responseObject.code == 818){
                 //账号和密码不匹配

@@ -29,7 +29,7 @@ img, a
 	height: 600px;
 	margin: 100px auto;
 	overflow: hidden;
-	border: 1px solid black;
+	display: flex;
 }
 
 .navContent
@@ -47,27 +47,52 @@ img, a
 	border-right: 2px solid #ECF0F1;
 }
 
+.infos
+{
+	width: 80%;
+}
+
 .listbox
 {
 	background-color: #ededed;
-	box-shadow: 1px 1px .2px black;
 }
 
 .list
 {
-	margin-bottom: 2px;
-	display: block;
-	background-color: #F8F8FF;
+	height: 150px;
+	width: 180px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #1ABC9C;
+	color: white;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+.list > span
+{
+	font-size: 35px;
 }
 
 .list:hover
 {
-	background-color: #c3e8e8;
+	background-color: white;
+	color: #1ABC9C;
+	transition: all 0.5s;
+}
+
+.listSelected
+{
+	background-color: white;
+	color: #1ABC9C;
 }
 
 .generalInfo, .profileInfo, .securityInfo, .themeInfo
 {
 	width: 80%;
+	margin: 0 auto;
 	background-color: #F8F8FF;
 	height: 600px;
 	padding: 20px 20px;

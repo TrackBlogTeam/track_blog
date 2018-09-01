@@ -18,6 +18,7 @@ const app = new Vue({
                 method: 'POST',
                 success: (response) =>
                 {
+                    console.log(response);
                     const responseObject = JSON.parse(response);
                     app.signed = responseObject.signed;
                     if (app.signed && responseObject.role === "user") {

@@ -3,6 +3,7 @@ const app = new Vue({
     data()
     {
         return {
+            currentInfo: "general",
             signed: true,
             indexURL: "",
             articles: []
@@ -48,6 +49,10 @@ const app = new Vue({
                     }
                 })
             }
+        },
+        showInfo: function (info)
+        {
+            app.currentInfo = info;
         }
     }
 });
