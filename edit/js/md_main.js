@@ -189,7 +189,7 @@ function setContent(text) {
 
 function moveToEnd(){
     //缺少富文本的操作
-    editor.moveCursorFileEnd();
+    editor.selection.moveCursorFileEnd();
 }
 
 function insertBold(){
