@@ -21,6 +21,52 @@ ajax({
     }
 })
 
+//获取文章内容
+var obj = urlParse();
+console.log("articleID:"+obj.articleID);
+console.log("draftID:"+obj.draftID);
+if (obj.articleID != undefined && obj.draftID != undefined) {
+    if (obj.articleID == undefined) {
+        //获取草稿内容
+        ajax({
+            url: "https://www.track-blog.com/back/api/edit_draft.php",
+            method: "POST",
+            data: {
+                draftID: obj.draftID
+            },
+            success: (response) =>
+            {
+                console.log(response)
+                var code = JSON.parse(response).code;
+                var title = JSON.parse(response).title;
+                var content = Json.parse(response).content;
+                setTitle(title);
+                setContent(content);
+                return code;
+            }
+        })
+    } else {
+        //获取文章内容
+        ajax({
+            url: "https://www.track-blog.com/back/api/edit_article.php",
+            method: "POST",
+            data: {
+                articleID: obj.articleID
+            },
+            success: (response) =>
+            {
+                console.log(response)
+                var code = JSON.parse(response).code;
+                var title = JSON.parse(response).title;
+                var content = Json.parse(response).content;
+                setTitle(title);
+                setContent(content);
+                return code;
+            }
+        })
+    }
+}
+
 //跳转到个人主页
 function toMe(){
     window.open("https://www.track-blog.com/users/"+username);
@@ -38,49 +84,6 @@ function toSetting(){
 //onLoad
 function load()
 {
-    //获取文章内容
-    var obj = urlParse();
-    if (obj.articleID != undefined && obj.draftID != undefined) {
-        if (obj.articleID == undefined) {
-            //获取草稿内容
-            ajax({
-                url: "https://www.track-blog.com/back/api/edit_draft.php",
-                method: "POST",
-                data: {
-                    draftID: obj.draftID
-                },
-                success: (response) =>
-                {
-                    console.log(response)
-                    var code = JSON.parse(response).code;
-                    var title = JSON.parse(response).title;
-                    var content = Json.parse(response).content;
-                    setTitle(title);
-                    setContent(content);
-                    return code;
-                }
-            })
-        } else {
-            //获取文章内容
-            ajax({
-                url: "https://www.track-blog.com/back/api/edit_article.php",
-                method: "POST",
-                data: {
-                    articleID: obj.articleID
-                },
-                success: (response) =>
-                {
-                    console.log(response)
-                    var code = JSON.parse(response).code;
-                    var title = JSON.parse(response).title;
-                    var content = Json.parse(response).content;
-                    setTitle(title);
-                    setContent(content);
-                    return code;
-                }
-            })
-        }
-    }
 }
 
 
@@ -139,7 +142,7 @@ function publishArticle(type)
                 $.confirm({
                     icon: 'fa fa-check-circle',
                     title: "发布成功！",
-                    content: "点击\'查看文章\'跳转到对应文章页面，此消息在5秒后自动关闭",
+                    content:false,
                     autoClose: 'cancelAction|8000',
                     type: 'green',
                     typeAnimated: true,
@@ -150,11 +153,11 @@ function publishArticle(type)
                     closeAnimation: 'rotateYR',
                     buttons: {
                         flip: {
-                            text: "查看文章",
+                            text: "返回主页",
                             btnClass: 'btn-green green',
                             action: function ()
                             {
-                                $.alert('跳转到对应文章页面');
+                                toMe();
                             }
                         },
                         cancelAction: {
@@ -212,7 +215,7 @@ function postDraft()
             {
                 console.log(response)
                 var code = JSON.parse(response).code;
-                if(code==830){
+                if(code==847){
                     $.confirm({
                         icon: 'fa fa-check-circle',
                         title: "已保存为草稿",
