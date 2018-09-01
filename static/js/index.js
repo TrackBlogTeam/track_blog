@@ -63,11 +63,13 @@ function signInConfirm(){
             if(responseObject.code == 814){
                 //已经登陆
                 showSignInError("This account had already sign in!");
+                setTimeout(function(){},1500);
+                window.open('https://www.track-blog.com/users/'+ inputUsername);
             }else if(responseObject.code == 816){
                 //成功登陆
                 showSignInError("Sign in successfully!");
                 setTimeout(function(){},1500);
-                window.open('www.track-blog.com/users/'+ inputUsername);
+                window.open('https://www.track-blog.com/users/'+ inputUsername);
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignInError("Username or password error!")
@@ -128,7 +130,7 @@ function signUpToSignIn(){
             }else if(responseObject.code == 816){
                 //成功登陆
                 setTimeout(function(){},1500);
-                window.open('www.track-blog.com/users/'+ inputUsername);
+                window.open('https://www.track-blog.com/users/'+ inputUsername);
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignUpError("Username or password error!")
