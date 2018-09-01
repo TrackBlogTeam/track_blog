@@ -59,28 +59,33 @@
         </div>
 
         <div class="infos">
-            <div v-if="currentInfo == 'general'" class="generalInfo">
+            <div :class="{infoSelected: currentInfo == 'general'}" class="generalInfo">
                 <!--TODO: 单选框-->
-                <div class="title">允许访问 <input type="checkbox" checked data-toggle="switch" name="default-switch"
-                                               id="switch-01"/></div>
+                <div class="title">允许访问
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-01"/>
+                </div>
                 <!--TODO: 单选框-->
-                <div class="title">允许评论 <input type="checkbox" checked data-toggle="switch" name="default-switch"
-                                               id="switch-02"/></div>
+                <div class="title">允许评论
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-02"/>
+                </div>
                 <!--TODO: 单选框-->
-                <div class="title">发布新文章后通知朋友 <input type="checkbox" checked data-toggle="switch" name="default-switch"
-                                                     id="switch-03"/></div>
+                <div class="title">发布新文章后通知朋友
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-03" />
+                </div>
                 <!--TODO: 单选框-->
-                <div class="title">首页背景效果 <input type="checkbox" checked data-toggle="switch" name="default-switch"
-                                                 id="switch-04"/></div>
+                <div class="title">首页背景效果
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-04" />
+                </div>
                 <!--TODO: 单选框-->
-                <div class="title">自定义背景图片 <input type="checkbox" checked data-toggle="switch" name="default-switch"
-                                                  id="switch-05"/></div>
-                <!--TODO: 上传图片button-->
-                <div class="title"><input type="file" name="background-image"/></div>
+                <div class="title">自定义背景图片
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-05" />
+                </div>
             </div>
 
-            <div v-if="currentInfo == 'profile'" class="profileInfo">
-                <div class="title">更改头像 <input type="file" name="avator-image"/></div>
+            <div :class="{infoSelected: currentInfo == 'profile'}" class="profileInfo">
+                <div class="title">更改头像
+                    <div class="uploadButton"><input type="file" name="avator-image"/></div>
+                </div>
                 <!--TODO: 上传图片-->
                 <div class="title">名称 <input type="text" class="form-control"/></div>
                 <!--TODO: 输入框-->
@@ -92,7 +97,7 @@
                 <!--TODO: 输入框-->
             </div>
 
-            <div v-if="currentInfo == 'security'" class="securityInfo">
+            <div :class="{infoSelected: currentInfo == 'security'}" class="securityInfo">
                 <div class="title">修改密码 <input type="password" class="form-control"/></div>
                 <!--TODO: 有掩码的输入框-->
                 <div class="title">更改绑定手机 <input type="text" class="form-control"/></div>
@@ -101,7 +106,7 @@
                 <!--TODO: 输入框-->
             </div>
 
-            <div v-if="currentInfo == 'theme'" class="themeInfo">
+            <div :class="{infoSelected: currentInfo == 'theme'}" class="themeInfo">
                 <div class="title">请您给各个页面打个分
                     <div class="btn-toolbar">
                         <div class="btn-group">

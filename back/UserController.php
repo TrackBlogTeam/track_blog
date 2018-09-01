@@ -25,7 +25,7 @@ class UserController extends Controller
     // check whether a user exists
     public function userExists($user)
     {
-        $sql = "SELECT * FROM user WHERE user_name='$user->username' and user_password='$user->password';";
+        $sql = "SELECT * FROM user WHERE user_name='$user->username';";
         $this->databaseManager->execute($sql);
         return (count($this->databaseManager->getResult()) > 0);
     }
