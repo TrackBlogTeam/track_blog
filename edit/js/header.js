@@ -208,6 +208,7 @@ function publishArticle(type)
                 if (code === 828) {
                     reason = "失败原因：当前为管理员，请用用户账号登陆后发布！";
                 } else {
+                    console.log(code);
                     reason = "失败原因：未知，请重新发布！"
                 }
                 $.confirm({
