@@ -29,7 +29,8 @@ body{
 .logo{
     height: 100%;
     width: var(--navigation-logo-width);
-    background-image: url('src/deliverr_1x_gaitubao_com_250x100.png');
+    /* background-image: url('src/deliverr_1x_gaitubao_com_250x100.png'); */
+    background-color: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -140,7 +141,7 @@ body{
 .statisticIcon{
     width: 30px;
     height: 30px;
-    background-color: blueviolet;
+    background-color: #16A085;
     border-radius: 15px;
     margin-right: 10px;
 }
