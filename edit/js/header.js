@@ -45,7 +45,6 @@ if (obj.articleID != undefined || obj.draftID != undefined) {
                 console.log("content:"+content);
                 setTitle(title);
                 setContent(content);
-                convert();
                 return code;
             }
         })
@@ -92,7 +91,7 @@ function toSetting(){
 //onLoad
 function load()
 {
-
+    convert();
 }
 
 
