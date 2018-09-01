@@ -127,6 +127,8 @@ function signUpToSignIn(){
             if(responseObject.code == 814){
                 //已经登陆
                 showSignUpError("This account had already sign in!");
+                setTimeout(function(){},1500);
+                window.open('https://www.track-blog.com/users/'+ inputUsername);
             }else if(responseObject.code == 816){
                 //成功登陆
                 setTimeout(function(){},1500);
