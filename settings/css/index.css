@@ -58,6 +58,7 @@ img, a
 	color: white;
 	transition: all 0.5s;
 	cursor: pointer;
+	user-select: none;
 }
 
 .list > span
@@ -94,6 +95,11 @@ img, a
 	justify-content: space-around;
 }
 
+.generalInfo > .title
+{
+	flex-direction: row;
+}
+
 .infoSelected
 {
 	display: flex;
@@ -102,19 +108,22 @@ img, a
 .title
 {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	padding-bottom: 10px;
 	border-bottom: dashed 1px #d2d2d2;
 }
 
-.uploadButton{
+.uploadButton
+{
 	height: 30px;
 	width: 30px;
 	background: #000;
 	overflow: hidden;
 }
 
-.uploadButton > input{
+.uploadButton > input
+{
 	opacity: 0;
 }
 

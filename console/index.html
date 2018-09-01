@@ -7,6 +7,7 @@
     <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css"/>
     <script src="../static/js/ajax.js"></script>
+
     <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
     <title>轨迹博客控制台</title>
 </head>
@@ -102,11 +103,11 @@
                 </thead>
                 <tbody>
                 <tr v-for="record in table.data">
-                    <th scope="row"><label class="checkbox"> <input type="checkbox" data-toggle="checkbox"
-                                                                    class="custom-checkbox"> <span class="icons">
-                <span class="icon-unchecked"></span>
-                <span class="icon-checked"></span>
-                </span> </label></th>
+                    <th scope="row"><label class="checkbox no-label" :for="record[0]"><input type="checkbox"
+                                                                                             value=""
+                                                                                             :id="record[0]"
+                                                                                             data-toggle="checkbox"></label>
+                    </th>
                     <td v-for="value in record">{{value}}</td>
                 </tr>
                 </tbody>
@@ -129,6 +130,16 @@
         </div>
     </div>
 </div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 <script src="js/index-vue.js"></script>
+<!-- Bootstrap 4 requires Popper.js -->
+<script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="../static/js/flat-ui.min.js"></script>
+<script src="js/index-jquery.js"></script>
 </body>
 </html>

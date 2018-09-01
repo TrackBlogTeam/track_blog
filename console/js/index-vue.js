@@ -1,4 +1,4 @@
-let app = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
         recordsPerPage: 10,
@@ -10,8 +10,13 @@ let app = new Vue({
             data: []
         }
     },
+    mounted()
+    {
+        this.retrieveTable(this.tableName, 1, 10);
+    },
     methods: {
-        jumpTo: function (pageNumber) {
+        jumpTo: function (pageNumber)
+        {
             if (typeof pageNumber === "number") {
                 app.retrieveTable(app.tableName, pageNumber, app.recordsPerPage);
             } else {
@@ -19,13 +24,16 @@ let app = new Vue({
                 app.retrieveTable(app.tableName, event.target.previousElementSibling.value, app.recordsPerPage);
             }
         },
-        nextPage: function () {
+        nextPage: function ()
+        {
             app.retrieveTable(app.tableName, app.currentPageNumber + 1, app.recordsPerPage);
         },
-        previousPage: function () {
+        previousPage: function ()
+        {
             app.retrieveTable(app.tableName, app.currentPageNumber - 1, app.recordsPerPage);
         },
-        toggleExpand: function (event) {
+        toggleExpand: function (event)
+        {
             const element = event.currentTarget;
             let targetElement = element.nextElementSibling
             let imageElement = element.firstElementChild.nextElementSibling.nextElementSibling
@@ -39,7 +47,8 @@ let app = new Vue({
                 imageElement.setAttribute("data-expand", "false")
             }
         },
-        retrieveTable: function (tableName, pageNumber, limit) {
+        retrieveTable: function (tableName, pageNumber, limit)
+        {
             ajax({
                 url: "https://www.track-blog.com/back/api/retrieve_table.php",
                 method: "POST",
@@ -48,21 +57,24 @@ let app = new Vue({
                     limit: limit,
                     tableName: tableName
                 },
-                success: function (response) {
+                success: function (response)
+                {
+                    console.log(response);
                     const responseObject = JSON.parse(response);
                     if (responseObject === null || typeof responseObject.head === undefined) {
                         return;
                     }
+                    app.table = {};
                     app.table = responseObject;
                     app.tableName = tableName;
                     app.currentPageNumber = parseInt(pageNumber);
                     for (let i = 0; i < app.pageNumbers.length; ++i) {
                         app.pageNumbers[i] = app.currentPageNumber + i;
                     }
+                    $('[data-toggle="checkbox"]').radiocheck('uncheck');
                 }
             })
         }
     }
 });
 
-app.retrieveTable(app.tableName, 1, 10);
