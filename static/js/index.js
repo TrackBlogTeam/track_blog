@@ -78,7 +78,7 @@ function signInConfirm(){
                 showSignInError("Username or password error!")
             }else{
                 //其他返回状态码
-                showSignInError("Unknow error!");
+                showSignInError("Unknown error!");
             }
         }
     })
@@ -103,8 +103,12 @@ function signUpConfirm(){
                 if(responseObject.code == 824){
                     showSignUpError("Sign up successfully!");
                     signUpToSignIn();
+                }else if(responseObject.code == 859){
+                    showSignUpError("Illegal phonenumber!");
+                }else if(responseObject.code == 860){
+                    showSignUpError("This username has already sign up!");
                 }else{
-                    showSignUpError("UnknowError");
+                    showSignUpError("Unknown error!");
                 }
             }
         });
