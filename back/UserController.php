@@ -37,12 +37,12 @@ class UserController extends Controller
         // TODO: Verify username
         // TODO: Verify password
         if ($this->userExists($user)) {
-            return false;
+            return 860;
         }
         $match = null;
         preg_match("/1[356789]{1}\d{9}/", $user->phoneNumber, $match);
         if (count($match) == 0) {   // illegal phone number
-            return false;
+            return 859;
         }
         $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
@@ -82,7 +82,10 @@ class UserController extends Controller
             fclose($templateFile);
             fclose($homepageFile);
         }
-        return $this->databaseManager->getResult();
+        if ($this->databaseManager->getResult()) {
+            return 824;
+        }
+        return 825;
     }
 
     public function deleteUser($user)

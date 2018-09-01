@@ -33,6 +33,12 @@ body
 	user-select: none;
 }
 
+.logo
+{
+	font-size: 35px;
+	color: white;
+}
+
 .navButton
 {
 	padding-right: 20px;

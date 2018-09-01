@@ -23,9 +23,4 @@ $user = new User($message->username, $message->password, $message->phoneNumber);
 
 $userController = new UserController();
 
-if ($userController->addUser($user)) {
-    Util::endWithCode(824);
-}
-else {
-    Util::endWithCode(825);
-}
+Util::endWithCode($userController->addUser($user));

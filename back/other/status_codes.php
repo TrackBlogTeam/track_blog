@@ -55,3 +55,5 @@
 // 856: Fail to edit article. Invalid parameter(s).
 // 857: Success to update article.
 // 858: Fail to update article. Unknown reason
+// 859: Fail to sign up. Invalid phone number.
+// 860: Fail to sign up. Username's existed
