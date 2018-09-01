@@ -78,7 +78,36 @@ function toMe(){
 
 //跳转到登录页面
 function toSignIn(){
-    window.location="https://www.track-blog.com/section=1";
+    //注销确认
+    $.confirm({
+        icon: 'fa fa-question',
+        title: "确认注销？",
+        content: false,
+        draggable: true,
+        closeIcon: true,
+        theme: 'modern',
+        buttons: {
+            yes: {
+                text: "确认",
+                btnClass: 'btn-red red',
+                action: function ()
+                {
+                    ajax({
+                        url: "https://www.track-blog.com/back/api/sign_out.php",
+                        method: "POST",
+                        success: () =>
+                        {
+                            window.location="https://www.track-blog.com/section=1";
+                        }
+                    })
+
+                }
+            },
+            no: {
+                text: "取消",
+            }
+        }
+    })
     
 }
 
