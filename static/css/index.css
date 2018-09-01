@@ -367,13 +367,17 @@ p
 
 .logo
 {
-	font-family: Lato ,"Trebuchet MS", sans-serif;
+	font-family:Lato ,"Trebuchet MS", sans-serif;
 	color: white;
 	font-size: 35px;
 }
 
 .logo:hover{
 	color: #ECF0F1;
+}
+
+.logo:focus{
+	color: #ECF0F1
 }
 
 /*é¦–é¡µä¸»è¦æ–‡å­—çš„æ ·å¼*/
@@ -702,7 +706,14 @@ p
 
 .signUpInputFrameColor
 {
+	border-color: #d4d4d4;
+	transition: 0.8s;
+}
+
+.signUpInputFrameColor:focus
+{
 	border-color: #2C3E50;
+	transition: 0.8s;
 }
 
 .signUpError
