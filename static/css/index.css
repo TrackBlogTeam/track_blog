@@ -702,7 +702,14 @@ p
 
 .signUpInputFrameColor
 {
+	border-color: #d4d4d4;
+	transition: 0.8s;
+}
+
+.signUpInputFrameColor:focus
+{
 	border-color: #2C3E50;
+	transition: 0.8s;
 }
 
 .signUpError
