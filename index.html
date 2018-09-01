@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Track Blog</title>
-    <link rel="stylesheet" type="text/css" href="static/css/fullpage.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/flat-ui.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/index.css">
 </head>
@@ -33,11 +33,15 @@
             <div id="signInSiteFigure" class="signInSiteFigure"></div>
             <div id="signInFrame" class="signInFrame">
                 <h1 class="mainTextFont signInTitle">Start Now!</h1>
-                <!-- <div id="signInError" class="signInError"><span class="fui-alert-circle"></span>password error</div> -->
-                <p class="inputTitle">username</p>
-                <input id="usernameInSignIn" type="text" class="inputFrame" required>
-                <p class="inputTitle">password</p>
-                <input id="passwordInSignIn" class="inputFrame" type="password" required>
+                <!-- 显示错误信息的位置 -->
+                <div id="signInError" class="signInError">
+                    <span class="fui-alert-circle"></span>
+                    <div id="signInErrorInfo" class="signInErrorInfo"></div>
+                </div>
+                <p class="inputTitle signInInputTitleColor">username</p>
+                <input id="usernameInSignIn" type="text" class="inputFrame signInInputFrameColor" required>
+                <p class="inputTitle signInInputTitleColor">password</p>
+                <input id="passwordInSignIn" class="inputFrame signInInputFrameColor" type="password" required>
                 <button class="signInButton" onclick="signInConfirm()">Sign In</button>
             </div>
         </div>
@@ -48,21 +52,26 @@
             <div id="signUpSiteFigure" class="signUpSiteFigure" ></div>
             <div id="signUpFrame" class="signUpFrame">
                 <h1 class="mainTextFont signUpTitle">Join Us!</h1>
-                <p class="inputTitle">username</p>
-                <input id="usernameInSignUp" type="text" class="inputFrame" required>
-                <p class="inputTitle">phonenumber</p>
-                <input id="phonenumberInSignUp" type="text" class="inputFrame" required>
-                <p class="inputTitle">password</p>
-                <input id="passwordInSignUp" type="password" class="inputFrame" required>
-                <p class="inputTitle">password again</p>
-                <input id="confirmPasswordInSignUp" type="password" class="inputFrame" required>
+                <!-- 显示错误信息的位置 -->
+                <div id="signUpError" class="signUpError">
+                    <span class="fui-alert-circle"></span>
+                    <div id="signUpErrorInfo" class="signUpErrorInfo"></div>
+                </div>
+                <p class="inputTitle signUpInputTitleColor">username</p>
+                <input id="usernameInSignUp" type="text" class="inputFrame signUpInputFrameColor" required>
+                <p class="inputTitle signUpInputTitleColor">phonenumber</p>
+                <input id="phonenumberInSignUp" type="text" class="inputFrame signUpInputFrameColor" required>
+                <p class="inputTitle signUpInputTitleColor">password</p>
+                <input id="passwordInSignUp" type="password" class="inputFrame signUpInputFrameColor" required>
+                <p class="inputTitle signUpInputTitleColor">password again</p>
+                <input id="confirmPasswordInSignUp" type="password" class="inputFrame signUpInputFrameColor" required>
                 <button class="signUpButton" onclick="signUpConfirm()">Sign Up</button>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="static/js/fullpage.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.js"></script>
 <script type="text/javascript" src="static/js/ajax.js"></script>
 <script type="text/javascript" src="static/js/index.js"></script>
 </body>

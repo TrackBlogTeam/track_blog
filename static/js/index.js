@@ -5,7 +5,6 @@ var myFullpage = new fullpage('#fullpage',
         anchors: ['firstPage', 'secondPage', '3rdPage'],
         menu: '#menu',
         onLeave: function(origin, destination, direction){
-            console.log(destination);
 
             if(destination.index==1){
                 document.getElementById("signInSiteFigure").classList.add('signInSiteFigureAnimation');
@@ -49,5 +48,85 @@ window.onload=function(){
 }
 
 function signInConfirm(){
-
+    ajax({
+        url: "https://www.track-blog.com/back/api/sign_in.php",
+        method: "POST",
+        data: {
+            role: "user",
+            username: document.getElementById("usernameInSignIn").value,
+            password: document.getElementById("passwordInSignIn").value
+        },
+        success: (response) =>{
+            const responseObject = JSON.parse(response);
+            if(responseObject.code == 814){
+                //已经登陆
+                showSignInError("This account had already sign in!");
+            }else if(responseObject.code == 816){
+                //成功登陆
+                showSignInError("Sign in successfully!");
+                setTimeout(function(){},1500);
+                window.open('www.track-blog.com/users/'+username);
+            }else if(responseObject.code == 818){
+                //账号和密码不匹配
+                showSignInError("Username or password error!")
+            }else{
+                //其他返回状态码
+                showSignInError("Unknow error!");
+            }
+        }
+    })
 }
+
+function signUpConfirm(){
+    var checkPassword = document.getElementById("confirmPasswordInSignUp").value;
+    var toCheckPassword = document.getElementById("passwordInSignUp").value;
+
+    if(checkPassword == toCheckPassword){
+        ajax({
+            url: "https://www.track-blog.com/back/api/sign_up.php",
+            method: "POST",
+            data: {
+                username: document.getElementById("usernameInSignUp").value,
+                password: document.getElementById("passwordInSignUp").value,
+                phoneNumber: document.getElementById("phonenumberInSignUp").value
+            },
+            success: (response) => {
+                const responseObject = JSON.parse(response);
+                if(responseObject.code == 824){
+                    showSignUpError("Sign up successfully!");
+                    setTimeout(function(){},1500);
+                    window.open('www.track-blog.com/users/'+username);
+                }else{
+                    showSignUpError("UnknowError");
+                }
+            }
+        });
+
+    }else{
+        showSignUpError("Two password doesn't match!");
+    }
+}
+
+
+
+//测试显示错误信息的函数
+// function test(){
+//     username = "root";
+//     console.log("aaaaaaaaa"+username);
+// }
+
+function showSignInError(error){
+    document.getElementById("signInErrorInfo").innerHTML=error;
+    var e = document.getElementById("signInError");
+    e.style.color="#34495E";
+    setTimeout(function(){e.style.color="white";},3000);
+}
+
+function showSignUpError(error){
+    document.getElementById("signUpErrorInfo").innerHTML=error;
+    var e = document.getElementById("signUpError");
+    e.style.color="#34495E";
+    setTimeout(function(){e.style.color="white";},3000);
+}
+
+
