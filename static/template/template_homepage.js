@@ -3,9 +3,25 @@ const app = new Vue({
     data()
     {
         return {
-            signed: true,
+            indexUser: "",
+            currentUser: "",
+            signed: false,
             indexURL: "",
-            articles: []
+            articles: [{
+                "article_id": "3",
+                "author_name": "yangjianwei",
+                "article_key": "1-669820",
+                "article_title": "test",
+                "created_time": "2018-08-31 22:00:05",
+                "edited_time": "2018-08-31 22:00:05"
+            }, {
+                "article_id": "2",
+                "author_name": "yangjianwei",
+                "article_key": "0-277708",
+                "article_title": "\u6d4b\u8bd5",
+                "created_time": "2018-08-31 21:21:47",
+                "edited_time": "2018-08-31 21:21:47"
+            }]
         }
     },
     methods: {
@@ -20,6 +36,7 @@ const app = new Vue({
                     app.signed = responseObject.signed;
                     if (app.signed && responseObject.role === "user") {
                         app.indexURL = "https://www.track-blog.com/users/" + responseObject.username
+                        app.currentUser = responseObject.username;
                     }
                 }
             })
@@ -51,17 +68,28 @@ const app = new Vue({
         },
         retrieveArticles: function ()
         {
+            app.indexUser = document.getElementsByClassName("username")[0].innerHTML.trim();
             ajax({
                 url: "https://www.track-blog.com/back/api/retrieve_articles.php",
                 method: "POST",
                 data: {
-                    username: document.getElementsByClassName("username")[0].innerHTML.trim()
+                    username: app.indexUser
                 },
                 success: (response) =>
                 {
+                    return;
+                    console.log(response);
                     app.articles = JSON.parse(response);
                 }
             })
+        },
+        editArticle: function (id)
+        {
+            window.location.href = "https://www.track-blog.com/edit/edit_markdown.html?articleID=" + id;
+        },
+        deleteArticle: function (id)
+        {
+            console.log(id);
         }
     }
 });
