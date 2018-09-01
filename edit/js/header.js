@@ -61,7 +61,7 @@ if (obj.articleID != undefined || obj.draftID != undefined) {
                 console.log(response)
                 var code = JSON.parse(response).code;
                 var title = JSON.parse(response).title;
-                var content = Json.parse(response).content;
+                var content = JSON.parse(response).content;
                 setTitle(title);
                 setContent(content);
                 return code;
