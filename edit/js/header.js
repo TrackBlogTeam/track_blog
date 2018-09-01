@@ -25,7 +25,7 @@ ajax({
 var obj = urlParse();
 console.log("articleID:"+obj.articleID);
 console.log("draftID:"+obj.draftID);
-if (obj.articleID != undefined && obj.draftID != undefined) {
+if (obj.articleID != undefined || obj.draftID != undefined) {
     if (obj.articleID == undefined) {
         //获取草稿内容
         ajax({
@@ -40,6 +40,9 @@ if (obj.articleID != undefined && obj.draftID != undefined) {
                 var code = JSON.parse(response).code;
                 var title = JSON.parse(response).title;
                 var content = Json.parse(response).content;
+
+                console.log("title:"+title);
+                console.log("content:"+content);
                 setTitle(title);
                 setContent(content);
                 return code;
@@ -69,21 +72,26 @@ if (obj.articleID != undefined && obj.draftID != undefined) {
 
 //跳转到个人主页
 function toMe(){
-    window.open("https://www.track-blog.com/users/"+username);
+    window.location.href="https://www.track-blog.com/users/"+username;
+    // window.event.returnValue=false;
 }
 
 //跳转到登录页面
 function toSignIn(){
-    window.open("https://www.track-blog.com/users/section=1");
+    window.location.href="https://www.track-blog.com/section=1";
+    
 }
 
 function toSetting(){
-    window.open("https://www.track-blog.com/settings")
+    // window.open("https://www.track-blog.com/settings")
+    window.location.href="https://www.track-blog.com/settings";
 }
+
 
 //onLoad
 function load()
 {
+
 }
 
 
