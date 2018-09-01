@@ -82,7 +82,7 @@ function signInConfirm(){
 function signUpConfirm(){
     var checkPassword = document.getElementById("confirmPasswordInSignUp").value;
     var toCheckPassword = document.getElementById("passwordInSignUp").value;
-    var inputUsername = document.getElementById("usernameInSignUp").value;
+    
 
     if(checkPassword == toCheckPassword){
         ajax({
@@ -97,8 +97,7 @@ function signUpConfirm(){
                 const responseObject = JSON.parse(response);
                 if(responseObject.code == 824){
                     showSignUpError("Sign up successfully!");
-                    setTimeout(function(){},1500);
-                    window.open('www.track-blog.com/users/' + inputUsername);
+                    signUpToSignIn();
                 }else{
                     showSignUpError("UnknowError");
                 }
@@ -108,6 +107,37 @@ function signUpConfirm(){
     }else{
         showSignUpError("Two password doesn't match!");
     }
+}
+
+function signUpToSignIn(){
+    var inputUsername = document.getElementById("usernameInSignUp").value;
+
+    ajax({
+        url: "https://www.track-blog.com/back/api/sign_in.php",
+        method: "POST",
+        data: {
+            role: "user",
+            username: document.getElementById("usernameInSignUp").value,
+            password: document.getElementById("passwordInSignUp").value
+        },
+        success: (response) =>{
+            const responseObject = JSON.parse(response);
+            if(responseObject.code == 814){
+                //已经登陆
+                showSignUpError("This account had already sign in!");
+            }else if(responseObject.code == 816){
+                //成功登陆
+                setTimeout(function(){},1500);
+                window.open('www.track-blog.com/users/'+ inputUsername);
+            }else if(responseObject.code == 818){
+                //账号和密码不匹配
+                showSignUpError("Username or password error!")
+            }else{
+                //其他返回状态码
+                showSignUpError("Unknow error!");
+            }
+        }
+    })
 }
 
 
