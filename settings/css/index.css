@@ -9,6 +9,7 @@
 	--turquoise: #1ABC9C;
 	--green-sea: #16A085;
 	--duration: 0.5s;
+	font-family: Lato;
 }
 
 body
@@ -87,6 +88,12 @@ img, a
 	user-select: none;
 }
 
+.logo
+{
+	font-size: 22px;
+	color: white;
+}
+
 .navButton
 {
 	padding-right: 20px;
@@ -159,4 +166,15 @@ img, a
 	background-color: var(--turquoise);
 	color: var(--clouds);
 	transition: all var(--duration);
+}
+
+.settingButton:hover
+{
+	max-width: 80px;
+	background-color: #F1C40F;
+}
+
+.settingButton:active
+{
+	background-color: #F39C12;
 }

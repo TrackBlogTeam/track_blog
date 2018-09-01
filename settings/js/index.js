@@ -32,6 +32,10 @@ const app = new Vue({
         {
             window.location = "https://www.track-blog.com/edit/edit_markdown.html";
         },
+        jumpToSetting: function ()
+        {
+            window.location = "https://www.track-blog.com/settings";
+        },
         signOut: function ()
         {
             if (confirm("你确定要退出登录吗？")) {

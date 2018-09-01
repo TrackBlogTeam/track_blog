@@ -11,22 +11,26 @@
     <!-- Loading Flat UI -->
     <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
     <!--navigation-->
-    <link rel="stylesheet" href="css/settings.css" type="text/css"/>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="../static/js/ajax.js"></script>
 </head>
 
 <body>
 <div id="app">
     <nav class="navbar navbar-inverse" role="navigation">
-        <div class="logo"></div>
+        <a href="https://www.track-blog.com" class="logo">TrackBlog</a>
         <div v-if="signed" class="d-flex">
             <div class="navButton editButton d-flex align-items-center" @click="jumpToEdit"><span
                     class="fui-new"></span>发表文章
             </div>
             <div class="navButton homeButton d-flex align-items-center" @click="jumpToIndex"><span
                     class="fui-home"></span>个人主页
+            </div>
+            <div class="navButton settingButton d-flex align-items-center" @click="jumpToSetting"><span
+                    class="fui-gear"></span>设置
             </div>
             <div class="navButton signOutButton d-flex align-items-center" @click="signOut"><span
                     class="fui-power"></span>注销
@@ -112,12 +116,9 @@
         </div>
     </div>
 </div>
-
-
-<script src="../static/js/ajax.js"></script>
+<script src="js/index.js"></script>
 <script src="../static/js/flat-ui.min.js"></script>
 <script src="js/application.js"></script>
-<script src="js/settings-vue.js"></script>
 </body>
 
 </html>
