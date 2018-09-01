@@ -97,7 +97,7 @@ function toSignIn(){
                         method: "POST",
                         success: () =>
                         {
-                            window.location="https://www.track-blog.com/section=1";
+                            window.location="https://www.track-blog.com#secondPage";
                         }
                     })
 
