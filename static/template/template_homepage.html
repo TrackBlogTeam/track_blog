@@ -17,22 +17,11 @@
     <!--<link rel="stylesheet" href="template_homepage.css"/>-->
     <!--<script src="../../static/js/ajax.js"></script>-->
     <!--<script src="../../static/js/vue.min.js"></script>-->
-    <link rel="stylesheet" href="https://www.track-blog.com/static/template/github-markdown.min.css"/>
-    <link rel="stylesheet" href="https://www.track-blog.com/static/template/hybrid.min.css"/>
-    <link rel="stylesheet" href="template.css"/>
-    <script src="https://www.track-blog.com/static/template/highlight.min.js"></script>
-    <script src="https://www.track-blog.com/static/template/marked.js"></script>
-
-    <style type="text/css">
-    .statistic{
-        background-color: white;
-    }
-    </style>
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-inverse" role="navigation">
-        <a href="https://www.track-blog.com" class="logo" style="background-color: transparent">TrackBlog</a>
+        <a href="https://www.track-blog.com" class="logo">TrackBlog</a>
         <div v-if="signed" class="d-flex">
             <div class="navButton editButton d-flex align-items-center" @click="jumpToEdit"><span
                     class="fui-new"></span>发表文章
@@ -52,37 +41,36 @@
             <div class="signButton">Sign Up</div>
         </div>
     </nav>
-    <div class="main">
-        <div class="article markdown-body" id="content">
-            <content></content>
+    <div id="container" class="d-flex justify-content-center">
+        <div id="main">
+            <div class="mainTitle rounded d-flex align-items-center">文章列表</div>
+            <div v-for="article in articles" class="article rounded d-flex align-items-center">
+                <div class="articleTitle" @click="jumpToArticle(article.article_key)">{{article.article_title}}</div>
+                <div class="articleTime">{{article.created_time}}</div>
+                <div class="articleOperation" v-if="currentUser == indexUser"><span class="fui-new" @click="editArticle(article.article_id)"></span><span class="fui-trash" @click="deleteArticle(article.article_id)"></span></div>
+            </div>
         </div>
-        <div class="aside">
-            <div class="author">
-                <div class="asideTitle">关于作者</div>
-                <div class="profile">
-                    <div class="portrait"></div>
-                    <div class="authorInfo">
-                        <div class="authorName">LBY</div>
-                        <div class="authorIntroduction">轨迹博客创始人之一，拥有数百辆GTA跑车，富可敌国</div>
-                    </div>
+        <div class="profile d-flex flex-column justify-content-between">
+            <div class="portrait d-flex flex-column justify-content-between align-items-center rounded">
+                <img src="index.png"/>
+                <div class="username">
+                    <username></username>
                 </div>
-                <div class="statistic">
-                    <div class="statisticIcon iconRole"></div>
-                    <span>系统管理员</span>
+            </div>
+            <div class="statistic d-flex justify-content-around  rounded">
+                <div class="statisticItem">文章
+                    <div id="articleSum">1800</div>
                 </div>
-                <div class="statistic">
-                    <div class="statisticIcon iconLike"></div>
-                    获得赞同数：<span>18,234</span>
+                <div class="statisticItem">喜欢
+                    <div id="likeSum">2133</div>
                 </div>
-                <div class="statistic">
-                    <div class="statisticIcon iconRead"></div>
-                    获得阅读量：<span>109,202</span>
+                <div class="statisticItem">评论
+                    <div id="commentSum">1999</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://www.track-blog.com/static/template/template_markdown.js"></script>
 <script src="https://www.track-blog.com/static/template/template_homepage.js"></script>
 <!--<script src="template_homepage.js"></script>-->
 </body>
