@@ -176,7 +176,7 @@ function publishArticle(type)
         success: (response) =>
         {
             const code = JSON.parse(response).code;
-            if (code === 830) {
+            if (code === 830 || code==857) {
                 $.confirm({
                     icon: 'fa fa-check-circle',
                     title: "发布成功！",
