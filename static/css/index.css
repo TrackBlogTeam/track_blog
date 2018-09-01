@@ -367,9 +367,13 @@ p
 
 .logo
 {
-	font-family: "Trebuchet MS", sans-serif;
+	font-family: Lato ,"Trebuchet MS", sans-serif;
 	color: white;
 	font-size: 35px;
+}
+
+.logo:hover{
+	color: #ECF0F1;
 }
 
 /*é¦–é¡µä¸»è¦æ–‡å­—çš„æ ·å¼*/
@@ -559,13 +563,13 @@ p
 .signInInputFrameColor
 {
 	border-color: #d4d4d4;
-	transition: all 0.5s;
+	transition: all 0.8s;
 }
 
 .signInInputFrameColor:focus
 {
 	border-color: #16A085;
-	transition: all 0.5s;
+	transition: all 0.8s;
 }
 
 .signInButton
