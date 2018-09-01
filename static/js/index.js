@@ -30,7 +30,7 @@ var myFullpage = new fullpage('#fullpage',
 
 window.onload=function(){
     //获取整段url
-    var str =window.location.href; 
+    var str =window.location.href;
     //获取长度，进而获取最后一个字符的位置
     var num = str.length;
     //获取最后一个字符
@@ -66,7 +66,6 @@ function signInConfirm(){
                 setTimeout(function(){
                     window.location = 'https://www.track-blog.com/users/'+ inputUsername;
                 },1500);
-                
             }else if(responseObject.code == 816){
                 //成功登陆
                 showSignInError("Sign in successfully!");
@@ -88,7 +87,7 @@ function signInConfirm(){
 function signUpConfirm(){
     var checkPassword = document.getElementById("confirmPasswordInSignUp").value;
     var toCheckPassword = document.getElementById("passwordInSignUp").value;
-    
+
 
     if(checkPassword == toCheckPassword){
         ajax({
@@ -132,15 +131,14 @@ function signUpToSignIn(){
                 //已经登陆
                 showSignUpError("This account had already sign in!");
                 setTimeout(function(){
-                    window.location = 'https://www.track-blog.com/users/'+ inputUsername;
+                    window.location="https://www.track-blog.com/users/"+inputUsername;
                 },1500);
-                
             }else if(responseObject.code == 816){
                 //成功登陆
                 setTimeout(function(){
                     window.location = 'https://www.track-blog.com/users/'+ inputUsername;
                 },1500);  
-                
+
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignUpError("Username or password error!")

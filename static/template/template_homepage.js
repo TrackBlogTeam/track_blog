@@ -7,21 +7,7 @@ const app = new Vue({
             currentUser: "",
             signed: false,
             indexURL: "",
-            articles: [{
-                "article_id": "3",
-                "author_name": "yangjianwei",
-                "article_key": "1-669820",
-                "article_title": "test",
-                "created_time": "2018-08-31 22:00:05",
-                "edited_time": "2018-08-31 22:00:05"
-            }, {
-                "article_id": "2",
-                "author_name": "yangjianwei",
-                "article_key": "0-277708",
-                "article_title": "\u6d4b\u8bd5",
-                "created_time": "2018-08-31 21:21:47",
-                "edited_time": "2018-08-31 21:21:47"
-            }]
+            articles: []
         }
     },
     methods: {
@@ -53,6 +39,10 @@ const app = new Vue({
         {
             window.location.href = "https://www.track-blog.com/edit/edit_markdown.html";
         },
+        jumpToSetting: function ()
+        {
+            window.location.href = "https://www.track-blog.com/settings";
+        },
         signOut: function ()
         {
             if (confirm("你确定要退出登录吗？")) {
@@ -77,8 +67,6 @@ const app = new Vue({
                 },
                 success: (response) =>
                 {
-                    return;
-                    console.log(response);
                     app.articles = JSON.parse(response);
                 }
             })
