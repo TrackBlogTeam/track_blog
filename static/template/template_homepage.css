@@ -78,6 +78,17 @@ body
 	background-color: var(--green-sea);
 }
 
+.settingButton:hover
+{
+	max-width: 80px;
+	background-color: #F1C40F;
+}
+
+.settingButton:active
+{
+	background-color: #F39C12;
+}
+
 .signOutButton:hover
 {
 	max-width: 80px;
