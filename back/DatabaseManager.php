@@ -59,17 +59,16 @@ class DatabaseManager
                 $this->pdo = new PDO("mysql:host=$this->server;dbname=$this->dbname", $this->username, $this->password);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
-            $sql = strtolower($sql);
             $crud = preg_split("/\s/", $sql)[0];
             $statement = $this->pdo->prepare($sql);
             switch ($crud) {
-                case "insert":
-                case "update":
-                case "delete":
+                case "INSERT":
+                case "UPDATE":
+                case "DELETE":
                     $statement->execute();
                     $this->result = true;
                     break;
-                case "select":
+                case "SELECT":
                     $statement->setFetchMode(PDO::FETCH_ASSOC);
                     $statement->execute();
                     $this->result = $statement->fetchAll();

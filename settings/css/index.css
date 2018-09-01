@@ -9,6 +9,7 @@
 	--turquoise: #1ABC9C;
 	--green-sea: #16A085;
 	--duration: 0.5s;
+	font-family: Lato;
 }
 
 body
@@ -28,13 +29,7 @@ img, a
 	height: 600px;
 	margin: 100px auto;
 	overflow: hidden;
-	border: 1px solid black;
-}
-
-.navContent
-{
-	width: 20%;
-	float: left;
+	display: flex;
 }
 
 .navContent a
@@ -49,27 +44,51 @@ img, a
 .listbox
 {
 	background-color: #ededed;
-	box-shadow: 1px 1px .2px black;
 }
 
 .list
 {
-	margin-bottom: 2px;
-	display: block;
-	background-color: #F8F8FF;
+	height: 150px;
+	width: 180px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #1ABC9C;
+	color: white;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+.list > span
+{
+	font-size: 35px;
 }
 
 .list:hover
 {
-	background-color: #c3e8e8;
+	background-color: white;
+	color: #1ABC9C;
+	transition: all 0.5s;
+}
+
+.listSelected
+{
+	background-color: white;
+	color: #1ABC9C;
+}
+
+.infos
+{
+	width: calc(100% - 180px);
+	background-color: white;
 }
 
 .generalInfo, .profileInfo, .securityInfo, .themeInfo
 {
 	width: 80%;
-	background-color: #F8F8FF;
+	margin: 0 auto;
 	height: 600px;
-	padding: 20px 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -79,12 +98,20 @@ img, a
 {
 	display: flex;
 	justify-content: space-between;
+	padding-bottom: 10px;
+	border-bottom: dashed 1px #d2d2d2;
 }
 
 .navbar
 {
 	border-radius: 0px;
 	user-select: none;
+}
+
+.logo
+{
+	font-size: 22px;
+	color: white;
 }
 
 .navButton
@@ -159,4 +186,15 @@ img, a
 	background-color: var(--turquoise);
 	color: var(--clouds);
 	transition: all var(--duration);
+}
+
+.settingButton:hover
+{
+	max-width: 80px;
+	background-color: #F1C40F;
+}
+
+.settingButton:active
+{
+	background-color: #F39C12;
 }

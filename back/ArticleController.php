@@ -119,6 +119,12 @@ class ArticleController extends Controller
             catch (Exception $e) {
                 echo $e->getMessage();
             }
+            $sql = "UPDATE article SET  article_title='$title', edited_time=NOW() WHERE article_id=$articleID;";
+            $this->databaseManager->execute($sql);
+            fclose($templateFile);
+            fclose($articleFile);
+            fclose($originFile);
+            return $this->databaseManager->getResult();
         }
         else {
             return false;

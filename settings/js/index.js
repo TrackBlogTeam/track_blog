@@ -3,6 +3,7 @@ const app = new Vue({
     data()
     {
         return {
+            currentInfo: "general",
             signed: true,
             indexURL: "",
             articles: []
@@ -32,6 +33,10 @@ const app = new Vue({
         {
             window.location = "https://www.track-blog.com/edit/edit_markdown.html";
         },
+        jumpToSetting: function ()
+        {
+            window.location = "https://www.track-blog.com/settings";
+        },
         signOut: function ()
         {
             if (confirm("你确定要退出登录吗？")) {
@@ -44,6 +49,10 @@ const app = new Vue({
                     }
                 })
             }
+        },
+        showInfo: function (info)
+        {
+            app.currentInfo = info;
         }
     }
 });

@@ -174,7 +174,7 @@ function count(){
 //marked
 function convert() {
     document.getElementById("result").innerHTML=marked(editor.getValue(),{breaks:true});
-    console.log("markd:"+editor.getValue());
+    // console.log("markd:"+editor.getValue());
     count();
 }
 

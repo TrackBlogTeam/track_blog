@@ -1,0 +1,220 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	--clouds: #ECF0F1;
+	--silver: #BDC3C7;
+	--wet-asphalt: #34495E;
+	--midnight-blue: #2C3E50;
+	--turquoise: #1ABC9C;
+	--green-sea: #16A085;
+	--duration: 0.5s;
+}
+
+body
+{
+	background-color: #f4f5f5;
+}
+
+.navbar
+{
+	border-radius: 0px;
+	user-select: none;
+}
+
+.logo
+{
+	font-size: 22px;
+	color: white;
+}
+
+.navButton
+{
+	padding-right: 20px;
+	border-radius: 20px;
+	height: 30px;
+	max-width: 36px;
+	color: white;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.navButton > span
+{
+	padding: 0px 10px;
+}
+
+.navButton:hover
+{
+	transition: all var(--duration);
+}
+
+.editButton:hover
+{
+	max-width: 110px;
+	background-color: #3498DB;
+}
+
+.editButton:active
+{
+	background-color: #2980B9;
+}
+
+.homeButton:hover
+{
+	max-width: 110px;
+	background-color: var(--turquoise);
+}
+
+.homeButton:active
+{
+	background-color: var(--green-sea);
+}
+
+.settingButton:hover
+{
+	max-width: 80px;
+	background-color: #F1C40F;
+}
+
+.settingButton:active
+{
+	background-color: #F39C12;
+}
+
+.signOutButton:hover
+{
+	max-width: 80px;
+	background-color: #e74c3c;
+}
+
+.signOutButton:active
+{
+	background-color: #C0392B;
+}
+
+.signButton
+{
+	margin: 0 10px;
+	padding: 0px 20px;
+	border-radius: 20px;
+	background-color: var(--clouds);
+	color: #1abc9c;
+	cursor: pointer;
+	transition: all var(--duration);
+}
+
+.signButton:hover
+{
+	background-color: var(--turquoise);
+	color: var(--clouds);
+	transition: all var(--duration);
+}
+
+.blank
+{
+	flex: 1;
+}
+
+.main
+{
+	max-width: 1200px;
+	min-width: 1000px;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+#content
+{
+	width: 70%;
+	background: white;
+	padding: 20px;
+}
+
+.aside
+{
+	width: 25%;
+	background-color: white;
+}
+
+.asideTitle
+{
+	border-bottom: solid 1px #f4f5f5;
+	font-size: 90%;
+	padding: 10px;
+}
+
+.profile
+{
+	width: 90%;
+	margin: 10px auto 0px auto;
+	display: flex;
+}
+
+.portrait
+{
+	width: 50px;
+	height: 50px;
+}
+
+.portrait > img
+{
+	height: 100%;
+	width: 100%;
+	box-shadow: 0 0 1px 0px #6b6b6b;
+	border-radius: 100%;
+}
+
+.authorInfo
+{
+	padding: 5px;
+	width: calc(100% - 50px - 10px);
+	display: flex;
+	flex-direction: column;
+}
+
+.authorName
+{
+	flex: 1;
+	font-weight: bold;
+}
+
+.authorIntroduction
+{
+	flex: 1;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 80%;
+}
+
+.statistic
+{
+	display: flex;
+	width: 90%;
+	margin: 10px auto;
+	align-items: center;
+}
+
+.statistic > span
+{
+	font-size: 25px;
+	color: #1ABC9C;
+}
+
+.statistic > p
+{
+	color: #666666;
+	margin: 0px;
+	padding-left: 10px;
+	font-size: 16px;
+}
+
+.statistic > p > span
+{
+	color: #1ABC9C;
+}

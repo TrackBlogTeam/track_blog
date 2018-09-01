@@ -3,36 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        <username></username>
-        的主页 - Track Blog
+        <articleTitle></articleTitle>
+        - Track Blog
     </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.track-blog.com/static/template/template_homepage.css"/>
     <script src="https://www.track-blog.com/static/js/ajax.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
-    <!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>-->
-    <!--<link rel="stylesheet" href="../../static/css/flat-ui.min.css"/>-->
-    <!--<link rel="stylesheet" href="template_homepage.css"/>-->
-    <!--<script src="../../static/js/ajax.js"></script>-->
-    <!--<script src="../../static/js/vue.min.js"></script>-->
-    <link rel="stylesheet" href="https://www.track-blog.com/static/template/github-markdown.min.css"/>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://www.track-blog.com/static/template/hybrid.min.css"/>
-    <link rel="stylesheet" href="template.css"/>
+
+    <link rel="stylesheet" href="https://www.track-blog.com/static/template/template_markdown.css"/>
     <script src="https://www.track-blog.com/static/template/highlight.min.js"></script>
     <script src="https://www.track-blog.com/static/template/marked.js"></script>
-
-    <style type="text/css">
-    .statistic{
-        background-color: white;
-    }
-    </style>
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-inverse" role="navigation">
-        <a href="https://www.track-blog.com" class="logo" style="background-color: transparent">TrackBlog</a>
+        <a href="https://www.track-blog.com" class="logo">TrackBlog</a>
         <div v-if="signed" class="d-flex">
             <div class="navButton editButton d-flex align-items-center" @click="jumpToEdit"><span
                     class="fui-new"></span>发表文章
@@ -52,38 +40,37 @@
             <div class="signButton">Sign Up</div>
         </div>
     </nav>
-</div>
-<div class="main">
-    <div class="mdArticle markdown-body" id="content">
-        <content></content>
-    </div>
-    <div class="aside">
-        <div class="author">
+
+    <div class="main">
+        <div class="markdown-body" id="content">
+            <content></content>
+        </div>
+        <div class="aside">
             <div class="asideTitle">关于作者</div>
             <div class="profile">
-                <div class="portrait"></div>
+                <div class="portrait">
+                    <img id="portraitImage"/>
+                </div>
                 <div class="authorInfo">
-                    <div class="authorName">LBY</div>
+                    <div class="authorName">{{articleUser}}</div>
                     <div class="authorIntroduction">轨迹博客创始人之一，拥有数百辆GTA跑车，富可敌国</div>
                 </div>
             </div>
             <div class="statistic">
-                <div class="statisticIcon iconRole"></div>
-                <span>系统管理员</span>
+                <span class="fui-document"></span>
+                <p>发表文章数：<span>{{numberOfArticles}}</span></p>
             </div>
             <div class="statistic">
-                <div class="statisticIcon iconLike"></div>
-                获得赞同数：<span>18,234</span>
+                <span class="fui-heart"></span>
+                <p>获得赞同数：<span>{{numberOfAgrees}}</span></p>
             </div>
             <div class="statistic">
-                <div class="statisticIcon iconRead"></div>
-                获得阅读量：<span>109,202</span>
+                <span class="fui-eye"></span>
+                <p>获得阅读量：<span>{{numberOfReads}}</span></p>
             </div>
         </div>
     </div>
 </div>
 <script src="https://www.track-blog.com/static/template/template_markdown.js"></script>
-<script src="https://www.track-blog.com/static/template/template_homepage.js"></script>
-<!--<script src="template_homepage.js"></script>-->
 </body>
 </html>

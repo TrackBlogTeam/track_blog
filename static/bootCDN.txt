@@ -21,3 +21,6 @@ bootCDN URL:
 
 # vue.js
 <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+
+# GitHub-Markdown-css
+<link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.css" rel="stylesheet"/>
