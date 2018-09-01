@@ -30,7 +30,7 @@ const app = new Vue({
         },
         jumpToEdit: function ()
         {
-            window.location.href = "https://www.track-blog.com/edit/edit_markdown.html";
+            window.location = "https://www.track-blog.com/edit/edit_markdown.html";
         },
         signOut: function ()
         {

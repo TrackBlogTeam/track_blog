@@ -9,7 +9,7 @@ ajax({
         const responseObject = JSON.parse(response);
         if (responseObject.code === 814) {
             alert("You have logged. Click confirm to enter index. ");
-            window.location.href = "index.html";
+            window.location = "index.html";
         }
     }
 });
@@ -32,7 +32,7 @@ function login()
                 if (responseObject.code === 814) {
                     alert("你已经登录");
                 }
-                window.location.href = "index.html";
+                window.location = "index.html";
             }
         }
     })

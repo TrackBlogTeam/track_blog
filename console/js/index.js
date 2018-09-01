@@ -126,7 +126,7 @@ function logout()
             url: "https://www.track-blog.com/back/api/sign_out.php",
             method: "POST",
             success: () => {
-                window.location.href = "login.html"
+                window.location = "login.html"
             }
         })
     }

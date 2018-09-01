@@ -29,19 +29,19 @@ const app = new Vue({
         },
         jumpToArticle: function (articleKey)
         {
-            window.location.href = "https://www.track-blog.com/users/" + document.getElementsByClassName("username")[0].innerHTML.trim() + "/articles/" + articleKey + ".html";
+            window.location = "https://www.track-blog.com/users/" + app.indexUser + "/articles/" + articleKey + ".html";
         },
         jumpToIndex: function ()
         {
-            window.location.href = app.indexURL;
+            window.location = app.indexURL;
         },
         jumpToEdit: function ()
         {
-            window.location.href = "https://www.track-blog.com/edit/edit_markdown.html";
+            window.location = "https://www.track-blog.com/edit/edit_markdown.html";
         },
         jumpToSetting: function ()
         {
-            window.location.href = "https://www.track-blog.com/settings";
+            window.location = "https://www.track-blog.com/settings";
         },
         signOut: function ()
         {
@@ -73,7 +73,7 @@ const app = new Vue({
         },
         editArticle: function (id)
         {
-            window.location.href = "https://www.track-blog.com/edit/edit_markdown.html?articleID=" + id;
+            window.location = "https://www.track-blog.com/edit/edit_markdown.html?articleID=" + id;
         },
         deleteArticle: function (id)
         {

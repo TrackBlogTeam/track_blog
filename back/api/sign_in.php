@@ -21,11 +21,12 @@ if (!isset($message->username) || !isset($message->password)) { // username or p
 }
 
 if (isset($_SESSION["username"])) {   // already logged
-    Util::endWithCode(814);
-}
-
-if (isset($_SESSION["username"]) && $_SESSION["username"] != $message->username) {  // force to login
-    Actor::logout();
+    if ($_SESSION["username"] != $message->username) {
+        Actor::logout();
+    }
+    else {
+        Util::endWithCode(814);
+    }
 }
 
 if ($message->role == "administrator") {   // an administrator logs in
