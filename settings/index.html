@@ -43,12 +43,18 @@
     </nav>
 
     <div class="mainContainer">
-        <div class="navContent">
-            <div class="listbox">
-                <div class="list" :class="{listSelected: currentInfo == 'general'}" @click="showInfo('general')"><span class="fui-cmd"></span>General</div>
-                <div class="list" :class="{listSelected: currentInfo == 'profile'}" @click="showInfo('profile')"><span class="fui-user"></span>Profile</div>
-                <div class="list" :class="{listSelected: currentInfo == 'security'}" @click="showInfo('security')"><span class="fui-lock"></span>Security</div>
-                <div class="list" :class="{listSelected: currentInfo == 'theme'}" @click="showInfo('theme')"><span class="fui-star-2"></span>Theme</div>
+        <div class="listbox">
+            <div class="list" :class="{listSelected: currentInfo == 'general'}" @click="showInfo('general')"><span
+                    class="fui-cmd"></span>General
+            </div>
+            <div class="list" :class="{listSelected: currentInfo == 'profile'}" @click="showInfo('profile')"><span
+                    class="fui-user"></span>Profile
+            </div>
+            <div class="list" :class="{listSelected: currentInfo == 'security'}" @click="showInfo('security')"><span
+                    class="fui-lock"></span>Security
+            </div>
+            <div class="list" :class="{listSelected: currentInfo == 'theme'}" @click="showInfo('theme')"><span
+                    class="fui-star-2"></span>Theme
             </div>
         </div>
 
