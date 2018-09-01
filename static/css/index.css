@@ -367,13 +367,17 @@ p
 
 .logo
 {
-	font-family: Lato ,"Trebuchet MS", sans-serif;
+	font-family:Lato ,"Trebuchet MS", sans-serif;
 	color: white;
 	font-size: 35px;
 }
 
 .logo:hover{
 	color: #ECF0F1;
+}
+
+.logo:focus{
+	color: #ECF0F1
 }
 
 /*é¦–é¡µä¸»è¦æ–‡å­—çš„æ ·å¼*/
