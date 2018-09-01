@@ -187,6 +187,11 @@ function setContent(text) {
     editor.setValue(text);
 }
 
+function moveToEnd(){
+    //缺少富文本的操作
+    editor.moveCursorFileEnd();
+}
+
 function insertBold(){
     //获取选中的范围
     range=editor.getSelectionRange();

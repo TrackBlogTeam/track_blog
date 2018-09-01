@@ -121,6 +121,7 @@ function toSetting(){
 function load()
 {
     convert();
+    moveToEnd();
 }
 
 
