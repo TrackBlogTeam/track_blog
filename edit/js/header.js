@@ -72,19 +72,19 @@ if (obj.articleID != undefined || obj.draftID != undefined) {
 
 //跳转到个人主页
 function toMe(){
-    window.location.href="https://www.track-blog.com/users/"+username;
+    window.location="https://www.track-blog.com/users/"+username;
     // window.event.returnValue=false;
 }
 
 //跳转到登录页面
 function toSignIn(){
-    window.location.href="https://www.track-blog.com/section=1";
+    window.location="https://www.track-blog.com/section=1";
     
 }
 
 function toSetting(){
     // window.open("https://www.track-blog.com/settings")
-    window.location.href="https://www.track-blog.com/settings";
+    window.location="https://www.track-blog.com/settings";
 }
 
 
