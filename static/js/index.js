@@ -63,13 +63,17 @@ function signInConfirm(){
             if(responseObject.code == 814){
                 //已经登陆
                 showSignInError("This account had already sign in!");
-                setTimeout(function(){},1500);
-                window.open('https://www.track-blog.com/users/'+ inputUsername);
+                setTimeout(function(){
+                    window.location = 'https://www.track-blog.com/users/'+ inputUsername;
+                },1500);
+                
             }else if(responseObject.code == 816){
                 //成功登陆
                 showSignInError("Sign in successfully!");
-                setTimeout(function(){},1500);
-                window.open('https://www.track-blog.com/users/'+ inputUsername);
+                setTimeout(function(){
+                    window.location = 'https://www.track-blog.com/users/'+ inputUsername;
+                },1500);
+                
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignInError("Username or password error!")
@@ -127,12 +131,16 @@ function signUpToSignIn(){
             if(responseObject.code == 814){
                 //已经登陆
                 showSignUpError("This account had already sign in!");
-                setTimeout(function(){},1500);
-                window.open('https://www.track-blog.com/users/'+ inputUsername);
+                setTimeout(function(){
+                    window.location = 'https://www.track-blog.com/users/'+ inputUsername;
+                },1500);
+                
             }else if(responseObject.code == 816){
                 //成功登陆
-                setTimeout(function(){},1500);
-                window.open('https://www.track-blog.com/users/'+ inputUsername);
+                setTimeout(function(){
+                    window.location = 'https://www.track-blog.com/users/'+ inputUsername;
+                },1500);  
+                
             }else if(responseObject.code == 818){
                 //账号和密码不匹配
                 showSignUpError("Username or password error!")
@@ -147,10 +155,10 @@ function signUpToSignIn(){
 
 
 //测试显示错误信息的函数
-function test(){
-    var username = document.getElementById("usernameInSignIn").value;
-    console.log(username);
-}
+// function test(){
+//     var username = document.getElementById("usernameInSignIn").value;
+//     console.log(username);
+// }
 
 function showSignInError(error){
     document.getElementById("signInErrorInfo").innerHTML=error;
