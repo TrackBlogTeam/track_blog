@@ -257,17 +257,17 @@ p{
 
 /*ä¸‰ä¸ªé¡µé¢çš„é¢œè‰²*/
 #section0{
-	background-color: #5BAEB2
+	background-color: #3498DB
     /* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
 }
 
 #section1{
-	background-color: #94C9C9
+	background-color: #1ABC9C
     /* background: linear-gradient(to bottom ,#94C9C9, #5BAEB2); */
 }
 
 #section2{
-	background-color: #5BAEB2
+	background-color: #34495E
     /* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
 }
 
@@ -334,7 +334,7 @@ p{
 	box-shadow: 10px 10px 50px #666;
 }
 
-/*ç™»é™†ç•Œé¢*/
+/*登陆页面*/
 .signInSite{
 	display: flex;
 	width: 600px;
@@ -350,9 +350,11 @@ p{
 .signInSiteFigure{
 	width: 250px;
 	height: 460px;
-	background-color: #5BAEB2;
 	border-radius: 8px;
 	position: inherit;
+	left: 20px;
+	background-color: #16A085;
+
 }
 
 .signInSiteFigureAnimation{
@@ -365,7 +367,7 @@ p{
 		left: -1000px;
 	}
 	to{
-		left: 0px;
+		left: 20px;
 	}
 }
 
@@ -374,7 +376,7 @@ p{
 		left: -1000px;
 	}
 	to{
-		left: 0px;
+		left: 20px;
 	}
 }
 
@@ -383,9 +385,9 @@ p{
 	height: 400px;
 	background-color: white;
 	border-radius: 0px 8px 8px 0px;
-	padding-left: 50px;
+	padding-left: 60px;
+	margin-right: 0px;
 	text-align: left;
-	
 }
 
 .signInFrameAnimation{
@@ -396,18 +398,22 @@ p{
 @keyframes signInFrameAnimation {
 	from{
 		width: 800px;
+		padding-left: 150px;
 	}
 	to{
 		width: 350px;
+		padding-left: 60px;
 	}
 }
 
 @-webkit-keyframes signInFrameAnimation {
 	from{
 		width: 800px;
+		padding-left: 150px;
 	}
 	to{
 		width: 350px;
+		padding-left: 60px;
 	}
 }
 
@@ -420,24 +426,35 @@ p{
 }
 
 .signInError{
-	width: 200px;
+	width: 250px;
 	height: 30px;
-	background-color:red;
-	font-size: 20px;
+	font-size: 15px;
+	color: white;
+}
+
+.signInErrorInfo{
+	position: relative;
+	left: 25px;
+	bottom: 25px;
 }
 
 .inputTitle{
 	font-size: 8px;
-	color: #5BAEB2;
+}
+.signInInputTitleColor{
+	color: #16A085;
 }
 
 .inputFrame{
 	height: 30px;
 	width: 250px;
 	border-style: none none solid;
-	border-bottom-color:  #5BAEB2;
 	margin-bottom: 20px;
 	outline: none;
+}
+
+.signInInputFrameColor{
+	border-color: #16A085;
 }
 
 .signInButton{
@@ -445,11 +462,12 @@ p{
 	width: 100px;
 	margin-top:  20px;
 	margin-left: 80px;
-	background-color:  #3498DB;
 	border-style:  none;
 	border-radius:  15px;
 	outline:  none;
 	color:  white;
+	background-color: #16A085;
+
 }
 
 
@@ -469,9 +487,11 @@ p{
 .signUpSiteFigure{
 	width: 250px;
 	height: 560px;
-	background-color: rgb(46, 135, 139);
+	background-color: #2C3E50;
 	border-radius: 8px;
 	position: inherit;
+	left: 10px;
+	z-index: 1001;
 }
 
 .signUpSiteFigureAnimation{
@@ -484,7 +504,7 @@ p{
 		left: -1000px;
 	}
 	to{
-		left: 0px;
+		left: 10px;
 	}
 }
 
@@ -493,16 +513,16 @@ p{
 		left: -1000px;
 	}
 	to{
-		left: 0px;
+		left: 10px;
 	}
 }
 
 .signUpFrame{
-	width: 350px;
+	width: 400px;
 	height: 500px;
 	background-color: white;
 	border-radius: 0px 8px 8px 0px;
-	padding-left: 50px;
+	padding-left: 70px;
 	text-align: left;
 	position: inherit;
 }
@@ -534,16 +554,37 @@ p{
 	position: inherit;
 	font-size: 30px;
 	color: #666;
-	margin-top: 70px;
-	margin-bottom:  30px;
+	margin-top: 50px;
 }
+
+.signUpInputTitleColor{
+	color: #2C3E50;
+}
+
+.signUpInputFrameColor{
+	border-color: #2C3E50;
+}
+
+.signUpError{
+	width: 250px;
+	height: 30px;
+	font-size: 15px;
+	color: white;
+}
+
+.signUpErrorInfo{
+	position: relative;
+	left: 25px;
+	bottom: 25px;
+}
+
 
 .signUpButton{
 	height: 30px;
 	width: 100px;
 	margin-top:  20px;
 	margin-left: 60px;
-	background-color:  #3498DB;
+	background-color:  #2C3E50;
 	border-style:  none;
 	border-radius:  15px;
 	outline:  none;
