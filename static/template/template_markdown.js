@@ -37,7 +37,7 @@ const app = new Vue({
             numberOfReads: 2311,
             articleUser: "",
             currentUser: "",
-            signed: true,
+            signed: false,
             indexURL: "",
             articles: []
         }
