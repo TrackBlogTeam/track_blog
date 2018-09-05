@@ -16,6 +16,7 @@ $message = Util::getMessage();
 
 session_start();
 
+
 if (!isset($message->username) || !isset($message->password)) { // username or password is in lack
     Util::endWithCode(813);
 }
@@ -39,15 +40,16 @@ else if ($message->role == "user") {       // a user logs in
     $user = new User($message->username, $message->password);
     $userController = new UserController();
     if ($userController->userExists($user)) {  // // Success to login for user
-        $user->login();
-        // TODO: Why user->login() here??? Not userController->login() ????
-        Util::endWithCode(816);
+        if ($userController->userSignIn($user)) {
+            Util::endWithCode(816);
+        }else{
+            Util::endWithCode(861);
+        }
     }
     else {  // User's login fails for unmatched username and password
         Util::endWithCode(818);
     }
 }
-
 else {    // unknown role of sender of the message
     Util::endWithCode(815);
 }

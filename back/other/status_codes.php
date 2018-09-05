@@ -57,3 +57,4 @@
 // 858: Fail to update article. Unknown reason
 // 859: Fail to sign up. Invalid phone number.
 // 860: Fail to sign up. Username's existed
+// 861: Fail to sign in. Unmatched password and username

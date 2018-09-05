@@ -32,9 +32,9 @@ const app = new Vue({
     data()
     {
         return {
-            numberOfArticles: 115,
-            numberOfAgrees: 421,
-            numberOfReads: 2311,
+            numberOfArticles: 0,
+            numberOfLikes: 0,
+            numberOfComments: 0,
             articleUser: "",
             currentUser: "",
             signed: false,

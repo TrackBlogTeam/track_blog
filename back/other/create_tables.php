@@ -16,8 +16,11 @@ try {
     $sql = "CREATE TABLE user (" .
         "user_id INT(5) NOT NULL AUTO_INCREMENT," .
         "user_name VARCHAR(30) NOT NULL," .
-        "user_password VARCHAR(30) NOT NULL," .
+        "user_password VARCHAR(64) NOT NULL," .
         "phone_number VARCHAR(30) NOT NULL," .
+        "number_liked INT(6) DEFAULT 0," .
+        "number_article INT(6) DEFAULT 0," .
+        "number_comment INT(6) DEFAULT 0," .
         "PRIMARY KEY(user_id)," .
         "UNIQUE(user_name)" .
         ");";
@@ -38,6 +41,8 @@ try {
         "author_name VARCHAR(30) NOT NULL," .
         "article_key VARCHAR(8) NOT NULL," .
         "article_title VARCHAR(128) NOT NULL," .
+        "number_liked INT(6) DEFAULT 0," .
+        "number_comment INT(6) DEFAULT 0," .
         "created_time TIMESTAMP NOT NULL," .
         "edited_time TIMESTAMP NOT NULL," .
         "PRIMARY KEY(article_id)," .

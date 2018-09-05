@@ -28,7 +28,7 @@ class Actor
         return $this->$variable;
     }
 
-    public function login()
+    public function signIn()
     {
         $this->logged = true;
     }

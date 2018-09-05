@@ -30,6 +30,19 @@ class UserController extends Controller
         return (count($this->databaseManager->getResult()) > 0);
     }
 
+    public function userSignIn($user)
+    {
+        $encryptedPassword = sha1($user->password);
+        $sql = "SELECT * FROM user WHERE user_name='$user->username' AND user_password='$encryptedPassword';";
+        $this->databaseManager->execute($sql);
+        $result = (count($this->databaseManager->getResult()) === 1);
+        if ($result) {
+            $user->signIn();
+        }
+        return $result;
+    }
+
+
     // register a new user
     public function addUser($user)
     {
@@ -44,7 +57,8 @@ class UserController extends Controller
         if (count($match) == 0) {   // illegal phone number
             return 859;
         }
-        $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
+        $encryptedPassword = sha1($user->password);
+        $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$encryptedPassword', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {
             $path = dirname(__DIR__) . "/users/" . $user->username;

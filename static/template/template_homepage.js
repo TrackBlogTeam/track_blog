@@ -3,6 +3,9 @@ const app = new Vue({
     data()
     {
         return {
+            numberOfArticles: 0,
+            numberOfLikes: 0,
+            numberOfComments: 0,
             indexUser: "",
             currentUser: "",
             signed: false,
