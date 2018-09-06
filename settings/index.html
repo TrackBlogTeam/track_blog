@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" style="min-width:1080px">
+
+<head>
+    <meta charset="UTF-8">
+    <title>设置</title>
+    <!--     <link rel="stylesheet" href="../static/template/template_homepage.css" /> -->
+
+    <!-- Loading Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <!--navigation-->
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="../static/js/ajax.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <a href="https://www.track-blog.com" class="logo">TrackBlog</a>
+        <div v-if="signed" class="d-flex">
+            <div class="navButton editButton d-flex align-items-center" @click="jumpToEdit"><span
+                    class="fui-new"></span>发表文章
+            </div>
+            <div class="navButton homeButton d-flex align-items-center" @click="jumpToIndex"><span
+                    class="fui-home"></span>个人主页
+            </div>
+            <div class="navButton settingButton d-flex align-items-center" @click="jumpToSetting"><span
+                    class="fui-gear"></span>设置
+            </div>
+            <div class="navButton signOutButton d-flex align-items-center" @click="signOut"><span
+                    class="fui-power"></span>注销
+            </div>
+        </div>
+        <div v-else class="d-flex">
+            <div class="signButton">Sign In</div>
+            <div class="signButton">Sign Up</div>
+        </div>
+    </nav>
+
+    <div class="mainContainer">
+        <div class="listbox">
+            <div class="list" :class="{listSelected: currentInfo == 'general'}" @click="showInfo('general')"><span
+                    class="fui-cmd"></span>General
+            </div>
+            <div class="list" :class="{listSelected: currentInfo == 'profile'}" @click="showInfo('profile')"><span
+                    class="fui-user"></span>Profile
+            </div>
+            <div class="list" :class="{listSelected: currentInfo == 'security'}" @click="showInfo('security')"><span
+                    class="fui-lock"></span>Security
+            </div>
+            <div class="list" :class="{listSelected: currentInfo == 'theme'}" @click="showInfo('theme')"><span
+                    class="fui-star-2"></span>Theme
+            </div>
+        </div>
+
+        <div class="infos">
+            <div :class="{infoSelected: currentInfo == 'general'}" class="generalInfo">
+                <!--TODO: 单选框-->
+                <div class="title">允许访问
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-01"/>
+                </div>
+                <!--TODO: 单选框-->
+                <div class="title">允许评论
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-02"/>
+                </div>
+                <!--TODO: 单选框-->
+                <div class="title">发布新文章后通知朋友
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-03" />
+                </div>
+                <!--TODO: 单选框-->
+                <div class="title">首页背景效果
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-04" />
+                </div>
+                <!--TODO: 单选框-->
+                <div class="title">自定义背景图片
+                    <input type="checkbox" checked data-toggle="switch" name="default-switch" id="switch-05" />
+                </div>
+            </div>
+
+            <div :class="{infoSelected: currentInfo == 'profile'}" class="profileInfo">
+                <div class="title">更改头像
+                    <div class="uploadButton"><input type="file" name="avator-image"/></div>
+                </div>
+                <!--TODO: 上传图片-->
+                <div class="title">名称 <input type="text" class="form-control"/></div>
+                <!--TODO: 输入框-->
+                <div class="title">职位 <input type="text" class="form-control"/></div>
+                <!--TODO: 输入框-->
+                <div class="title">生日 <input type="text" class="form-control"/></div>
+                <!--TODO: 输入框-->
+                <div class="title">所在地 <input type="text" class="form-control"/></div>
+                <!--TODO: 输入框-->
+            </div>
+
+            <div :class="{infoSelected: currentInfo == 'security'}" class="securityInfo">
+                <div class="title">修改密码 <input type="password" class="form-control"/></div>
+                <!--TODO: 有掩码的输入框-->
+                <div class="title">更改绑定手机 <input type="text" class="form-control"/></div>
+                <!--TODO: 输入框-->
+                <div class="title">更改绑定邮箱 <input type="text" class="form-control"/></div>
+                <!--TODO: 输入框-->
+            </div>
+
+            <div :class="{infoSelected: currentInfo == 'theme'}" class="themeInfo">
+                <div class="title">请您给各个页面打个分
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <a class="btn btn-primary" href="#">1分</a>
+                            <a class="btn btn-primary" href="#">2分</a>
+                            <a class="btn btn-primary" href="#">3分</a>
+                            <a class="btn btn-primary" href="#">4分</a>
+                            <a class="btn btn-primary" href="#">5分</a>
+                        </div>
+                    </div>
+                </div>
+                <!--首页，个人主页，编辑页，帮助文档页..-->
+                <!--TODO: 评分条-->
+                <div class="title">请留下您宝贵的建议</div>
+                <textarea rows="5"></textarea>
+                <!--TODO: 输入框-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/index.js"></script>
+<script src="../static/js/flat-ui.min.js"></script>
+<script src="js/application.js"></script>
+</body>
+
+</html>

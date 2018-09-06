@@ -28,14 +28,13 @@ class Actor
         return $this->$variable;
     }
 
-    public function login()
+    public function signIn()
     {
         $this->logged = true;
     }
 
     static public function logout()
     {
-        session_start();
         session_unset();
         session_destroy();
     }

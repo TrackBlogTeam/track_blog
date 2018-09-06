@@ -12,11 +12,13 @@ require_once("../User.php");
 
 session_start();
 
-if (!isset($_SESSION["username"]) || !isset($_SESSION["role"]) || $_SESSION["role"] != "user") {
+$message = Util::getMessage();
+
+if (!isset($message->username)) {
     Util::endWithCode(836);
 }
 
 $articleController = new ArticleController();
-$user = new User($_SESSION["username"]);
-echo json_encode($articleController->getMyArticles($user));
+$user = new User($message->username);
+echo json_encode($articleController->getArticles($user));
 

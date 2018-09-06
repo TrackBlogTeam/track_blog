@@ -1,0 +1,750 @@
+/*æ¥è‡ªfullpageçš„example.css*/
+@CHARSET "ISO-8859-1";
+/* Reset CSS
+ * --------------------------------------- */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td
+{
+	padding: 0;
+	margin: 0;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+table
+{
+	border-spacing: 0;
+}
+
+fieldset, img
+{
+	border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var
+{
+	font-weight: normal;
+	font-style: normal;
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+ol, ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+caption, th
+{
+	text-align: left;
+
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: normal;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	color: #444;
+}
+
+q:before, q:after
+{
+	content: '';
+}
+
+abbr, acronym
+{
+	border: 0;
+}
+
+/* Custom CSS
+ * --------------------------------------- */
+body
+{
+	font-family: arial, helvetica;
+	color: #333;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.wrap
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	position: relative;
+}
+
+h1
+{
+	font-size: 6em;
+}
+
+p
+{
+	font-size: 2em;
+}
+
+.intro p
+{
+	width: 50%;
+	margin: 0 auto;
+	font-size: 1.5em;
+}
+
+.section
+{
+	text-align: center;
+}
+
+#menu li
+{
+	display: inline-block;
+	margin: 10px;
+	color: #000;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.5);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#menu li.active
+{
+	background: #666;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+
+#menu li a
+{
+	text-decoration: none;
+	color: rgb(59, 59, 59);
+}
+
+#menu li.active a:hover
+{
+	color: #000;
+}
+
+#menu li:hover
+{
+	background: rgba(255, 255, 255, 0.8);
+}
+
+#menu li a,
+#menu li.active a
+{
+	padding: 9px 18px;
+	display: block;
+}
+
+#menu li.active a
+{
+	color: #fff;
+}
+
+#menu
+{
+	position: fixed;
+	top: 20px;
+	left: 0;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.twitter-share-button
+{
+	position: fixed;
+	z-index: 99;
+	right: 149px;
+	top: 9px;
+}
+
+#download
+{
+	margin: 10px 0 0 0;
+	padding: 15px 10px;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #49afcd;
+	background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: -ms-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+	background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+	background-image: linear-gradient(top, #5bc0de, #2f96b4);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#2f96b4', GradientType=0);
+	border-color: #2f96b4 #2f96b4 #1f6377;
+	border-color: rgba(0, 0, 0, .1) rgba(0, 0, 0, .1) rgba(0, 0, 0, .25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	vertical-align: middle;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#download a
+{
+	text-decoration: none;
+	color: #fff;
+}
+
+#download:hover
+{
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+	background-color: #2F96B4;
+	background-position: 0 -15px;
+	-webkit-transition: background-position .1s linear;
+	-moz-transition: background-position .1s linear;
+	-ms-transition: background-position .1s linear;
+	-o-transition: background-position .1s linear;
+	transition: background-position .1s linear;
+}
+
+#infoMenu
+{
+	height: 20px;
+	color: #f2f2f2;
+	position: fixed;
+	z-index: 70;
+	bottom: 0;
+	width: 100%;
+	text-align: right;
+	font-size: 0.9em;
+	padding: 8px 0 8px 0;
+}
+
+#infoMenu ul
+{
+	padding: 0 40px;
+}
+
+#infoMenu li a
+{
+	display: block;
+	margin: 0 22px 0 0;
+	color: #333;
+}
+
+#infoMenu li a:hover
+{
+	text-decoration: underline;
+}
+
+#infoMenu li
+{
+	display: inline-block;
+	position: relative;
+}
+
+#examplesList
+{
+	display: none;
+	background: #282828;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	padding: 20px;
+	float: left;
+	position: absolute;
+	bottom: 29px;
+	right: 0;
+	width: 638px;
+	text-align: left;
+}
+
+#examplesList ul
+{
+	padding: 0;
+}
+
+#examplesList ul li
+{
+	display: block;
+	margin: 5px 0;
+}
+
+#examplesList ul li a
+{
+	color: #BDBDBD;
+	margin: 0;
+}
+
+#examplesList ul li a:hover
+{
+	color: #f2f2f2;
+}
+
+#examplesList .column
+{
+	float: left;
+	margin: 0 20px 0 0;
+}
+
+#examplesList h3
+{
+	color: #f2f2f2;
+	font-size: 1.2em;
+	margin: 0 0 15px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+	padding: 0 0 5px 0;
+}
+
+/* Demos Menu--------------------------------------- */
+#demosMenu
+{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 999;
+}
+
+/*lu-å¢žåŠ çš„*/
+
+/*ä¸‰ä¸ªé¡µé¢çš„é¢œè‰²*/
+#section0
+{
+	background-color: #3498DB
+	/* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
+}
+
+#section1
+{
+	background-color: #1ABC9C
+	/* background: linear-gradient(to bottom ,#94C9C9, #5BAEB2); */
+}
+
+#section2
+{
+	background-color: #34495E
+	/* background: linear-gradient(to bottom, #5BAEB2,#94C9C9); */
+}
+
+.floatRight
+{
+	float: right;
+}
+
+.rightBlank
+{
+	position: fixed;
+	right: 15%;
+}
+
+.floatLeft
+{
+	float: left;
+}
+
+.leftBlank
+{
+	margin: 10px;
+	position: fixed;
+	left: 15%;
+}
+
+.logo
+{
+	font-family:Lato ,"Trebuchet MS", sans-serif;
+	color: white;
+	font-size: 35px;
+}
+
+.logo:hover{
+	color: #ECF0F1;
+}
+
+.logo:focus{
+	color: #ECF0F1
+}
+
+/*é¦–é¡µä¸»è¦æ–‡å­—çš„æ ·å¼*/
+.mainTextFont
+{
+	font-family: Helvetica, sans-serif;
+	color: white;
+	cursor: default;
+}
+
+/*é¦–é¡µå¤§å¤§çš„æ ‡è¯­*/
+.mainHeaderText
+{
+	position: relative;
+	top: 0px;
+	font-size: 30px;
+}
+
+/*é¦–é¡µå°å°çš„æ ‡è¯­*/
+.mainText
+{
+	position: relative;
+	top: 20px;
+	font-size: 30px;
+}
+
+/*é¦–é¡µå›¾ç‰‡çš„å®¹å™¨çš„æ ·å¼*/
+.imgDiv
+{
+	position: relative;
+	bottom: -100px;
+	margin: 0;
+}
+
+/*é¦–é¡µå›¾ç‰‡çš„æ ·å¼*/
+.mainImg
+{
+	width: 854.4px;
+	height: 499.2px;
+	/* width: 712px;
+	height: 428px; */
+	box-shadow: 10px 10px 50px #666;
+}
+
+/*登陆页面*/
+.signInSite
+{
+	display: flex;
+	width: 600px;
+	height: 460px;
+	position: relative;
+	top: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 8px 8px 0px;
+	align-items: center;
+}
+
+.signInSiteFigure
+{
+	width: 250px;
+	height: 460px;
+	border-radius: 8px;
+	position: inherit;
+	left: 20px;
+	background-color: #16A085;
+
+}
+
+.signInSiteFigureAnimation
+{
+	animation: signInSiteFigureAnimation 1.5s;
+	-webkit-animation: signInSiteFigureAnimation 1.5s;
+}
+
+@keyframes signInSiteFigureAnimation
+{
+	from
+	{
+		left: -1000px;
+	}
+	to
+	{
+		left: 20px;
+	}
+}
+
+@-webkit-keyframes signInSiteFigureAnimation
+{
+	from
+	{
+		left: -1000px;
+	}
+	to
+	{
+		left: 20px;
+	}
+}
+
+.signInFrame
+{
+	width: 350px;
+	height: 400px;
+	background-color: white;
+	border-radius: 0px 8px 8px 0px;
+	padding-left: 60px;
+	margin-right: 0px;
+	text-align: left;
+}
+
+.signInFrameAnimation
+{
+	animation: signInFrameAnimation 1.5s;
+	-webkit-animation: signInFrameAnimation 1.5s;
+}
+
+@keyframes signInFrameAnimation
+{
+	from
+	{
+		width: 800px;
+		padding-left: 150px;
+	}
+	to
+	{
+		width: 350px;
+		padding-left: 60px;
+	}
+}
+
+@-webkit-keyframes signInFrameAnimation
+{
+	from
+	{
+		width: 800px;
+		padding-left: 150px;
+	}
+	to
+	{
+		width: 350px;
+		padding-left: 60px;
+	}
+}
+
+.signInTitle
+{
+	position: inherit;
+	font-size: 30px;
+	color: #666;
+	margin-top: 70px;
+}
+
+.signInError
+{
+	width: 250px;
+	height: 30px;
+	font-size: 15px;
+	color: white;
+}
+
+.signInErrorInfo
+{
+	position: relative;
+	left: 25px;
+	bottom: 25px;
+}
+
+.inputTitle
+{
+	font-size: 8px;
+}
+
+.signInInputTitleColor
+{
+	color: #16A085;
+}
+
+.inputFrame
+{
+	height: 30px;
+	width: 250px;
+	border-style: none none solid;
+	margin-bottom: 20px;
+	outline: none;
+}
+
+.signInInputFrameColor
+{
+	border-color: #d4d4d4;
+	transition: all 0.8s;
+}
+
+.signInInputFrameColor:focus
+{
+	border-color: #16A085;
+	transition: all 0.8s;
+}
+
+.signInButton
+{
+	height: 30px;
+	width: 120px;
+	margin-top: 20px;
+	margin-left: 60px;
+	border-style: none;
+	border-radius: 15px;
+	outline: none;
+	color: white;
+	background-color: #16A085;
+
+}
+
+.signInButton:hover
+{
+	cursor: pointer;
+}
+
+/*注册页面*/
+.signUpSite
+{
+	display: flex;
+	width: 600px;
+	height: 400px;
+	position: relative;
+	top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 8px 8px 0px;
+	align-items: center;
+}
+
+.signUpSiteFigure
+{
+	width: 250px;
+	height: 560px;
+	background-color: #2C3E50;
+	border-radius: 8px;
+	position: inherit;
+	left: 10px;
+	z-index: 1001;
+}
+
+.signUpSiteFigureAnimation
+{
+	animation: signUpSiteFigureAnimation 1.5s;
+	-webkit-animation: signUpSiteFigureAnimation 1.5s;
+}
+
+@keyframes signUpSiteFigureAnimation
+{
+	from
+	{
+		left: -1000px;
+	}
+	to
+	{
+		left: 10px;
+	}
+}
+
+@-webkit-keyframes signUpSiteFigureAnimation
+{
+	from
+	{
+		left: -1000px;
+	}
+	to
+	{
+		left: 10px;
+	}
+}
+
+.signUpFrame
+{
+	width: 400px;
+	height: 500px;
+	background-color: white;
+	border-radius: 0px 8px 8px 0px;
+	padding-left: 70px;
+	text-align: left;
+	position: inherit;
+}
+
+.signUpFrameAnimation
+{
+	animation: signUpFrameAnimation 1.5s;
+	-webkit-animation: signUpFrameAnimation 1.5s;
+}
+
+@keyframes signUpFrameAnimation
+{
+	from
+	{
+		left: -400px;
+	}
+	to
+	{
+		left: 0px;
+	}
+}
+
+@-webkit-keyframes signUpFrameAnimation
+{
+	from
+	{
+		left: -400px;
+	}
+	to
+	{
+		left: 0px;
+	}
+}
+
+.signUpTitle
+{
+	position: inherit;
+	font-size: 30px;
+	color: #666;
+	margin-top: 50px;
+}
+
+.signUpInputTitleColor
+{
+	color: #2C3E50;
+}
+
+.signUpInputFrameColor
+{
+	border-color: #d4d4d4;
+	transition: 0.8s;
+}
+
+.signUpInputFrameColor:focus
+{
+	border-color: #2C3E50;
+	transition: 0.8s;
+}
+
+.signUpError
+{
+	width: 250px;
+	height: 30px;
+	font-size: 15px;
+	color: white;
+}
+
+.signUpErrorInfo
+{
+	position: relative;
+	left: 25px;
+	bottom: 25px;
+}
+
+.signUpButton
+{
+	height: 30px;
+	width: 100px;
+	margin-top: 20px;
+	margin-left: 60px;
+	background-color: #2C3E50;
+	border-style: none;
+	border-radius: 15px;
+	outline: none;
+	color: white;
+}
+
+.signUpButton:hover
+{
+	cursor: pointer;
+}

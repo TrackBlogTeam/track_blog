@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <username></username>
+        的主页 - Track Blog
+    </title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.track-blog.com/static/template/template_homepage.css"/>
+    <script src="https://www.track-blog.com/static/js/ajax.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <a href="https://www.track-blog.com" class="logo">TrackBlog</a>
+        <div v-if="signed" class="d-flex">
+            <div class="navButton editButton d-flex align-items-center" @click="jumpToEdit"><span
+                    class="fui-new"></span>发表文章
+            </div>
+            <div class="navButton homeButton d-flex align-items-center" @click="jumpToIndex"><span
+                    class="fui-home"></span>个人主页
+            </div>
+            <div class="navButton settingButton d-flex align-items-center" @click="jumpToSetting"><span
+                    class="fui-gear"></span>设置
+            </div>
+            <div class="navButton signOutButton d-flex align-items-center" @click="signOut"><span
+                    class="fui-power"></span>注销
+            </div>
+        </div>
+        <div v-else class="d-flex">
+            <div class="signButton">Sign In</div>
+            <div class="signButton">Sign Up</div>
+        </div>
+    </nav>
+    <div id="container" class="d-flex justify-content-center">
+        <div id="main">
+            <div class="mainTitle rounded d-flex align-items-center">文章列表</div>
+            <div v-for="article in articles" class="article rounded d-flex align-items-center">
+                <div class="articleTitle" @click="jumpToArticle(article.article_key)">{{article.article_title}}</div>
+                <div class="articleTime">{{article.created_time}}</div>
+                <div class="articleOperation" v-if="currentUser == indexUser"><span class="fui-new"
+                                                                                    @click="editArticle(article.article_id)"></span><span
+                        class="fui-trash" @click="deleteArticle(article.article_id)"></span></div>
+            </div>
+        </div>
+        <div class="profile d-flex flex-column justify-content-between">
+            <div class="portrait d-flex flex-column justify-content-between align-items-center rounded">
+                <img src="index.png"/>
+                <div class="username">
+                    <username></username>
+                </div>
+            </div>
+            <div class="statistic d-flex justify-content-around  rounded">
+                <div class="statisticItem">文章
+                    <div id="articleSum">{{numberOfArticles}}</div>
+                </div>
+                <div class="statisticItem">喜欢
+                    <div id="likeSum">{{numberOfLikes}}</div>
+                </div>
+                <div class="statisticItem">评论
+                    <div id="commentSum">{{numberOfComments}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://www.track-blog.com/static/template/template_homepage.js"></script>
+</body>
+</html>

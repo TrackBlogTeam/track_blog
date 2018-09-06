@@ -1,0 +1,30 @@
+bootCDN URL:
+
+# marked.js
+<script src="https://cdn.bootcss.com/marked/0.4.0/marked.min.js"></script>
+
+# bootstrap.min.css
+<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+# jquery
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+# jquery-confirm
+<link href="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+# hover
+<link href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
+
+# flat-ui
+<link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/flat-ui/2.3.0/js/flat-ui.min.js"></script>
+
+# vue.js
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+
+# GitHub-Markdown-css
+<link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.css" rel="stylesheet"/>
+
+# Popper
+<script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>

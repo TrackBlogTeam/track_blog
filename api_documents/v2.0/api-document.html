@@ -53,6 +53,8 @@
                                         <a href="#43dbee4a5bea40a0bb0a32f3ede3c7dd">获取个人信息</a>
                                     </li><li>
                                         <a href="#91d2d4e3badb4d8f880a19e5cdb78b67">获取数据表</a>
+                                    </li><li>
+                                        <a href="#9cb234706ce142b6b50f5080e43e3499">已经登录</a>
                                     </li>
                                 </ul>                                <span>附录</span>
                                 <ul class="nav list-group">
@@ -80,7 +82,7 @@
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：https://www.track-blog.com/back/api/login.php                        </p>
+                            请求地址：https://www.track-blog.com/back/api/sign_in.php                        </p>
                         
                         
                         
@@ -164,12 +166,21 @@
                         </p>
                         <p>请求方式：POST</p>
                         <p>
-                            请求地址：https://www.track-blog.com/back/api/register.php                        </p>
+                            请求地址：https://www.track-blog.com/back/api/sign_up.php                        </p>
                         
                         
                         
 
-                                                    <table class="table table-hover">
+                        <div class="raw-area">
+                                    <div>
+                                    <span class="label label-success">Body</span>
+                                    </div>
+                                    <textarea class="">{
+    username: "yangceshi",
+    password: "yangceshi",
+    phoneNumber: "15521099506"
+}</textarea>
+                                </div>                            <table class="table table-hover">
                                     <colgroup>
                                     <col class="col-xs-2">
                                     <col class="col-xs-1">
@@ -179,7 +190,7 @@
                                   </colgroup>
                                     <thead>
                                          <tr>
-                                            <th><span class="label label-success">Body参数名</span></th>
+                                            <th style="padding-left: 0px;"><span class="label label-success">Body参数名</span></th>
                                             <th>类型</th>
                                             <th>必需</th>
                                             <th>描述</th>
@@ -206,7 +217,7 @@
                                             <td>用户注册填写的手机号码</td>
                                             <td>"15522229999"</td>
                                         </tr>                                    </tbody>
-                                </table>                        
+                                </table>                                                
                         <p>详细说明：</p>
                         <p>
                         <div class="detail-info">
@@ -529,6 +540,37 @@
                                     <th>string</th>
                                 </tr>                            </tbody>
                         </table>
+                    </div><div class="api-one">
+                        <h3 id="9cb234706ce142b6b50f5080e43e3499">已经登录</h3>
+                        <p>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=9cb234706ce142b6b50f5080e43e3499" class="label label-warning">在线测试</a>
+                            <a target="_blank" href="http://apizza.cc/console/project/2bb50d8024a4b12c758c83f0990da8db/browse?api=9cb234706ce142b6b50f5080e43e3499" class="label label-warning">在线浏览</a>
+                        </p>
+                        <p>请求方式：POST</p>
+                        <p>
+                            请求地址：https://www.track-blog.com/back/api/have_signed.php                        </p>
+                        
+                        
+                        
+
+                                                                            
+                        <p>详细说明：</p>
+                        <p>
+                        <div class="detail-info">
+                            <div>检验当前用户是否登录</div>
+                        </div>
+                        </p>
+                        <p>返回示例：</p>
+                        <div class="highlight">
+                            <pre>
+                                <code class="json hljs">{
+    signed: true,
+    username: "root",
+    role: "user"
+}</code>
+                            </pre>
+                        </div>                        
+                        
                     </div>
                     <h1 id="t_api_doc">附录</h1>
                      <div class="api-one">

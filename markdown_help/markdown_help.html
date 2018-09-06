@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" style="min-width:1800px">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>markdown语法帮助文档</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Loading Bootstrap -->
+    <!-- Loading Flat UI Pro -->
+    <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <linK href="css/docs.css" rel="stylesheet">
+    <!--loading scroller-->
+    <link rel="stylesheet" href="css/scroll.css">
+    <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css" rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Markdown帮助文档</h1>
+        <p>本文档借鉴
+            <a href="http://www.wiz.cn/feature-markdown.html">为知笔记</a>
+        </p>
+            <h2>What</h2>
+            <pre class="prettyprint">
+                    Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。
+                    它允许人们「使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档 」
+                </pre>
+            <p>以上是维基百科上Markdown的定义</p>
+
+        <h2>Why</h2>
+        <p>Markdown 是用最简单的方式，零排版成本，写出布局工整、阅读舒适的笔记。
+            <span style="font-weight: 700">减少干扰，降低成本，提高效率</span>
+            ，不管在什么设备上，看起来都是一个工整的样子。</p>
+
+        <h2>标题</h2>
+        <p>在行首插入1到6个#，分别表示标题1到标题6</p>
+        <pre class="prettyprint">
+            ### 这是标题3
+            #### 这是标题4
+            ##### 这是标题5
+        </pre>
+        <p>Markdown效果：</p>
+
+        <pre class="markdown-body preview prettyprint"  id="title" style="padding-left:105px;color:#6B7072"></pre>
+        
+        <h2>有序列表</h2>
+        <p>在行首增加<code>1. </code>、<code>2. </code>、<code>3. </code>
+            ,即数字和英文句号，注意句号与文字中间有空格。
+            不要求数字之间一定要连续，可以都是<code>1. </code></p>
+        <pre class="prettyprint">
+            1. 有序列表
+            1. 有序列表
+            4. 有序列表
+        </pre>
+        <p>Markdown效果：</p>
+
+        <pre class="markdown-body preview prettyprint"  id="olist" style="padding-left:105px;color:#6B7072"></pre>
+
+
+        <h2>无序列表</h2>
+        <p>在行首增加<code>* </code>或<code>- </code>，注意与文字之间有空格</p>
+        <pre class="prettyprint">
+            * 无序列表1
+            * 无序列表2
+            - 无序列表1
+            - 无序列表2
+        </pre>
+        <p>Markdown效果：</p>
+
+        <pre class="markdown-body preview prettyprint"  id="ulist" style="padding-left:105px;color:#6B7072"></pre>
+
+
+        <h2>插入图片</h2>
+        <p>形如：<code>![](url)</code>，注意使用英文符号</p>
+        <pre class="prettyprint">
+            ![](trackBloLogo.png)
+        </pre>
+        
+        <h2>插入链接</h2>
+        <p>形如：<code>[描述](href)</code>，注意使用英文符号</p>
+        <pre class="prettyprint">
+            [轨迹博客](博客首页地址)
+        </pre>
+        <p>Markdown效果：</p>
+
+        <pre class="markdown-body preview prettyprint"  id="link" style="padding-left:105px;color:#6B7072"></pre>
+
+
+        <h2>粗斜删</h2>
+        <p>
+            粗体：在文字前后添加<code>**</code>
+            <br>
+            斜体：在文字前后添加<code>*</code>
+            <br>
+            删除线：在文字前后添加<code>~~</code>
+            <br>
+            (注意，符号和文字间不要有空格)
+        </p>
+        <pre class="prettyprint">
+            **粗体**
+            *斜体*
+            ~~删除线~~
+        </pre>
+        <p>Markdown效果：</p>
+
+        <pre class="markdown-body preview prettyprint"  id="font" style="padding-left:105px;color:#6B7072"></pre>
+
+
+        <h2>引用</h2>
+        <p>在文字前后添加<code>> </code>,注意符号与文字间有空格</p>
+        <pre class="prettyprint">
+            > 如果你无法简洁地表达你的想法，那只能说明你还不够了解它 ——阿尔伯特·爱因斯坦
+        </pre>
+        <p>Markdown效果：</p>
+
+        <pre class="markdown-body preview prettyprint"  id="quote" style="padding-left:105px;color:#6B7072"></pre>
+
+
+        <h2>表格</h2>
+        <p>行如：</p>
+        <pre class="prettyprint">
+            | Item      |    Value | Qty  |
+            | --------- | ---------| ---- |
+            | Computer  | 1600 USD |  5   |
+            | Phone     |   12 USD |  12  |
+            | Pipe      |    1 USD | 234  |
+        </pre>
+
+        <h2>代码</h2>
+        <p>在代码前后增加三个反单引号 <code>```</code></p>
+        <pre class="prettyprint">
+            ```
+            while(true){
+                printf("hello markdown!\n");
+            }
+            ```
+        </pre>
+
+        <h2>复选框</h2>
+        <p>使用<code>- [ ] </code>和<code>- [x] </code>语法可以创建复选框，实现todo-list的功能</p>
+        <pre class="prettyprint">
+            - [ ] 待办事项1
+            - [ ] 待办事项2
+            - [x] 已完成事项
+            - [x] 已完成事项
+        </pre>
+        <p>Markdown效果：</p>
+        <!--TODO:在此插入marked后的html -->
+        <pre class="markdown-body preview prettyprint"  id="todoList" style="padding-left:105px;color:#6B7072"></pre>
+
+
+    </div>
+
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+   
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/marked/0.4.0/marked.js"></script>
+    <!--marked库引入-->
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <!--highlight库引入-->
+
+    <script src="js/scroll.js"></script>
+    <script src="js/help_main.js"></script>
+</body>
+
+</html>

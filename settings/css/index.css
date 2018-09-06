@@ -1,0 +1,225 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	--clouds: #ECF0F1;
+	--silver: #BDC3C7;
+	--wet-asphalt: #34495E;
+	--midnight-blue: #2C3E50;
+	--turquoise: #1ABC9C;
+	--green-sea: #16A085;
+	--duration: 0.5s;
+	font-family: Lato;
+}
+
+body
+{
+	background-color: #ededed;
+}
+
+img, a
+{
+	display: block;
+	text-decoration: none;
+}
+
+.mainContainer
+{
+	width: 960px;
+	height: 600px;
+	margin: 100px auto;
+	overflow: hidden;
+	display: flex;
+}
+
+.navContent a
+{
+	color: #2B2B2B;
+	font-size: 16px;
+	text-align: center;
+	line-height: 150px;
+	border-right: 2px solid #ECF0F1;
+}
+
+.listbox
+{
+	background-color: #ededed;
+}
+
+.list
+{
+	height: 150px;
+	width: 180px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #1ABC9C;
+	color: white;
+	transition: all 0.5s;
+	cursor: pointer;
+	user-select: none;
+}
+
+.list > span
+{
+	font-size: 35px;
+}
+
+.list:hover
+{
+	background-color: white;
+	color: #1ABC9C;
+	transition: all 0.5s;
+}
+
+.listSelected
+{
+	background-color: white;
+	color: #1ABC9C;
+}
+
+.infos
+{
+	width: calc(100% - 180px);
+	background-color: white;
+}
+
+.generalInfo, .profileInfo, .securityInfo, .themeInfo
+{
+	width: 80%;
+	margin: 0 auto;
+	height: 600px;
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.generalInfo > .title
+{
+	flex-direction: row;
+}
+
+.infoSelected
+{
+	display: flex;
+}
+
+.title
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-bottom: 10px;
+	border-bottom: dashed 1px #d2d2d2;
+}
+
+.uploadButton
+{
+	height: 30px;
+	width: 30px;
+	background: #000;
+	overflow: hidden;
+}
+
+.uploadButton > input
+{
+	opacity: 0;
+}
+
+.navbar
+{
+	border-radius: 0px;
+	user-select: none;
+}
+
+.logo
+{
+	font-size: 22px;
+	color: white;
+}
+
+.navButton
+{
+	padding-right: 20px;
+	border-radius: 20px;
+	height: 30px;
+	max-width: 36px;
+	color: white;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.navButton > span
+{
+	padding: 0px 10px;
+}
+
+.navButton:hover
+{
+	transition: all var(--duration);
+}
+
+.editButton:hover
+{
+	max-width: 110px;
+	background-color: #3498DB;
+}
+
+.editButton:active
+{
+	background-color: #2980B9;
+}
+
+.homeButton:hover
+{
+	max-width: 110px;
+	background-color: var(--turquoise);
+}
+
+.homeButton:active
+{
+	background-color: var(--green-sea);
+}
+
+.signOutButton:hover
+{
+	max-width: 80px;
+	background-color: #e74c3c;
+}
+
+.signOutButton:active
+{
+	background-color: #C0392B;
+}
+
+.signButton
+{
+	margin: 0 10px;
+	padding: 0px 20px;
+	border-radius: 20px;
+	background-color: var(--clouds);
+	color: #1abc9c;
+	cursor: pointer;
+	transition: all var(--duration);
+}
+
+.signButton:hover
+{
+	background-color: var(--turquoise);
+	color: var(--clouds);
+	transition: all var(--duration);
+}
+
+.settingButton:hover
+{
+	max-width: 80px;
+	background-color: #F1C40F;
+}
+
+.settingButton:active
+{
+	background-color: #F39C12;
+}

@@ -1,5 +1,5 @@
 ajax({
-    url: "https://www.track-blog.com/back/api/login.php",
+    url: "https://www.track-blog.com/back/api/sign_in.php",
     method: "POST",
     data: {
         role: "administrator",
@@ -9,7 +9,7 @@ ajax({
         const responseObject = JSON.parse(response);
         if (responseObject.code === 814) {
             alert("You have logged. Click confirm to enter index. ");
-            window.location.href = "index.html";
+            window.location = "index.html";
         }
     }
 });
@@ -18,7 +18,7 @@ function login()
 {
     let inputs = document.getElementsByTagName("input")
     ajax({
-        url: "https://www.track-blog.com/back/api/login.php",
+        url: "https://www.track-blog.com/back/api/sign_in.php",
         method: "POST",
         data: {
             role: "administrator",
@@ -32,7 +32,7 @@ function login()
                 if (responseObject.code === 814) {
                     alert("你已经登录");
                 }
-                window.location.href = "index.html";
+                window.location = "index.html";
             }
         }
     })

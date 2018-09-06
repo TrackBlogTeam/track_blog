@@ -12,10 +12,10 @@ editor.customConfig.fontNames = [
 ]
 editor.customConfig.pasteFilterStyle = false;
 editor.customConfig.zIndex = 10;
-editor.customConfig.onchange = function (html) {
-    saveText=getContent(true);  //保存文本
-}
-editor.customConfig.onchangeTimeout = 1000; //五秒进行一次保存
+// editor.customConfig.onchange = function (html) {
+//     saveText=getContent(true);  //保存文本
+// }
+// editor.customConfig.onchangeTimeout = 1000; //五秒进行一次保存
 editor.create();
 
 
@@ -34,7 +34,7 @@ function getHtml() {
 }
 
 
-//一下是对外暴露的接口
+//以下是对外暴露的接口
 
 
 function getContent(needHtml=true){
@@ -49,9 +49,9 @@ function getContent(needHtml=true){
 
 }
 
-function setContent(h) {
-    //覆盖设置内容
-    editor.txt.html(h);
+function setContent(html) {
+    //设置内容
+    editor.txt.html(html);
 }
 
 function appendContent(h){
@@ -59,10 +59,12 @@ function appendContent(h){
     editor.txt.append(h);
 }
 
-function getAutoSave(){
-    //数据库获取保存的文本
-    return saveText;
-}
+// function getAutoSave(){
+//     //数据库获取保存的文本
+//     return saveText;
+// }
+
+
 
 
 

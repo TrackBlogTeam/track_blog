@@ -25,38 +25,81 @@ class UserController extends Controller
     // check whether a user exists
     public function userExists($user)
     {
-        $sql = "SELECT * FROM user WHERE user_name='$user->username' and user_password='$user->password';";
+        $sql = "SELECT * FROM user WHERE user_name='$user->username';";
         $this->databaseManager->execute($sql);
         return (count($this->databaseManager->getResult()) > 0);
     }
+
+    public function userSignIn($user)
+    {
+        $encryptedPassword = sha1($user->password);
+        $sql = "SELECT * FROM user WHERE user_name='$user->username' AND user_password='$encryptedPassword';";
+        $this->databaseManager->execute($sql);
+        $result = (count($this->databaseManager->getResult()) === 1);
+        if ($result) {
+            $user->signIn();
+        }
+        return $result;
+    }
+
 
     // register a new user
     public function addUser($user)
     {
         // TODO: Verify feasibility
-        // TODO: Verify phone number    DONE
         // TODO: Verify username
         // TODO: Verify password
-        // TODO: Create a directory for each user
         if ($this->userExists($user)) {
-            return false;
+            return 860;
         }
-
         $match = null;
         preg_match("/1[356789]{1}\d{9}/", $user->phoneNumber, $match);
         if (count($match) == 0) {   // illegal phone number
-            return false;
+            return 859;
         }
-
-        $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$user->password', '$user->phoneNumber');";
+        $encryptedPassword = sha1($user->password);
+        $sql = "INSERT INTO user (user_name, user_password, phone_number) VALUES ('$user->username', '$encryptedPassword', '$user->phoneNumber');";
         $this->databaseManager->execute($sql);
         if ($this->databaseManager->getResult()) {
             $path = dirname(__DIR__) . "/users/" . $user->username;
-            mkdir($path);
+            mkdir($path, 0777);
+            umask($path, 0777);
             $path = dirname(__DIR__) . "/users/" . $user->username . "/articles";
-            mkdir($path);
+            mkdir($path, 0777);
+            umask($path, 0777);
+            $path = dirname(__DIR__) . "/users/" . $user->username . "/drafts";
+            mkdir($path, 0777);
+            umask($path, 0777);
+
+            try {
+                $templatePath = dirname(__DIR__) . "/static/template/template_homepage.html";
+                $templateFile = fopen($templatePath, 'r');
+                $templateFileSize = filesize($templatePath);
+                $templateString = fread($templateFile, $templateFileSize);
+
+                $homepageString = str_replace("<username></username>", $user->username, $templateString);
+                $homepagePath = dirname(__DIR__) . "/users/" . $user->username . "/index.html";
+
+                $homepageFile = fopen($homepagePath, 'w');
+                fwrite($homepageFile, $homepageString);
+
+                $defaultPortraitFilePath = dirname(__DIR__) . "/static/template/src/index-default.png";
+                $defaultPortraitFile = fopen($defaultPortraitFilePath, 'r');
+                $defaultPortraitFileSize = filesize($defaultPortraitFilePath);
+                $indexPortraitFilePath = dirname(__DIR__) . "/users/" . $user->username . "/index.png";
+                $indexPortraitFile = fopen($indexPortraitFilePath, 'w');
+                fwrite($indexPortraitFile, fread($defaultPortraitFile, $defaultPortraitFileSize));
+            }
+            catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            fclose($templateFile);
+            fclose($homepageFile);
         }
-        return $this->databaseManager->getResult();
+        if ($this->databaseManager->getResult()) {
+            return 824;
+        }
+        return 825;
     }
 
     public function deleteUser($user)

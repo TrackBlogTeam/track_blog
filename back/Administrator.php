@@ -20,9 +20,9 @@ class Administrator extends Actor
         parent::__destruct();
     }
 
-    public function login()
+    public function signIn()
     {
-        parent::login();
+        parent::signIn();
         $_SESSION["username"] = $this->username;
         $_SESSION["role"] = "administrator";
         $_SESSION["portraitUrl"] = "src/default-portrait.png";

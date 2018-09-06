@@ -1,0 +1,244 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	--clouds: #ECF0F1;
+	--silver: #BDC3C7;
+	--wet-asphalt: #34495E;
+	--midnight-blue: #2C3E50;
+	--turquoise: #1ABC9C;
+	--green-sea: #16A085;
+	--duration: 0.5s;
+}
+
+body
+{
+	background-color: var(--silver);
+}
+
+#container
+{
+	width: 100vw;
+}
+
+#main
+{
+	width: 900px;
+	height: 300px;
+}
+
+.navbar
+{
+	border-radius: 0px;
+	user-select: none;
+}
+
+.logo
+{
+	font-size: 22px;
+	color: white;
+}
+
+.navButton
+{
+	padding-right: 20px;
+	border-radius: 20px;
+	height: 30px;
+	max-width: 36px;
+	color: white;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.navButton > span
+{
+	padding: 0px 10px;
+}
+
+.navButton:hover
+{
+	transition: all var(--duration);
+}
+
+.editButton:hover
+{
+	max-width: 110px;
+	background-color: #3498DB;
+}
+
+.editButton:active
+{
+	background-color: #2980B9;
+}
+
+.homeButton:hover
+{
+	max-width: 110px;
+	background-color: var(--turquoise);
+}
+
+.homeButton:active
+{
+	background-color: var(--green-sea);
+}
+
+.settingButton:hover
+{
+	max-width: 80px;
+	background-color: #F1C40F;
+}
+
+.settingButton:active
+{
+	background-color: #F39C12;
+}
+
+.signOutButton:hover
+{
+	max-width: 80px;
+	background-color: #e74c3c;
+}
+
+.signOutButton:active
+{
+	background-color: #C0392B;
+}
+
+.signButton
+{
+	margin: 0 10px;
+	padding: 0px 20px;
+	border-radius: 20px;
+	background-color: var(--clouds);
+	color: #1abc9c;
+	cursor: pointer;
+	transition: all var(--duration);
+}
+
+.signButton:hover
+{
+	background-color: var(--turquoise);
+	color: var(--clouds);
+	transition: all var(--duration);
+}
+
+.profile
+{
+	width: 280px;
+	margin-left: 30px;
+}
+
+.mainTitle
+{
+	color: white;
+	font-size: 24px;
+	padding-left: 30px;
+	height: 75px;
+	background-color: var(--wet-asphalt);
+}
+
+.article
+{
+	height: 50px;
+	width: 100%;
+	background-color: var(--clouds);
+	margin-top: 20px;
+	color: var(--wet-asphalt);
+	transition: all var(--duration);
+}
+
+.article:hover
+{
+	color: var(--turquoise);
+	background-color: var(--wet-asphalt);
+	transition: all var(--duration);
+}
+
+.articleTitle
+{
+	margin-left: 10px;
+	flex: 8;
+	font-size: 24px;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.articleTitle:hover
+{
+	text-decoration: underline;
+}
+
+.articleTime
+{
+	margin-right: 10px;
+	flex: 1;
+	min-width: 20%;
+	text-align: right;
+}
+
+.articleOperation > span
+{
+	margin-right: 10px;
+}
+
+.articleOperation > .fui-new:hover
+{
+	color: #3498db;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.articleOperation > .fui-trash:hover
+{
+	color: #e74c3c;
+	transition: all var(--duration);
+	cursor: pointer;
+}
+
+.username
+{
+	height: 30px;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.portrait
+{
+	padding: 20px 0px;
+	background-color: var(--clouds);
+}
+
+.portrait > img
+{
+	width: 100px;
+	height: 100px;
+	flex-shrink: 0;
+	border-radius: 100%;
+	box-shadow: 0px 0px 6px 1px #777777;
+}
+
+.statistic
+{
+	height: 90px;
+	background-color: var(--clouds);
+}
+
+.statisticItem
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.statisticItem > div
+{
+	font-weight: bold;
+	margin-top: 10px;
+	color: var(--turquoise);
+}

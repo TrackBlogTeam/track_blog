@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/index.css"/>
-    <title>轨迹博客</title>
+    <meta charset="utf-8"/>
+    <title>Track Blog</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.css">
+    <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
 </head>
 <body>
+<ul id="menu">
+    <div class="leftBlank">
+        <a href="#firstPage" class="logo">TrackBlog</a>
+    </div>
+    <div class="rightBlank">
+        <li data-menuanchor="3rdPage" class="floatRight"><a href="#3rdPage">Sign Up</a></li>
+        <li data-menuanchor="secondPage" class="floatRight"><a href="#secondPage">Sign In</a></li>
+    </div>
+</ul>
 
-<script src="static/js/index.js"></script>
+<div id="fullpage">
+    <!-- 第一页：介绍页面 -->
+    <div class="section active" id="section0">
+        <h1 class="mainTextFont mainHeaderText">Say goodbye to the old blog</h1>
+        <p class="mainTextFont mainText">In TrackBlog, you can write anything you want! And to trace the track.</p>
+        <div class="imgDiv">
+            <img src="static/src/main_photo.png" alt="editSite" class="mainImg">
+        </div>
+    </div>
+    <!-- 第二页：登陆界面 -->
+    <div class="section" id="section1">
+        <div class="signInSite">
+            <div id="signInSiteFigure" class="signInSiteFigure"></div>
+            <div id="signInFrame" class="signInFrame">
+                <h1 class="mainTextFont signInTitle">Start Now!</h1>
+                <!-- 显示错误信息的位置 -->
+                <div id="signInError" class="signInError">
+                    <span class="fui-alert-circle"></span>
+                    <div id="signInErrorInfo" class="signInErrorInfo"></div>
+                </div>
+                <p class="inputTitle signInInputTitleColor">username</p>
+                <input id="usernameInSignIn" type="text" class="inputFrame signInInputFrameColor" required>
+                <p class="inputTitle signInInputTitleColor">password</p>
+                <input id="passwordInSignIn" class="inputFrame signInInputFrameColor" type="password" required>
+                <button class="signInButton" onclick="signInConfirm()">Sign In</button>
+            </div>
+        </div>
+    </div>
+    <!-- 第三页：注册界面 -->
+    <div class="section" id="section2">
+        <div class="signUpSite">
+            <div id="signUpSiteFigure" class="signUpSiteFigure"></div>
+            <div id="signUpFrame" class="signUpFrame">
+                <h1 class="mainTextFont signUpTitle">Join Us!</h1>
+                <!-- 显示错误信息的位置 -->
+                <div id="signUpError" class="signUpError">
+                    <span class="fui-alert-circle"></span>
+                    <div id="signUpErrorInfo" class="signUpErrorInfo"></div>
+                </div>
+                <p class="inputTitle signUpInputTitleColor">username</p>
+                <input id="usernameInSignUp" type="text" class="inputFrame signUpInputFrameColor" required>
+                <p class="inputTitle signUpInputTitleColor">phonenumber</p>
+                <input id="phonenumberInSignUp" type="text" class="inputFrame signUpInputFrameColor" required>
+                <p class="inputTitle signUpInputTitleColor">password</p>
+                <input id="passwordInSignUp" type="password" class="inputFrame signUpInputFrameColor" required>
+                <p class="inputTitle signUpInputTitleColor">password again</p>
+                <input id="confirmPasswordInSignUp" type="password" class="inputFrame signUpInputFrameColor" required>
+                <button class="signUpButton" onclick="signUpConfirm()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.js"></script>
+<script type="text/javascript" src="static/js/ajax.js"></script>
+<script type="text/javascript" src="static/js/index.js"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@ class AdministratorController extends Controller
     // check whether one administrator exists
     public function administratorExists($administrator)
     {
-        $sql = "SELECT * FROM administrator WHERE administrator_name='$administrator->username' and administrator_password='$administrator->password';";
+        $sql = "SELECT * FROM administrator WHERE administrator_name='$administrator->username' AND administrator_password='$administrator->password';";
         $this->databaseManager->execute($sql);
         return (count($this->databaseManager->getResult()) > 0);
     }

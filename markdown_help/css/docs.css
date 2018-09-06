@@ -1,0 +1,10 @@
+/* Prettyfy Theme */
+.prettyprint {
+  background-color: #D6E1E5;
+  font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+  border: 2px solid #1ABC9C;
+  padding: 15px 21px;
+  margin:0px 400px;
+  padding-top:30px;
+  width: 850px;
+}
