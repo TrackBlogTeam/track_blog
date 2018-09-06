@@ -237,6 +237,30 @@ function publishArticle(type)
     })
 }
 
+function autoDraft(){
+    //自动保存草稿
+    draft = getContent();
+
+    if (draft != "") {
+        var obj = urlParse();
+
+        ajax({
+            url: "https://www.track-blog.com/back/api/save_draft.php",
+            method: "POST",
+            data: {
+                title: getTitle(),
+                content: getContent(),
+                draftID: obj.draftID
+            },
+            success: (response) =>
+            {
+                console.log(response);
+            }
+        })
+    }
+
+}
+
 function postDraft()
 {
     //保存草稿
@@ -304,7 +328,7 @@ function postDraft()
 
 
 //定时保存为草稿
-window.setInterval("postDraft()", 1000 * 300);
+window.setInterval("autoDraft()", 1000 * 300);
 
 //发布确认
 function publishConnect(articleType)
